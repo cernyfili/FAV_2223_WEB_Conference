@@ -1,0 +1,959 @@
+/* Accessibility block */
+/* Jak neco schovat pred cteckou (skryte nadpisy a popisky) */
+.a11y_hidden {
+    color: transparent;
+    position:absolute;
+    left:-10000px;
+    top:auto;
+    width:1px;
+    height:1px;
+    overflow:hidden;
+}
+
+/* Jak neco naopak zase ukazat, kdyz na to prijde focus (odkaz na preskok rovnou do obsahu), mozno kombinovat s a11y_hidden */
+.a11y_focusable:focus {
+    color: #000;
+    background-color: #cccc99;
+
+    font-size: 16px;
+    padding: 10px 20px;
+    position: absolute;
+    display: block;
+    left:auto;
+    top:auto;
+    width:auto;
+    height:auto;
+    overflow:auto;
+    z-index: 1000;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    color: #202020;
+    font-family: Verdana,"Arial CE","Helvetica CE",Arial,Helvetica,sans-serif;
+    font-size: small;
+}
+
+body {
+    background-color: white;
+}
+
+a,
+a:active,
+a:visited {
+    font-weight: bold;
+    color: #23549b;
+}
+a img {
+  border: none;
+}
+a:hover {
+    color: #183259;
+}
+
+div.app_container {
+    min-height: 100%;
+    position: relative;
+}
+
+/* POKUD JE STRANKA PORTALU V SINGLE MODU, musi byt deploynut tento modifikator... */
+div.app_container-modif_single {
+    background-image: none !important;
+}
+
+.render_container {
+  width: 100%;
+}
+div.app_content {
+}
+
+div.app_page_single {
+}
+
+/* TODO !!! OSKLIVY ZLA VEC - Carnym nahlaseny BUG... */
+/* alternativni reseni: Carney:
+div.app_page_menu {
+    position: relative;
+    z-index: 999;
+}
+- jde o to, ze pokud je na multi-strance leve menu delsi nezli samotny obsah stranky, pak muze paticka pri mrzke vysce rozliseni (800 a mene) zakryt spodek menu...
+
+Jedine "koncepcni" reseni imho TABULKOU (HAHA)... mno pak jedine jeste prasecky vynasobit pocet vypsanych radku menu
+poctem px vysky menu a pak vyhodit modifikacni class ktery nastavi adaptivne heigh... ale to teda taky neni moc koncecni...
+*/
+div.app_page_multi {
+    min-height: 480px;
+}
+
+div.app_page_menu > * {
+    background-color: #666535;
+}
+div.app_page_menu {
+    font-size: 11pt;
+    width: 200px;
+    float: left;
+    color: white;
+    margin: 0;
+    background-color: #666535;
+}
+
+
+.app_page_menu .app_page_menu_header {
+    border-bottom: 2px solid #989866;
+    border-top: 2px solid #989866;
+
+}
+.app_page_menu .app_page_menu_header div {
+    display: table-cell;
+    height: 69px;
+    vertical-align: middle;
+    font-size: 15pt;
+    font-weight: bold;
+
+    padding: 2px 2px 2px 10px;
+}
+
+.app_page_menu .app_page_menu_header a, .app_page_menu .app_page_menu_header a:hover, .app_page_menu .app_page_menu_header a:active {
+    color: #ffffff;
+    text-decoration: none;
+}
+.app_page_menu ul {
+    list-style: none outside none;
+    margin: 0;
+    padding: 0;
+
+    font-size: 11pt;
+}
+
+.app_page_menu ul li {
+    border-bottom: 2px solid #989866;
+}
+div.app_page_menu ul li:last-child {
+    border-bottom: none;
+}
+div.app_page_menu ul li:first-child {
+    border-top: 2px solid #989866;
+}
+
+div.app_page_menu ul li.selected {
+}
+
+.app_page_menu ul li a, .app_page_menu ul li a:visited  {
+    display: block;
+    padding: 10px 2px 10px 10px;
+    color: #fff;
+    font-weight: inherit;
+    text-decoration: none;
+}
+
+.app_page_menu ul li.odsazeny1 a {
+    padding-left: 25px;
+}
+.app_page_menu ul li.odsazeny2 a {
+    padding-left: 40px;
+}
+.app_page_menu ul li.odsazeny3 a {
+    padding-left: 55px;
+}
+
+.app_page_menu ul li a:hover, .app_page_menu ul li a:active, .app_page_menu ul li.selected a:hover {
+    color: #cccc99;
+    background-color: #333333;
+}
+
+
+.app_page_menu ul li.selected a {
+    background-color: #fa6511;
+    font-weight: bold;
+}
+
+.app_page_menu ul li .inlineBtn {
+    display:none;
+}
+
+.app_page_menu ul li:hover .inlineBtn {
+    display: inline;
+}
+
+div.app_page_menu ul li.rolled_down,
+div.app_page_menu ul li.rolled_down ul li.rolled_down ul {
+    background-color: transparent;
+    border-left: 7px solid #f0f0f5;
+}
+
+div.app_page_menu ul li.selected:hover {
+}
+
+div.app_page_menu ul li.selected:first-child {
+}
+
+div.app_page_menu ul li.rolled_down ul li:first-child {
+    border-top: none;
+}
+
+.ui-sortable > tr > td {
+    width:50% !important;
+}
+
+/* ------------------------ */
+
+div.app_page_single div.app_page_content {
+    background-color: white;
+    margin-bottom: 0;
+}
+
+div.app_page_multi div.app_page_content {
+    min-height: 480px;
+
+}
+
+div.app_page_content {
+    border-left: 200px solid #989866;
+    padding: 0 7px 7px;
+}
+
+table.app_portlet_frame_out {
+    border-spacing:0;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+table.app_portlet_frame_out > tbody > tr > td {
+    width: 100%;
+    vertical-align: top;
+    padding: 0 7px 0 0;
+}
+
+table.app_portlet_frame_out > tbody > tr > td:last-child {
+    padding-right: 0;
+}
+
+table.app_portlet_frame_out td {
+}
+
+table.app_portlet_frame_in {
+    border-spacing:0;
+    /* border-collapse: collapse; NE-E, pak by nefungoval podrizeny padding */
+    border-collapse: separate;
+    width: 100%;
+    margin: 7px 0 0 0;
+
+    border: 1px solid #eeeeee;
+}
+
+table.app_portlet_frame_in:first-child {
+}
+
+td.app_portlet_head_title,
+td.app_portlet_head_icons {
+    background-color: white;/*#eeeeee;*/
+    color: white;
+    padding: 0 0 1px 4px;
+    vertical-align: super;
+}
+
+td.app_portlet_head_title {
+    text-align: left;
+    font-size: 11px;
+}
+
+td.app_portlet_head_icons {
+    text-align: right;
+    padding: 0;
+    font-size: 0;
+}
+
+td.app_portlet_head_icons img {
+}
+
+td.app_portlet_coat {
+    padding: 0 1px 1px 1px;
+}
+
+td.app_portlet_coat > div {
+    background-color: white;
+    padding: 0 4px 4px 4px;
+}
+
+div.app_page_menu ul li.rolled_down_head,
+div.app_page_menu ul li.rolled_down ul li.rolled_down_head {
+    background-color: transparent;
+    font-weight: bold;
+    color: #34707b;
+}
+
+div.app_page_menu ul li.rolled_down_head {
+    border-left: 14px solid #f0f0f5;
+}
+
+div.app_page_menu ul li.rolled_down ul li.rolled_down_head {
+    border-left: 21px solid #f0f0f5;
+}
+
+table.modif_isSingle td.app_portlet_head_title,
+table.modif_isSingle td.app_portlet_head_icons {
+}
+
+table.modif_isSingle td.app_portlet_coat {
+    border: none;
+    background-color: transparent;
+}
+
+table.modif_isSingle td.app_portlet_coat > div {
+    padding: 0;
+}
+
+.app_portlet_head_icons .delete {
+    margin-left: 15px;
+}
+
+.app_portlet_head_icons .activate, .app_portlet_head_icons .deactivate {
+    margin-left: 10px;
+}
+
+/* 2014-09-01 X3 ---------------- LINK OUT ------------------ */
+ul.app_menubar li a span.link_out,
+ul.app_menubar li.selected a span.link_out,
+
+div.app_page_menu ul li a span.link_out,
+div.app_page_menu ul li a:hover span.link_out,
+div.app_page_menu ul li.selected a span.link_out {
+    padding-right: 16px;
+}
+
+div.app_page_menu ul li a span.link_out,
+div.app_page_menu ul li.selected a span.link_out {
+    background: url("../img/link_out/link_out_v.png") no-repeat scroll 100% 65% transparent;
+}
+
+div.app_page_menu ul li a:hover span.link_out {
+    background: url("../img/link_out/link_out_v_hover.png") no-repeat scroll 100% 65% transparent;
+}
+
+ul.app_menubar li a span.link_out,
+ul.app_menubar li.selected a span.link_out {
+    background: url("../img/link_out/link_out_h.png") no-repeat scroll 100% 50% transparent;
+}
+
+ul.app_menubar li a:hover span.link_out,
+ul.app_menubar li.selected a:hover span.link_out {
+    background: url("../img/link_out/link_out_h.png") no-repeat scroll 100% 50% transparent;
+}
+
+.searchInput{
+    width: 4em;
+}
+.searchResults {
+    padding: 1em;
+}
+.vyhledavani {
+
+}
+div.podstranky {
+    padding-left:10px;
+}
+h3.header {
+    font-size: 13pt;
+    font-weight: bold;
+    padding:0;
+    margin:0;
+}
+ul.seznamPodstranek {
+    padding-left:5px;
+    margin:0;
+    padding-top:5px;
+}
+ul.seznamPodstranek li {
+    list-style: none;
+    font-size: 11pt;
+    padding-bottom: 3px;
+}
+ul.seznamPodstranek li a {
+    font-weight: normal;
+    list-style: none;
+    color:#333333;
+    padding-left:10px;
+    background-position:left center;
+    background-repeat:no-repeat;
+    background-image: url("/zdroje/css/dot.png");
+}
+ul.seznamPodstranek li a:hover {
+}
+ul.seznamPodstranek a.validLink:hover {
+    background-image:url("/zdroje/css/dot3.png");
+    color:black;
+    text-decoration: none;
+}
+ul.seznamPodstranek li a.urlStag {
+    color:#777;
+    font-size: 9px;
+    background-image: none;
+    padding-left:0;
+}
+ul.seznamPodstranek li a.urlStag:hover {
+    color:black;
+    text-decoration: none;
+}
+.projektHref {
+    color:#333333;
+    font-size: 11pt;
+}
+.projektHref:hover {
+    color:black;
+    text-decoration: none;
+}
+.projektHref {
+    font-weight:bold;
+}
+.filtr label.selected { font-weight: bold; }
+.vyhledani a { color: #333333;}
+
+.portlet-placeholder td, .portlet-placeholder div {
+    background-color: #fa6511 !important;
+    color: #fa6511;
+    height: 20px;
+    border-style:none;
+}
+
+div .ui-widget-header{
+    background-image: none;
+    background-color: #666535;
+    border: 1px solid #989866;
+    color: white !important;
+}
+.paleta {
+    position: fixed !important;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+.fromPallette {
+    cursor: move;
+    background-color: white;
+    opacity: 0.65;
+}
+.paleta-content .fromPallette {
+    opacity: 1;
+}
+.dndClonedHelper {
+    opacity: 0.65;
+}
+
+.dndPortletHandle {
+    cursor: move;
+}
+.portlet-description {
+    font-size: x-small;
+}
+.podstranky {
+}
+.vyhledani {
+    float: right;
+}
+
+/* POKUD JE STRANKA PORTALU V SINGLE MODU, mel byt deploynut tento modifikator... (Pokud je primarni zapati nejak vyuzito)) */
+div.app_footer_primary-modif_single {
+    margin-left: 0 !important;
+}
+
+div.app_footer {
+    width: 100%;
+}
+div.app_footer * { background-color: #cccc99; }
+div.app_footer_primary {
+    height: 27px;
+    vertical-align: middle;
+}
+.app_footer_primary div {
+    float: right;
+    padding: 5px;
+}
+
+div.app_footer_secondary {
+    border-top: 1px solid #D1D1D9;
+    background-color: #e6e6ef;
+
+    /* bug se zalomenim spodku, docasne reseni */
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+div.footer_header {
+    float: left;
+    margin: 13px 0 0 13px;
+    height: 59px;
+    width: 156px;
+
+    /* bug se zalomenim spodku, docasne reseni */
+    display: inline-block;
+    vertical-align: top;
+}
+
+div.app_container-modif_lang-cs div.app_footer div.app_footer_secondary div.footer_header {
+    background: url("../img/footer_cs.png") no-repeat scroll 0 0 transparent;
+}
+
+div.app_container-modif_lang-en div.app_footer div.app_footer_secondary div.footer_header {
+    background: url("../img/footer_en.png") no-repeat scroll 0 0 transparent;
+}
+
+div.footer_column {
+    padding: 0 4em 1em 0;
+    /* bug se zalomenim spodku, docasne reseni */
+    display: inline-block;
+}
+
+div.footer_column a {
+    font-size: 12px;
+    font-weight: normal;
+    text-decoration: none;
+    color: #9f9fa3;
+}
+
+div.footer_column a:hover {
+    color: black;
+}
+
+div.footer_column h3 {
+    font-size: 13px;
+    font-weight: bold;
+    color: #8f8f93;
+}
+
+div.footer_column ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+div.footer_column:hover ul li a {
+    color: black;
+}
+
+div.footer_column:hover ul li a:hover {
+    color: #007751;
+}
+
+div.footer_header img.spacer {
+    width: 130px;  /* ZCU SKIN */
+    height: 59px;  /* ZCU SKIN */
+    border: none;
+}
+div.app_header {
+    background-color: #333333;
+    color: #cccc99;
+    min-height: 90px;
+    border-bottom: 1px solid #989866;
+    background-position: 280px 23px;
+    background-repeat: no-repeat;
+
+}
+
+div.app_header div.app_header_left,
+div.app_header div.app_header_center,
+div.app_header div.app_header_right {
+}
+
+div.app_header div.app_header_left {
+    float: left;
+    width: 191px;  /* ZCU SKIN  */
+}
+
+div.app_header div.app_header_center {
+    float: left;
+    padding-left: 13px;
+    padding-right: 0;
+
+    margin-left:0;
+    border-left: 1px solid #cccc99; /* ZCU SKIN */
+}
+
+div.app_header div.app_header_left img.spacer {
+    width: 140px;  /* ZCU SKIN */
+    height: 59px;  /* ZCU SKIN */
+    border: none;
+}
+
+div.app_header div.app_header_center img.spacer {
+    width: 230px;  /* ZCU SKIN */
+    height: 59px;  /* ZCU SKIN */
+    border: none;
+}
+
+div.app_header div.app_header_right {
+    float: right;
+    padding-right: 0;
+    text-align: right;
+    font-size: 12px;
+    line-height: 1.6em;
+    margin-right: 0;
+}
+
+div.app_header a {
+    color: #cccc99;
+    text-decoration: none;
+}
+div.app_header a:hover, div.app_header a:active  {
+    color: #ffffff;
+}
+div.app_header .app_header_right a {
+}
+
+
+
+div.app_container-modif_lang-cs div.app_header div.app_header_left {
+    background: url("../img/logo_cs.png") no-repeat scroll 0 0 transparent;
+}
+
+div.app_container-modif_lang-en div.app_header div.app_header_left {
+    background: url("../img/logo_en.png") no-repeat scroll 0 0 transparent;
+}
+
+div.app_container-modif_lang-cs div.app_header div.app_header_center {
+    background: url("../img/logo_courseware_cs.png") no-repeat scroll 0 0 transparent;
+}
+
+div.app_container-modif_lang-en div.app_header div.app_header_center {
+    background: url("../img/logo_courseware_en.png") no-repeat scroll 0 0 transparent;
+}
+
+div.app_container-modif_lang-cs.predmetyVyvoj- div.app_header div.app_header_left {
+    background: url("../img/logo_cs_bw.png") no-repeat scroll 0 0 transparent;
+}
+
+div.app_container-modif_lang-en.predmetyVyvoj- div.app_header div.app_header_left {
+    background: url("../img/logo_en_bw.png") no-repeat scroll 0 0 transparent;
+}
+
+div.app_container-modif_lang-cs.predmetyVyvoj- div.app_header div.app_header_center {
+    background: url("../img/logo_courseware_cs_bw.png") no-repeat scroll 0 0 transparent;
+}
+
+div.app_container-modif_lang-en.predmetyVyvoj- div.app_header div.app_header_center {
+    background: url("../img/logo_courseware_en_bw.png") no-repeat scroll 0 0 transparent;
+}
+
+div.app_header div.app_header_right {
+    text-decoration: none;
+    text-transform: none;
+    font-size: 0.9em;
+}
+
+div.app_header div.app_header_right div {
+    background-color: #333333;
+    padding: 2px 8px;
+}
+
+div.app_header div.app_header_right div.upper a {
+    border: 1px solid #e6e5e5;
+    padding: 2px 8px;
+}
+
+div.app_header div.app_header_right div.upper a:hover {
+}
+
+div.app_header div.app_header_right div.upper .falseLink {
+    background-color: #333333;
+    font-weight: normal;
+    border-right: none;
+    padding-right: 0;
+}
+
+div.app_header div.app_header_right div.upper .falseLink strong {
+    text-transform: uppercase;
+}
+
+div.app_header div.app_header_right div.lower {
+    padding-top: 4px;
+}
+
+div.lower a.link_out {
+    padding-right: 16px !important;
+    background: url("../img/link_out/link_out_v.png") no-repeat scroll 100% 65% transparent;
+}
+
+div.lower a.link_out:hover {
+    padding-right: 16px !important;
+    background: url("../img/link_out/link_out_h_hover.png") no-repeat scroll 100% 65% transparent;
+}
+
+
+.addPortlet {
+    padding: 2px 0 3px 21px !important;
+    background: url("../img/toolbar_paleta.gif") no-repeat scroll 0 65% transparent;
+}
+.addPortlet:hover {
+    background: url("../img/toolbar_paleta_hover.gif") no-repeat scroll 0 65% transparent;
+}
+.addPage {
+    padding: 2px 0 3px 21px !important;
+    background: url("../img/toolbar_new.gif") no-repeat scroll 0 65% transparent;
+}
+.setPermissions {
+    padding: 2px 0 3px 21px !important;
+    background: url("../img/toolbar_permissions.gif") no-repeat scroll 0 65% transparent;
+}
+.pageEditEnabled {
+    padding: 2px 0 3px 21px !important;
+    background: url("../img/toolbar_edit_on.gif") no-repeat scroll 0 65% transparent;
+}
+.pageEditDisabled {
+    padding-top: 2px !important;
+    padding-right: 0px !important;
+    padding-left: 21px !important;
+    padding-bottom: 3px !important;
+    background: url("../img/toolbar_edit_off.gif") no-repeat scroll 0 65% transparent;
+}
+
+.app_breadrumbs {
+    background-color: #cccc99;
+    padding: 4px 0 5px 9px;
+    clear: both;
+    font-size: 14px;
+}
+.app_breadrumbs a {
+    color: #333333;
+    text-decoration: underline;
+    font-weight: normal;
+
+}
+.app_breadrumbs a:hover, .app_breadrumbs a:active {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+ul.app_menubar {
+    background-color: #007751;
+    border-top: 1px solid #014731;
+    color: #d3e1f3;
+    font-family: Arial,Tahoma,Helvetica,sans-serif;
+    font-size: 13px;
+    font-weight: bold;
+    list-style-type: none;
+    margin: 0;
+    padding: 3px 0 3px 204px;
+    text-align: left;
+    white-space: nowrap;  /* 19.1.2016 X3 RT#219785 */
+}
+
+ul.app_menubar li {
+    display: inline;
+    margin: 0;
+    border-left: none; /* ZCU SKIN */
+    border-right: none; /* 1px solid #0F2441; */
+    padding: 3px 0;
+}
+
+ul.app_menubar li:hover {
+    background-color: #164952; /* Q ZCU SKIN */
+    color: #f0f0f5;
+
+    border-top: none; /* Q ZCU SKIN */
+    border-left: none;  /* Q ZCU SKIN */
+    border-right: none; /*1px solid #2b4264;*/
+}
+
+ul.app_menubar li:last-child {
+    border-right: none;
+    padding-right: 6px;
+}
+
+ul.app_menubar li:first-child {
+    border-left: none;
+}
+
+ul.app_menubar li.disabled,
+ul.app_menubar li.disabled a,
+ul.app_menubar li.disabled:hover {
+    cursor: inherit;
+    background-color: inherit;
+    color: #6c8fc9 !important;
+}
+
+ul.app_menubar li.selected a,
+ul.app_menubar li.selected a:active,
+ul.app_menubar li.selected a:visited {
+    font-weight: inherit;
+    text-decoration: none;
+    color: #005e40; /* ZCU SKIN */
+}
+
+ul.app_menubar li.selected {
+    background-color: #F0F0F5 !important;
+    color: #007751;
+}
+
+ul.app_menubar li a,
+ul.app_menubar li a:active,
+ul.app_menubar li a:visited,
+ul.app_menubar li a:hover {
+    padding: 4px 9px 3px;
+}
+
+ul.app_menubar li a,
+ul.app_menubar li a:active,
+ul.app_menubar li a:visited {
+    color: white;
+    text-decoration: none;
+}
+
+ul.app_menubar li:hover a,
+ul.app_menubar li:hover a:active,
+ul.app_menubar li:hover a:visited {
+    color: white;
+}
+
+ul.app_menubar li.selected a,
+ul.app_menubar li.selected a:active,
+ul.app_menubar li.selected a:visited {
+    color: #005e40;
+}
+
+ul.app_menubar li a:hover {
+    text-decoration: none;
+}
+
+ul.modif_level_qqq {
+    background-color: white;
+    border-top: 1px solid white;
+    color: #007751;
+    border-bottom: 1px solid #005e40;
+
+    font-size: 14px;
+
+    border-top: none;
+
+}
+
+ul.modif_level_qqq li {
+}
+
+ul.modif_level_qqq li:hover {
+    background-color: #e6e6ef;
+    color: #007751;
+    border-top: 1px solid #d1d1d9;
+    border-bottom: 1px solid #007751;
+}
+
+ul.modif_level_qqq li:first-child {
+}
+
+ul.modif_level_qqq li.disabled,
+ul.modif_level_qqq li.disabled a,
+ul.modif_level_qqq li.disabled:hover {
+    color: #696969 !important;
+}
+
+ul.modif_level_qqq li.selected a,
+ul.modif_level_qqq li.selected a:active,
+ul.modif_level_qqq li.selected a:visited {
+    color: white;
+}
+
+ul.modif_level_qqq li.selected {
+    background-color: #007751 !important;
+    border: 1px solid #005e40;
+    border-bottom: 1px solid #007751;
+    color: white;
+}
+
+ul.modif_level_qqq li a,
+ul.modif_level_qqq li a:active,
+ul.modif_level_qqq li a:visited {
+    color: #007751;
+}
+
+ul.modif_level_qqq li:hover a,
+ul.modif_level_qqq li:hover a:active,
+ul.modif_level_qqq li:hover a:visited {
+    color: #005e40;
+}
+
+ul.modif_level_qqq li.selected:hover a,
+ul.modif_level_qqq li.selected:hover a:active,
+ul.modif_level_qqq li.selected:hover a:visited {
+    color: white;
+}
+
+.cwHiddentrue {
+    background-color: grey !important;
+}
+
+/* prilepeno sem, protoze tenhle soubor jde jako posledni*/
+@media only screen and (max-width: 992px) {
+    .hideForTablet { display: none !important; }
+    div.app_header div.app_header_right div.upper a { border: none;}
+    /* jednosloupcovy layout nezavisle na strance */
+    .render_container, .render_container > tbody, .render_container > tbody > tr, .render_container > tbody > tr > td, .render_container > tbody > tr > th { display: block; white-space: normal; width: auto; }
+}
+@media only screen and (max-width: 660px) {
+    /* jenom kvlu zalomeni odkazu v hornim banneru - kdyz je sirka okna mensi nez 660, tak uz se nevleze logo a odkazy vedle sebe */
+    .app_header_right > div { display:inline-block; }
+}
+
+@media only screen and (min-width: 569px) {
+    .hideForDesktop {
+        display: none !important;
+    }
+}
+@media only screen and (max-width: 568px) {
+    .hideForDesktop { display: block; }
+    span.hideForDesktop { display: inline; }
+    a.hideForDesktop { display: inline; }
+    tr.hideForDesktop { display: table-row; }
+    td.hideForDesktop { display: table-cell; }
+    th.hideForDesktop { display: table-cell; }
+}
+
+@media only screen and (max-width: 568px) {
+    .hideForMobile { display: none !important; }
+    .app_header_right > div { display: block; } /* ted uz tam tech odkazu je malo, tak zase do bloku */
+    div.app_header div.app_header_left { width: 28px;  }
+    div.app_header div.app_header_left, div.app_header div.app_header_center, div.app_header div.app_header_right { margin: 8px 0 8px 8px; padding: 0; }
+
+    div.app_header div.app_header_center img.spacer, div.app_header div.app_header_left img.spacer { height: 31px; width: auto; }
+    div.app_container-modif_lang-cs div.app_header div.app_header_left { background-image: url("../img/logo_cs_small.png"); }
+    div.app_container-modif_lang-en div.app_header div.app_header_left { background-image: url("../img/logo_en_small.png") }
+    div.app_container-modif_lang-cs div.app_header div.app_header_center { width: 125px; background: url("../img/logo_courseware_cs_small.png") no-repeat scroll 0 5px transparent }
+    div.app_container-modif_lang-en div.app_header div.app_header_center { width: 125px; background: url("../img/logo_courseware_en_small.png") no-repeat scroll 0 5px transparent }
+
+    div.app_container-modif_lang-cs.predmetyVyvoj- div.app_header div.app_header_left { background-image: url("../img/logo_cs_small_bw.png"); }
+    div.app_container-modif_lang-en.predmetyVyvoj- div.app_header div.app_header_left { background-image: url("../img/logo_en_small_bw.png") }
+    div.app_container-modif_lang-cs.predmetyVyvoj- div.app_header div.app_header_center { width: 125px; background: url("../img/logo_courseware_cs_small_bw.png") no-repeat scroll 0 5px transparent }
+    div.app_container-modif_lang-en.predmetyVyvoj- div.app_header div.app_header_center { width: 125px; background: url("../img/logo_courseware_en_small_bw.png") no-repeat scroll 0 5px transparent }
+
+    div.app_header div.app_header_right div { padding: 2px 0; }
+
+    div.app_page_multi div.app_page_content { min-height: auto; border: none; }
+
+    div.app_header { min-height: auto; }
+
+    /* Navigace az za obsah */
+    .app_page_multi {
+        display: table;
+        width: 100%;
+    }
+    .app_page_multi .app_page_menu {
+        display: table-footer-group;
+        min-height: auto !important;
+        width: 100%;
+    }
+    .app_page_multi .app_page_content {
+        display: table-header-group;
+        min-height: auto !important;
+        padding: 0;
+    }
+
+    div.prohlizeniEntitaSubdetailTabRow div {
+        font-size: 18px;
+    }
+
+    /* rozcestnik na titulce CW */
+    div.prohlizeniEntitaSubdetailPanesCoat table.xg_pane tr{
+        /*display: block;*/
+    }
+    div.prohlizeniEntitaSubdetailPanesCoat table.xg_pane td, div.prohlizeniEntitaSubdetailPanesCoat table.xg_pane th {
+        /*display: block;*/
+    }
+}

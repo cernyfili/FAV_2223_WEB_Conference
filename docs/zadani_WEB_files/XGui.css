@@ -1,0 +1,7053 @@
+@import url("ng_css/ng_appHeads.css");
+@import url("ng_css/ng_base.css");
+@import url("ng_css/ng_form_tab.css");
+@import url("ng_css/ng_importants.css");
+@import url("ng_css/ng_slozenka.css");
+@import url("ng_css/ng_tab.css");
+@import url("ng_css/ng_tab_ext.css");
+@import url("ng_css/ng_todos.css");
+@import url("ng_css/ng_wizard.css");
+@import url("ng_css/ng_wizard_apps.css");
+
+@import url("../js_css/jquery.ui-1.12/jquery-ui.css");
+@import url("../js_css/jquery.bubblepopup.v2.3.1.css");
+
+@import url("../../js/qtip2/jquery.qtip.css");
+@import url("../../js/jquery.chosen/chosen.css");
+
+
+.clean_url, .clean_url span { background-image: url('/zdroje/images/icons/ico_link.gif'); }
+.help_url, .help_url span { background-image: url('/zdroje/images/icons/ico_help.gif'); }
+.export_pdf, .export_pdf span { background-image: url('/zdroje/images/icons/export_pdf.gif'); }
+.export_pdf_bw, .export_pdf_bw span { background-image: url('/zdroje/images/icons/export_pdf_bw.gif'); }
+.export_excel, .export_excel span { background-image: url('/zdroje/images/icons/export_excel.gif'); }
+.export_csv, .export_csv span { background-image: url('/zdroje/images/icons/export_csv.gif'); }
+.export_ical, .export_ical span { background-image: url('/zdroje/images/icons/export_ical.gif'); }
+.export_xml, .export_xml span { background-image: url('/zdroje/images/icons/export_xml.gif'); }
+
+
+/* FROM XGui_1.css ------------------------------- sjednoceni a prune --- 15:20 */
+/* FROM XGui_1.css ------------------------------- sjednoceni a prune --- 15:20 */
+/* FROM XGui_1.css ------------------------------- sjednoceni a prune --- 15:20 */
+
+/* cely blok ceka na opravy v zavislych jsp a odstraneni... */
+
+/* PAGINATING - BEGIN */
+    ul.tablePaginater
+            {
+            display:block;
+            list-style:none;
+            padding:0;
+            margin:1px 0 1em 0;
+            text-align:center;
+            }
+    ul.tablePaginater li
+            {
+            display:inline;
+    /*        width:2.1em;
+            height:2.1em;
+            line-height:2em;*/
+            width:1.3em;
+            height:1.3em;
+            line-height:1.2em;
+            vertical-align:middle;
+            margin-right:3px;
+            color:#666;
+            list-style:none;
+            cursor:pointer;
+            }
+    ul.tablePaginater li.currentPage a
+            {
+            border-color:#a84444 !important;
+            color:#000;
+            }
+    ul.tablePaginater li a
+            {
+            display:table-cell !important;
+            display:inline-block;
+            text-align:center;
+    /*        width:2em;
+            height:2em;*/
+            width:1.2em;
+            height:1.2em;
+            color:#666;
+            padding:0.2em;
+            min-width:2em;
+            min-height:2em;
+            text-decoration:none;
+            /*outline:none;*/
+            border:1px solid #ccc;
+            cursor:pointer;
+            }
+    ul.tablePaginater li a:focus
+            {
+            color:#333;
+            text-decoration:none;
+            /*outline:none;*/
+            border-color:#aaa;
+            }
+/* PAGINATING - END */
+
+span.imp {
+    font-weight: bold;
+    font-size: 11px;
+    color: black;
+}
+span.noImp {
+    font-weight: normal;
+    font-size: 9px;
+    color: black;
+}
+span.veryImp {
+    font-weight: bold;
+    font-size: 17px;
+    color: black;
+    padding: 2px;
+}
+
+/* EOF FROM XGui_1.css ------------------------------- sjednoceni a prune --- 15:20 */
+/* EOF FROM XGui_1.css ------------------------------- sjednoceni a prune --- 15:20 */
+/* EOF FROM XGui_1.css ------------------------------- sjednoceni a prune --- 15:20 */
+
+
+
+/** <B>CSS pro XGUI, vzornik barev: </B> Nejcastejsi/zakladni pouziti barev
+ * <pre style="line-height: 1.8em; border: 1px dotted black; background-color: #e8debd; ">
+ * <B>COLOR</B>
+ * #2c4669; <span style="background-color: #2c4669; border: 1px solid black;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> <B>TH</B> xgt_table_S
+ * #3366bb; <span style="background-color: #3366bb; border: 1px solid black;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> <B>A</B> <B>TH</B> xgt_table_S, <B>A</B> xgt_help
+ * #428fd1; <span style="background-color: #428fd1; border: 1px solid black;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> <B>A</B>:hover
+ * #666666; <span style="background-color: #666666; border: 1px solid black;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> <B>TH</B>.reverse(forward)Sort <B>A</B>:hover
+ * #710f2e; <span style="background-color: #710f2e; border: 1px solid black;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> <B>A</B>.stag_S:hover
+ * #777777; <span style="background-color: #777777; border: 1px solid black;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> neaktivni zahlavi TP, DC(G)
+ * #897d4e; <span style="background-color: #897d4e; border: 1px solid black;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> .xgt_warning_S .xgt_info
+ * #a21543; <span style="background-color: #a21543; border: 1px solid black;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> <B>A</B>.stag_S <hr/> <B>BORDER</B>
+ * #1d4b6e; <span style="background-color: #1d4b6e; border: 1px solid black;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> TP, DC(G) - OBALUJICI TD (content i heading), opticky okraj vybrane pane komponenty (td.ss1_tab_pages_background...)
+ * #9ab8e3; <span style="background-color: #9ab8e3; border: 1px solid black;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> {<B>TH</B>, <B>TD</B>} xgt_table_S
+ * #a18f45; <span style="background-color: #a18f45; border: 1px solid black;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> <B>div</B>.xgt_warning
+ * #c0c0c0; <span style="background-color: #c0c0c0; border: 1px solid black;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> neaktivni zahlavi TP, DC(G)
+ * #c9a300; <span style="background-color: #c9a300; border: 1px solid black;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> FORM SHADOW
+ * #d0d0d0; <span style="background-color: #d0d0d0; border: 1px solid black;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> <B>div</B>.xgt_portletCoat <hr/> <B>BACKGROUND-COLOR</B>
+ * #f0f7ff; <span style="background-color: #f0f7ff; border: 1px solid black;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> .xgt_table_S .zebra
+ * #f2f2f2; <span style="background-color: #f2f2f2; border: 1px solid black;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> <B>div</B>.xgt_tab_pages_coating, <B>div</B>.xgt_format_div_predz
+ * #f8f8f8; <span style="background-color: #f8f8f8; border: 1px solid black;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> <B>div</B>.xgt_portletCoat
+ * #ffe88e  <span style="background-color: #ffe88e; border: 1px solid black;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> <B>div</B>.xgt_warning
+ * #fff8cb; <span style="background-color: #fff8cb; border: 1px solid black;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> .xgt_form_S select, .xgt_form_S input, td.radiobuton_in_td_SHIT
+ * #eccc75; <span style="background-color: #eccc75; border: 1px solid black;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> <B>form</B>.xgt_form_S label, <B>form</B>.xgt_form_S <B>span</B>.label
+ * </pre> */
+
+/*
+ * Poznamky:
+ *
+ * Postfiky udavajici velikost [implicitne MEDIUM]:
+ *  _L = LARGE
+ *  _S = small [zalozeno na pismu 10px]
+ * bez pripony = standard (medium)
+ *
+ * Postfiky udavajici centrovani [implicitne LEFT ALIGNED]:
+ * _centered = centrovana data (napr ve sloupcich tabulek)
+ *
+ */
+
+/*######################################################################################################################
+ * specializovane formatovaci CSS + CSS pro singularni pouziti #########################################################
+ *######################################################################################################################
+ */
+
+/* IE hovado z nejakeho duvodu potrebuje mit zrovna takhle obslouzeny vypis pravidla v ZapsanePredmetyPortletView.jsp, jinak pridava prazdny radek pod nadpis pravidla... */
+div.xgt_format_div_predz {
+    padding-bottom:   0.5em;
+    padding-top:      0.5em;
+    background-color: #F2F2F2;
+}
+
+/* obalujici DIV portletu, bezprostredni obal portletu, nad tim je uz WPS skin a tema */
+div.xgt_portletCoat {
+    margin: 0;
+    padding: 2px;
+    border: 1px solid #D0D0D0;
+    background-color: #F8F8F8;
+}
+
+
+/*######################################################################################################################
+ * CSS pro nadpisy a bloky textu v GUI #################################################################################
+ *######################################################################################################################
+ */
+
+/* velky nadpis - nadpisy portletu, pouzivat omezene */
+span.xgt_heading_L {
+    font-weight: bold;
+    font-size: 17px;
+    color: black;
+    padding: 0;
+    margin: 0;
+}
+
+/* maly nadpis - nadpisy dulezitych casti, POZOR-NOWRAP */
+span.xgt_heading_S {
+    font-weight: bold;
+    font-size: 10px;
+    color: black;
+    padding: 0;
+    margin: 0;
+    white-space: nowrap;
+}
+
+/* maly textovy blok - bezne texty v GUI */
+span.xgt_text_S {
+    font-weight: normal;
+    font-size: 10px;
+    color: black;
+    padding: 0;
+    margin: 0;
+}
+
+/* DIV obsahujici chyby vyhozene validatorem (prozatim vyuzit prototype, mozna se casem zmeni... */
+div.xgt_validationErrors {
+    font-weight: bold;
+    font-size: 11px;
+    color: red;
+    white-space: normal;
+    vertical-align: middle;
+}
+
+/* DIV obsahujici OK hlasku vyhozenou validatorem (prozatim vyuzit prototype, mozna se casem zmeni... */
+div.xgt_validationPassed {
+    font-weight: bold;
+    font-size: 11px;
+    color: green;
+    margin-left: 4px;
+    white-space: normal;
+    vertical-align: middle;
+}
+
+/* DIVY obsahujici hlasky vyhozene serverem pri zpracovani udalosti... obsolette - kill it!!!
+div.xgt_msgFromServerInfo,
+div.xgt_msgFromServerError,
+div.xgt_msgFromServerWarning,
+div.xgt_msgFromServerDefault {
+    font-weight: normal;
+    font-size: 11px;
+    color: black;
+    padding: 3px 2px 3px 26px;
+    margin-bottom: 2px;
+    white-space: normal;
+}
+
+div.xgt_msgFromServerInfo {
+    border: 1px solid #2f5a24;
+    background: #bae7ae url('msgFromServerInfo.gif') no-repeat center left;
+}
+
+div.xgt_msgFromServerError {
+    font-weight: bold;
+    color: #fef4ae;
+    border: 1px solid #5e342d;
+    background: #cc2b00 url('msgFromServerError.gif') no-repeat center left;
+}
+
+div.xgt_msgFromServerWarning {
+    border: 1px solid #a18f45;
+    background: #ffe88e url('msgFromServerWarning.gif') no-repeat center left;
+}
+
+div.xgt_msgFromServerDefault {
+    border: 1px solid #2d435e;
+    background: #c4daf5 url('msgFromServerDefault.gif') no-repeat center left;
+}
+*/
+
+
+/* DIV obsahujici varovani (_S verze) - varovani ma upozornit na neco, potencialni chybu, ORANZOVA barva */
+div.xgt_warning,
+div.xgt_warning_S {
+    font-weight: bold;
+    font-size: 10px;
+    color: black;
+    padding: 0 2px 0 24px;
+    border: 1px solid #a18f45;
+    background: #ffe88e url('warning_S.gif') no-repeat center left;
+    white-space: normal;
+}
+
+/* text INFO uvnitr divu WARNING_S - informace vysvetlujici duvod/reseni varovani*/
+.xgt_warning_S .xgt_info {
+    font-weight: normal;
+    font-size: 10px;
+    color: #897d4e;
+    padding: 0;
+    border: 0;
+    white-space: normal;
+}
+
+/* DIV obsahujici varovani (_S verze) */
+div.xgt_warning {
+    padding: 4px 4px 4px 28px;
+    border: 1px solid #a18f45;
+    background: #ffe88e url('warning_S.gif') no-repeat;
+    background-position: 4px 4px;
+    white-space: normal;
+}
+
+/* text INFO - mala informace pro uzivatele co ma delat... KURZIVA */
+span.xgt_notice {
+    font-style: italic;
+    display: block;
+    padding: 2px;
+}
+
+/* DIV obsahujici hlaseni vyhledavace - hlaseni sdeluje vysledek hledani, pripadne pricinu nenalezeni... */
+div.xgt_search_msg_neutral_S,
+div.xgt_search_msg_ko_S,
+div.xgt_search_msg_ok_S {
+    font-size: 10px;
+    color: black;
+    padding: 4px 6px 4px 18px;
+    margin-left: 2px;
+    background: transparent url('smiley_neutral.gif') no-repeat center left;
+    white-space: normal;
+}
+div.xgt_search_msg_ko_S {
+    background: transparent url('smiley_ko.gif') no-repeat center left;
+}
+div.xgt_search_msg_ok_S {
+    background: transparent url('smiley_ok.gif') no-repeat center left;
+}
+
+/*######################################################################################################################*/
+/* CSS pro formulare ###################################################################################################*/
+/*######################################################################################################################*/
+
+
+/* NOFORM - formular formatovany tabulkou, nevyrabime design formulare - pouze minimalizuje okraje... */
+form.xgt_noform {
+    padding: 0;
+    margin: 0;
+}
+
+/* FORM - obecny formular pro XGUI, neni formatovan tabulkou ale pomoci OL/LI, ma vypadat jako formular... ZARAMOVANI "_S" */
+form.xgt_form_S {
+    font-weight: normal;
+    font-size: 10px;
+    margin: 0;
+    padding: 0;
+    background-color: #c9a300;  /* form yellow dark */
+    border: 1px solid #c9a300;  /* form yellow dark */
+    border-top: none;
+}
+
+/* Obalujici element OL... MINIMALIZACE OKRAJU */
+form.xgt_form_S ol {
+    margin: 0;
+    padding: 0;
+}
+
+/* Obalujici element LI... POZADI RADKU FORMULARE */
+form.xgt_form_S li {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    background: transparent url('xgt_form_S_li_bcg.gif') no-repeat top left;
+}
+
+/* elementy SELECT, INPUT... design, POZOR-MSIE-HACK */
+.xgt_form_S select,
+.xgt_form_S input {
+    font-weight: normal;
+    font-size: 10px;
+    margin: 1px;
+    margin-top: 2px;
+    _margin: 0;
+    _margin-top: 1px;
+    padding: 0;
+    color: black;
+    background-color: #fff8cb;
+    border: 1px solid gray;
+}
+
+/* formularovy button... Aktivni NEenlighted verze */
+.xgt_form_S input.button_a_d,
+.xgt_form_S input.button_a_l {
+    color: black;
+    font-weight: bold;
+    border:      1px solid #1d4b6e;
+    background: #fff8cb url('xgt_formbut_a_d.gif') left top repeat-x;
+    cursor: pointer;
+}
+
+/* formularovy button... Aktivni Enlighted verze */
+.xgt_form_S input.button_a_l {
+    color: white;
+    background: #fff8cb url('xgt_formbut_a_l.gif') left top repeat-x;
+}
+
+/* element LABEL... design, POZOR-MSIE-HACK */
+form.xgt_form_S label {
+    display: block;
+    float: left;
+    width: 120px;
+    text-align: right;
+    padding: 2px 2px 0 5px;
+    _padding: 3px 2px 0 5px;
+    background-color: #eccc75;
+    margin: 0;
+    margin-left: 1px;
+    margin-top: 2px;
+    border-right: 1px solid #c9a300;
+}
+
+/* verze LABEL pro INPUT a SELECT se lisi, design, POZOR-MSIE-HACK  */
+.xgt_form_S label.label_for_input {
+    padding: 2px 2px 0 5px;
+    _padding: 3px 2px 0 5px;
+    _border-bottom: 2px solid #eccc75;
+}
+
+/* INLINE verze LABEL pro INPUT - pro formatovani vice formularovych prvku na jediny radek... */
+.xgt_form_S label.inline_label_for_input {
+    float: none;  /* vyse je LABEL v .xgt_form_S definovan jako display:block, to pro inline verzi potrebujeme odrusit, musi se zrusit jak display tak float (float automaticky zapina display:block)*/
+    display: inline;
+    width: auto;
+    margin-right: 4px;
+    padding: 2px 0 0 5px;
+    _padding: 3px 0 0 5px;
+    _border-bottom: 2px solid #eccc75;
+}
+
+/* verze LABEL pro INPUT a SELECT se lisi, design */
+.xgt_form_S label.label_for_select {
+    border-bottom: 2px solid #eccc75;
+}
+form label.readonly {
+  color: #666666;
+}
+
+
+/* radioButton - v MSIE je dost velky, W a H na 1.1em to umi pripodobnit FF */
+input.xgt_inputRadio {
+    height:  1.1em;
+    width:   1.1em;
+    padding: 0;
+    margin:  0;
+    margin-top:  1px;
+}
+
+/* podelany radiobutton se neda ostylovat do formularove barvy, tak se musi ostylovat cele TD... sheise... */
+td.radiobuton_in_td_SHIT {
+    background-color: #fff8cb;
+}
+
+/* simulace label v radku formulare kde neni input...  */
+form.xgt_form_S span.label {
+    display:block;
+    float: left;
+    width: 120px;
+    text-align: right;
+    background-color: #eccc75;
+    margin: 0;
+    margin-left: 1px;
+    border-right: 1px solid #c9a300;
+}
+
+/* simulace input v radku formulare kde neni input...  pouzivat pouze ve spojeni sw simulatorem labelu */
+form.xgt_form_S span.input {
+    margin-left: 2px;
+    _margin-left: 0;
+}
+
+/*######################################################################################################################*/
+/* CSS pro tabulky #####################################################################################################*/
+/*######################################################################################################################*/
+
+/* CSS pro klasickou tabulku (ma to vypadat jako tabulka)... BILE POZADI */
+table.xgt_table_S,
+table.xgt_table_S_centered {
+  font-weight: normal;
+  font-size: 10px;
+  border-collapse: collapse;
+  /*background-color: white;*/
+  background-color: #fefee5;
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+/* pro vsechny TH a TD tabulky xgt_table_S */
+.xgt_table_S th,
+.xgt_table_S td,
+.xgt_table_S_centered th,
+.xgt_table_S_centered td {
+  font-weight: normal;
+  font-size: 10px;
+  padding: 0 3px 0 3px;
+  margin: 0;
+  text-align: left;
+  border: 1px solid #9AB8E3;
+  vertical-align: middle;
+}
+.xgt_table_S_centered th,
+.xgt_table_S_centered td {
+  text-align: center;
+}
+
+/* pouze pro TABLE HEADER tabulky xgt_table_S */
+.xgt_table_S th,
+.xgt_table_S_centered th {
+  font-weight: bold;
+  white-space: nowrap;
+  color: #2C4669;
+  background: transparent url('xgt_table_S_th_bcg_nosort.gif') no-repeat top left;
+}
+
+/* pouze pro INFO uvnitr TABLE HEADER tabulky xgt_table_S */
+.xgt_table_S th span.info,
+.xgt_table_S td span.info,
+.xgt_table_S_centered th span.info {
+  font-weight: normal;
+  white-space: normal;
+  font-size: 10px;
+  color: #777777;
+}
+
+/* ZEBRA - pro vsechny elementy oznacene v xgt_table_S tridou zebra (zebra se prirazuje elementum TR pri stripovani tablesortem) */
+.xgt_table_S .zebra {
+  background-color: #f0f7ff;
+}
+.xgt_table_S_centered .zebra {
+  background-color: #f0f7ff;
+}
+
+/* pouze pro TD tabulky xgt_table_S... CERNY TEXT */
+.xgt_table_S td {
+  color: black;
+}
+.xgt_table_S_centered td {
+  color: black;
+}
+
+/* pouze pro TFOOTovane TD sortovaci tabulky */
+/* POZOR-PORADI !!! definovat az po ".xgt_table_S td" !!! */
+td.total {
+  background: transparent url('xgt_table_S_th_bcg_nosort.gif') no-repeat top left;
+  padding-top: 1px;
+  font-weight: bold;
+}
+
+/* obecne pro A uvnitr TH tabulky xgt_table_S */
+.xgt_table_S th a,
+.xgt_table_S th a,
+.xgt_table_S th a:hover,
+.xgt_table_S th a:hover,
+.xgt_table_S th a:visited,
+.xgt_table_S th a:visited,
+.xgt_table_S th a:active,
+.xgt_table_S th a:active,
+.xgt_table_S_centered th a,
+.xgt_table_S_centered th a,
+.xgt_table_S_centered th a:hover,
+.xgt_table_S_centered th a:hover,
+.xgt_table_S_centered th a:visited,
+.xgt_table_S_centered th a:visited,
+.xgt_table_S_centered th a:active,
+.xgt_table_S_centered th a:active {
+
+  color: #3366BB;
+  text-decoration: none;
+  /*outline: 0;*/
+}
+.xgt_table_S th a:hover {
+  color: #428FD1;
+  text-decoration: underline;
+}
+.xgt_table_S_centered th a:hover {
+  color: #428FD1;
+  text-decoration: underline;
+}
+
+/* specialne pro A uvnitr sortovatelneho TH tabulky xgt_table_S */
+.xg_tab .sortable, .xg_tab .sortable,
+.xgt_table_S .sortable-text,
+.xgt_table_S .sortable-localeText,
+.xgt_table_S .sortable-date,
+.xgt_table_S .sortable-keep,
+.xgt_table_S .sortable-date-dmy,
+.xgt_table_S .sortable-datetime-dmyhms,
+.xgt_table_S .sortable-numeric,
+.xgt_table_S .sortable-currency,
+.xgt_table_S .sortable-sortByTwelveHourTimestamp,
+.xgt_table_S .sortable-sortIPAddress,
+.xgt_table_S .sortable-sortEnglishLonghandDateFormat,
+.xgt_table_S .sortable-sortScientificNotation,
+.xgt_table_S .sortable-sortImage,
+.xgt_table_S .sortable-sortFileSize,
+.xgt_table_S .sortable-textInSpan,
+.xgt_table_S .sortable-localeTextInSpan,
+.xgt_table_S .sortable-numberInSpan,
+.xgt_table_S_centered .sortable,
+.xgt_table_S_centered .sortable-text,
+.xgt_table_S_centered .sortable-localeText,
+.xgt_table_S_centered .sortable-date,
+.xgt_table_S_centered .sortable-keep,
+.xgt_table_S_centered .sortable-date-dmy,
+.xgt_table_S_centered .sortable-datetime-dmyhms,
+.xgt_table_S_centered .sortable-numeric,
+.xgt_table_S_centered .sortable-currency,
+.xgt_table_S_centered .sortable-sortByTwelveHourTimestamp,
+.xgt_table_S_centered .sortable-sortIPAddress,
+.xgt_table_S_centered .sortable-sortEnglishLonghandDateFormat,
+.xgt_table_S_centered .sortable-sortScientificNotation,
+.xgt_table_S_centered .sortable-sortImage,
+.xgt_table_S_centered .sortable-sortFileSize
+.xgt_table_S_centered .sortable-textInSpan,
+.xgt_table_S_centered .sortable-localeTextInSpan,
+.xgt_table_S_centered .sortable-numberInSpan {
+  cursor:pointer;
+  background: transparent url('xgt_table_S_th_bcg_sortable.gif') no-repeat top left;
+  padding-left: 14px;
+}
+
+/* TH aktualne razeneho sloupce UP */
+.xgt_table_S .forwardSort {
+  cursor:pointer;
+  background: transparent url('xgt_table_S_th_bcg_sort_u.gif') no-repeat top left;
+  padding-left: 14px;
+}
+.xgt_table_S_centered .forwardSort {
+  cursor:pointer;
+  background: transparent url('xgt_table_S_th_bcg_sort_u.gif') no-repeat top left;
+  padding-left: 14px;
+}
+
+/* TH aktualne razeneho sloupce DOWN */
+.xgt_table_S .reverseSort {
+  cursor:pointer;
+  background: transparent url('xgt_table_S_th_bcg_sort_d.gif') no-repeat top left;
+  padding-left: 14px;
+}
+
+/* TH aktualne razeneho sloupce DOWN */
+.xgt_table_S_centered .reverseSort {
+  cursor:pointer;
+  background: transparent url('xgt_table_S_th_bcg_sort_d.gif') no-repeat top left;
+  padding-left: 14px;
+}
+
+/* A uvnitr TH aktualne razeneho sloupce (UP i DOWN) */
+th.forwardSort a,
+th.reverseSort a,
+th.forwardSort a:hover,
+th.reverseSort a:hover,
+th.forwardSort a:visited,
+th.reverseSort a:visited,
+th.forwardSort a:active,
+th.reverseSort a:active {
+  color: black;
+  text-decoration: none;
+  /*outline: 0;*/
+}
+th.forwardSort a:hover,
+th.reverseSort a:hover {
+  color: #666666;
+}
+
+/*######################################################################################################################*/
+/* CSS pro formatovaci tabulku (nema to vypadat jako tabulka, pouze slouzi k zarovnani a formatovani) ##################*/
+/*######################################################################################################################*/
+
+/* Mala formatovaci tabulka...*/
+table.xgt_notable_S {
+  font-weight: normal;
+  font-size: 10px;
+  border-collapse: collapse;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  text-align: left;
+  vertical-align: top;
+  color: black;
+}
+
+/* bezna formatovaci tabulka - nezalamovaci TD + zalamovaci TD */
+td.xgt_td_nowr_S,
+td.xgt_td_S {
+  font-weight: normal;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  white-space: nowrap;
+}
+
+/* bezna formatovaci tabulka - zalamovaci TD */
+td.xgt_td_S {
+  white-space: normal;
+}
+
+.xgt_notable_S td span.info {
+  font-weight: normal;
+  white-space: normal;
+  font-size: 10px;
+  color: #c0c0c0;
+}
+
+.xcw_info {
+  font-weight: normal;
+  white-space: normal;
+  font-size: 10px;
+  color: #a0a0a0;
+}
+
+/*######################################################################################################################*/
+/* CSS pro ruzne typy odkazu ###########################################################################################*/
+/*######################################################################################################################*/
+/* ------------
+ * Poznamky:
+ * Postfiky udavajici typ odkazu:
+ *  _help = odkaz na napovedu - ikona otazniku
+ *  _tooltip = odkaz onMouseToolTyp - ikona "bubliny"
+ *  bez pripony = standard
+ *
+ */
+
+/* Provozni, GUI odkazy (napoveda, ovladaci prvky GUI) - NESTAGOVSKE ODKAZY */
+a.xgt_help,
+a.xgt_help:active,
+a.xgt_help:visited,
+a.xgt_help:hover,
+a.xgt_tooltip,
+a.xgt_tooltip:active,
+a.xgt_tooltip:visited,
+a.xgt_tooltip:hover,
+a.xgt_tooltipMandatory,
+a.xgt_tooltipMandatory:active,
+a.xgt_tooltipMandatory:visited,
+a.xgt_tooltipMandatory:hover {
+    text-decoration: none;
+    color: #3366BB;
+}
+a.xgt_help:hover,
+a.xgt_tooltip:hover,
+a.xgt_tooltipMandatory:hover {
+    color: #428FD1;
+    text-decoration: underline;
+    cursor: help;
+}
+a.xgt_help {
+    background: url(help.gif) center right no-repeat;
+    padding: 0 11px 0 0;
+}
+a.xgt_tooltip {
+    background: url('tooltip.gif') center right no-repeat;
+    padding: 0 12px 0 0;
+}
+
+a.xgt_tooltipMandatory {
+    background: url('tooltipMandatory.gif') center right no-repeat;
+    padding: 0 24px 0 0;
+}
+
+.xgt_mandatory {
+    background: url('mandatory.gif') center left no-repeat;
+    padding: 0 0 0 12px;
+    margin: 0;
+    border: none;
+}
+
+/* "STAGovsky" odkaz - vede na nejakou akci tykajici se IS/STAG, modifikace/zobrazeni dat... neni to "PROVOZNI/GUI" portalovy odkaz...*/
+a.stag_S,
+a.stag_S:hover,
+a.stag_S:active,
+a.stag_S.visited {
+  font-weight: normal;
+  text-decoration: none;
+  /*outline: 0; */
+  /* @ Firefox, switch off dotted border, IE7 sux */
+  color: #A21543;
+}
+a.stag_S:hover {
+  text-decoration: underline;
+  color: #710F2E;
+}
+
+/*######################################################################################################################*/
+/*  CSS pro tabPages ###################################################################################################*/
+/*######################################################################################################################*/
+
+/* ------ CSS Schema SS1 pro tabPages ----------------------------------------------------------------------------------*/
+/* ------ CSS Schema SS1 pro tabPages ----------------------------------------------------------------------------------*/
+/* ------ CSS Schema SS1 pro tabPages ----------------------------------------------------------------------------------*/
+
+/* pozadi TABPANES - OBALUJICI TD */
+td.ss1_tab_pages_background {
+    text-align:  left;
+    vertical-align: top;
+    padding:     0;
+    border:      1px solid #1d4b6e;
+    border-top:  0;
+}
+
+/* ---------------------------------------- PANE CONTENT ---------------------------------------------------------------*/
+
+/* spolecne pro page_content a page_content_selected */
+div.ss1_tab_page_content_selected,
+div.ss1_tab_page_content {
+         padding:  2px;
+         top:      0;
+}
+
+/* nastaveni divu page_off */
+div.ss1_tab_page_content_selected {
+    display: block;
+}
+
+/* nastaveni divu page_on */
+div.ss1_tab_page_content {
+    display: none;
+}
+
+/* ----------------------------------------- PANE HEADING --------------------------------------------------------------*/
+
+/* nastaveni TD konce strankovace pages, - pouze pokud je potreba, aby byla sirka stranek vetsi nezli strankovace
+ * verze _100 roztahuje ending TP a tim i celou komponentu na 100, 25 na 25%
+ */
+td.ss1_tab_page_heading_ending,
+td.ss1_tab_page_heading_ending_25,
+td.ss1_tab_page_heading_ending_100 {
+    border:             0;
+    border-bottom:      1px solid #1d4b6e;
+}
+td.ss1_tab_page_heading_ending_100 {
+    width:              100%;
+}
+td.ss1_tab_page_heading_ending_25 {
+    width:              25%;
+}
+
+/* Obecne nastaveni pro HEADING TP
+ * ( 1. zalozka MA LEFT BORDER, proto pripona "_1" ostatni zalozky NEMAJI LEFT BORDER )
+ */
+td.ss1_tab_page_heading_selected_1,
+td.ss1_tab_page_heading_selected,
+td.ss1_tab_page_heading_1,
+td.ss1_tab_page_heading,
+td.ss1_tab_page_heading_enlighted_1,
+td.ss1_tab_page_heading_enlighted,
+td.ss1_tab_page_heading_inactive_1,
+td.ss1_tab_page_heading_inactive {
+    font-weight: bold;
+    font-size: 10px;
+    white-space:        nowrap;
+    text-align:         left;
+    padding:            2px 2px 2px 20px;
+    cursor:             default;
+    border:             1px solid #1d4b6e;
+    border-bottom:      1px solid #1d4b6e;
+}
+
+/* nastaveni TD zahlavi page_heading_selected - prave vybrana stranka */
+td.ss1_tab_page_heading_selected_1,
+td.ss1_tab_page_heading_selected {
+    color:              white;
+    background:         url('xgt_tp_h_S_selected.gif') left top repeat-x;
+}
+
+/* nastaveni TD zahlavi page_heading - nevybrana aktivni stranka */
+td.ss1_tab_page_heading_1,
+td.ss1_tab_page_heading {
+    color:              black;
+    background:         url('xgt_tp_h_S.gif') left top repeat-x;
+    cursor:             pointer;
+}
+
+/* nastaveni TD zahlavi page_heading_enlighted - podsvicene onMouseOver zahlavi */
+td.ss1_tab_page_heading_enlighted_1,
+td.ss1_tab_page_heading_enlighted {
+    color:              white;
+    background:         url('xgt_tp_h_S_enlighted.gif') left top repeat-x;
+    cursor:             pointer;
+}
+
+/* nastaveni TD zahlavi page_heading_inactive - neaktivni zahlavi*/
+td.ss1_tab_page_heading_inactive_1,
+td.ss1_tab_page_heading_inactive {
+    color:              #777777;
+    background:         url('xgt_tp_h_S_inactive.gif') left top repeat-x;
+    border:             1px solid #C0C0C0;
+    border-bottom:      1px solid #1d4b6e;
+}
+
+/*  toto je pro ss1 nutno neuvest, v nonimaged verzi by ten ramecek vlevo chybel a ss1 je nonimaged styl...
+td.ss1_tab_page_heading,
+td.ss1_tab_page_heading_selected,
+td.ss1_tab_page_heading_enlighted,
+td.ss1_tab_page_heading_inactive {
+    border-left:        1px solid #D0D0D0;
+}
+*/
+
+/*######################################################################################################################*/
+/*  CSS pro DownClick ###################################################################################################*/
+/*######################################################################################################################*/
+
+/* ------ CSS Schema SS1 pro DownClick(Group)---------------------------------------------------------------------------*/
+/* ------ CSS Schema SS1 pro DownClick(Group)---------------------------------------------------------------------------*/
+/* ------ CSS Schema SS1 pro DownClick(Group)---------------------------------------------------------------------------*/
+
+/* spolecne nastaveni DC(G) heading */
+div.ss1_DCHeading_i_off_d,
+div.ss1_DCHeading_i_on_d,
+div.ss1_DCHeading_a_off_d,
+div.ss1_DCHeading_a_on_d,
+div.ss1_DCHeading_a_on_l,
+div.ss1_DCHeading_a_off_l  {
+    font-weight: bold;
+    font-size:   10px;
+    white-space: normal;
+    text-align:  left;
+    padding:     2px 2px 2px 20px;
+    cursor:      default;
+    border:      1px solid #1d4b6e;
+}
+
+/* nastaveni DIVu zahlavi DC(G) - rozkliknute zahlavi NORMALNI + ENLIGHTED (ONMOUSEOVER) */
+div.ss1_DCHeading_a_on_d {
+    color:              white;
+    background:         url('xgt_tp_h_S_selected.gif') left top repeat-x;
+}
+
+/* nastaveni DIVu zahlavi DC(G) - nerozkliknute zahlavi ENLIGHTED (ONMOUSEOVER) */
+div.ss1_DCHeading_a_off_l,
+div.ss1_DCHeading_a_on_l {
+    color:              white;
+    background:         url('xgt_tp_h_S_enlighted.gif') left top repeat-x;
+    cursor:             pointer;
+}
+
+/* nastaveni DIVu zahlavi DC(G) - nerozkliknute zahlavi */
+div.ss1_DCHeading_a_off_d {
+    color:              black;
+    background:         url('xgt_tp_h_S.gif') left top repeat-x;
+    cursor:             pointer;
+}
+
+/* nastaveni DIVu zahlavi DC(G) - neaktivni zahlavi (rozkliknute i nerozkliknute) */
+div.ss1_DCHeading_i_off_d,
+div.ss1_DCHeading_i_on_d {
+    color:              #777777;
+    background:         url('xgt_tp_h_S_inactive.gif') left top repeat-x;
+    border:             1px solid #C0C0C0;
+}
+
+/* nastaveni DC(G) content pane */
+div.ss1_DCContent,
+div.ss1_DCContent_BG {
+    text-align:  left;
+    vertical-align: top;
+    padding:     2px;
+    border:      1px solid #1d4b6e;
+    border-top:  0;
+}
+
+div.ss1_DCContent_BG {
+    background-color: #F2F2F2;
+}
+
+
+
+
+
+
+
+/* CFG */
+
+div.xcw_portletCfgCoat {
+    margin: 0;
+    padding: 2px;
+    border: 1px solid #ffcca7;
+    background-color: #f7ecd6;
+}
+
+div.xcw_portletCfgHeadBack {
+    font-weight: bold;
+    font-size: 17px;
+    color: black;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background: url('xgt_portletCfgHeadBack.gif') left top no-repeat;
+    width: 510px;
+    height: 45px;
+    vertical-align: top;
+    padding-top: 4px;
+}
+
+img.xcw_portletCfgHeadImg, img.xcw_portletEditHeadImg {
+    border: 0;
+    padding: 0;
+    margin: 3px 13px 5px 7px;
+    vertical-align: top;
+    float: left;
+}
+
+.xcw_notice {
+    font-weight: normal;
+    font-size: 10px;
+    color: black;
+    border: 0;
+    padding-top: 3px;
+}
+
+.xcw_portletCfgHeadBack .xcw_notice, .xcw_portletEditHeadBack .xcw_notice  {
+    padding-left: 64px;
+}
+
+/* EDIT */
+
+div.xcw_portletEditCoat {
+    /*margin: 0;*/
+    /*padding: 2px;*/
+    /*border: 1px solid #a7dbff;*/
+    background-color: #f0f8fd;
+}
+
+div.xcw_portletEditHeadBack {
+    font-weight: bold;
+    font-size: 17px;
+    color: black;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background: url('xgt_portletEditHeadBack.gif') left top no-repeat;
+    width: 510px;
+    height: 45px;
+    vertical-align: top;
+    padding-top: 4px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+span.vyraznaPolozkaSeznamu {
+    font-size: 10px;
+    font-weight: bold;
+    color: black;
+}
+
+span.nevyraznaPolozkaSeznamu {
+    font-size: 10px;
+    font-weight: normal;
+    color: #777777;
+}
+
+img.xgt_icon,
+img.xgt_icon_legend,
+img.xgt_icon_top {
+    border: none;
+    padding: 0;
+    margin: 0;
+    vertical-align: middle;
+    cursor: pointer;
+}
+
+img.xgt_icon_top {
+    vertical-align: top;
+    margin: 2px;
+}
+
+img.xgt_icon_legend {
+    cursor: default;
+}
+
+span.xgt_notice_II {
+    display: block;
+    font-weight: normal;
+    font-size: 10px;
+    color: black;
+    border: 0;
+    padding: 2px;
+    white-space: nowrap;
+}
+
+div.xgt_table_heading {
+    font-weight: bold;
+    font-size: 13px;
+    color: black;
+    white-space: nowrap;
+    padding: 2px;
+}
+
+
+
+
+
+
+
+
+
+
+
+/*######################################################################################################################*/
+/* CSS pro CW formulare ###################################################################################################*/
+/*######################################################################################################################*/
+
+/* NOFORM - formular formatovany tabulkou, nevyrabime design formulare - pouze minimalizuje okraje... */
+form.xcw_noform {
+    padding: 0;
+    margin: 0;
+}
+
+/* FORM - obecny formular pro CW, neni formatovan tabulkou ale pomoci OL/LI, ma vypadat jako formular... ZARAMOVANI */
+form.xcw_form {
+    font-weight: normal;
+    font-size: 11px;
+    margin: 0;
+    padding: 0;
+    border: 1px solid #c9c9c9;
+    background-color: #F2F2F2;
+}
+
+form.xcw_form fieldset {
+    background-color: #F2F2F2;
+    border: 1px solid #c9c9c9;
+    margin: 12px 4px 4px 4px;
+}
+
+/* carney's edit */
+fieldset.xcw_fieldset, fieldset.xcw_fieldset legend {
+  background-color: #F2F2F2;
+  border: 1px solid #c9c9c9;
+  margin: 12px 4px 4px 4px;
+}
+fieldset.xcw_fieldset legend {
+  margin: 0;
+  padding: 0 8px 0 8px;
+}
+table.xcw_formTable {
+
+}
+table.xcw_formTable th.formLabel {
+text-align: right;
+}
+table.xcw_formTable th.formLabelLeft {
+text-align: left;
+}
+table.xcw_formTable tr {
+  background: transparent url('xcw_form_li_bcg.gif') no-repeat top left;
+}
+
+
+/* Obalujici element OL... MINIMALIZACE OKRAJU */
+form.xcw_form ol {
+    margin: 0;
+    padding: 0;
+}
+
+/* Obalujici element LI... POZADI RADKU FORMULARE */
+form.xcw_form li {
+    font-size: 11px;
+    font-weight: normal;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    background: transparent url('xcw_form_li_bcg.gif') no-repeat top left;
+}
+
+/* elementy SELECT, INPUT... design, POZOR-MSIE-HACK */
+.xcw_form select,
+.xcw_form input {
+    font-weight: normal;
+    font-size: 11px;
+    margin: 1px;
+    margin-top: 2px;
+    margin-left: 3px;
+    _margin: 0;
+    _margin-top: 1px;
+    padding: 1px;
+    color: black;
+    background-color: #ffffff;
+    border: 1px solid #777777;
+}
+
+.xcw_form .checkbox {
+    margin: 0px;
+    padding: 0px;
+    background: none;
+    border: none;
+}
+
+/* formularovy button... Aktivni NEenlighted verze */
+.xcw_form input.button_a_d,
+.xcw_form input.button_a_l,
+.xcw_noform input.button_a_d,
+.xcw_noform input.button_a_l {
+    color: black;
+    font-weight: bold;
+    border:      1px solid #1d4b6e;
+    background: #ffffff url('xgt_formbut_a_d.gif') left top repeat-x;
+    cursor: pointer;
+}
+
+/* formularovy button... Aktivni Enlighted verze */
+.xcw_form input.button_a_l,
+.xcw_noform input.button_a_l {
+    color: white;
+    background: #ffffff url('xgt_formbut_a_l.gif') left top repeat-x;
+}
+
+/* element LABEL... design, POZOR-MSIE-HACK */
+form.xcw_form label,
+span.xcw_span_inline_blind {
+    display: block;
+    float: left;
+    width: 140px;
+    text-align: right;
+    padding: 2px 2px 0 5px;
+    _padding: 3px 2px 0 5px;
+    margin: 0;
+    margin-left: 1px;
+    margin-top: 2px;
+}
+
+/* carney's edit */
+.xcw_formLabel {
+    display: block;
+    float: left;
+    width: 140px;
+    text-align: right;
+    padding: 2px 2px 0 5px;
+    _padding: 3px 2px 0 5px;
+    margin: 0;
+    margin-left: 1px;
+    margin-top: 2px;
+}
+
+
+/* nahrazka label pro odsazovani tlacitek formu... */
+span.xcw_span_inline_blind {
+    border: none;
+    margin-right: 1px;
+}
+
+/* verze LABEL pro INPUT a SELECT se lisi, design, POZOR-MSIE-HACK  */
+.xcw_form label.label_for_input {
+    padding: 4px 2px 0 5px;
+    _padding: 3px 2px 0 5px;
+}
+
+/* INLINE verze LABEL pro INPUT - pro formatovani vice formularovych prvku na jediny radek... */
+.xcw_form label.inline_label_for_input {
+    float: none;  /* vyse je LABEL v .xcw_form definovan jako display:block, to pro inline verzi potrebujeme odrusit, musi se zrusit jak display tak float (float automaticky zapina display:block)*/
+    display: inline;
+    width: auto;
+    margin-right: 2px;
+    padding: 2px 0 2px 2px;
+    _padding: 3px 0 0 5px;
+}
+
+/* INLINE LABEL pro RADIO - zleva maly odstup... */
+.xcw_form label.inline_label_for_radio {
+    float: none;  /* vyse je LABEL v .xcw_form definovan jako display:block, to pro inline verzi potrebujeme odrusit, musi se zrusit jak display tak float (float automaticky zapina display:block)*/
+    display: inline;
+    width: auto;
+    margin-left: 0;
+    padding: 2px 0 2px 0;
+    _padding: 3px 0 0 0;
+}
+
+/* FIRST INLINE verze LABEL pro INPUT - pro formatovani vice formularovych prvku na jediny radek... je blokovy aby mel stejnou sirku jako ostatni labely (neinlineovane)*/
+.xcw_form label.FIRST_inline_label_for_input {
+    margin-right: 2px;
+    padding: 3px 2px 0 5px;
+    _padding: 3px 0 0 5px;
+}
+
+/* radioButton */
+input.xcw_inputRadio {
+    height:  1.1em;
+    width:   1.1em;
+    border: none;
+    margin:  4px 2px 3px 2px;
+    vertical-align: middle;
+    _height: 1.5em;
+    _width:  1.5em;
+    _margin: 2px 2px 1px 2px;
+    background-color: #F2F2F2;
+}
+
+/* radioButton */
+input.xcw_noInputRadio {
+    height:  1.1em;
+    width:   1.1em;
+    border: none;
+    margin:  4px 2px 3px 2px;
+    vertical-align: middle;
+    _height: 1.5em;
+    _width:  1.5em;
+    _margin: 2px 2px 1px 2px;
+}
+
+/* maly textovy blok - bezne texty v GUI */
+span.xgt_text {
+    font-weight: normal;
+    font-size: 11px;
+    color: black;
+    padding: 0;
+    margin: 0;
+}
+
+/* Provozni, GUI odkazy (napoveda, ovladaci prvky GUI) - NESTAGOVSKE ODKAZY */
+a.xcw_button,
+a.xcw_button:active,
+a.xcw_button:visited,
+a.xcw_button:hover {
+    text-decoration: none;
+    font-size: 11px;
+    color: black;
+    font-weight: bold;
+    border:      1px solid #1d4b6e;
+    background: #fff8cb url('xgt_formbut_a_d.gif') left top repeat-x;
+    padding: 1px 15px; /* 1px 15px;*/
+}
+
+a.xcw_button:hover {
+    border:      1px solid #1d4b6e;
+    background: #fff8cb url('xgt_formbut_a_l.gif') left top repeat-x;
+    color: white;
+}
+
+span.xcw_heading_S {
+    font-weight: bold;
+    font-size: 11px;
+    color: black;
+    padding: 0;
+    margin: 0;
+}
+
+div.xstx_timeoutText {
+    color: #A0A5A9;
+    background-color: #F0F8FD;
+    padding: 4px 0 4px 0;
+}
+
+span.xstx_timeoutTextInner {
+    font-size: 11px;
+    font-weight: bold;
+    border:  1px solid #A0A5A9;
+    padding: 1px 0 1px 0;
+}
+
+div.stxt_lastUpdatedDateDiv {
+    text-align: right;
+    vertical-align: bottom;
+    font-size: smaller;
+    white-space: nowrap;
+    color: #BBBBBB;
+}
+
+/* pozadi Tabulky obalujici blok - napr formular... */
+td.ss1_tab_frame {
+    text-align:  left;
+    vertical-align: top;
+    padding:     0;
+    border:      none;
+}
+
+/* pozadi Tabulky obalujici blok - napr formular... */
+div.ss1_tab_frame {
+    background-color: #F2F2F2;
+    border:      1px solid #1d4b6e;
+}
+
+form.xcw_form label span,
+div.xcw_divInFormLi {
+    font-size: 11px;
+    font-weight: normal;
+}
+
+img.xgt_mandatoryIcon {
+    border: none;
+    padding: 0;
+    margin: 2px;
+    vertical-align: top;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+table.rozvrhMainTable {
+    border-top: none;
+    border-left: none;
+    border-right: 2px solid #494949;
+    border-bottom: 1px solid #494949;
+    border-collapse: separate !important;
+}
+
+th.rozvrhCasRadaHeadingName {
+    border: none;
+    text-align: center;
+    vertical-align: middle;
+    padding: 3px;
+    border-bottom: 1px solid #494949;
+    border-right: 2px solid #494949;
+}
+
+td.rozvrhLeftHeadingDenName {
+    font-weight: bold;
+    font-size: 17px;
+    color: black;
+    background-color: #c3c3c3;
+
+    text-align: center;
+    vertical-align: middle;
+    padding: 3px;
+    border-top: 1px solid #494949;
+    border-bottom: 1px solid #494949;
+    border-left: 2px solid #494949;
+    border-right: 2px solid #494949;
+}
+
+th.rozvrhCasRadaPrestavka,
+th.rozvrhCasRadaHodina,
+td.rozvrhCasRadaPrestavka,
+td.rozvrhCasRadaHodina {
+    background-color: #c3c3c3;
+    border: none;
+    border-top: 2px solid #494949;
+    /*border-bottom: 2px solid #494949;*/
+    text-align: center;
+    padding: 0;
+}
+
+th.rozvrhCasRadaHodina,
+td.rozvrhCasRadaHodina {
+    border-left: 1px solid #494949;
+    border-right: 1px solid #494949;
+    padding-left: 1px;
+    padding-right: 1px;
+}
+
+th.rozvrhCasRadaPrestavka,
+td.rozvrhCasRadaPrestavka {
+    background-color: #494949;
+}
+
+td.rozvrhCasRadaEnding {
+    background-color: #494949;
+    font-size: 1px;
+}
+
+tr.rozvrhCasRadaCellspacer {
+  background-color: #494949;
+  font-size: 1px;
+}
+
+td.rozvrhVolno {
+    border-bottom: 1px solid #494949;
+    border-top: 1px solid #494949;
+    background-color: #f8f8f8;
+    font-size: 1px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+div.rozvrhCasRadaZacatek,
+div.rozvrhCasRadaCisHodiny,
+div.rozvrhCasRadaKonec {
+    font-weight: normal;
+    font-size: 10px;
+    color: black;
+}
+
+div.rozvrhCasRadaCisHodiny {
+    font-weight: bold;
+    font-size: 17px;
+    clear: both;
+    color: black;
+}
+
+div.rozvrhCasRadaZacatek {
+    float: left;
+    clear: both;
+    background: #c3c3c3 url('rozvrh_head_left_arrow.gif') no-repeat center left;
+    padding-left: 6px;
+    padding-right: 5px;
+}
+
+div.rozvrhCasRadaKonec {
+    float: right;
+    clear: both;
+    background: #c3c3c3 url('rozvrh_head_right_arrow.gif') no-repeat center right;
+    padding-left: 5px;
+    padding-right: 6px;
+}
+
+div.rozvrhRoakOdDoHSpacer {
+    clear: both;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+div.rozvrhRoakPredmSpacer {
+    clear: both;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+div.rozvrhRoakMistnostSpacer {
+    clear: both;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    font-weight: bold;
+    font-size: 10px;
+}
+
+a.xg_stag_a_det,
+a.xg_stag_a_det:active,
+a.xg_stag_a_det:visited,
+a.xg_stag_a_det:hover,
+a.xg_stag_a_det_S,
+a.xg_stag_a_det_S:active,
+a.xg_stag_a_det_S:visited,
+a.xg_stag_a_det_S:hover,
+a.xg_stag_a_det_tool,
+a.xg_stag_a_det_tool:active,
+a.xg_stag_a_det_tool:visited,
+a.xg_stag_a_det_tool:hover,
+a.xg_stag_a_det_tool_S,
+a.xg_stag_a_det_tool_S:active,
+a.xg_stag_a_det_tool_S:visited,
+a.xg_stag_a_det_tool_S:hover,
+a.xg_stag_a_out,
+a.xg_stag_a_out:active,
+a.xg_stag_a_out:visited,
+a.xg_stag_a_out:hover,
+a.xg_stag_a_out_S,
+a.xg_stag_a_out_S:active,
+a.xg_stag_a_out_S:visited,
+a.xg_stag_a_out_S:hover,
+a.xg_stag_a_in,
+a.xg_stag_a_in:active,
+a.xg_stag_a_in:visited,
+a.xg_stag_a_in:hover,
+a.xg_stag_a_in_S,
+a.xg_stag_a_in_S:active,
+a.xg_stag_a_in_S:visited,
+a.xg_stag_a_in_S:hover,
+a.xg_stag_a_mail,
+a.xg_stag_a_mail:active,
+a.xg_stag_a_mail:visited,
+a.xg_stag_a_mail:hover,
+a.xg_stag_a_mail_S,
+a.xg_stag_a_mail_S:active,
+a.xg_stag_a_mail_S:visited,
+a.xg_stag_a_mail_S:hover,
+a.xg_stag_a_ent,
+a.xg_stag_a_ent:active,
+a.xg_stag_a_ent:visited,
+a.xg_stag_a_ent:hover,
+a.xg_stag_a_ent_S,
+a.xg_stag_a_ent_S:active,
+a.xg_stag_a_ent_S:visited,
+a.xg_stag_a_ent_S:hover,
+a.xg_stag_a_print,
+a.xg_stag_a_print:active,
+a.xg_stag_a_print:visited,
+a.xg_stag_a_print:hover,
+a.xg_stag_a_print_S,
+a.xg_stag_a_print_S:active,
+a.xg_stag_a_print_S:visited,
+a.xg_stag_a_print_S:hover {
+    font-size: 11px;
+    text-decoration: underline;
+    font-weight: bold;
+    color: #0151ac;
+}
+
+table.xg_tab a.xg_stag_a_det,
+table.xg_tab a.xg_stag_a_det:active,
+table.xg_tab a.xg_stag_a_det:visited,
+table.xg_tab a.xg_stag_a_det:hover,
+table.xg_tab a.xg_stag_a_det_S,
+table.xg_tab a.xg_stag_a_det_S:active,
+table.xg_tab a.xg_stag_a_det_S:visited,
+table.xg_tab a.xg_stag_a_det_S:hover,
+table.xg_tab a.xg_stag_a_det_tool,
+table.xg_tab a.xg_stag_a_det_tool:active,
+table.xg_tab a.xg_stag_a_det_tool:visited,
+table.xg_tab a.xg_stag_a_det_tool:hover,
+table.xg_tab a.xg_stag_a_det_tool_S,
+table.xg_tab a.xg_stag_a_det_tool_S:active,
+table.xg_tab a.xg_stag_a_det_tool_S:visited,
+table.xg_tab a.xg_stag_a_det_tool_S:hover,
+table.xg_tab a.xg_stag_a_out,
+table.xg_tab a.xg_stag_a_out:active,
+table.xg_tab a.xg_stag_a_out:visited,
+table.xg_tab a.xg_stag_a_out:hover,
+table.xg_tab a.xg_stag_a_out_S,
+table.xg_tab a.xg_stag_a_out_S:active,
+table.xg_tab a.xg_stag_a_out_S:visited,
+table.xg_tab a.xg_stag_a_out_S:hover,
+table.xg_tab a.xg_stag_a_in,
+table.xg_tab a.xg_stag_a_in:active,
+table.xg_tab a.xg_stag_a_in:visited,
+table.xg_tab a.xg_stag_a_in:hover,
+table.xg_tab a.xg_stag_a_in_S,
+table.xg_tab a.xg_stag_a_in_S:active,
+table.xg_tab a.xg_stag_a_in_S:visited,
+table.xg_tab a.xg_stag_a_in_S:hover,
+table.xg_tab a.xg_stag_a_mail,
+table.xg_tab a.xg_stag_a_mail:active,
+table.xg_tab a.xg_stag_a_mail:visited,
+table.xg_tab a.xg_stag_a_mail:hover,
+table.xg_tab a.xg_stag_a_mail_S,
+table.xg_tab a.xg_stag_a_mail_S:active,
+table.xg_tab a.xg_stag_a_mail_S:visited,
+table.xg_tab a.xg_stag_a_mail_S:hover,
+table.xg_tab a.xg_stag_a_print,
+table.xg_tab a.xg_stag_a_print:active,
+table.xg_tab a.xg_stag_a_print:visited,
+table.xg_tab a.xg_stag_a_print:hover,
+table.xg_tab a.xg_stag_a_print_S,
+table.xg_tab a.xg_stag_a_print_S:active,
+table.xg_tab a.xg_stag_a_print_S:visited,
+table.xg_tab a.xg_stag_a_print_S:hover,
+table.xg_tab a.xg_stag_a_ent,
+table.xg_tab a.xg_stag_a_ent:active,
+table.xg_tab a.xg_stag_a_ent:visited,
+table.xg_tab a.xg_stag_a_ent:hover,
+table.xg_tab a.xg_stag_a_ent_S,
+table.xg_tab a.xg_stag_a_ent_S:active,
+table.xg_tab a.xg_stag_a_ent_S:visited,
+table.xg_tab a.xg_stag_a_ent_S:hover,
+table.xg_tab_S a.xg_stag_a_det,
+table.xg_tab_S a.xg_stag_a_det:active,
+table.xg_tab_S a.xg_stag_a_det:visited,
+table.xg_tab_S a.xg_stag_a_det:hover,
+table.xg_tab_S a.xg_stag_a_det_S,
+table.xg_tab_S a.xg_stag_a_det_S:active,
+table.xg_tab_S a.xg_stag_a_det_S:visited,
+table.xg_tab_S a.xg_stag_a_det_S:hover,
+table.xg_tab_S a.xg_stag_a_det_tool,
+table.xg_tab_S a.xg_stag_a_det_tool:active,
+table.xg_tab_S a.xg_stag_a_det_tool:visited,
+table.xg_tab_S a.xg_stag_a_det_tool:hover,
+table.xg_tab_S a.xg_stag_a_det_tool_S,
+table.xg_tab_S a.xg_stag_a_det_tool_S:active,
+table.xg_tab_S a.xg_stag_a_det_tool_S:visited,
+table.xg_tab_S a.xg_stag_a_det_tool_S:hover,
+table.xg_tab_S a.xg_stag_a_out,
+table.xg_tab_S a.xg_stag_a_out:active,
+table.xg_tab_S a.xg_stag_a_out:visited,
+table.xg_tab_S a.xg_stag_a_out:hover,
+table.xg_tab_S a.xg_stag_a_out_S,
+table.xg_tab_S a.xg_stag_a_out_S:active,
+table.xg_tab_S a.xg_stag_a_out_S:visited,
+table.xg_tab_S a.xg_stag_a_out_S:hover,
+table.xg_tab_S a.xg_stag_a_in,
+table.xg_tab_S a.xg_stag_a_in:active,
+table.xg_tab_S a.xg_stag_a_in:visited,
+table.xg_tab_S a.xg_stag_a_in:hover,
+table.xg_tab_S a.xg_stag_a_in_S,
+table.xg_tab_S a.xg_stag_a_in_S:active,
+table.xg_tab_S a.xg_stag_a_in_S:visited,
+table.xg_tab_S a.xg_stag_a_in_S:hover,
+table.xg_tab_S a.xg_stag_a_mail,
+table.xg_tab_S a.xg_stag_a_mail:active,
+table.xg_tab_S a.xg_stag_a_mail:visited,
+table.xg_tab_S a.xg_stag_a_mail:hover,
+table.xg_tab_S a.xg_stag_a_mail_S,
+table.xg_tab_S a.xg_stag_a_mail_S:active,
+table.xg_tab_S a.xg_stag_a_mail_S:visited,
+table.xg_tab_S a.xg_stag_a_mail_S:hover,
+table.xg_tab_S a.xg_stag_a_print,
+table.xg_tab_S a.xg_stag_a_print:active,
+table.xg_tab_S a.xg_stag_a_print:visited,
+table.xg_tab_S a.xg_stag_a_print:hover,
+table.xg_tab_S a.xg_stag_a_print_S,
+table.xg_tab_S a.xg_stag_a_print_S:active,
+table.xg_tab_S a.xg_stag_a_print_S:visited,
+table.xg_tab_S a.xg_stag_a_print_S:hover,
+table.xg_tab_S a.xg_stag_a_ent,
+table.xg_tab_S a.xg_stag_a_ent:active,
+table.xg_tab_S a.xg_stag_a_ent:visited,
+table.xg_tab_S a.xg_stag_a_ent:hover,
+table.xg_tab_S a.xg_stag_a_ent_S,
+table.xg_tab_S a.xg_stag_a_ent_S:active,
+table.xg_tab_S a.xg_stag_a_ent_S:visited,
+table.xg_tab_S a.xg_stag_a_ent_S:hover {
+    white-space: normal;
+}
+
+table.xg_tab_c a.xg_stag_a_det,
+table.xg_tab_c a.xg_stag_a_det:active,
+table.xg_tab_c a.xg_stag_a_det:visited,
+table.xg_tab_c a.xg_stag_a_det:hover,
+table.xg_tab_c a.xg_stag_a_det_S,
+table.xg_tab_c a.xg_stag_a_det_S:active,
+table.xg_tab_c a.xg_stag_a_det_S:visited,
+table.xg_tab_c a.xg_stag_a_det_S:hover,
+table.xg_tab_c a.xg_stag_a_det_tool,
+table.xg_tab_c a.xg_stag_a_det_tool:active,
+table.xg_tab_c a.xg_stag_a_det_tool:visited,
+table.xg_tab_c a.xg_stag_a_det_tool:hover,
+table.xg_tab_c a.xg_stag_a_det_tool_S,
+table.xg_tab_c a.xg_stag_a_det_tool_S:active,
+table.xg_tab_c a.xg_stag_a_det_tool_S:visited,
+table.xg_tab_c a.xg_stag_a_det_tool_S:hover,
+table.xg_tab_c a.xg_stag_a_out,
+table.xg_tab_c a.xg_stag_a_out:active,
+table.xg_tab_c a.xg_stag_a_out:visited,
+table.xg_tab_c a.xg_stag_a_out:hover,
+table.xg_tab_c a.xg_stag_a_out_S,
+table.xg_tab_c a.xg_stag_a_out_S:active,
+table.xg_tab_c a.xg_stag_a_out_S:visited,
+table.xg_tab_c a.xg_stag_a_out_S:hover,
+table.xg_tab_c a.xg_stag_a_in,
+table.xg_tab_c a.xg_stag_a_in:active,
+table.xg_tab_c a.xg_stag_a_in:visited,
+table.xg_tab_c a.xg_stag_a_in:hover,
+table.xg_tab_c a.xg_stag_a_in_S,
+table.xg_tab_c a.xg_stag_a_in_S:active,
+table.xg_tab_c a.xg_stag_a_in_S:visited,
+table.xg_tab_c a.xg_stag_a_in_S:hover,
+table.xg_tab_c a.xg_stag_a_mail,
+table.xg_tab_c a.xg_stag_a_mail:active,
+table.xg_tab_c a.xg_stag_a_mail:visited,
+table.xg_tab_c a.xg_stag_a_mail:hover,
+table.xg_tab_c a.xg_stag_a_mail_S,
+table.xg_tab_c a.xg_stag_a_mail_S:active,
+table.xg_tab_c a.xg_stag_a_mail_S:visited,
+table.xg_tab_c a.xg_stag_a_mail_S:hover,
+table.xg_tab_c a.xg_stag_a_print,
+table.xg_tab_c a.xg_stag_a_print:active,
+table.xg_tab_c a.xg_stag_a_print:visited,
+table.xg_tab_c a.xg_stag_a_print:hover,
+table.xg_tab_c a.xg_stag_a_print_S,
+table.xg_tab_c a.xg_stag_a_print_S:active,
+table.xg_tab_c a.xg_stag_a_print_S:visited,
+table.xg_tab_c a.xg_stag_a_print_S:hover,
+table.xg_tab_c a.xg_stag_a_ent,
+table.xg_tab_c a.xg_stag_a_ent:active,
+table.xg_tab_c a.xg_stag_a_ent:visited,
+table.xg_tab_c a.xg_stag_a_ent:hover,
+table.xg_tab_c a.xg_stag_a_ent_S,
+table.xg_tab_c a.xg_stag_a_ent_S:active,
+table.xg_tab_c a.xg_stag_a_ent_S:visited,
+table.xg_tab_c a.xg_stag_a_ent_S:hover,
+table.xg_tab_c_S a.xg_stag_a_det,
+table.xg_tab_c_S a.xg_stag_a_det:active,
+table.xg_tab_c_S a.xg_stag_a_det:visited,
+table.xg_tab_c_S a.xg_stag_a_det:hover,
+table.xg_tab_c_S a.xg_stag_a_det_S,
+table.xg_tab_c_S a.xg_stag_a_det_S:active,
+table.xg_tab_c_S a.xg_stag_a_det_S:visited,
+table.xg_tab_c_S a.xg_stag_a_det_S:hover,
+table.xg_tab_c_S a.xg_stag_a_det_tool,
+table.xg_tab_c_S a.xg_stag_a_det_tool:active,
+table.xg_tab_c_S a.xg_stag_a_det_tool:visited,
+table.xg_tab_c_S a.xg_stag_a_det_tool:hover,
+table.xg_tab_c_S a.xg_stag_a_det_tool_S,
+table.xg_tab_c_S a.xg_stag_a_det_tool_S:active,
+table.xg_tab_c_S a.xg_stag_a_det_tool_S:visited,
+table.xg_tab_c_S a.xg_stag_a_det_tool_S:hover,
+table.xg_tab_c_S a.xg_stag_a_out,
+table.xg_tab_c_S a.xg_stag_a_out:active,
+table.xg_tab_c_S a.xg_stag_a_out:visited,
+table.xg_tab_c_S a.xg_stag_a_out:hover,
+table.xg_tab_c_S a.xg_stag_a_out_S,
+table.xg_tab_c_S a.xg_stag_a_out_S:active,
+table.xg_tab_c_S a.xg_stag_a_out_S:visited,
+table.xg_tab_c_S a.xg_stag_a_out_S:hover,
+table.xg_tab_c_S a.xg_stag_a_in,
+table.xg_tab_c_S a.xg_stag_a_in:active,
+table.xg_tab_c_S a.xg_stag_a_in:visited,
+table.xg_tab_c_S a.xg_stag_a_in:hover,
+table.xg_tab_c_S a.xg_stag_a_in_S,
+table.xg_tab_c_S a.xg_stag_a_in_S:active,
+table.xg_tab_c_S a.xg_stag_a_in_S:visited,
+table.xg_tab_c_S a.xg_stag_a_in_S:hover,
+table.xg_tab_c_S a.xg_stag_a_mail,
+table.xg_tab_c_S a.xg_stag_a_mail:active,
+table.xg_tab_c_S a.xg_stag_a_mail:visited,
+table.xg_tab_c_S a.xg_stag_a_mail:hover,
+table.xg_tab_c_S a.xg_stag_a_mail_S,
+table.xg_tab_c_S a.xg_stag_a_mail_S:active,
+table.xg_tab_c_S a.xg_stag_a_mail_S:visited,
+table.xg_tab_c_S a.xg_stag_a_mail_S:hover,
+table.xg_tab_c_S a.xg_stag_a_print,
+table.xg_tab_c_S a.xg_stag_a_print:active,
+table.xg_tab_c_S a.xg_stag_a_print:visited,
+table.xg_tab_c_S a.xg_stag_a_print:hover,
+table.xg_tab_c_S a.xg_stag_a_print_S,
+table.xg_tab_c_S a.xg_stag_a_print_S:active,
+table.xg_tab_c_S a.xg_stag_a_print_S:visited,
+table.xg_tab_c_S a.xg_stag_a_print_S:hover,
+table.xg_tab_c_S a.xg_stag_a_ent,
+table.xg_tab_c_S a.xg_stag_a_ent:active,
+table.xg_tab_c_S a.xg_stag_a_ent:visited,
+table.xg_tab_c_S a.xg_stag_a_ent:hover,
+table.xg_tab_c_S a.xg_stag_a_ent_S,
+table.xg_tab_c_S a.xg_stag_a_ent_S:active,
+table.xg_tab_c_S a.xg_stag_a_ent_S:visited,
+table.xg_tab_c_S a.xg_stag_a_ent_S:hover {
+    white-space: normal;
+}
+
+a.xg_stag_a_det_S,
+a.xg_stag_a_det_S:active,
+a.xg_stag_a_det_S:visited,
+a.xg_stag_a_det_S:hover,
+a.xg_stag_a_det_tool_S,
+a.xg_stag_a_det_tool_S:active,
+a.xg_stag_a_det_tool_S:visited,
+a.xg_stag_a_det_tool_S:hover,
+a.xg_stag_a_out_S,
+a.xg_stag_a_out_S:active,
+a.xg_stag_a_out_S:visited,
+a.xg_stag_a_out_S:hover,
+a.xg_stag_a_in_S,
+a.xg_stag_a_in_S:active,
+a.xg_stag_a_in_S:visited,
+a.xg_stag_a_in_S:hover,
+a.xg_stag_a_mail_S,
+a.xg_stag_a_mail_S:active,
+a.xg_stag_a_mail_S:visited,
+a.xg_stag_a_mail_S:hover,
+a.xg_stag_a_print_S,
+a.xg_stag_a_print_S:active,
+a.xg_stag_a_print_S:visited,
+a.xg_stag_a_print_S:hover,
+a.xg_stag_a_ent_S,
+a.xg_stag_a_ent_S:active,
+a.xg_stag_a_ent_S:visited,
+a.xg_stag_a_ent_S:hover {
+    font-size: 10px;
+}
+
+a.xg_stag_a_det:hover,
+a.xg_stag_a_det_S:hover,
+a.xg_stag_a_det_tool:hover,
+a.xg_stag_a_det_tool_S:hover {
+    color: #3671b4;
+}
+
+a.xg_stag_a_det_tool,
+a.xg_stag_a_det_tool:active,
+a.xg_stag_a_det_tool:visited,
+a.xg_stag_a_det_tool:hover,
+a.xg_stag_a_det_tool_S,
+a.xg_stag_a_det_tool_S:active,
+a.xg_stag_a_det_tool_S:visited,
+a.xg_stag_a_det_tool_S:hover {
+    background: url('tooltip.gif') center right no-repeat;
+    padding: 0 12px 0 0;
+}
+
+a.xg_stag_a_ent,
+a.xg_stag_a_ent:active,
+a.xg_stag_a_ent:visited,
+a.xg_stag_a_ent:hover,
+a.xg_stag_a_ent_S,
+a.xg_stag_a_ent_S:active,
+a.xg_stag_a_ent_S:visited,
+a.xg_stag_a_ent_S:hover {
+    color: #ac0149;
+}
+
+a.xg_stag_a_ent:hover,
+a.xg_stag_a_ent_S:hover {
+    color: #bf3670;
+}
+
+a.xg_stag_a_out,
+a.xg_stag_a_out:active,
+a.xg_stag_a_out:visited,
+a.xg_stag_a_out_S,
+a.xg_stag_a_out_S:active,
+a.xg_stag_a_out_S:visited,
+a.xg_stag_a_in,
+a.xg_stag_a_in:active,
+a.xg_stag_a_in:visited,
+a.xg_stag_a_in_S,
+a.xg_stag_a_in_S:active,
+a.xg_stag_a_in_S:visited,
+a.xg_stag_a_mail,
+a.xg_stag_a_mail:active,
+a.xg_stag_a_mail:visited,
+a.xg_stag_a_mail_S,
+a.xg_stag_a_mail_S:active,
+a.xg_stag_a_mail_S:visited {
+    color: #01445f;
+}
+
+a.xg_stag_a_out:hover,
+a.xg_stag_a_out_S:hover,
+a.xg_stag_a_in:hover,
+a.xg_stag_a_in_S:hover,
+a.xg_stag_a_mail:hover,
+a.xg_stag_a_mail_S:hover {
+    color: #245e76;
+}
+
+a.xg_stag_a_out,
+a.xg_stag_a_out:active,
+a.xg_stag_a_out:visited,
+a.xg_stag_a_out:hover,
+a.xg_stag_a_out_S,
+a.xg_stag_a_out_S:active,
+a.xg_stag_a_out_S:visited,
+a.xg_stag_a_out_S:hover {
+    background: url('link_out.gif') center right no-repeat;
+    padding: 0 14px 0 0;
+}
+
+a.xg_stag_a_in,
+a.xg_stag_a_in:active,
+a.xg_stag_a_in:visited,
+a.xg_stag_a_in:hover,
+a.xg_stag_a_in_S,
+a.xg_stag_a_in_S:active,
+a.xg_stag_a_in_S:visited,
+a.xg_stag_a_in_S:hover {
+    background: url('link_in.gif') center right no-repeat;
+    padding: 0 14px 0 0;
+}
+
+a.xg_stag_a_mail,
+a.xg_stag_a_mail:active,
+a.xg_stag_a_mail:visited,
+a.xg_stag_a_mail:hover,
+a.xg_stag_a_mail_S,
+a.xg_stag_a_mail_S:active,
+a.xg_stag_a_mail_S:visited,
+a.xg_stag_a_mail_S:hover {
+    background: url('link_mail.gif') center right no-repeat;
+    padding: 0 14px 0 0;
+}
+
+a.xg_stag_a_print,
+a.xg_stag_a_print:active,
+a.xg_stag_a_print:visited,
+a.xg_stag_a_print:hover,
+a.xg_stag_a_print_S,
+a.xg_stag_a_print_S:active,
+a.xg_stag_a_print_S:visited,
+a.xg_stag_a_print_S:hover {
+    color: #017aac;
+    background: url('link_print.gif') center right no-repeat;
+    padding: 0 14px 0 0;
+}
+
+a.xg_stag_a_print:hover,
+a.xg_stag_a_print_S:hover {
+    color: #4c9cbd;
+}
+
+.rozvrhRoakSkin_cviceni,
+.rozvrhRoakSkin_seminar,
+.rozvrhRoakSkin_prednaska,
+.rozvrhRoakSkin_zkouska,
+.rozvrhRoakSkin_blokace_zkouska,
+.rozvrhRoakSkin_blokace,
+.rozvrhRoakSkin_vyuk_jedakce,
+.rozvrhRoakSkin_komerc_jedakce,
+.rozvrhRoakSkin_other,
+.rozvrhRoakSkin_rekonstrukce,
+.rozvrhRoakSkin_prijimacky,
+.rozvrhRoakSkin_stat_komise,
+.rozvrhRoakSkin_rocnik_zapis,
+.rozvrhRoakSkin_pozad_nemohu,
+.rozvrhRoakSkin_pozad_nechci,
+.rozvrhRoakSkin_pozad_preferuji,
+.rozvrhRoakSkin_uredhodiny {
+    border: 1px solid #494949;
+    padding-bottom: 1px;
+    vertical-align: top;
+}
+
+.rozvrhRoakSkin_cviceni {
+    background-color: #9ee5c1;
+}
+.rozvrhRoakSkin_seminar {
+    background-color: #a4ef97;
+}
+.rozvrhRoakSkin_prednaska {
+    background-color: #e3e3e3;
+}
+.rozvrhRoakSkin_zkouska {
+    background-color: #eeef97;
+}
+.rozvrhRoakSkin_blokace_zkouska {
+    background-color: #e5d59e;
+}
+.rozvrhRoakSkin_prijimacky {
+    background-color: #d0a6ba;
+}
+.rozvrhRoakSkin_vyuk_jedakce {
+    background-color: #fdbb74;
+}
+.rozvrhRoakSkin_komerc_jedakce {
+    background-color: #a7f0e8;
+}
+.rozvrhRoakSkin_rekonstrukce {
+    background-color: #fc817b;
+}
+.rozvrhRoakSkin_blokace {
+    background-color: #cbc1e7;
+}
+.rozvrhRoakSkin_pozad_nemohu {
+    background-color: #ff9797;
+}
+.rozvrhRoakSkin_pozad_nechci {
+    background-color: #ffd2a0;
+}
+.rozvrhRoakSkin_pozad_preferuji {
+    background-color: #94eca0;
+}
+.rozvrhRoakSkin_uredhodiny {
+    background-color: #81bdff;
+}
+.rozvrhRoakSkin_other {
+    background-color: #AAD2FF;
+    color: black;
+    font-weight: bold;
+}
+.rozvrhRoakSkin_stat_komise {
+    background-color: #ff9bfa;
+}
+.rozvrhRoakSkin_rocnik_zapis {
+    background-color: #c0b6ff;
+}
+
+
+div.rozvrhRoakZacatek_cviceni,
+div.rozvrhRoakZacatek_seminar,
+div.rozvrhRoakZacatek_prednaska,
+div.rozvrhRoakZacatek_zkouska,
+div.rozvrhRoakZacatek_blokace_zkouska,
+div.rozvrhRoakZacatek_blokace,
+div.rozvrhRoakZacatek_vyuk_jedakce,
+div.rozvrhRoakZacatek_komerc_jedakce,
+div.rozvrhRoakZacatek_other,
+div.rozvrhRoakZacatek_rekonstrukce,
+div.rozvrhRoakZacatek_pozad_nemohu,
+div.rozvrhRoakZacatek_pozad_nechci,
+div.rozvrhRoakZacatek_pozad_preferuji,
+div.rozvrhRoakZacatek_uredhodiny,
+div.rozvrhRoakZacatek_stat_komise,
+div.rozvrhRoakZacatek_rocnik_zapis,
+div.rozvrhRoakZacatek_prijimacky {
+    font-weight: normal;
+    font-size: 10px;
+    float: left;
+    padding-left: 6px;
+    padding-right: 3px;
+}
+
+div.rozvrhRoakKonec_cviceni,
+div.rozvrhRoakKonec_seminar,
+div.rozvrhRoakKonec_prednaska,
+div.rozvrhRoakKonec_zkouska,
+div.rozvrhRoakKonec_blokace_zkouska,
+div.rozvrhRoakKonec_blokace,
+div.rozvrhRoakKonec_vyuk_jedakce,
+div.rozvrhRoakKonec_komerc_jedakce,
+div.rozvrhRoakKonec_other,
+div.rozvrhRoakKonec_rekonstrukce,
+div.rozvrhRoakKonec_pozad_nemohu,
+div.rozvrhRoakKonec_pozad_nechci,
+div.rozvrhRoakKonec_pozad_preferuji,
+div.rozvrhRoakKonec_uredhodiny,
+div.rozvrhRoakKonec_stat_komise,
+div.rozvrhRoakKonec_rocnik_zapis,
+div.rozvrhRoakKonec_prijimacky {
+    font-weight: normal;
+    font-size: 10px;
+    float: right;
+    padding-left: 3px;
+    padding-right: 6px;
+}
+
+div.rozvrhRoakZacatek_cviceni{
+    background: url('rozvrh_cvic_left_arrow.gif') no-repeat center left;
+    color: #649f81;
+}
+div.rozvrhRoakKonec_cviceni {
+    background: url('rozvrh_cvic_right_arrow.gif') no-repeat center right;
+    color: #649f81;
+}
+div.rozvrhRoakZacatek_seminar{
+    background: url('rozvrh_sem_left_arrow.gif') no-repeat center left;
+    color: #6db462;
+}
+div.rozvrhRoakKonec_seminar {
+    background: url('rozvrh_sem_right_arrow.gif') no-repeat center right;
+    color: #6db462;
+}
+div.rozvrhRoakZacatek_prednaska{
+    background: url('rozvrh_pred_left_arrow.gif') no-repeat center left;
+    color: #8e8e8e;
+}
+div.rozvrhRoakKonec_prednaska {
+    background: url('rozvrh_pred_right_arrow.gif') no-repeat center right;
+    color: #8e8e8e;
+}
+div.rozvrhRoakZacatek_zkouska{
+    background: url('rozvrh_zk_left_arrow.gif') no-repeat center left;
+    color: #b4b162;
+}
+div.rozvrhRoakKonec_zkouska {
+    background: url('rozvrh_zk_right_arrow.gif') no-repeat center right;
+    color: #b4b162;
+}
+div.rozvrhRoakZacatek_blokace_zkouska{
+    background: url('rozvrh_bzk_left_arrow.gif') no-repeat center left;
+    color: #af9f69;
+}
+div.rozvrhRoakKonec_blokace_zkouska {
+    background: url('rozvrh_bzk_right_arrow.gif') no-repeat center right;
+    color: #af9f69;
+}
+div.rozvrhRoakZacatek_blokace{
+    background: url('rozvrh_bra_left_arrow.gif') no-repeat center left;
+    color: #5a5180;
+}
+div.rozvrhRoakKonec_blokace {
+    background: url('rozvrh_bra_right_arrow.gif') no-repeat center right;
+    color: #5a5180;
+}
+div.rozvrhRoakZacatek_prijimacky{
+    background: url('rozvrh_prij_left_arrow.gif') no-repeat center left;
+    color: #a8798f;
+}
+div.rozvrhRoakKonec_prijimacky {
+    background: url('rozvrh_prij_right_arrow.gif') no-repeat center right;
+    color: #a8798f;
+}
+div.rozvrhRoakZacatek_uredhodiny, div.rozvrhRoakZacatek_pozad_nemohu, div.rozvrhRoakZacatek_pozad_nechci, div.rozvrhRoakZacatek_pozad_preferuji {
+    background: url('rozvrh_vyuk_left_arrow.gif') no-repeat center left;
+    color: #bc803f;
+}
+div.rozvrhRoakKonec_vyuk_jedakce {
+    background: url('rozvrh_vyuk_right_arrow.gif') no-repeat center right;
+    color: #bc803f;
+}
+div.rozvrhRoakZacatek_komerc_jedakce{
+    background: url('rozvrh_kom_left_arrow.gif') no-repeat center left;
+    color: #aeadad;
+}
+div.rozvrhRoakKonec_komerc_jedakce {
+    background: url('rozvrh_kom_right_arrow.gif') no-repeat center right;
+    color: #aeadad;
+}
+div.rozvrhRoakZacatek_rekonstrukce{
+    background: url('rozvrh_rek_left_arrow.gif') no-repeat center left;
+    color: #d24141;
+}
+div.rozvrhRoakKonec_rekonstrukce {
+    background: url('rozvrh_rek_right_arrow.gif') no-repeat center right;
+    color: #d24141;
+}
+div.rozvrhRoakZacatek_uredhodiny{
+    background: url('rozvrh_pred_left_arrow.gif') no-repeat center left;
+    color: #8e8e8e;
+}
+div.rozvrhRoakKonec_uredhodiny, div.rozvrhRoakKonec_pozad_nemohu, div.rozvrhRoakKonec_pozad_nechci, div.rozvrhRoakKonec_pozad_preferuji {
+    background: url('rozvrh_pred_right_arrow.gif') no-repeat center right;
+    color: #8e8e8e;
+}
+div.rozvrhRoakZacatek_other{
+    background: url('rozvrh_head_left_arrow.gif') no-repeat center left;
+    color: black;
+}
+div.rozvrhRoakKonec_other{
+    background: url('rozvrh_head_right_arrow.gif') no-repeat center right;
+    color: black;
+}
+div.rozvrhRoakZacatek_stat_komise{
+    background: url('rozvrh_cvic_left_arrow.gif') no-repeat center left;
+    color: #b970b5;
+}
+div.rozvrhRoakKonec_stat_komise {
+    background: url('rozvrh_cvic_right_arrow.gif') no-repeat center right;
+    color: #b970b5;
+}
+div.rozvrhRoakZacatek_rocnik_zapis{
+    background: url('rozvrh_cvic_left_arrow.gif') no-repeat center left;
+    color: #7f7aaa;
+}
+div.rozvrhRoakKonec_rocnik_zapis {
+    background: url('rozvrh_cvic_right_arrow.gif') no-repeat center right;
+    color: #7f7aaa;
+}
+
+div.rozvrhRoakOdDoDSpacer_cviceni,
+div.rozvrhRoakOdDoDSpacer_seminar,
+div.rozvrhRoakOdDoDSpacer_prednaska,
+div.rozvrhRoakOdDoDSpacer_zkouska,
+div.rozvrhRoakOdDoDSpacer_blokace_zkouska,
+div.rozvrhRoakOdDoDSpacer_blokace,
+div.rozvrhRoakOdDoDSpacer_vyuk_jedakce,
+div.rozvrhRoakOdDoDSpacer_komerc_jedakce,
+div.rozvrhRoakOdDoDSpacer_other,
+div.rozvrhRoakOdDoDSpacer_rekonstrukce,
+div.rozvrhRoakOdDoDSpacer_pozad_nemohu,
+div.rozvrhRoakOdDoDSpacer_pozad_nechci,
+div.rozvrhRoakOdDoDSpacer_pozad_preferuji,
+div.rozvrhRoakOdDoDSpacer_uredhodiny,
+div.rozvrhRoakOdDoDSpacer_stat_komise,
+div.rozvrhRoakOdDoDSpacer_rocnik_zapis,
+div.rozvrhRoakOdDoDSpacer_prijimacky {
+    clear: both;
+    margin: 0;
+    padding-left: 1px;
+    text-align: center;
+    white-space: nowrap;
+
+    font-size: 10px;
+    font-weight: normal;
+    color: red;
+}
+
+div.rozvrhRoakOdDoDSpacer_cviceni {
+    color: #406e57;
+}
+div.rozvrhRoakOdDoDSpacer_seminar {
+    color: #3d6c35;
+}
+div.rozvrhRoakOdDoDSpacer_prednaska {
+    color: #686868;
+}
+div.rozvrhRoakOdDoDSpacer_zkouska {
+    color: #8e8b40;
+}
+div.rozvrhRoakOdDoDSpacer_blokace_zkouska {
+    color: #867745;
+}
+div.rozvrhRoakOdDoDSpacer_blokace {
+    color: #5a5180;
+}
+div.rozvrhRoakOdDoDSpacer_prijimacky {
+    color: #824d67;
+}
+div.rozvrhRoakOdDoDSpacer_vyuk_jedakce {
+    color: #a56929;
+}
+div.rozvrhRoakOdDoDSpacer_komerc_jedakce {
+    color: #918f8f;
+}
+div.rozvrhRoakOdDoDSpacer_rekonstrukce {
+    color: #b63b3b;
+}
+div.rozvrhRoakOdDoDSpacer_uredhodiny, div.rozvrhRoakOdDoDSpacer_pozad_nemohu, div.rozvrhRoakOdDoDSpacer_pozad_nechci, div.rozvrhRoakOdDoDSpacer_pozad_preferuji {
+    color: #686868;
+}
+div.rozvrhRoakOdDoDSpacer_stat_komise {
+    color: #b970b5;
+}
+div.rozvrhRoakOdDoDSpacer_rocnik_zapis {
+    color: #7f7aaa;
+}
+
+span.rozvrhLegenda {
+   font-size: 10px;
+}
+
+a.xg_stag_a_rozvrhToolB,
+a.xg_stag_a_rozvrhToolB:active,
+a.xg_stag_a_rozvrhToolB:visited,
+a.xg_stag_a_rozvrhToolB:hover {
+    text-decoration: none;
+    color: black;
+    cursor: help;
+    padding: 0 12px 0 0;
+    background: url('bubble_yellow.gif') center right no-repeat;
+}
+
+table.xg_stag_notable,
+table.xg_stag_formTable {
+  font-weight: normal;
+  font-size: 10px;
+  border-collapse: collapse;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  text-align: left;
+  vertical-align: top;
+  color: black;
+}
+
+.xg_stag_notable td {
+    text-align: left;
+    vertical-align: top;
+}
+
+.xg_stag_formTable td.formTop,
+.xg_stag_formTable td.formLineT,
+.xg_stag_formTable td.formLineT_xP,
+.xg_stag_formTable td.formLineT_xP_top,
+.xg_stag_formTable td.formLineC,
+.xg_stag_formTable td.formMid {
+  font-size: 11px;
+  padding: 1px 10px 1px 2px;
+}
+
+.xg_stag_formTable td.formLineT_xP_top {
+    vertical-align: top;
+}
+
+.xg_stag_formTable td.formLineT,
+.xg_stag_formTable td.formLineT_xP,
+.xg_stag_formTable td.formLineC,
+.xg_stag_formTable td.formMid {
+    vertical-align: middle;
+}
+
+.xg_stag_formTable td.formLineT_xP,
+.xg_stag_formTable td.formLineT_xP_top,
+.xg_stag_formTable td.formLineT {
+    padding: 2px;
+}
+
+.xg_stag_formTable td.formLineT_xP,
+.xg_stag_formTable td.formLineT_xP_top {
+    text-align: right;
+}
+
+.xg_pane input.submit,
+.xg_stag_formTable input.submit {
+    font-size: 11px;
+    padding: 2px 6px 2px 6px;
+}
+
+.formLineC input.submit {
+    font-size: 11px;
+    padding: 0 6px 0 6px;
+}
+
+.xg_pane input.text,
+.xg_pane input.checkbox,
+.xg_pane textarea.text,
+.xg_pane select.select,
+.xg_pane_B input.text,
+.xg_pane_B input.checkbox,
+.xg_pane_B textarea.text,
+.xg_pane_B select.select,
+.xg_stag_formTable input.text,
+.xg_stag_formTable textarea.text,
+.xg_stag_formTable select.select {
+    font-size: 11px;
+    font-weight: normal;
+}
+
+input.disabled {
+  background-color: #d9d9d9;
+}
+
+td.formTop textarea {
+    font-size: 12px;
+    font-weight: normal;
+}
+
+/* ################################################################################################################## */
+/* ################################################################################################################## */
+/* ################################################################################################################## */
+
+.prohlizeni_start_page .row > div {
+  padding-bottom: 7px;
+}
+
+div.prohlizeniEntitaContent {
+    /* background-color: #efefef; */
+}
+
+div.xg_help_title {
+    background-color: #494949;
+    text-align: left;
+    font-size: 17px;
+    padding: 1px 3px;;
+}
+
+div.xg_help_subtitle {
+    font-weight: bold;
+    font-size: 11px;
+    padding: 1px 2px 2px 12px;
+    margin: 0;
+    text-align: left;
+    vertical-align: middle;
+    /*white-space: nowrap;*/
+    border-left: 1px solid #d0d0d0;
+    border-right: 1px solid #aaaaaa;
+    border-top: 1px solid #d0d0d0;
+    border-bottom: 1px solid #aaaaaa;
+    color: black;
+    background: #dbd9d9 url('/zdroje/images/stag/icons/carney_the_radioactive.gif') no-repeat center left;
+}
+
+div.xg_help {
+    font-weight: normal;
+    font-size: 11px;
+    padding: 1px 2px 42px 12px;
+    margin: 0;
+    text-align: left;
+    vertical-align: middle;
+    white-space: normal;
+    border-left: 1px solid #d0d0d0;
+    border-right: 1px solid #aaaaaa;
+    border-top: 1px solid #d0d0d0;
+    border-bottom: 1px solid #aaaaaa;
+    color: black;
+}
+
+div.prohlizeniEntitaHeadingLeft {
+    /*
+    background: #494949 url('prohHeadLeftIco.gif') no-repeat;
+    background-position: 0 3px;
+    padding: 2px 2px 0 26px;
+    */
+    background-color: #494949;
+    text-align: left;
+    float: left;
+    padding-top: 1px;
+    _padding-top: 0;
+}
+
+div.prohlizeniEntitaHeadingRight {
+    background: #494949;
+    text-align: right;
+}
+
+span.prohlizeniEntitaHeadingStag,
+span.prohlizeniEntitaHeadingEntita,
+span.prohlizeniEntitaHeadingRight {
+
+    font-size: 17px;
+    font-weight: bold;
+    color: #909090;
+}
+
+span.prohlizeniEntitaHeadingEntita {
+    color: #ffffff;
+}
+
+div.prohlizeniEntitaFormHeading {
+    background: #b3b3b3 url('prohFormHeadingIcoOn.gif') center left no-repeat;
+    border-left: 1px solid #d0d0d0;
+    border-top: 1px solid #757575;
+    border-right: 1px solid #aaaaaa;
+    border-bottom: 1px solid #aaaaaa;
+    text-align: left;
+    padding: 4px 2px 4px 24px;
+    vertical-align: middle;
+    margin: 0;
+}
+
+span.prohlizeniEntitaFormHeading {
+
+    font-size: 10px;
+    font-weight: bold;
+    color: #757575;
+}
+
+div.prohlizeniEntitaFormMain,
+div.prohlizeniEntitaFormExt {
+    background-color: #c3c3c3;
+}
+
+div.prohlizeniEntitaFormMain,
+div.prohlizeniEntitaFormExt,
+form.prohlizeniEntitaFormMain{
+    border-left: 1px solid #c3c3c3;
+    border-top: 1px solid #d0d0d0;
+    border-right: 1px solid #aaaaaa;
+    border-bottom: 1px solid #aaaaaa;
+    text-align: left;
+    vertical-align: top;
+    padding: 0;
+    margin: 0;
+}
+
+form.prohlizeniEntitaFormMain{
+    border: none;
+}
+
+div.prohlizeniEntitaFormExt {
+    background-color: #cacaca;
+}
+
+div.prohlizeniEntitaSearchedCoat {
+    border-left: 1px solid #d0d0d0;
+    border-top: 1px solid #d0d0d0;
+    border-right: 1px solid #aaaaaa;
+    border-bottom: 1px solid #aaaaaa;
+    background-color: #dbd9d9;
+    padding: 1px 2px 0;
+    _padding: 1px 0 0;
+}
+
+div.prohlizeniEntitaSearchedText {
+    font-size: 10px;
+    font-weight: bold;
+    color: #757575;
+    padding: 0 0 2px 2px;
+}
+
+div.prohlizeniEntitaSearched {
+    font-size: 10px;
+    font-weight: normal;
+    background-color: white;
+    color: black;
+    padding: 0;
+}
+
+div.prohlizeniEntitaSearchMaxRow,
+div.prohlizeniEntitaSearchNoSearched,
+div.prohlizeniEntitaSearchNoneFound {
+    font-size: 11px;
+    font-weight: normal;
+    color: red;
+    padding: 3px 20px 3px 20px;
+    margin: 2px;
+    background: transparent url('smiley_ko.gif') no-repeat center left;
+}
+
+.prohlizeniEntitaPrivacyNoAccess {
+    font-size: 10pt;
+    font-weight: normal;
+    padding: 5px 20px 5px 70px;
+    color: #b22023;
+    vertical-align: middle;
+    margin: 2px;
+    min-height: 70px;
+    background: transparent url('/zdroje/images/lock-icon-64.png') no-repeat center left;
+}
+
+.prohlizeniStudentRadekNevidet {
+    color: #b22023;
+}
+
+div.prohlizeniEntitaSearchMaxRow {
+    background: transparent url('smiley_neutral.gif') no-repeat center left;
+}
+
+div.prohlizeniEntitaSearchNoSearched {
+    background: transparent url('smiley_ok.gif') no-repeat center left;
+    color: #CECCCC;
+}
+
+div.prohlizeniEntitaSearched {
+    background-color: #dbd9d9;
+    overflow: auto;
+    height: 100px;
+}
+
+div.prohlizeniEntitaSubdetailCoat {
+    margin: 1px 2px 0 2px;
+}
+
+ul.prohlizeniEntitaSubdetailTabRow {
+    padding: 2px;
+    line-height:normal;
+    list-style-type:none;
+    margin: 3px 0 0 0;
+}
+
+ul.prohlizeniEntitaSubdetailTabRow li {
+    background-color:#F4F2F2;
+    border-left:1px solid #CECCCC;
+    border-right:1px solid #CECCCC;
+    border-top:1px solid #CECCCC;
+    display:inline;
+    padding:2px 6px;
+    /* NEJPOSRANEJSI POSRANEJ PROHLIZEZ SUX */
+        float:left;
+        _float:none;
+    /* NEJPOSRANEJSI POSRANEJ PROHLIZEZ SUX */
+}
+
+ul.prohlizeniEntitaSubdetailTabRow li.current {
+    color: white;
+    font-weight: bold;
+    background-color: #494949;
+    border-top: 1px solid #494949;
+    border-left: 1px solid #494949;
+    border-right: 1px solid #494949;
+    display:inline;
+    padding:2px 6px;
+    /* NEJPOSRANEJSI POSRANEJ PROHLIZEZ SUX */
+        float:left;
+        _float:none;
+    /* NEJPOSRANEJSI POSRANEJ PROHLIZEZ SUX */
+}
+ul.prohlizeniEntitaSubdetailTabRow li.current a {
+  color: white;
+  text-decoration: none;
+}
+
+div.prohlizeniEntitaSubdetailTabRow {
+    padding: 2px 2px 0 2px;
+}
+
+div.prohlizeniEntitaSubdetailTab {
+    font-size: 11px;
+    font-weight: bold;
+    padding: 2px 6px 2px 6px;
+    background-color: #f4f2f2;
+    border-top: 1px solid #cecccc;
+    border-left: 1px solid #cecccc;
+    border-right: 1px solid #cecccc;
+    float: left;
+}
+
+div.prohlizeniEntitaSubdetailTabSelected {
+    font-size: 11px;
+    font-weight: bold;
+    padding: 2px 6px 2px 6px;
+    color: white;
+    background-color: #494949;
+    border-top: 1px solid #494949;
+    border-left: 1px solid #494949;
+    border-right: 1px solid #494949;
+    float: left;
+}
+div.prohlizeniEntitaSubdetailTabSelected a.xg_stag_a_det {
+  color: white;
+  text-decoration: none;
+}
+div.prohlizeniEntitaSubdetailTabSelected h3, div.prohlizeniEntitaSubdetailTabSelected h4 {
+  margin: 0;
+  font-weight: bold;
+}
+
+div.prohlizeniEntitaSubdetailPanesCoat {
+    padding: 0;
+    background-color: white;
+    clear: both;
+    /*border: 1px solid #cecccc;*/
+    border-top: 3px solid #494949;
+}
+
+div.prohlizeniEntitaSubdetailPane {
+    font-size: 11px;
+    font-weight: normal;
+    padding: 2px;
+}
+
+
+/* Dodelavka prohlizeni - barvicky pro platnost rozvrh akci */
+.platnostAkce_A { background-color: #e3ffd7; }
+.platnostAkce_N { background-color: #ffd6cb; }
+.platnostAkce_B { background-color: #e2faff; }
+.platnostAkce_P { background-color: #e2faff; }
+.platnostAkce_Z { background-color: #ffd6cb; }
+
+/* ################################################################################################################## */
+/* ################################################################################################################## */
+/* ################################################################################################################## */
+
+/* CSS pro "stagovskou plochu" stag-pane */
+.xg_pane {
+    color: black;
+    background-color: white;
+}
+
+/* POZOR! border a background (ANO, definice BACKGROUND JE ZAPSANA V PORADKU - musi byt "nejprve resetovany", jinak pri vnoreni xg_pane do xg_tab dedi to co nechceme! */
+.xg_pane td,
+.xg_pane td.brutalforce,
+.xg_pane th,
+.xg_pane th.top,
+.xg_pane th.brutalforce,
+.xg_pane .fake-table-cell {
+    border: none;
+    font-size: 11px;
+    font-weight: normal;
+    text-align: left;
+    vertical-align: top;
+    padding: 2px 4px 2px 3px;
+    border-bottom: 1px solid #F4F2F2;
+}
+
+/* POZOR! border a background (ANO, definice BACKGROUND JE ZAPSANA V PORADKU - musi byt "nejprve resetovany", jinak pri vnoreni xg_pane do xg_tab dedi to co nechceme! */
+.xg_pane th,
+.xg_pane th.top,
+.xg_pane th.brutalforce,
+.xg_pane .fake-table-cell-header {
+    text-align: right;
+    background: #f4f2f2;
+    border-left: 1px solid white;
+    border-top: 1px solid white;
+    border-right: 2px solid #cecccc;
+    /*white-space: nowrap;*/
+}
+
+.xg_pane th.top, .xg_pane .top.fake-table-cell-header  {
+    border: none;
+    text-align: center;
+    padding: 2px;
+    border-bottom: 2px solid #cecccc;
+    /*white-space: nowrap;*/
+}
+
+.xg_pane th.text-left {
+  text-align: left;
+}
+
+.xg_pane th h1, .xg_pane th h2, .xg_pane th h3, .xg_pane th h4, .xg_pane th h5, .xg_pane th h6,
+.xg_pane td h1, .xg_pane td h2, .xg_pane td h3, .xg_pane td h4, .xg_pane td h5, .xg_pane td h6 {
+  margin: 3px 0 1px 0;
+}
+
+.xg_pane td,
+.xg_pane td.brutalforce,
+.xg_pane .fake-table-cell {
+    padding: 3px 3px 1px 3px;
+}
+
+.xg_pane td.spacer {
+    padding: 0;
+    width: 12px;
+}
+
+/* ########################################################### */
+
+table.xg_pane_B {
+    color: black;
+    background-color: white;
+    border: 1px solid #D0D0D0;
+}
+
+.xg_pane_B td,
+.xg_pane_B th {
+    font-size: 11px;
+    font-weight: normal;
+    text-align: left;
+    vertical-align: top;
+    padding: 2px 4px 2px 3px;
+}
+
+.xg_pane_B th{
+    text-align: right;
+    background-color: #f4f2f2;
+    border-left: 1px solid white;
+    border-top: 1px solid white;
+    border-right: 2px solid #cecccc;
+    /*white-space: nowrap;*/
+}
+
+.xg_pane_B td{
+    padding: 3px 3px 1px 3px;
+}
+
+.xg_pane_B td.spacer {
+    padding: 0;
+    width: 12px;
+}
+
+.prohlizeniEntitaFormMain .xg_pane td,
+.prohlizeniEntitaFormMain .xg_pane th {
+    vertical-align: middle;
+}
+/* ################################################################################################################## */
+/* ################################################################################################################## */
+/* ################################################################################################################## */
+
+
+/* CSS pro klasickou stagovskou tabulku (ma to vypadat jako tabulka)...*/
+table.xg_tab,
+table.xg_tab_c,
+table.xg_tab_S,
+table.xg_tab_c_S {
+    border-collapse: collapse;
+    background-color: white;
+    padding: 0;
+    margin: 0;
+    border: 0;
+    color: black;
+}
+
+/* pro vsechny TH a TD tabulky xg_tab */
+.xg_tab th,
+.xg_tab td,
+.xg_tab_c th,
+.xg_tab_c td,
+.xg_tab_S th,
+.xg_tab_S td,
+.xg_tab_c_S th,
+.xg_tab_c_S td {
+    font-weight: normal;
+    font-size: 10px;
+    padding: 1px 3px 1px 3px;
+    margin: 0;
+    text-align: left;
+    border: 1px solid #dbd9d9;
+    vertical-align: middle;
+}
+.xg_tab_c th,
+.xg_tab_c td,
+.xg_tab_c_S th,
+.xg_tab_c_S td {
+    text-align: center;
+}
+
+.xg_tab th,
+.xg_tab td,
+.xg_tab_c th,
+.xg_tab_c td {
+    padding: 1px 4px 2px 5px;
+    font-size: 11px;
+}
+
+/* pouze pro TABLE HEADER tabulky xg_tab_S */
+.xg_tab th,
+.xg_tab_c th,
+.xg_tab_S th,
+.xg_tab_c_S th {
+    padding: 2px 3px 2px 3px;
+    font-weight: bold;
+    /*white-space: nowrap;*/
+    color: #585858;
+    background: #e8e8e8 linear-gradient(#e8e8e8 0px, #d8d8d8 8px, #e8e8e8 20px);
+    border: 1px solid #d8d8d8;
+    border-bottom: none;
+}
+
+.prohlizeniEntitaSearched .xg_tab th, .prohlizeniEntitaSearched .xg_tab_S th {
+  border-top: 1px solid #fff;
+}
+
+.prohlizeniEntitaSearched .xg_tab th:first-child, .prohlizeniEntitaSearched .xg_tab_S th:first-child,
+.prohlizeniEntitaSearched .xg_tab td:first-child, .prohlizeniEntitaSearched .xg_tab_S td:first-child  {
+  border-left: 1px solid #fff;
+}
+
+.prohlizeniEntitaSearched .xg_tab th:last-child, .prohlizeniEntitaSearched .xg_tab_S th:last-child,
+.prohlizeniEntitaSearched .xg_tab td:last-child, .prohlizeniEntitaSearched .xg_tab_S td:last-child  {
+  border-right: 1px solid #fff;
+}
+
+/* pouze pro INFO uvnitr TABLE HEADER tabulky xg_tab */
+.xg_tab th span.info,
+.xg_tab_c th span.info,
+.xg_tab_S th span.info,
+.xg_tab_c_S th span.info {
+  font-weight: normal;
+  white-space: normal;
+  font-size: 10px;
+  color: #777777;
+}
+
+/* ZEBRA - pro vsechny elementy oznacene v xg_tab tridou zebra (zebra se prirazuje elementum TR pri stripovani tablesortem) */
+/* hovadsky pro kazdou variantu zvlast - nelze sloucit, Opera SUXXX */
+.xg_tab .zebra {
+    background-color: #f4f2f2;
+}
+.xg_tab_c .zebra {
+    background-color: #f4f2f2;
+}
+.xg_tab_S .zebra {
+    background-color: #f4f2f2;
+}
+.xg_tab_c_S .zebra {
+    background-color: #f4f2f2;
+}
+
+/* By Konzerva: Radky tabulky, ktere chci mit zvyraznene, konkretne napr. semestralky, ktere uz ucitel nekdy stahnul.
+ Je tedy class 'highlighted' a 'zebrahighlighted' */
+/* hovadsky pro kazdou variantu zvlast - nelze sloucit, Opera SUXXX */
+.xg_tab tr.highlighted {
+    background-color: #ffffe0;
+    color: #700000;
+}
+.xg_tab_c tr.highlighted {
+    background-color: #ffffe0;
+    color: #700000;
+}
+.xg_tab_S tr.highlighted {
+    background-color: #ffffe0;
+    color: #700000;
+}
+.xg_tab_c_S tr.highlighted {
+    background-color: #ffffe0;
+    color: #700000;
+}
+.xg_tab .zebrahighlighted {
+    background-color: #f4f2d2;
+    color: #500000;
+}
+.xg_tab_c .zebrahighlighted {
+    background-color: #f4f2d2;
+    color: #500000;
+}
+.xg_tab_S .zebrahighlighted {
+    background-color: #f4f2d2;
+    color: #500000;
+}
+.xg_tab_c_S .zebrahighlighted {
+    background-color: #f4f2d2;
+    color: #500000;
+}
+
+/* pouze pro TFOOTovane TD sortovaci tabulky */
+/* POZOR-PORADI !!! definovat az po ".xg_tab td" !!! */
+td.total {
+    background: transparent url('xg_tab_S_th_bcg_nosort.png') no-repeat top left;
+    padding-top: 1px;
+    font-weight: bold;
+}
+
+/* obecne pro A uvnitr TH tabulky xg_tab */
+.xg_tab th a,
+.xg_tab th a:hover,
+.xg_tab th a:visited,
+.xg_tab th a:active,
+.xg_tab_S th a,
+.xg_tab_S th a:hover,
+.xg_tab_S th a:visited,
+.xg_tab_S th a:active,
+.xg_tab_c th a,
+.xg_tab_c th a:hover,
+.xg_tab_c th a:visited,
+.xg_tab_c th a:active,
+.xg_tab_c_S th a,
+.xg_tab_c_S th a:hover,
+.xg_tab_c_S th a:visited,
+.xg_tab_c_S th a:active {
+    color: #606060;
+    text-decoration: none;
+    /*outline: 0;*/
+}
+
+.xg_tab th a:hover,
+.xg_tab_c th a:hover,
+.xg_tab_S th a:hover,
+.xg_tab_c_S th a:hover {
+    color: #858585;
+    text-decoration: underline;
+}
+
+/* specialne pro A uvnitr sortovatelneho TH tabulky xg_tab */
+.xg_tab .sortable, .xg_tab .sortable,
+.xg_tab .sortable-text,
+.xg_tab .sortable-localeText,
+.xg_tab .sortable-date,
+.xg_tab .sortable-keep,
+.xg_tab .sortable-date-dmy,
+.xg_tab .sortable-datetime-dmyhms,
+.xg_tab .sortable-numeric,
+.xg_tab .sortable-currency,
+.xg_tab .sortable-sortByTwelveHourTimestamp,
+.xg_tab .sortable-sortIPAddress,
+.xg_tab .sortable-sortEnglishLonghandDateFormat,
+.xg_tab .sortable-sortScientificNotation,
+.xg_tab .sortable-sortImage,
+.xg_tab .sortable-sortFileSize,
+.xg_tab .sortable-textInSpan,
+.xg_tab .sortable-localeTextInSpan,
+.xg_tab .sortable-numberInSpan,
+.xg_tab_c .sortable,
+.xg_tab_c .sortable-text,
+.xg_tab_c .sortable-localeText,
+.xg_tab_c .sortable-date,
+.xg_tab_c .sortable-keep,
+.xg_tab_c .sortable-date-dmy,
+.xg_tab_c .sortable-datetime-dmyhms,
+.xg_tab_c .sortable-numeric,
+.xg_tab_c .sortable-currency,
+.xg_tab_c .sortable-sortByTwelveHourTimestamp,
+.xg_tab_c .sortable-sortIPAddress,
+.xg_tab_c .sortable-sortEnglishLonghandDateFormat,
+.xg_tab_c .sortable-sortScientificNotation,
+.xg_tab_c .sortable-sortImage,
+.xg_tab_c .sortable-sortFileSize,
+.xg_tab_c .sortable-textInSpan,
+.xg_tab_c .sortable-localeTextInSpan,
+.xg_tab_c .sortable-numberInSpan,
+.xg_tab_S .sortable,
+.xg_tab_S .sortable-text,
+.xg_tab_S .sortable-localeText,
+.xg_tab_S .sortable-date,
+.xg_tab_S .sortable-keep,
+.xg_tab_S .sortable-date-dmy,
+.xg_tab_S .sortable-datetime-dmyhms,
+.xg_tab_S .sortable-numeric,
+.xg_tab_S .sortable-currency,
+.xg_tab_S .sortable-sortByTwelveHourTimestamp,
+.xg_tab_S .sortable-sortIPAddress,
+.xg_tab_S .sortable-sortEnglishLonghandDateFormat,
+.xg_tab_S .sortable-sortScientificNotation,
+.xg_tab_S .sortable-sortImage,
+.xg_tab_S .sortable-sortFileSize,
+.xg_tab_S .sortable-textInSpan,
+.xg_tab_S .sortable-localeTextInSpan,
+.xg_tab_S .sortable-numberInSpan,
+.xg_tab_c_S .sortable,
+.xg_tab_c_S .sortable-text,
+.xg_tab_c_S .sortable-localeText,
+.xg_tab_c_S .sortable-date,
+.xg_tab_c_S .sortable-keep,
+.xg_tab_c_S .sortable-date-dmy,
+.xg_tab_c_S .sortable-datetime-dmyhms,
+.xg_tab_c_S .sortable-numeric,
+.xg_tab_c_S .sortable-currency,
+.xg_tab_c_S .sortable-sortByTwelveHourTimestamp,
+.xg_tab_c_S .sortable-sortIPAddress,
+.xg_tab_c_S .sortable-sortEnglishLonghandDateFormat,
+.xg_tab_c_S .sortable-sortScientificNotation,
+.xg_tab_c_S .sortable-sortImage,
+.xg_tab_c_S .sortable-sortFileSize,
+.xg_tab_c_S .sortable-textInSpan,
+.xg_tab_c_S .sortable-localeTextInSpan,
+.xg_tab_c_S .sortable-numberInSpan {
+    cursor:pointer;
+  background: #e8e8e8 url('xg_tab_S_th_sortable.png') no-repeat top left;
+  background-image: url('xg_tab_S_th_sortable.png'), linear-gradient(#e8e8e8 0, #d8d8d8 8px, #e8e8e8 20px);
+  padding-left: 17px;
+}
+/* dve sortovaci tabulky v sobe... ta vnitrni byla cela sediva, to nechceme*/
+.sortable .sortable {
+  background: none;
+  cursor: default;
+}
+
+/* TH aktualne razeneho sloupce UP */
+.xg_tab_S .forwardSort {
+    cursor:pointer;
+    background-image: url('xg_tab_S_th_u.png'), linear-gradient(#e8e8e8 0, #d8d8d8 8px, #e8e8e8 20px);
+    padding-left: 17px;
+}
+.xg_tab_c_S .forwardSort {
+    cursor:pointer;
+    background-image: url('xg_tab_S_th_u.png'), linear-gradient(#e8e8e8 0, #d8d8d8 8px, #e8e8e8 20px);
+    padding-left: 17px;
+}
+.xg_tab .forwardSort {
+    cursor:pointer;
+    background-image: url('xg_tab_S_th_u.png'), linear-gradient(#e8e8e8 0, #d8d8d8 8px, #e8e8e8 20px);
+    padding-left: 17px;
+}
+.xg_tab_c .forwardSort {
+    cursor:pointer;
+    background-image: url('xg_tab_S_th_u.png'), linear-gradient(#e8e8e8 0, #d8d8d8 8px, #e8e8e8 20px);
+    padding-left: 17px;
+}
+
+/* TH aktualne razeneho sloupce DOWN */
+.xg_tab_S .reverseSort {
+    cursor:pointer;
+    background-image: url('xg_tab_S_th_d.png'), linear-gradient(#e8e8e8 0, #d8d8d8 8px, #e8e8e8 20px);
+    padding-left: 17px;
+}
+.xg_tab .reverseSort {
+    cursor:pointer;
+    background-image: url('xg_tab_S_th_d.png'), linear-gradient(#e8e8e8 0, #d8d8d8 8px, #e8e8e8 20px);
+    padding-left: 17px;
+}
+
+/* TH aktualne razeneho sloupce DOWN */
+.xg_tab_c .reverseSort {
+    cursor:pointer;
+    background-image: url('xg_tab_S_th_d.png'), linear-gradient(#e8e8e8 0, #d8d8d8 8px, #e8e8e8 20px);
+    padding-left: 17px;
+}
+.xg_tab_c_S .reverseSort {
+    cursor:pointer;
+    background-image: url('xg_tab_S_th_d.png'), linear-gradient(#e8e8e8 0, #d8d8d8 8px, #e8e8e8 20px);
+    padding-left: 17px;
+}
+
+/* A uvnitr TH aktualne razeneho sloupce (UP i DOWN) */
+th.forwardSort a,
+th.reverseSort a,
+th.forwardSort a:hover,
+th.reverseSort a:hover,
+th.forwardSort a:visited,
+th.reverseSort a:visited,
+th.forwardSort a:active,
+th.reverseSort a:active {
+    color: black;
+    text-decoration: none;
+    /*outline: 0;*/
+}
+th.forwardSort a:hover,
+th.reverseSort a:hover {
+    color: #333333;
+}
+
+span.empty {
+  color: #828282;
+}
+
+tr.empty {
+    color: #828282;
+}
+
+div.xg_tab_empty {
+  font-size: 11px;
+  padding: 2px;
+  color: #575757;;
+}
+
+input.xg_calendar,
+input.xg_dohledavac {
+    border: none;
+    padding: 0;
+    margin: 0;
+    vertical-align: top;
+    cursor: pointer;
+    background-color:inherit;
+    width: 21px; height: 20px;
+    background-image: url('dohledavac_ico.gif');
+    _margin-top: 1px;
+}
+
+input.xg_calendar {
+    background-image: url('calendar_ico.png');
+}
+
+.xg_tab_c input.xg_calendar, .cy_pane input.xg_calendar {
+    background-image: url('calendar_ico_w.png');
+}
+
+div.xg_portletCoat {
+    /*margin: 0 0 0 4px;*/
+    padding: 0;
+    border: 1px solid #D0D0D0;
+    background-color: #F8F8F8;
+    font-size: 11px;
+}
+
+/* X3 added 28.2.09 - facelifting prohlizeni */
+/* tahle trida se PRIDAVA navic k xg_portletCoat */
+div.xg_portletCoat-noFrame {
+  background-color:#F8F8F8;
+  border: 1px solid #D0D0D0;
+  padding: 0;
+}
+
+/* X3 added 13.3.10 - facelifting studentInfo, specialni uprava xg_portletCoat pro student/ucitelInfo aby to nevypadalo jako portlwt ale zahlavi portalove stranky */
+/* tahle trida se PRIDAVA navic k xg_portletCoat */
+div.xg_portletCoat-noPortlet {
+    background-color: #CECE9C;
+    font-size: 11px;
+    font-weight: normal;
+    color: #333333;
+    /*white-space: nowrap;*/
+    padding-top:1px; /* experimentalne... */
+}
+
+div.xg_portletCoat-noPortlet-messages {
+}
+
+.st-uc-info2 {
+    margin-right: 2px;
+    margin-left: 2px;
+    /*white-space:nowrap;*/
+}
+.st-uc-info2 .fake-table-cell {
+  height: 100%;
+  vertical-align: middle;
+  padding: 0 5px;
+}
+.st-uc-info2 .right-border {
+  border-right: 2px solid #B4B48B;
+}
+.st-uc-info2 .bottom-border {
+  border-bottom: 2px solid #CECE9C;
+}
+.st-uc-info2 .user-info-content {
+    background-color: #E4E4C9;
+    padding-left: 5px;
+    border-right: none;
+}
+
+
+
+
+table.st-uc-info {
+    border-bottom: 2px solid #CECE9C;
+    margin-right: 2px;
+    margin-left: 2px;
+    /*white-space:nowrap;*/
+}
+
+table.st-uc-info th, table.st-uc-info2 th  {
+    padding: 0;
+    margin: 0;
+    font-weight: normal;
+    padding-right: 5px;
+    padding-left: 5px;
+    border-right: 2px solid #B4B48B;
+    /* kdyz tam neni odpocet sessiony, tak se to osklive smrsklo :/ */
+    min-height: 28px;
+}
+
+table.st-uc-info td {
+    padding: 0;
+    margin: 0;
+    background-color: #E4E4C9;
+    padding-left: 5px;
+}
+
+table.st-uc-info td input.text,
+table.st-uc-info td input.submit {
+    font-size: 11px;
+    font-weight: normal;
+}
+
+table.StudentInfoSubTab {
+    text-align: left;
+    font-size: 10px;
+    color: #666666;
+}
+
+table.StudentInfoSubTab td,
+table.StudentInfoSubTab th {
+    padding: 0;
+    margin: 0;
+    padding-right: 5px;
+    padding-left: 2px;
+}
+
+table.st-uc-info th.StudentInfoLeftMenuSelected {
+  background-color:#666535;
+  color: #FDFDE3;
+  font-weight:bold;
+}
+table.st-uc-info th.StudentInfoLeftMenuSpecial {
+    padding: 0;
+    margin: 0;
+}
+
+/* By Konzerva - v selectboxu UserInfo portletu pokud je role na dane strance neplatna */
+.userinfo_invalid_role {
+    color: #cc0033;
+    background-color: #ffe0e0;
+}
+
+.userinfo_jiz_nestudujici_role {
+    color: #cc02cc;
+    background-color: #f6e0ff;
+}
+
+.userinfo_valid_role {
+    color: #000000;
+    background-color: #ffffff;
+}
+
+.userinfo_prepnuta_role {
+    color: #0000ff;
+    background-color: #e0e0ff;
+}
+
+fieldset.xg_portletCoat {
+    margin: 0;
+    padding: 2px;
+    border: 1px solid #D0D0D0;
+    background-color: #F8F8F8;
+}
+
+span.xg_heading {
+    font-weight: normal;
+    font-size: 13px;
+    color: black;
+}
+
+span.xg_heading_L {
+    font-weight: bold;
+    font-size: 17px;
+    color: black;
+}
+
+.xg_text_S {
+    font-weight: normal;
+    font-size: 10px;
+    color: gray;
+    padding: 0;
+    margin: 0;
+}
+
+.xg_portletCoat .submit {
+    font-size: 11px;
+    color: black;
+}
+
+/* ----------------- nova implementace server messages divu --------------------- */
+/* ----------------- puvodni xgT verze by to chtelo overit a smazat... ----------- */
+/* DIVY obsahujici hlasky vyhozene serverem pri zpracovani udalosti... */
+div.xg_msgFromServerInfo,
+div.xg_msgFromServerError,
+div.xg_msgFromServerWarning,
+div.xg_msgFromServerDefault {
+    font-weight: normal;
+    font-size: 11px;
+    color: black;
+    padding: 3px 2px 3px 24px;
+    margin-bottom: 2px;
+    white-space: normal;
+}
+
+/* DIV obsahujici hlasku vyhozenou serverem pri zpracovani udalosti - typ INFO */
+div.xg_msgFromServerInfo {
+    color: #5b7c68;
+    border: 1px solid #87bf8c;
+    background: #e4ffe2 url('msgFromServerInfoNew.png') no-repeat top left;
+}
+
+/* DIV obsahujici hlasku vyhozenou serverem pri zpracovani udalosti - typ ERROR */
+div.xg_msgFromServerError {
+    font-weight: bold;
+    color: #933016;
+    border: 1px solid #cc2a00;
+    background: #ffd9d0 url('msgFromServerErrorNew.png') no-repeat top left;
+}
+
+/* DIV obsahujici hlasku vyhozenou serverem pri zpracovani udalosti - typ WARNING */
+div.xg_msgFromServerWarning {
+    color: #7e6647;
+    border: 1px solid #c99233;
+    background: #fff4d0 url('msgFromServerWarningNew.png') no-repeat top left;
+}
+
+/* DIV obsahujici hlasku vyhozenou serverem pri zpracovani udalosti - typ DEFAULT (informativni, poznamka) */
+div.xg_msgFromServerDefault {
+    color: #5B6371;
+    border: 1px solid #b4d2ec;
+    background: #d9eafe url('msgFromServerDefaultNew.png') no-repeat top left;
+}
+
+div.xg_tab_coat {
+    padding: 3px 2px 0 2px;
+    _padding: 2px 2px 0 0;
+}
+
+div.xg_coat {
+    padding: 3px;
+}
+
+
+.xg_tab caption,
+.xg_tab_c caption,
+.xg_tab_S caption,
+.xg_tab_c_S caption {
+    font-weight: bold;
+    font-size: 11px;
+    color: black;
+    text-align: left;
+    padding: 0 0 3px 0;
+}
+
+.xg_tab_S caption,
+.xg_tab_c_S caption {
+    font-size: 11px;
+}
+
+span.td_bold_pointer {
+    font-weight: bold;
+    cursor: help;
+}
+
+table.xg_termHeadTab {
+    border-collapse: collapse;
+    background-color: #97c8e8;
+    border: 1px solid #005a96;
+    padding: 0;
+    margin: 0;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.xg_termHeadTab th,
+.xg_termHeadTab td {
+    font-weight: bold;
+    font-size: 11px;
+    vertical-align: middle;
+    text-align: center;
+    padding: 1px;
+    background: url('xg_termHead_back.png') left top repeat-x;
+    color: white;
+}
+
+.xg_termHeadTab td {
+    font-weight: normal;
+    background: url('xg_term_skupina.png') left top no-repeat;
+    color: #003c64;
+}
+
+/* Legenda ke stavu terminu, adept na zruseni (hledej .termin_legenda) */
+table.xg_termTab {
+    border-collapse: collapse;
+    background-color: #f2d997;
+    border: 1px solid #005a96;
+    padding:0;
+    margin: 3px 0 0 0;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.xg_termTab td {
+    font-weight: normal;
+    font-size: 11px;
+    vertical-align: middle;
+    text-align: center;
+    padding: 1px 2px;
+    background: url('xg_term_back.png') left top repeat-x;
+    color: #4c3700;
+    white-space: nowrap;
+}
+
+.xg_termTab td.blurred {
+    color: #828247;
+}
+
+.xg_termHeadTab a.xg_stag_a_det,
+.xg_termHeadTab a.xg_stag_a_det:active,
+.xg_termHeadTab a.xg_stag_a_det:visited {
+    color: #ffc600;
+}
+
+.xg_termHeadTab a.xg_stag_a_det:hover {
+    color: #ffdf6e;
+}
+
+table.xg_termTab_ra {
+    border-collapse: collapse;
+    background-color: #fdba99;
+    border: 1px solid #005a96;
+    padding:0;
+    margin: 3px 0 0 0;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.xg_termTab_ra td {
+    font-weight: normal;
+    font-size: 11px;
+    vertical-align: middle;
+    text-align: center;
+    padding: 1px 2px;
+    background: url('xg_term_ra_back.png') left top repeat-x;
+    color: #721f0f;
+    white-space: nowrap;
+}
+
+.xg_termTab_ra td.blurred {
+    color: #96452f;
+}
+
+table.xg_termTab_pr {
+    border-collapse: collapse;
+    background-color: #bbbbbb;
+    border: 1px solid #005a96;
+    padding:0;
+    margin: 3px 0 0 0;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.xg_termTab_pr td {
+    font-weight: normal;
+    font-size: 11px;
+    vertical-align: middle;
+    text-align: center;
+    padding: 1px 2px;
+    background: url('xg_term_pr_back.png') left top repeat-x;
+    color: #434343;
+    white-space: nowrap;
+}
+
+.xg_termTab_pr td.blurred {
+    color: #6b6b6b;
+}
+
+table.xg_termTab_bl {
+    border-collapse: collapse;
+    background-color: #99fdb8;
+    border: 1px solid #005a96;
+    padding:0;
+    margin: 3px 0 0 0;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.xg_termTab_bl td {
+    font-weight: normal;
+    font-size: 11px;
+    vertical-align: middle;
+    text-align: center;
+    padding: 1px 2px;
+    background: url('xg_term_bl_back.png') left top repeat-x;
+    color: #2c5943;
+    white-space: nowrap;
+}
+
+.xg_termTab_bl td.blurred {
+    color: #448a68;
+}
+
+input.legendaButton {
+    font-size: 10px;
+    font-weight: bold;
+    padding: 0;
+    margin: 0;
+    width: 58px;
+}
+
+#table_zadavani_znamek_hromadne td {
+    padding: 1px;
+}
+
+#table_zadavani_znamek_jednotlive td {
+    padding: 1px;
+}
+
+select.X_select,
+input.X_text {
+    font-size: 11px;
+    font-weight: normal;
+}
+
+td.znamkyMinuleHodnoceni {
+    background-color: #99fdb8;
+    color: #2c5943;
+}
+
+span.znamkyOmluvPokusy {
+    color: #e75a13;
+}
+
+div.xg_termZahlavi_mail,
+div.xg_termZahlavi_novySam,
+div.xg_termZahlavi_novyGrp,
+div.xg_termZahlavi_kopieSam,
+div.xg_termZahlavi_editSam {
+    font-weight: normal;
+    font-size: 11px;
+    color: black;
+    padding: 3px 2px 3px 30px;
+    margin-bottom: 2px;
+    border: 1px solid #2d435e;
+}
+
+div.xg_termZahlavi_mail {
+    background: #F8F8C3 url('/zdroje/images/stag/icons/term_mail_y.png') no-repeat 2px 2px;
+}
+
+div.xg_termZahlavi_novySam {
+    background: #F8F8C3 url('/zdroje/images/stag/icons/term_pridat_y.png') no-repeat 2px 2px;
+}
+
+div.xg_termZahlavi_novyGrp {
+    background: #F8F8C3 url('/zdroje/images/stag/icons/term_pridat_skup_y.png') no-repeat 2px 2px;
+    padding: 3px 2px 3px 45px;
+}
+
+div.xg_termZahlavi_kopieSam {
+    background: #F8F8C3 url('/zdroje/images/stag/icons/term_kopie_cz_y.png') no-repeat 2px 2px;
+    padding: 3px 2px 3px 55px;
+}
+
+div.xg_termZahlavi_editSam {
+    background: #F8F8C3 url('/zdroje/images/stag/icons/term_editovat_y.png') no-repeat 2px 2px;
+}
+
+span.xg_termZahlaviNadpis {
+    font-weight: bold;
+    font-size: 13px;
+}
+
+label.mandatory, label.required {
+    display: block;
+    background: url('mandatory.gif') center left no-repeat;
+    padding: 0 0 0 12px;
+    margin: 0;
+    border: none;
+}
+
+td.formLineC span.readonly,
+td.formLineT span.readonly,
+td.formTop span.readonly {
+    color: #666666;
+    background-color: #C3C3C3;
+    border: 1px solid #AAAAAA;
+}
+
+a.ico,
+a.ico:active,
+a.ico:visited,
+a.ico:hover {
+    text-decoration: none;
+    color: black;
+    font-size: 10px;
+}
+
+div.xg_naseptavac {
+    overflow:auto;
+    /*height:180px;*/
+    max-width:400px;
+    margin: 0;
+    border: 1px solid #aeab6e;
+    background-color: #fbfaea;
+}
+
+div.xg_naseptavac ul{
+    padding: 0 0 0 5px;
+    margin: 0;
+    background-color: white;
+    list-style: none;
+}
+
+div.xg_naseptavac li{
+    padding: 0;
+    margin: 0;
+}
+
+div.naseptavacHead {
+    padding: 2px 0 2px 20px;
+    color: #615f33;
+    font-size: 10px;
+    font-weight: bold;
+}
+
+div.naseptavacFoot {
+    padding: 2px 0 2px 2px;
+    color: #615f33;
+    font-size: 10px;
+    font-weight: normal;
+}
+.naseptavacDialog  {
+  background-color:	#FFFDCF;
+}
+.naseptavacDialog .ui-dialog-titlebar {
+  padding: 0 4px;
+  font-size: 10px;
+  height: 18px;
+}
+.naseptavacDialog .ui-dialog-content {
+  padding: 0;
+  margin-top: 3px;
+}
+.naseptavacDialog .ui-dialog-titlebar-close {
+  height: 17px;
+  right: -2px;
+  top: 10px;
+  width: 19px;
+}
+
+/* -------------------------------------------- CSS pro DC schema rozklikavace pro extended form v prohlizeni --------------------------------------------------- */
+div.prExtBut_DCHeading_i_off_d,
+div.prExtBut_DCHeading_i_on_d,
+div.prExtBut_DCHeading_a_off_d,
+div.prExtBut_DCHeading_a_on_d,
+div.prExtBut_DCHeading_a_on_l,
+div.prExtBut_DCHeading_a_off_l {
+    font-size: 10px;
+    font-weight: bold;
+    white-space: normal;
+    cursor: pointer;
+    padding: 2px;
+    color: #757575;
+    background-color: #c3c3c3;
+    border:  1px solid #c3c3c3;
+}
+
+div.prExtBut_DCHeading_a_off_l,
+div.prExtBut_DCHeading_a_on_l  {
+    color: #494949;
+    border:  1px solid #aaaaaa;
+}
+
+div.prExtBut_DCHeading_i_off_d,
+div.prExtBut_DCHeading_i_on_d  {
+    color: #808080;
+}
+/* EOF ----------------------------------------- CSS pro DC schema rozklikavace pro extended form v prohlizeni --------------------------------------------------- */
+
+/* -------------------------------------------- CSS pro DC schema rozklikavace pro main form v prohlizeni --------------------------------------------------- */
+div.prMainBut_DCHeading_i_off_d,
+div.prMainBut_DCHeading_i_on_d,
+div.prMainBut_DCHeading_a_off_d,
+div.prMainBut_DCHeading_a_on_d,
+div.prMainBut_DCHeading_a_on_l,
+div.prMainBut_DCHeading_a_off_l {
+    font-size: 10px;
+    font-weight: bold;
+    white-space: normal;
+    cursor: pointer;
+    padding-left: 2px;
+    padding-top: 1px;
+    color: #757575;
+    background-color: #b3b3b3;
+    border:  1px solid #aaaaaa;
+}
+
+div.prMainBut_DCHeading_a_off_l,
+div.prMainBut_DCHeading_a_on_l  {
+    color: #494949;
+}
+
+div.prMainBut_DCHeading_i_off_d,
+div.prMainBut_DCHeading_i_on_d  {
+    color: #808080;
+}
+
+/* EOF ----------------------------------------- CSS pro DC schema rozklikavace pro main form v prohlizeni --------------------------------------------------- */
+
+/* -------------------------------------------- TabPaneHeading IMG schematu rozklikavace pro extended form v prohlizeni --------------------------------------------------- */
+img.tph_img_prExtBut_ {
+    border: 0 solid black;
+    /*outline: 0;*/
+    vertical-align: middle;
+    width: 19px;
+    height: 19px;
+}
+
+div.tph_img_prExtBut_a_off_d,
+div.tph_img_prExtBut_a_off_l,
+div.tph_img_prExtBut_a_on_d,
+div.tph_img_prExtBut_a_on_l,
+div.tph_img_prExtBut_i_off_d,
+div.tph_img_prExtBut_i_off_l,
+div.tph_img_prExtBut_i_on_d,
+div.tph_img_prExtBut_i_on_l  {
+    padding: 0;
+    margin: 0 3px 0 0;
+    text-decoration: none;
+    /*outline: 0; */
+  /* @ Firefox, switch off dotted border, IE7 sux */
+    background: url("img_prExtBut.png") 0 0 no-repeat;
+    width: 19px;
+    display: inline;
+    font-size: 15px;
+}
+
+div.tph_img_prExtBut_a_off_d {
+    background-position: 0 0;
+}
+div.tph_img_prExtBut_a_off_l {
+    background-position: -19px 0;
+}
+div.tph_img_prExtBut_a_on_d {
+    background-position: -38px 0;
+}
+div.tph_img_prExtBut_a_on_l {
+    background-position: -57px 0;
+}
+div.tph_img_prExtBut_i_off_d {
+    background-position: -76px 0;
+}
+div.tph_img_prExtBut_i_off_l {
+    background-position: -95px 0;
+}
+div.tph_img_prExtBut_i_on_d {
+    background-position: -114px 0;
+}
+div.tph_img_prExtBut_i_on_l {
+    background-position: -133px 0;
+}
+/* EOF ---------------------------------------- TabPaneHeading IMG schematu rozklikavace pro extended form v prohlizeni --------------------------------------------------- */
+
+/* -------------------------------------------- TabPaneHeading IMG schematu rozklikavace pro main form v prohlizeni --------------------------------------------------- */
+img.tph_img_prMainBut_ {
+    border: 0 solid black;
+    /*outline: 0;*/
+    vertical-align: middle;
+    width: 19px;
+    height: 19px;
+}
+
+div.tph_img_prMainBut_a_off_d,
+div.tph_img_prMainBut_a_off_l,
+div.tph_img_prMainBut_a_on_d,
+div.tph_img_prMainBut_a_on_l,
+div.tph_img_prMainBut_i_off_d,
+div.tph_img_prMainBut_i_off_l,
+div.tph_img_prMainBut_i_on_d,
+div.tph_img_prMainBut_i_on_l  {
+    padding: 0;
+    margin: 0 3px 0 0;
+    text-decoration: none;
+    /*outline: 0; */
+  /* @ Firefox, switch off dotted border, IE7 sux */
+    background: url("img_prMainBut.png") 0 0 no-repeat;
+    width: 19px;
+    display: inline;
+    font-size: 15px;
+}
+
+div.tph_img_prMainBut_a_off_d {
+    background-position: 0 0;
+}
+div.tph_img_prMainBut_a_off_l {
+    background-position: -19px 0;
+}
+div.tph_img_prMainBut_a_on_d {
+    background-position: -38px 0;
+}
+div.tph_img_prMainBut_a_on_l {
+    background-position: -57px 0;
+}
+div.tph_img_prMainBut_i_off_d {
+    background-position: -76px 0;
+}
+div.tph_img_prMainBut_i_off_l {
+    background-position: -95px 0;
+}
+div.tph_img_prMainBut_i_on_d {
+    background-position: -114px 0;
+}
+div.tph_img_prMainBut_i_on_l {
+    background-position: -133px 0;
+}
+/* EOF ---------------------------------------- TabPaneHeading IMG schematu rozklikavace pro main form v prohlizeni --------------------------------------------------- */
+
+span.small_white_span {
+    font-size: 10px;
+    font-weight: normal;
+    white-space: normal;
+    color: black;
+}
+
+img.xg_icon,
+img.xg_icon_str,
+img.xg_icon_str_legend,
+img.xg_icon_tool,
+img.xg_icon_legend,
+img.xg_icon_top {
+    border: none;
+    padding: 0;
+    margin: 0;
+    vertical-align: middle;
+    cursor: pointer;
+}
+
+img.xg_icon_top {
+    vertical-align: top;
+    margin: 2px;
+}
+
+img.xg_icon_tool {
+    cursor: help;
+}
+
+img.xg_icon_legend {
+    cursor: default;
+}
+
+img.xg_icon_str {
+    vertical-align: top;
+}
+
+img.xg_icon_str_legend {
+    vertical-align: top;
+    cursor: default;
+}
+
+/* radioButton - v MSIE je dost velky, W a H na 1.1em to umi pripodobnit FF */
+input.xg_inputRadio {
+    height:  1.1em;
+    padding: 0;
+    margin:  0;
+    margin-top:  1px;
+}
+
+
+.xg_tooltip {
+    background: url('bubble_yellow.gif') center right no-repeat;
+    padding: 0 12px 0 0;
+    cursor: help;
+}
+
+.xg_tooltip_left {
+    background: url('bubble_yellow_left.gif') center left no-repeat;
+    padding: 0 0 0 14px;
+    cursor: help;
+}
+/* tooltipy zobrazovat jen na desktopu */
+@media screen and (max-width: 768px){
+    label span.xg_tooltip,  label span.xg_tooltip_left {
+        background: inherit;
+        padding: 0;
+    }
+}
+
+
+/*######################################################################################################################*/
+/*  CSS pro tabPages ###################################################################################################*/
+/*######################################################################################################################*/
+
+/* div obalujici celou TAB_PANE   */
+div.xgt_tab_pages_coating {
+/*  position: relative;  zakomentovano kvuli bugu se zobrazenim vnoreneho formu s label - snad to nic neudela... */
+    margin: 0;
+    padding: 0;
+    border: 0;
+/*    background-color: #F2F2F2;*/
+}
+
+/* toto je formatovaci tabulkapro TP, neplest s xgt_notable_(X)*/
+table.xgt_tp_table {
+  font-weight: normal;
+  font-size: 10px;
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+/* ------ CSS Schema stag pro tabPages ----------------------------------------------------------------------------------*/
+/* ------ CSS Schema stag pro tabPages ----------------------------------------------------------------------------------*/
+/* ------ CSS Schema stag pro tabPages ----------------------------------------------------------------------------------*/
+
+/* pozadi TABPANES - OBALUJICI TD */
+td.stag_tab_pages_background {
+    text-align:  left;
+    vertical-align: top;
+    padding:     0;
+    border:      1px solid #494949;
+    border-top:  30px;
+}
+
+/* ---------------------------------------- PANE CONTENT ---------------------------------------------------------------*/
+
+/* spolecne pro page_content a page_content_selected */
+div.stag_tab_page_content_selected,
+div.stag_tab_page_content {
+         padding:  2px;
+         top:      0;
+}
+
+/* nastaveni divu page_off */
+div.stag_tab_page_content_selected {
+    display: block;
+}
+
+/* nastaveni divu page_on */
+div.stag_tab_page_content {
+    display: none;
+}
+
+/* ----------------------------------------- PANE HEADING --------------------------------------------------------------*/
+
+/* nastaveni TD konce strankovace pages, - pouze pokud je potreba, aby byla sirka stranek vetsi nezli strankovace
+ * verze _100 roztahuje ending TP a tim i celou komponentu na 100, 25 na 25%
+ */
+td.stag_tab_page_heading_ending,
+td.stag_tab_page_heading_ending_25,
+td.stag_tab_page_heading_ending_100 {
+    border:             0;
+/*    border-bottom:      1px solid #1d4b6e;*/
+}
+td.stag_tab_page_heading_ending_100 {
+    width:              100%;
+}
+td.stag_tab_page_heading_ending_25 {
+    width:              25%;
+}
+
+/* Obecne nastaveni pro HEADING TP
+ * ( 1. zalozka MA LEFT BORDER, proto pripona "_1" ostatni zalozky NEMAJI LEFT BORDER )
+ */
+.stag_tab_page_heading_selected_1,
+.stag_tab_page_heading_selected,
+.stag_tab_page_heading_1,
+.stag_tab_page_heading,
+.stag_tab_page_heading_enlighted_1,
+.stag_tab_page_heading_enlighted,
+.stag_tab_page_heading_inactive_1,
+.stag_tab_page_heading_inactive {
+    font-size: 11px;
+    font-weight: bold;
+    padding: 2px 6px 2px 6px;
+    background-color: #f4f2f2;
+    border-top: 1px solid #cecccc;
+    border-left: 1px solid #cecccc;
+    border-right: 1px solid #cecccc;
+    /*white-space:        nowrap;*/
+    text-align:         left;
+    cursor:             default;
+    /*outline: 0; */
+  /* @ Firefox, switch off dotted border, IE7 sux */
+}
+.b td.stag_tab_page_heading_selected_1, .b td.stag_tab_page_heading_selected, .b td.stag_tab_page_heading_1, .b td.stag_tab_page_heading, .b td.stag_tab_page_heading_enlighted_1, .b td.stag_tab_page_heading_enlighted, .b td.stag_tab_page_heading_inactive_1 {
+  padding: 2px 6px 2px 6px;
+}
+
+/* renesance tab pages pres divy a spany v bootstrap prostredi */
+div.xgt_tp_table {
+  /*margin-bottom: 2px;*/
+}
+div.xgt_tp_table span:first-child {
+  margin-left: 2px;
+}
+
+/* nastaveni TD zahlavi page_heading_selected - prave vybrana stranka */
+.stag_tab_page_heading_selected_1,
+.stag_tab_page_heading_selected {
+    color: white;
+    background-color: #494949;
+    border-top: 1px solid #494949;
+    border-left: 1px solid #494949;
+    border-right: 1px solid #494949;
+}
+
+/* nastaveni TD zahlavi page_heading - nevybrana aktivni stranka */
+.stag_tab_page_heading_1,
+.stag_tab_page_heading {
+    text-decoration: underline;
+    color: #0151ac;
+    cursor:             pointer;
+}
+
+/* nastaveni TD zahlavi page_heading_enlighted - podsvicene onMouseOver zahlavi */
+.stag_tab_page_heading_enlighted_1,
+.stag_tab_page_heading_enlighted {
+    text-decoration: underline;
+    color: #3671b4;
+    background-color: #F8F6F6;
+    cursor:             pointer;
+}
+
+/* nastaveni TD zahlavi page_heading_inactive - neaktivni zahlavi*/
+.stag_tab_page_heading_inactive_1,
+.stag_tab_page_heading_inactive {
+    color:              #777777;
+    background-color: #494949;
+    border-top: 1px solid #494949;
+    border-left: 1px solid #494949;
+    border-right: 1px solid #494949;
+}
+
+table.xg_menu_tab th,
+table.xg_menu_tab td.m_selected,
+table.xg_menu_tab td.m_last,
+table.xg_menu_tab td {
+  border-left: 1px solid #d0d0d0;
+  border-right: 1px solid #aaaaaa;
+  border-top: 1px solid #d0d0d0;
+  border-bottom: 1px solid #aaaaaa;
+
+  font-size: 11px;
+  padding: 1px 2px 2px 12px;
+  background-color: #c3c3c3;
+  color: black;
+
+  font-weight: bold;
+  margin: 0;
+  text-align: left;
+  vertical-align: middle;
+  white-space: nowrap;
+/*    border-left: 1px solid #d0d0d0;
+    border-right: 1px solid #aaaaaa;
+    border-top: 1px solid #d0d0d0;
+    border-bottom: 1px solid #aaaaaa;
+*/
+}
+
+table.xg_menu_tab a.xg_stag_a_det,
+table.xg_menu_tab a.xg_stag_a_det:hover,
+table.xg_menu_tab a.xg_stag_a_det:active,
+table.xg_menu_tab a.xg_stag_a_det:visited {
+  color: #3671B4;
+  font-size: 11px;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+table.xg_menu_tab td {
+  background: #c3c3c3 url('/zdroje/images/stag/icons/carney_the_nonradioactive.gif') no-repeat center left;
+}
+
+table.xg_menu_tab td.m_selected {
+    border-top: none;
+    border-bottom: none;
+  background: #dbd9d9 url('/zdroje/images/stag/icons/carney_the_radioactive.gif') no-repeat center left;
+}
+
+table.xg_menu_tab td.m_last {
+  background: #c3c3c3;
+}
+
+table.xg_menu_tab th {
+  color: white;
+  padding: 5px 6px 6px 6px;
+  background-color: #494949;
+  border: none;
+  border-right: 1px solid #494949;
+}
+
+table.xg_titulka {
+    padding: 0;
+    margin: 0;
+    border: 0;
+}
+
+table.xg_titulka td.left,
+table.xg_titulka td.right {
+    font-weight: normal;
+    font-size: 10px;
+    color: #8d8c8c;
+    text-align: center;
+    vertical-align: top;
+
+  background-color: #f8f8f8;
+}
+
+table.xg_titulka td.left {
+    text-align: left;
+    background: #FFFFFF url('/zdroje/images/stag/icons/titulkaIcoBack.png') no-repeat top left;
+    padding: 0 10px 0 50px;
+}
+
+table.xg_titulka td.right {
+    text-align: right;
+    background: #FFFFFF url('/zdroje/images/stag/icons/titulkaIcoBack.png') no-repeat top right;
+    padding: 0 50px 0 10px;
+}
+
+span.span_titulka {
+    font-weight: bold;
+    font-size: 17px;
+    color: #494949;
+}
+
+a.xg_stag_a_titulka,
+a.xg_stag_a_titulka:visited,
+a.xg_stag_a_titulka:active {
+    text-decoration: none;
+    color: #0151ac;
+}
+
+a.xg_stag_a_titulka:hover {
+    color: #3671b4;
+}
+
+
+/* -------------- Konzervuv validator - nekolik classu, ktere pouziva -------------- */
+
+.pv_input_as_chosen {
+    font-size: 13px !important;
+    padding:4px !important;
+    border: 1px solid #aaa;
+    border-radius: 5px;
+}
+
+/* Tenhle class maji vsechny popisky polozek formulare */
+.pv_field_caption {
+
+}
+
+/* tenhle class maji popisky polozek formulare, ktere jsou disabled */
+.pv_field_caption_disabled {
+    color: #808080;
+}
+
+/* tenhle class maji prvky formulare, ktere jsou disabled - tyka se to pouze checkboxu, ty jsou totiz udelany specialne kdyz jsou disabled */
+.pv_check_disabled {
+    color: #808080;
+}
+
+/* DIV, do ktereho se zapisuji chybove hlasky */
+.pv_form_error_div {
+    margin: 2pt;
+}
+
+span.pv_required_field {
+    margin-left: 3px;
+    color: #ff0000;
+    font-weight: bold;
+}
+
+/* takhle jsem oznaceny spany obsahuji nazvy polozke s chybou - tyhle spany jsou uvnitr form_error divu */
+.pv_form_error_div_fieldname {
+    /*font-weight: bolder;*/
+    color: #ff3030;
+}
+
+/* takhle jsou oznaceny input boxy policek formulare, ve kterych nastala chyba */
+label span.pv_field_input_error {
+    border: 0px !important;
+    color: #FF2020 !important;
+    font-weight: bolder;
+}
+.pv_field_input_error {
+    border: 2px solid #FF2020 !important;
+}
+
+.pv_odev_vice {
+    padding-left: 3pt;
+    font-size: 10px;
+}
+
+/* Konzerva - upravy pro komponentu chosen */
+.chosen-container .chosen-drop {
+    width: auto !important;
+    max-width: 600px !important;
+}
+
+.chosen-container .search-choice .group-name, .chosen-container .chosen-single .group-name, .chosen-single span {
+    font-weight: normal !important;
+}
+
+.chosen-container-multi .chosen-choices li.search-field input[type="text"] {
+    height: 20px !important;
+}
+
+.chosen-container-multi .chosen-choices li.search-choice {
+    margin: 1px 5px 1px 0 !important;
+}
+
+.chosen-container-single .chosen-single input[type="text"] {
+    cursor: pointer;
+    opacity: 0;
+    position: absolute;
+}
+
+ul.lightbox {
+    background-color: white;
+    padding: 0 5px 5px 30px;
+    margin: 10px;
+    list-style: disc url('selected_row_ico.gif');
+    font-size: 11px;
+}
+
+ul.lightbox li {
+    padding-top: 0;
+    padding-bottom: 5px;
+}
+
+/* MSIE SUX - tohle je nutno pouzit pro samotna zahlavi mimo tabpages menu (span misto div, stejna trida)... jinak v MSIE problemy... */
+span.prohlizeniEntitaSubdetailTabSelected {
+    font-size: 11px;
+    font-weight: bold;
+    padding: 2px 6px 2px 6px;
+    color: white;
+    background-color: #494949;
+    border-top: 1px solid #494949;
+    border-left: 1px solid #494949;
+    border-right: 1px solid #494949;
+}
+
+.xg_portletCoat h3 {
+    font-size: 14px;
+    margin-bottom: 0.5em;
+    margin-top: 0.5em;
+}
+.xg_portletCoat h4 {
+    font-size: 13px;
+    margin-bottom: 0.5em;
+    margin-top: 0.5em;
+}
+.xg_portletCoat h5, h6 {
+    /* mensi uz to delat nebudeme */
+    font-size: 12px;
+    margin-bottom: 0.5em;
+    margin-top: 0.5em;
+}
+
+.xg_tab_c_S td div.body_top {
+    clear: left;
+    text-align: left;
+    border-top: 1px solid #DBD9D9;
+    font-weight: normal;
+    white-space: normal;
+    color: #656565;
+}
+
+.xg_tab_c_S td div.body {
+    font-weight: normal;
+    white-space: normal;
+    float: left;
+    border-right: 1px solid #DBD9D9;
+}
+
+.xg_tab_c_S th div.head {
+    float: left;
+    border-right: 1px solid #fbfbfb;
+}
+
+span.info {
+    font-weight: normal;
+    white-space: normal;
+    font-size: 10px;
+    color: #656565;
+}
+
+span.bigger {
+    font-weight: bold;
+    font-size: 11px;
+}
+
+/*######################################################################################################################*/
+/*  CSS pro DownClick ###################################################################################################*/
+/*######################################################################################################################*/
+
+/* ------ CSS Schema ss2 pro DownClick(Group)---------------------------------------------------------------------------*/
+/* ------ CSS Schema ss2 pro DownClick(Group)---------------------------------------------------------------------------*/
+/* ------ CSS Schema ss2 pro DownClick(Group)---------------------------------------------------------------------------*/
+
+/* spolecne nastaveni DC(G) heading */
+div.ss2_DCHeading_i_off_d,
+div.ss2_DCHeading_i_on_d,
+div.ss2_DCHeading_a_off_d,
+div.ss2_DCHeading_a_on_d,
+div.ss2_DCHeading_a_on_l,
+div.ss2_DCHeading_a_off_l  {
+    font-weight: bold;
+    font-size:   10px;
+    white-space: normal;
+    text-align:  left;
+    padding:     2px 2px 2px 2px;
+    cursor:      default;
+    border:      1px solid #CECCCC;
+}
+
+/* nastaveni DIVu zahlavi DC(G) - rozkliknute zahlavi NORMALNI + ENLIGHTED (ONMOUSEOVER) */
+div.ss2_DCHeading_a_on_d {
+    color:              white;
+    background-color:   #494949;
+}
+
+/* nastaveni DIVu zahlavi DC(G) - nerozkliknute zahlavi ENLIGHTED (ONMOUSEOVER) */
+div.ss2_DCHeading_a_off_l,
+div.ss2_DCHeading_a_on_l {
+    text-decoration: underline;
+    color: #3671b4;
+    background-color: #F8F6F6;
+    cursor:             pointer;
+}
+
+/* nastaveni DIVu zahlavi DC(G) - nerozkliknute zahlavi */
+div.ss2_DCHeading_a_off_d {
+    text-decoration: underline;
+    color: #3671b4;
+    background-color:   #F4F2F2;
+    cursor:             pointer;
+}
+
+/* nastaveni DIVu zahlavi DC(G) - neaktivni zahlavi (rozkliknute i nerozkliknute) */
+div.ss2_DCHeading_i_off_d,
+div.ss2_DCHeading_i_on_d {
+    color:              #777777;
+    background-color:   #999999;
+    border:             1px solid #777777;
+}
+
+/* nastaveni DC(G) content pane */
+div.ss2_DCContent,
+div.ss2_DCContent_BG {
+    text-align:  left;
+    vertical-align: top;
+    padding:     2px;
+    border:      1px solid #494949;
+    border-top:  0;
+}
+
+div.ss2_DCContent_BG {
+    background-color: #F2F2F2;
+}
+
+/* nastaveni DIVu zahlavi DC(G) - rozkliknute zahlavi ENLIGHTED (ONMOUSEOVER) */
+div.ss2_DCHeading_a_on_l {
+    background-color: #494949;
+    color:              white;
+    text-decoration: none;
+}
+
+th.zpazk_tophead {
+    background-color: #494949;
+    color: white;
+    border-top: 2px solid gray;
+    border-left: 2px solid gray;
+    border-right: 0 solid gray;
+    text-align: left;
+    white-space: nowrap;
+}
+
+th.zpazk_medhead {
+    background: #C3C3C3 url('xg_tab_S_th_bcg_nosort.png') no-repeat left top;
+    color:black;
+    text-align: center;
+    border: 1px solid gray;
+    vertical-align:middle;
+}
+
+td.zpazk_bothead {
+    background: url('xg_tab_S_th_bcg_nosort.png') no-repeat left top;
+    color: black;
+    font-weight: bold;
+    text-align: left;
+    vertical-align:middle;
+    white-space: nowrap;
+    padding: 2px;
+    border-left: 2px solid gray;
+    border-right: 1px solid gray;
+    border-top: 2px solid gray;
+    border-bottom: 2px solid gray;
+}
+
+
+label.validation-failed {
+  display: block;
+  background: url('mandatory.gif')  no-repeat  left center;
+  padding-left: 13px;
+}
+
+input.validation-failed, textarea.validation-failed, select.validation-failed {
+	border: 3px solid #FF3300;
+	color : #FF3300;
+}
+input.validation-passed, textarea.validation-passed, select.validation-passed {
+	/*border: 1px solid #00CC00;
+	color : #000;*/
+}
+
+
+/* NEW styly pro EDIT REZIM */
+div.xg_portletEditCoat {
+    margin: 0;
+    padding: 2px;
+    border: 1px solid #1a5d80;
+    background-color: #f0f8fd;
+    font-size: 11px;
+}
+
+div.xg_portletEditCoat div.prohlizeniEntitaFormMain,
+div.xg_portletEditCoat div.prohlizeniEntitaFormExt {
+    background-color: #d6ecf7;
+    border: none;
+}
+
+div.xg_portletEditCoat form.prohlizeniEntitaFormMain{
+    border-left: 1px solid #e8f6fe;
+    border-top: 1px solid #e8f6fe;
+    border-right: 1px solid #bfdeee;
+    border-bottom: 1px solid #bfdeee;
+}
+
+div.xg_portletEditCoat div.prMainBut_DCHeading_i_off_d,
+div.xg_portletEditCoat div.prMainBut_DCHeading_i_on_d,
+div.xg_portletEditCoat div.prMainBut_DCHeading_a_off_d,
+div.xg_portletEditCoat div.prMainBut_DCHeading_a_on_d,
+div.xg_portletEditCoat div.prMainBut_DCHeading_a_on_l,
+div.xg_portletEditCoat div.prMainBut_DCHeading_a_off_l {
+    color: #0151ac;
+    font-size: 11px;
+    text-decoration: underline;
+    background-color: #D6ECF7;
+    border-bottom: 1px solid #bfdeee;
+    border-right:  1px solid #bfdeee;
+    border-top:    1px solid #e8f6fe;
+    border-left:   1px solid #e8f6fe;
+}
+
+div.xg_portletEditCoat div.prMainBut_DCHeading_a_on_l,
+div.xg_portletEditCoat div.prMainBut_DCHeading_a_off_l {
+    color: #4180c7;
+}
+
+div.xg_portletEditCoat div.tph_img_prMainBut_a_off_d,
+div.xg_portletEditCoat div.tph_img_prMainBut_a_off_l,
+div.xg_portletEditCoat div.tph_img_prMainBut_a_on_d,
+div.xg_portletEditCoat div.tph_img_prMainBut_a_on_l,
+div.xg_portletEditCoat div.tph_img_prMainBut_i_off_d,
+div.xg_portletEditCoat div.tph_img_prMainBut_i_off_l,
+div.xg_portletEditCoat div.tph_img_prMainBut_i_on_d,
+div.xg_portletEditCoat div.tph_img_prMainBut_i_on_l  {
+    background: url("img_prMainButEdit.png") 0 0 no-repeat;
+    margin: 0;
+    margin-bottom: 2px;
+}
+
+div.xg_portletEditCoat div.tph_img_prMainBut_a_off_d {
+    background-position: 0 0;
+}
+div.xg_portletEditCoat div.tph_img_prMainBut_a_off_l {
+    background-position: -19px 0;
+}
+div.xg_portletEditCoat div.tph_img_prMainBut_a_on_d {
+    background-position: -38px 0;
+}
+div.xg_portletEditCoat div.tph_img_prMainBut_a_on_l {
+    background-position: -57px 0;
+}
+div.xg_portletEditCoat div.tph_img_prMainBut_i_off_d {
+    background-position: -76px 0;
+}
+div.xg_portletEditCoat div.tph_img_prMainBut_i_off_l {
+    background-position: -95px 0;
+}
+div.xg_portletEditCoat div.tph_img_prMainBut_i_on_d {
+    background-position: -114px 0;
+}
+div.xg_portletEditCoat div.tph_img_prMainBut_i_on_l {
+    background-position: -133px 0;
+}
+
+/* -------------------------------------------- CSS pro RollOver ikony 31x21px--------------------------------------------------- */
+/* -------------------------------------------- CSS pro RollOver ikony 31x21px--------------------------------------------------- */
+/* -------------------------------------------- CSS pro RollOver ikony 31x21px--------------------------------------------------- */
+          div.xg_ro_31 {
+              width: 31px;
+              float: left;
+              margin: 0 2px 0 2px;
+              /* background: url("img_ro_pokus.gif") 0 0 no-repeat; toto se definuje az v html tagem style... */
+              background-repeat: no-repeat;
+              background-position: 0 0;
+          }
+
+          div.xg_ro_31 a {
+              display:block;
+              /*outline: 0;*/
+            /* @ Firefox, switch off dotted border, IE7 sux */
+              /* background: url("img_ro_pokus.gif") 0 0 no-repeat; toto se definuje az v html tagem style... */
+              background-repeat: no-repeat;
+              background-position: 0 0;
+              text-decoration: none;
+          }
+
+          div.xg_ro_31 a:hover {
+              background-position: -31px 0;
+          }
+
+          div.xg_ro_31 a img {
+              border: none;
+              /*outline: 0;*/
+            /* @ Firefox, switch off dotted border, IE7 sux */
+              vertical-align: text-top;
+              width: 31px;
+              height: 21px;
+          }
+
+/* -------------------------------------------- CSS pro RollOver ikony 21x21px--------------------------------------------------- */
+/* -------------------------------------------- CSS pro RollOver ikony 21x21px--------------------------------------------------- */
+/* -------------------------------------------- CSS pro RollOver ikony 21x21px--------------------------------------------------- */
+          div.xg_ro_21 {
+              width: 21px;
+              float: left;
+              margin: 0 2px 0 2px;
+              /* background: url("img_ro_pokus.gif") 0 0 no-repeat; toto se definuje az v html tagem style... */
+              background-repeat: no-repeat;
+              background-position: 0 0;
+          }
+
+          div.xg_ro_21 a {
+              display:block;
+              /*outline: 0;*/
+            /* @ Firefox, switch off dotted border, IE7 sux */
+              /* background: url("img_ro_pokus.gif") 0 0 no-repeat; toto se definuje az v html tagem style... */
+              background-repeat: no-repeat;
+              background-position: 0 0;
+              text-decoration: none;
+          }
+
+          div.xg_ro_21 a:hover {
+              background-position: -21px 0;
+          }
+
+          div.xg_ro_21 a img {
+              border: none;
+              /*outline: 0; */
+            /* @ Firefox, switch off dotted border, IE7 sux */
+              vertical-align: text-top;
+              width: 21px;
+              height: 21px;
+          }
+
+div.prohlizeniEntitaHead {
+    background-color: #494949;
+    min-height: 23px;
+    padding-top: 1px;
+}
+
+.prohlizeniEntitaHead_left {
+    float:left;
+    color: white;
+    font-size:17px;
+    font-weight:bold;
+}
+
+.prohlizeniEntitaHead_right {
+    float: right;
+    color: white;
+    font-size:11px;
+    font-weight:bold;
+}
+
+.prohlizeniEntitaHead_exp {
+    float: left;
+    padding-top: 4px;
+}
+
+.predzapisHelpDiv {
+    vertical-align: middle;
+    padding: 0 5px 1px 5px;
+}
+
+div.resizeGrippie { /* 'Grip', vec, za kterou se da zvetsovat vysledkova tabulka v (mimojine) prohlizeni */
+  background:#c3c3c3 url(grippie.png) no-repeat scroll center 2px;
+  border-left: 1px solid #d0d0d0;
+  border-top: 1px solid #d0d0d0;
+  border-right: 1px solid #aaaaaa;
+  border-bottom: 1px solid #aaaaaa;
+  cursor:s-resize;
+  height:9px;
+  overflow:hidden;
+  margin-top: 2px;
+}
+.resizeProcessed { /* JS zpracovane skrolovaci okynko */
+  overflow-y: scroll;
+}
+
+.resizable-textarea {
+  position: relative;
+}
+
+.xg_portletCoat fieldset {
+    border: 1px solid #DBD9D9;
+    padding: 3px;
+    margin: 0;
+}
+
+.xg_portletCoat legend {
+  padding: 2px 10px;
+  border: 1px solid #DBD9D9;
+  background-color: #F4F2F2;
+  margin-top: 2px;
+  _margin-top: 0;
+  _margin-bottom: 3px;
+}
+
+div.str_coat {
+    margin: 2px;
+    _margin: 2px 2px 3px 2px;
+    padding: 0;
+}
+
+span.str_page_act, span.str_page {
+    padding: 1px 2px;;
+}
+
+span.str_page_act {
+    background-color: #e8e7e7;
+    border: 1px solid #757575;
+    font-weight: bold;
+}
+
+fieldset.rozklik {
+    padding-bottom: 1px;
+    padding-top: 1px;
+    padding-left: 0;
+    margin-top: 2px;
+    background: white url('rozklikFieldsetBg.gif') repeat-x top left;
+    border: none;
+}
+
+fieldset.rozklik div {
+    padding-top: 3px;
+    padding-bottom: 3px;
+}
+
+fieldset.rozklik2 {
+    padding-bottom: 1px;
+    padding-top: 1px;
+    padding-left: 0;
+    margin-top: 2px;
+    background: white url('rozklikFieldsetBg.gif') repeat-x top left;
+    border: none;
+}
+
+fieldset.rozklik2 div {
+    padding-top: 0px;
+    padding-bottom: 1px;
+}
+
+legend.rozklik {
+    background: white url('rozklikBg_offx.gif') no-repeat 2px 0;
+    padding-left: 21px;
+    cursor: pointer;
+}
+
+td.grayback {
+    background-color: #F4F2F2;
+    border: 1px solid #DBD9D9;
+}
+
+span.dRed {
+    color: #a80000;
+}
+
+span.dGreen {
+    color: #006a00;
+}
+
+.rozklikInner {
+    border-bottom: 3px solid #494949;
+    border-left: 3px solid #494949;
+    margin-bottom: 11px;
+    margin-left: 11px;
+    padding-bottom: 9px;
+    padding-left: 9px;
+    padding-top: 9px;
+}
+
+/* JGROWL - msgFromServerInfoShort - maly OK zeleny, samomizici... */
+
+div.jGrowl div.msgFromServerInfoShort {
+    font-weight: normal;
+    font-size: 11px;
+}
+
+div.jGrowl div.msgFromServerInfoShort .jGrowl-message {
+    color: #2f5a24;
+    border: 1px solid #2f5a24;
+    background: #bae7ae url('msgFromServerInfo.png') no-repeat 2px 2px;
+    padding: 5px 5px 5px 25px;
+}
+
+div.jGrowl div.msgFromServerInfoShort .jGrowl-header {
+    font-weight: bold;
+    color: #bae7ae;
+    border: 1px solid #2f5a24;
+    background-color: #2f5a24;
+    padding: 2px;
+}
+
+div.jGrowl div.msgFromServerInfoShort .jGrowl-close {
+    padding-left: 2px;
+    padding-right: 2px;
+    background-color: #bae7ae;
+    color: #2f5a24;
+    border: 2px solid #2f5a24;
+}
+
+/* JGROWL - msgFromServerWarningShort - mel by byt vetsi, WARNING zluty, samomizici... */
+
+div.jGrowl div.msgFromServerWarningShort {
+    font-weight: normal;
+    font-size: 11px;
+}
+
+div.jGrowl div.msgFromServerWarningShort .jGrowl-message {
+    color: #725025;
+    border: 1px solid #725025;
+    background: #f3e4b0 url('msgFromServerWarning.png') no-repeat 2px 2px;
+    padding: 5px 5px 5px 25px;
+}
+
+div.jGrowl div.msgFromServerWarningShort .jGrowl-header {
+    font-weight: bold;
+    color: #f3e4b0;
+    border: 1px solid #725025;
+    background-color: #725025;
+    padding: 2px;
+}
+
+div.jGrowl div.msgFromServerWarningShort .jGrowl-close {
+    padding-left: 2px;
+    padding-right: 2px;
+    background-color: #f3e4b0;
+    color: #725025;
+    border: 2px solid #725025;
+}
+
+/* JGROWL - msgFromServerErrorShort - vetsi KO cerveny, STICKY BY MEL BYT!!! ERROROVE BY NEMELY VYT SAMOMIZICI!!! */
+
+div.jGrowl div.msgFromServerErrorShort {
+    font-weight: normal;
+    font-size: 11px;
+}
+
+div.jGrowl div.msgFromServerErrorShort .jGrowl-message {
+    font-weight: bold;
+    color: #fef4ae;
+    border: 1px solid #5e342d;
+    background: #ec3333 url('msgFromServerError.png') no-repeat 2px 2px;
+    padding: 5px 5px 5px 25px;
+}
+
+div.jGrowl div.msgFromServerErrorShort .jGrowl-header {
+    font-weight: bold;
+    color: #fef4ae;
+    border: 1px solid #5e342d;
+    background-color: #5e342d;
+    padding: 2px;
+}
+
+div.jGrowl div.msgFromServerErrorShort .jGrowl-close {
+    padding-left: 2px;
+    padding-right: 2px;
+    background-color: #ec3333;
+    color: #fef4ae;
+    border: 2px solid #5e342d;
+}
+
+span.prohlizeniEntitaSubdetailTabRozklik {
+    background:white url(rozklikAloneBg_offx.gif) no-repeat scroll left top;
+    _background:white url(rozklikAloneBg_offx.gif) no-repeat scroll left 1px;
+    border-color:#CECCCC;
+    border-style:solid;
+    border-width:2px 3px 2px 1px;
+    color:white;
+    font-size:11px;
+    font-weight:bold;
+    padding:2px 5px 1px 22px;
+    cursor:pointer;
+}
+
+div.prohlizeniEntitaSubdetailRozklikCoat {
+    background-color:white;
+    border-top:3px solid #CECCCC;
+    clear:both;
+    padding:0;
+}
+
+div.prohlizeniEntitaSubdetailRozklikCoat .rozklikInner {
+    border-bottom:3px solid #CECCCC;
+    border-left:3px solid #CECCCC;
+    border-right:3px solid #CECCCC;
+    margin-bottom:11px;
+    margin-left: 0;
+    padding-bottom:9px;
+    padding-left:9px;
+    padding-top:9px;
+}
+
+.red_alert {
+    color: red;
+    font-weight: bold;
+}
+
+div.specialBlock {
+    margin-top: 3px;
+    margin-bottom: 3px;
+}
+
+/* By Konzerva - pro stavy plateb studenta */
+.platby_stav_0 {  }
+.platby_stav_1 {  }
+.platby_stav_2 { background-color: #AAEEAA; }
+.platby_stav_3 { background-color: #FFAAAA; }
+.platby_stav_4 { background-color: #ffc077; }
+.platby_stav_5 { background-color: #9bddff; }
+.platby_stav_7 { background-color: #ffffc7; }
+
+/* By X3 exclusively for predzapis */
+div.predz-spec-01 {
+    margin-top: 15px;
+}
+
+div.predz-spec-01 a.xg_stag_a_det_tool,
+div.predz-spec-01 a.xg_stag_a_det_tool:active,
+div.predz-spec-01 a.xg_stag_a_det_tool:visited,
+div.predz-spec-01 a.xg_stag_a_det_tool:hover {
+    background:transparent url(tooltip.gif) no-repeat scroll right center;
+    padding:0 12px 0 0;
+    color: #0151AC;
+    font-size:11px;
+    font-weight:bold;
+    /*outline-style:none;*/
+    /*outline-width:0;*/
+    text-decoration:underline;
+    white-space:nowrap;
+}
+
+div.predz-spec-01 a.xg_stag_a_det_tool:hover {
+    color: #3671b4;
+}
+
+
+
+
+
+
+
+/* indikator vyprseni sessiony a jeji prodlouzeni - https://support.zcu.cz/index.php/U%C5%BEivatel:Carney/JSObnoveniSession */
+.sessionTimeoutBar {
+    border: 1px solid #333333;
+    /*height: 9px;*/
+    width: 80px;
+    background-color: #144218;
+    margin-top: 1px;
+}
+.sessionRemainingBar {
+  background-color: #12d123; height:9px;
+}
+.sessionRemainingBarWarning {
+  background-color: #FF0000; height:9px;
+}
+
+/* X3 31.8.09 nahrazka zcu_leftPaneCell z styles_zcu.jspf pro one-portlet-show s vlastnim menu vlevo [PROHLIZENI] */
+/* bude predefinovano v XGui_portalCustomization.css */
+div.like-zcu_leftPaneCell {
+  background: none;
+  /*height: 650px;*/
+}
+
+/* X3 31.8.09 CSS pro zalozky INIS&OBD */
+table.inisObd-frameTable {
+    background-color: #cece9c;
+}
+div.inisObd-leftMenuBarBack {
+    background: #CECE9C url(left_headline2.gif) no-repeat;
+}
+iframe.inisObd-iframe {
+    border: 1px solid #333333;
+}
+
+
+/* Emailovac revolution ;)  */
+.nowrap {
+  white-space:nowrap !important;
+}
+.wrapme {
+  white-space: normal !important;
+}
+table.wrapme * {
+  white-space: normal !important;
+}
+/* Neco jako soft nowrap... */
+.inline-block {
+  display: inline-block;
+}
+
+/* Strankovani */
+/* ############################################################################################################################################################################################### */
+.strankovani {
+  margin: 4px 0;
+}
+.strankovani img {
+  vertical-align: bottom;
+}
+.strankovani .stranka {
+}
+.strankovani .current {
+  background-color: #e8e7e7;
+  border: 1px solid #757575;
+  font-weight: bold;
+  padding: 0 1px;
+}
+
+
+
+/* Revo <strike>starts</strike> fails right over here */
+.cy_portletCoat {
+  margin: 0;
+  padding: 2px;
+  border: 1px solid #D0D0D0;
+  background-color: #F8F8F8;
+  /*font-size: 11px;*/
+}
+
+/* Defaultni barva odkazu... */
+.cy_portletCoat a {
+  color: #0151ac;
+  font-weight: bold;
+  /*font-size: 11px;*/
+}
+.cy_portletCoat a:hover {
+    color: #3671B4;
+}
+
+/* spolecne pro page_content a page_content_selected */
+div.stag_tab_page_content_selected,
+div.stag_tab_page_content {
+         padding:  2px;
+         top:      0;
+}
+
+/* nastaveni divu page_off */
+div.stag_tab_page_content_selected {
+    display: block;
+}
+
+/* nastaveni divu page_on */
+div.stag_tab_page_content {
+    display: none;
+}
+
+/* Necojakomenu - seznamem voleb a jedna oznacena jako aktualni */
+/* ############################################################################################################################################################################################### */
+ul.cy_localMenu {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+ul.cy_localMenu label {
+  font-weight: normal;
+}
+ul.cy_localMenu li.cy_listItemHeader {
+  background-image: none;
+  padding-left: 19px;
+  vertical-align:top;
+}
+
+ul.cy_localMenu li.current {
+  background: url("new-images/localMenuBullet-current.png") 0 0 no-repeat;
+}
+div.cy_localMenuItemContent {
+  padding: 4px 0;
+  margin-bottom: 2px;
+}
+
+/* Rozklikavaci seznam - seznam voleb, obsah te vybrane se zobrazeje uvnitr te rozkliknute (also known as acordion nebo harmonika :) */
+/* ############################################################################################################################################################################################### */
+ul.cy_rolloutsList {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+ul.cy_rolloutsList li, .cy_rolloutsList .cy_rolloutsListWrapper {
+  background: url("new-images/rolloutListBullet.png") left 2px no-repeat;
+  padding-left: 19px;
+  padding-bottom: 2px;
+  vertical-align:top;
+}
+div.cy_rolloutsHeader {
+  /*height: 14px;*/
+  padding-bottom: 2px;
+}
+div.cy_roulloutItemContent {
+  background-color: #f8f8f8;
+  border: 1px solid #dbd9d9;
+  padding: 6px;
+  margin-bottom: 6px;
+}
+
+/* Formulare prvky */
+/* ############################################################################################################################################################################################### */
+/* IE8 standards mode sucks */
+.cy_portletCoat form {
+padding:0;
+margin:0;
+}
+
+fieldset.cy_formWrapper,
+div.cy_formWrapper {
+  border: none;
+  position: relative;
+  padding: 0;
+  margin: 0;
+}
+.cy_portletCoat legend {
+  background-color:#F4F2F2;
+  border:1px solid #DBD9D9;
+  margin-top:2px;
+  padding:2px 10px;
+}
+
+.cy_formHeader {
+  background: url('new-images/formHeaderBackground.png') 0 0 repeat-y #f2f0f0;
+  padding: 6px 10px;
+  display: block;
+  margin: 0;
+}
+.cy_formWrapper label {
+  padding: 0;
+  font-weight: bold;
+}
+.cy_formWrapper label.xgt_mandatory {
+    background: url('new-images/mandatory.gif') center left no-repeat;
+    padding: 0 0 0 12px;
+    margin: 0;
+}
+.cy_formWrapper .xgt_validationErrors label {
+  padding-left: 13px;
+}
+/* */
+div.cy_formContent {
+  padding: 4px 6px;
+}
+
+a.actionLink {
+  color: #710F2E;
+  font-weight: bold;
+}
+
+div.cy_searchForm, div.cy_searchFormEnding {
+  background-color: #c3c3c3;
+  padding: 0 4px;
+  border: 1px;
+  border-bottom: 1px solid #AAAAAA;
+  border-top: 1px solid #d0d0d0;
+}
+.cy_searchForm label {
+  /*font-size:11px;*/
+}
+
+div.cy_searchFormEnding {
+
+}
+
+
+/* Vsechny tridy:
+.cy_stag_searchFormTable td.formTop,
+.cy_stag_searchFormTable td.formLineT,
+.cy_stag_searchFormTable td.formLineT_xP,
+.cy_stag_searchFormTable td.formLineT_xP_top,
+.cy_stag_searchFormTable td.formLineC,
+.cy_stag_searchFormTable td.formMid
+*/
+table.cy_stag_searchFormTable td, div.cy_stag_searchFormTable span {
+  padding: 1px 10px 1px 2px;
+  font-size: 11px;
+}
+.cy_stag_searchFormTable .formLineT_xP_top {
+    vertical-align: top;
+}
+.cy_stag_searchFormTable .formLineBottom {
+    vertical-align: bottom;
+}
+.cy_stag_searchFormTable .formLineT,
+.cy_stag_searchFormTable .formLineT_xP,
+.cy_stag_searchFormTable .formLineC,
+.cy_stag_searchFormTable .formMid {
+    vertical-align: middle;
+}
+
+.cy_stag_searchFormTable .formLineT_xP,
+.cy_stag_searchFormTable .formLineT_xP_top,
+.cy_stag_searchFormTable .formLineT {
+    padding: 2px;
+}
+
+.cy_stag_searchFormTable .formLineT_xP,
+.cy_stag_searchFormTable .formLineT_xP_top {
+    text-align: right;
+}
+
+.cy_portletCoat input, .cy_portletCoat select, .cy_portletCoat textarea, .cy_portletCoat input {
+  /*font-size: 11px;*/
+  vertical-align:middle;
+}
+
+.cy_portletCoat .b textarea {
+  height: 150px;
+}
+
+.cy_portletCoat input.submit {
+    padding: 2px 6px 2px 6px;
+}
+
+.cy_portletCoat input[type='radio'], .cy_portletCoat input.radio {
+    margin: 0 0 3px 5px;
+}
+
+.formLineC input.submit {
+    padding: 0 6px 0 6px;
+}
+
+.cy_portletCoat input[type='checkbox'] {
+  margin: 0 0 0 5px;
+    /*margin-left: 5px;*/
+    /*margin-right: 0;*/
+}
+
+
+div.cy_searchFormResults {
+  padding: 4px;
+  max-height: 300px;
+  overflow-y: auto;
+  border: 1px solid #dbd9d9;
+}
+.cy_searchFormResults label {
+  vertical-align: middle;
+}
+
+/* PLOCHY */
+/* ############################################################################################################################################################################################### */
+/* ############################################################################################################################################################################################### */
+
+.cy_pane {
+  font-size: 11px;
+  background-color: white;
+}
+
+/* POZOR! border a background ANO, definice BACKGROUND JE ZAPSANA V PORADKU - musi byt "nejprve resetovany", jinak pri vnoreni cy_pane do cy_tab dedi to co nechceme! */
+.cy_pane td,
+.cy_pane td.brutalforce,
+.cy_pane th,
+.cy_pane th.top,
+.cy_pane th.brutalforce {
+    border: none;
+    font-weight: normal;
+    vertical-align: top;
+    padding: 2px 4px 2px 3px;
+    border-bottom: 1px solid #F4F2F2;
+}
+
+/* POZOR! border a background ANO, definice BACKGROUND JE ZAPSANA V PORADKU - musi byt "nejprve resetovany", jinak pri vnoreni cy_pane do cy_tab dedi to co nechceme! */
+.cy_pane th,
+.cy_pane th.top,
+.cy_pane th.brutalforce {
+    text-align: right;
+    background: #f4f2f2;
+    border-left: 1px solid white;
+    border-top: 1px solid white;
+    border-right: 2px solid #cecccc;
+    white-space: nowrap;
+}
+
+.cy_pane th.top {
+    border: none;
+    text-align: center;
+    padding: 2px;
+    border-bottom: 2px solid #cecccc;
+    white-space: nowrap;
+}
+
+.cy_pane td,
+.cy_pane td.brutalforce {
+    padding: 3px 3px 1px 3px;
+}
+
+.cy_pane td.spacer {
+    padding: 0;
+    width: 12px;
+}
+
+table.cy_pane_B {
+    border: 1px solid #D0D0D0;
+}
+
+
+/* Emailovac specificke veci */
+/* ############################################################################################################################################################################################### */
+div.mailerStudentsList {
+  padding-bottom: 4px;
+}
+div.mailerStudentsList table tr td {
+  padding-bottom: 2px;
+}
+div.mailerStudentsList table {
+  padding:0;
+  margin:0;
+}
+.cy_portletCoat div.mailerStudentsList a {
+  padding-left: 17px;
+  /*white-space: nowrap;*/
+  font-weight: normal;
+  cursor: pointer;
+}
+.cy_portletCoat .mailerDelete {
+  padding-left: 17px;
+  color: #950000;
+  background: url('new-images/cross.png') no-repeat 0 0;
+  margin-right: 3px;
+}
+.cy_portletCoat .mailerUndelete {
+  padding-left: 17px;
+  color: #003300;
+  background: url('new-images/tick.png') no-repeat 0 0;
+  margin-right: 3px;
+}
+.cy_portletCoat .mailerEmptyMail {
+  padding-left: 17px;
+  color: #807e7e;
+  text-decoration: none;
+  background: url('new-images/tick-grey.png') no-repeat 0 0;
+  margin-right: 3px;
+  cursor:default;
+}
+
+div.mailerRecipientsList {
+  max-height: 300px;
+  overflow-y: auto;
+}
+div.mailerMailAdresy  {
+  background-color: #f9f9f9;
+  border: #dbd9d9 1px solid;
+  margin: 4px 0;
+}
+
+/* Vybirani kraje a okresu v mailovaci, chceme odlisit kraje */
+div.chosen-drop .kraj {
+  font-weight: bold;
+}
+
+/*  Bordylek */
+/* ############################################################################################################################################################################################### */
+body .top {
+  vertical-align:top;
+}
+
+/*  Burza_RA */
+/* ############################################################################################################################################################################################### */
+div.RA_zacatek {
+    font-weight: normal;
+    font-size: 10px;
+    float: left;
+    padding-left: 6px;
+    padding-right: 3px;
+}
+
+div.RA_konec {
+    font-weight: normal;
+    font-size: 10px;
+    float: right;
+    padding-left: 3px;
+    padding-right: 6px;
+}
+
+td.burza_grupa {
+    border: 3px solid orange;
+}
+
+td.burza_akce {
+    border: 3px solid red;
+}
+
+td.burza_grupa_hover{
+    border: 3px solid green;
+}
+
+/* SUPER CSS PROJECT X3 - 5.3.2010 */
+
+/* barvy predmetu HARMONICKE 1 - 16 */
+
+td.scss_h_predmet_1 {
+    color:#5ba181;
+    background-color: #a5ebcb;
+}
+
+td.scss_h_predmet_1 div.rozvrhRoakOdDoHSpacer div.RA_zacatek {
+    background: url('bra_1_left_arrow.gif') no-repeat center left;
+}
+
+td.scss_h_predmet_1 div.rozvrhRoakOdDoHSpacer div.RA_konec {
+    background: url('bra_1_right_arrow.gif') no-repeat center right;
+}
+
+td.scss_h_predmet_2 {
+    color:#538896;
+    background-color: #b6f0ff;
+}
+
+td.scss_h_predmet_2 div.rozvrhRoakOdDoHSpacer div.RA_zacatek {
+    background: url('bra_2_left_arrow.gif') no-repeat center left;
+}
+
+td.scss_h_predmet_2 div.rozvrhRoakOdDoHSpacer div.RA_konec {
+    background: url('bra_2_right_arrow.gif') no-repeat center right;
+}
+
+td.scss_h_predmet_3 {
+    color:#a74747;
+    background-color: #ffb6b6;
+}
+
+td.scss_h_predmet_3 div.rozvrhRoakOdDoHSpacer div.RA_zacatek {
+    background: url('bra_3_left_arrow.gif') no-repeat center left;
+}
+
+td.scss_h_predmet_3 div.rozvrhRoakOdDoHSpacer div.RA_konec {
+    background: url('bra_3_right_arrow.gif') no-repeat center right;
+}
+
+td.scss_h_predmet_4 {
+    color:#aba765;
+    background-color: #fffab0;
+}
+
+td.scss_h_predmet_4 div.rozvrhRoakOdDoHSpacer div.RA_zacatek {
+    background: url('bra_4_left_arrow.gif') no-repeat center left;
+}
+
+td.scss_h_predmet_4 div.rozvrhRoakOdDoHSpacer div.RA_konec {
+    background: url('bra_4_right_arrow.gif') no-repeat center right;
+}
+
+td.scss_h_predmet_5 {
+    color:#77ae5e;
+    background-color: #c2ffa7;
+}
+
+td.scss_h_predmet_5 div.rozvrhRoakOdDoHSpacer div.RA_zacatek {
+    background: url('bra_5_left_arrow.gif') no-repeat center left;
+}
+
+td.scss_h_predmet_5 div.rozvrhRoakOdDoHSpacer div.RA_konec {
+    background: url('bra_5_right_arrow.gif') no-repeat center right;
+}
+
+td.scss_h_predmet_6 {
+    color:#8173c5;
+    background-color: #dbd4ff;
+}
+
+td.scss_h_predmet_6 div.rozvrhRoakOdDoHSpacer div.RA_zacatek {
+    background: url('bra_6_left_arrow.gif') no-repeat center left;
+}
+
+td.scss_h_predmet_6 div.rozvrhRoakOdDoHSpacer div.RA_konec {
+    background: url('bra_6_right_arrow.gif') no-repeat center right;
+}
+
+td.scss_h_predmet_7 {
+    color:#cb54ab;
+    background-color: #ffafe9;
+}
+
+td.scss_h_predmet_7 div.rozvrhRoakOdDoHSpacer div.RA_zacatek {
+    background: url('bra_7_left_arrow.gif') no-repeat center left;
+}
+
+td.scss_h_predmet_7 div.rozvrhRoakOdDoHSpacer div.RA_konec {
+    background: url('bra_7_right_arrow.gif') no-repeat center right;
+}
+
+td.scss_h_predmet_8 {
+    color:#cb9754;
+    background-color: #ffd6a0;
+}
+
+td.scss_h_predmet_8 div.rozvrhRoakOdDoHSpacer div.RA_zacatek {
+    background: url('bra_8_left_arrow.gif') no-repeat center left;
+}
+
+td.scss_h_predmet_8 div.rozvrhRoakOdDoHSpacer div.RA_konec {
+    background: url('bra_8_right_arrow.gif') no-repeat center right;
+}
+
+td.scss_h_predmet_9 {
+    color:#305444;
+    background-color: #5ba181;
+}
+
+td.scss_h_predmet_9 div.rozvrhRoakOdDoHSpacer div.RA_zacatek {
+    background: url('bra_9_left_arrow.gif') no-repeat center left;
+}
+
+td.scss_h_predmet_9 div.rozvrhRoakOdDoHSpacer div.RA_konec {
+    background: url('bra_9_right_arrow.gif') no-repeat center right;
+}
+
+td.scss_h_predmet_10 {
+    color:#29434a;
+    background-color: #538896;
+}
+
+td.scss_h_predmet_10 div.rozvrhRoakOdDoHSpacer div.RA_zacatek {
+    background: url('bra_10_left_arrow.gif') no-repeat center left;
+}
+
+td.scss_h_predmet_10 div.rozvrhRoakOdDoHSpacer div.RA_konec {
+    background: url('bra_10_right_arrow.gif') no-repeat center right;
+}
+
+td.scss_h_predmet_11 {
+    color:#592626;
+    background-color: #a74747;
+}
+
+td.scss_h_predmet_11 div.rozvrhRoakOdDoHSpacer div.RA_zacatek {
+    background: url('bra_11_left_arrow.gif') no-repeat center left;
+}
+
+td.scss_h_predmet_11 div.rozvrhRoakOdDoHSpacer div.RA_konec {
+    background: url('bra_11_right_arrow.gif') no-repeat center right;
+}
+
+td.scss_h_predmet_12 {
+    color:#5e5c38;
+    background-color: #aba765;
+}
+
+td.scss_h_predmet_12 div.rozvrhRoakOdDoHSpacer div.RA_zacatek {
+    background: url('bra_12_left_arrow.gif') no-repeat center left;
+}
+
+td.scss_h_predmet_12 div.rozvrhRoakOdDoHSpacer div.RA_konec {
+    background: url('bra_12_right_arrow.gif') no-repeat center right;
+}
+
+td.scss_h_predmet_13 {
+    color:#426134;
+    background-color: #77ae5e;
+}
+
+td.scss_h_predmet_13 div.rozvrhRoakOdDoHSpacer div.RA_zacatek {
+    background: url('bra_13_left_arrow.gif') no-repeat center left;
+}
+
+td.scss_h_predmet_13 div.rozvrhRoakOdDoHSpacer div.RA_konec {
+    background: url('bra_13_right_arrow.gif') no-repeat center right;
+}
+
+td.scss_h_predmet_14 {
+    color:#4e4678;
+    background-color: #8173c5;
+}
+
+td.scss_h_predmet_14 div.rozvrhRoakOdDoHSpacer div.RA_zacatek {
+    background: url('bra_14_left_arrow.gif') no-repeat center left;
+}
+
+td.scss_h_predmet_14 div.rozvrhRoakOdDoHSpacer div.RA_konec {
+    background: url('bra_14_right_arrow.gif') no-repeat center right;
+}
+
+td.scss_h_predmet_15 {
+    color:#80346c;
+    background-color: #cb54ab;
+}
+
+td.scss_h_predmet_15 div.rozvrhRoakOdDoHSpacer div.RA_zacatek {
+    background: url('bra_15_left_arrow.gif') no-repeat center left;
+}
+
+td.scss_h_predmet_15 div.rozvrhRoakOdDoHSpacer div.RA_konec {
+    background: url('bra_15_right_arrow.gif') no-repeat center right;
+}
+
+td.scss_h_predmet_16 {
+    color:#805f34;
+    background-color: #cb9754;
+}
+
+td.scss_h_predmet_16 div.rozvrhRoakOdDoHSpacer div.RA_zacatek {
+    background: url('bra_16_left_arrow.gif') no-repeat center left;
+}
+
+td.scss_h_predmet_16 div.rozvrhRoakOdDoHSpacer div.RA_konec {
+    background: url('bra_16_right_arrow.gif') no-repeat center right;
+}
+
+/* EOF barvy predmetu HARMONICKE 1 - 16 */
+
+/* barvy predmetu KONTRASTNI 1 - 16 */
+
+td.scss_k_predmet_1 {
+    color:#305444;
+    background-color: #a5ebcb;
+}
+
+td.scss_k_predmet_1 div.rozvrhRoakOdDoHSpacer div.RA_zacatek {
+    background: url('bra_9_left_arrow.gif') no-repeat center left;
+}
+
+td.scss_k_predmet_1 div.rozvrhRoakOdDoHSpacer div.RA_konec {
+    background: url('bra_9_right_arrow.gif') no-repeat center right;
+}
+
+td.scss_k_predmet_2 {
+    color:#29434a;
+    background-color: #b6f0ff;
+}
+
+td.scss_k_predmet_2 div.rozvrhRoakOdDoHSpacer div.RA_zacatek {
+    background: url('bra_10_left_arrow.gif') no-repeat center left;
+}
+
+td.scss_k_predmet_2 div.rozvrhRoakOdDoHSpacer div.RA_konec {
+    background: url('bra_10_right_arrow.gif') no-repeat center right;
+}
+
+td.scss_k_predmet_3 {
+    color:#592626;
+    background-color: #ffb6b6;
+}
+
+td.scss_k_predmet_3 div.rozvrhRoakOdDoHSpacer div.RA_zacatek {
+    background: url('bra_11_left_arrow.gif') no-repeat center left;
+}
+
+td.scss_k_predmet_3 div.rozvrhRoakOdDoHSpacer div.RA_konec {
+    background: url('bra_11_right_arrow.gif') no-repeat center right;
+}
+
+td.scss_k_predmet_4 {
+    color:#5e5c38;
+    background-color: #fffab0;
+}
+
+td.scss_k_predmet_4 div.rozvrhRoakOdDoHSpacer div.RA_zacatek {
+    background: url('bra_12_left_arrow.gif') no-repeat center left;
+}
+
+td.scss_k_predmet_4 div.rozvrhRoakOdDoHSpacer div.RA_konec {
+    background: url('bra_12_right_arrow.gif') no-repeat center right;
+}
+
+td.scss_k_predmet_5 {
+    color:#426134;
+    background-color: #c2ffa7;
+}
+
+td.scss_k_predmet_5 div.rozvrhRoakOdDoHSpacer div.RA_zacatek {
+    background: url('bra_13_left_arrow.gif') no-repeat center left;
+}
+
+td.scss_k_predmet_5 div.rozvrhRoakOdDoHSpacer div.RA_konec {
+    background: url('bra_13_right_arrow.gif') no-repeat center right;
+}
+
+td.scss_k_predmet_6 {
+    color:#4e4678;
+    background-color: #dbd4ff;
+}
+
+td.scss_k_predmet_6 div.rozvrhRoakOdDoHSpacer div.RA_zacatek {
+    background: url('bra_14_left_arrow.gif') no-repeat center left;
+}
+
+td.scss_k_predmet_6 div.rozvrhRoakOdDoHSpacer div.RA_konec {
+    background: url('bra_14_right_arrow.gif') no-repeat center right;
+}
+
+td.scss_k_predmet_7 {
+    color:#80346c;
+    background-color: #ffafe9;
+}
+
+td.scss_k_predmet_7 div.rozvrhRoakOdDoHSpacer div.RA_zacatek {
+    background: url('bra_15_left_arrow.gif') no-repeat center left;
+}
+
+td.scss_k_predmet_7 div.rozvrhRoakOdDoHSpacer div.RA_konec {
+    background: url('bra_15_right_arrow.gif') no-repeat center right;
+}
+
+td.scss_k_predmet_8 {
+    color:#805f34;
+    background-color: #ffd6a0;
+}
+
+td.scss_k_predmet_8 div.rozvrhRoakOdDoHSpacer div.RA_zacatek {
+    background: url('bra_16_left_arrow.gif') no-repeat center left;
+}
+
+td.scss_k_predmet_8 div.rozvrhRoakOdDoHSpacer div.RA_konec {
+    background: url('bra_16_right_arrow.gif') no-repeat center right;
+}
+
+td.scss_k_predmet_9 {
+    color:#a5ebcb;
+    background-color: #305444;
+}
+
+td.scss_k_predmet_9 div.rozvrhRoakOdDoHSpacer div.RA_zacatek {
+    background: url('bra_17_left_arrow.gif') no-repeat center left;
+}
+
+td.scss_k_predmet_9 div.rozvrhRoakOdDoHSpacer div.RA_konec {
+    background: url('bra_17_right_arrow.gif') no-repeat center right;
+}
+
+td.scss_k_predmet_10 {
+    color:#b6f0ff;
+    background-color: #29434a;
+}
+
+td.scss_k_predmet_10 div.rozvrhRoakOdDoHSpacer div.RA_zacatek {
+    background: url('bra_18_left_arrow.gif') no-repeat center left;
+}
+
+td.scss_k_predmet_10 div.rozvrhRoakOdDoHSpacer div.RA_konec {
+    background: url('bra_18_right_arrow.gif') no-repeat center right;
+}
+
+td.scss_k_predmet_11 {
+    color:#ffb6b6;
+    background-color: #592626;
+}
+
+td.scss_k_predmet_11 div.rozvrhRoakOdDoHSpacer div.RA_zacatek {
+    background: url('bra_19_left_arrow.gif') no-repeat center left;
+}
+
+td.scss_k_predmet_11 div.rozvrhRoakOdDoHSpacer div.RA_konec {
+    background: url('bra_19_right_arrow.gif') no-repeat center right;
+}
+
+td.scss_k_predmet_12 {
+    color:#fffab0;
+    background-color: #5e5c38;
+}
+
+td.scss_k_predmet_12 div.rozvrhRoakOdDoHSpacer div.RA_zacatek {
+    background: url('bra_20_left_arrow.gif') no-repeat center left;
+}
+
+td.scss_k_predmet_12 div.rozvrhRoakOdDoHSpacer div.RA_konec {
+    background: url('bra_20_right_arrow.gif') no-repeat center right;
+}
+
+td.scss_k_predmet_13 {
+    color:#c2ffa7;
+    background-color: #426134;
+}
+
+td.scss_k_predmet_13 div.rozvrhRoakOdDoHSpacer div.RA_zacatek {
+    background: url('bra_21_left_arrow.gif') no-repeat center left;
+}
+
+td.scss_k_predmet_13 div.rozvrhRoakOdDoHSpacer div.RA_konec {
+    background: url('bra_21_right_arrow.gif') no-repeat center right;
+}
+
+td.scss_k_predmet_14 {
+    color:#dbd4ff;
+    background-color: #4e4678;
+}
+
+td.scss_k_predmet_14 div.rozvrhRoakOdDoHSpacer div.RA_zacatek {
+    background: url('bra_22_left_arrow.gif') no-repeat center left;
+}
+
+td.scss_k_predmet_14 div.rozvrhRoakOdDoHSpacer div.RA_konec {
+    background: url('bra_22_right_arrow.gif') no-repeat center right;
+}
+
+td.scss_k_predmet_15 {
+    color:#ffafe9;
+    background-color: #80346c;
+}
+
+td.scss_k_predmet_15 div.rozvrhRoakOdDoHSpacer div.RA_zacatek {
+    background: url('bra_23_left_arrow.gif') no-repeat center left;
+}
+
+td.scss_k_predmet_15 div.rozvrhRoakOdDoHSpacer div.RA_konec {
+    background: url('bra_23_right_arrow.gif') no-repeat center right;
+}
+
+td.scss_k_predmet_16 {
+    color:#ffd6a0;
+    background-color: #805f34;
+}
+
+td.scss_k_predmet_16 div.rozvrhRoakOdDoHSpacer div.RA_zacatek {
+    background: url('bra_24_left_arrow.gif') no-repeat center left;
+}
+
+td.scss_k_predmet_16 div.rozvrhRoakOdDoHSpacer div.RA_konec {
+    background: url('bra_24_right_arrow.gif') no-repeat center right;
+}
+
+/* EOF barvy predmetu KONTRASTNI 1 - 16 */
+
+/* EOF SUPER CSS */
+
+td.pozadovanaZamena {
+    color:#FFFF00;
+    background-color: #333333;
+}
+
+td.pozadovanaZamena div.rozvrhRoakOdDoHSpacer div.RA_zacatek {
+    background: url('bra_pozadovanaZamena_left_arrow.gif') no-repeat center left;
+}
+
+td.pozadovanaZamena div.rozvrhRoakOdDoHSpacer div.RA_konec {
+    background: url('bra_pozadovanaZamena_right_arrow.gif') no-repeat center right;
+}
+
+td.potlacenyPredmet {
+    color: #a1a1a0;
+    background-color: #e3e2e2;
+}
+
+td.potlacenyPredmet div.rozvrhRoakOdDoHSpacer div.RA_zacatek {
+    background: url('bra_potlacenyPredmet_left_arrow.gif') no-repeat center left;
+}
+
+td.potlacenyPredmet div.rozvrhRoakOdDoHSpacer div.RA_konec {
+    background: url('bra_potlacenyPredmet_right_arrow.gif') no-repeat center right;
+}
+td.potlacenyPredmet * {
+  color: #a1a1a0 !important;
+  background-color: #e3e2e2;
+  border-color: #a1a1a0;
+}
+
+td.burza_predmet {
+    padding:2px;
+}
+
+div.rozvrhRoakPredmSUPERSpacer {
+    clear: both;
+    text-align: center;
+    margin:0;
+    padding:1px 0;
+    color: black;
+}
+
+div.rozvrhRoakPredmSUPERSpacer span {
+    margin: 0;
+    padding:0 1px;
+}
+
+td.pozadovanaZamena div div.rozvrhRoakPredmSpacer a.xg_stag_a_ent_S,
+td.pozadovanaZamena div div.rozvrhRoakPredmSpacer a.xg_stag_a_ent_S:visited {
+    color: #ff9900;
+}
+
+td.pozadovanaZamena div div.rozvrhRoakPredmSpacer a.xg_stag_a_ent_S:hover {
+    color: #feb342;
+}
+
+
+
+
+
+span.studentInfoPoplatky-1 {
+    color: black;
+}
+
+span.studentInfoPoplatky-2,
+span.studentInfoPoplatky-3,
+span.studentInfoPoplatky-4 {
+    color: red;
+    font-weight: bold;
+    font-size: 13px;
+}
+
+fieldset.easyFieldset {
+    border:1px solid #999999;
+    margin:5px;
+    padding:3px;
+}
+
+fieldset.easyFieldset legend {
+    background-color: #494949;
+    border:1px solid #999999;
+    margin-top:2px;
+    padding:2px 10px;
+    color: white;
+    font-weight: bold;
+}
+
+
+/*  EVA ADMIN */
+/* ############################################################################################################################################################################################### */
+div.evaNadpis, div.evaNadpisPodtrh  {
+    font-size:1.2em;
+    margin: 0 0 5px 0;
+}
+
+div.evaNadpisPodtrh {
+    border-bottom: 1px black dotted;
+}
+
+div.evaAktiv {
+    font-weight: bold;
+    color: black;
+}
+
+div.evaDalsiKrok {
+    float: left;
+}
+
+div.evaBlok {
+    float: left;
+    margin: 5px 10px 5px 5px;
+}
+
+div.evaClear{
+    clear: both;
+}
+
+label.evaForm{
+    width: 250px;
+    display: block;
+    float: left;
+    /*margin: 5px 0 0 5px;*/
+
+}
+
+
+
+ul.localMenu {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+ul.localMenu li {
+  padding-left: 19px;
+  vertical-align:top;
+  background: url("new-images/localMenuBullet.png") 0 0 no-repeat;
+}
+
+ul.localMenu_rozc li {
+  background: url("new-images/localMenu_rozc.png") 0 0 no-repeat;
+}
+
+ul.localMenu_rozc li.current {
+  background: url("new-images/localMenu_rozc.png") 0 0 no-repeat;
+}
+
+ul.localMenu_blue li {
+  padding-left: 9px;
+  margin-left:4px;
+  margin-right:4px;
+  background: url("new-images/dot-blue.png") 0 5px no-repeat;
+}
+ul.localMenu_orange li {
+  padding-left: 9px;
+  background: url("new-images/dot-orange.png") 0 5px no-repeat;
+}
+.qtip ul.localMenu li {
+  padding-left: 9px;
+  background: url("new-images/red-shift.png") 0 5px no-repeat;
+}
+
+img.xg_calendar{
+    vertical-align: bottom;
+    padding:        0;
+    border-top:     1px solid #abadb3;
+    border-bottom:  1px solid #e3e9ef;
+    border-left:    none;
+    border-right:   1px solid #dbdfe6;
+    cursor:         pointer;
+}
+
+.xg_tooltip {
+    background: url("ng_bubble_yellow_left.png") no-repeat scroll left center transparent;
+    cursor: help;
+    padding: 0 0 0 14px;
+}
+
+span.pv_required_field {
+    color: #B83700;
+    font-weight: bold;
+    margin-left: 1px;
+}
+
+.xg_hide {
+  display:none;
+}
+
+/*
+    X3: 22.5.2012 premisteno ze souboru StagPortletsJSR168\WebContent\cz_zcu_stag_predzapis\SkupinySegmentu.jsp
+    zrejme pusobila inkluze v html problemy v chromu...
+*/
+
+#mainSirka {
+    width: 440px;
+    margin-left: 6px;
+    padding-top: 3px;
+}
+
+#mainSirka .hlavicka {
+    width: 303px;
+    float: left;
+    background-color: #DCDCDC;
+    padding-left: 15px;
+}
+
+#mainSirka .typ-a {
+    width: 15px;
+    background-color: #F0C7F9;
+    float: left;
+    text-align: center;
+}
+
+#mainSirka .typ-b {
+    width: 15px;
+    background-color: #81D4FF;
+    float: left;
+    text-align: center;
+}
+
+#mainSirka .typ-c {
+    width: 15px;
+    background-color: #A5F5A9;
+    float: left;
+    text-align: center;
+}
+
+#mainSirka .radek {
+    width: 440px;
+    border-top: 1px #DBD9D9 solid; /*line-height: 20px;*/
+    clear: both;
+    text-align: left;
+}
+
+#mainSirka .oznacenyRadek {
+    width: 440px;
+    border-top: 1px #DBD9D9 solid; /*line-height: 20px;*/
+    clear: both;
+    text-align: left;
+    background-color: aqua;
+}
+
+#mainSirka a {
+    width: 301px;
+    white-space: normal;
+    display: block;
+    float: left;
+    background-color: #F4F2F2;
+    padding-left: 3px;
+    text-align: left;
+}
+
+#mainSirka .minHlav {
+    width: 32px;
+    float: left;
+    text-align: center;
+    background-color: #DCDCDC;
+    border-left: 1px #FBFBFB solid;
+    color: #757575;
+    font-weight: bold;
+
+}
+
+#mainSirka .ziskHlav {
+    width: 38px;
+    float: left;
+    text-align: center;
+    background-color: #DCDCDC;
+    border-left: 1px #FBFBFB solid;
+    color: #757575;
+    font-weight: bold;
+}
+
+#mainSirka .cekaHlav {
+    width: 48px;
+    float: left;
+    text-align: center;
+    background-color: #DCDCDC;
+    border-left: 1px #FBFBFB solid;
+    color: #757575;
+    font-weight: bold;
+}
+
+#mainSirka .min {
+    width: 32px;
+    float: left;
+    text-align: center;
+    background-color: #F4F2F2;
+}
+
+#mainSirka .zisk {
+    width: 38px;
+    float: left;
+    text-align: center;
+    background-color: #F4F2F2;
+}
+
+#mainSirka .ceka {
+    width: 48px;
+    float: left;
+    text-align: center;
+    background-color: #F4F2F2;
+    cursor: help;
+}
+
+.clear {
+    clear: both;
+}
+
+/* FINETUNING IV - X3 [17.5.2013] ------------------------------------------------------------------------------------  */
+
+/* evaluacni hvezdicky - Medium - WhiteBack */
+div.eva_stars_MW_-0-0,
+div.eva_stars_MW_-0-5,
+div.eva_stars_MW_-1-0,
+div.eva_stars_MW_-1-5,
+div.eva_stars_MW_-2-0,
+div.eva_stars_MW_-2-5,
+div.eva_stars_MW_-3-0,
+div.eva_stars_MW_-3-5,
+div.eva_stars_MW_-4-0,
+div.eva_stars_MW_-4-5,
+div.eva_stars_MW_-5-0{
+    background: url("eva_stars-M_W.png") no-repeat scroll left -2px transparent;
+    color: #CECCCC;
+    font-weight: bold;
+    height: 17px;
+    padding-left: 100px;
+}
+
+/* posun u Medium hvezdicek je 22px ale bohuzel je obrazek pripraseny tak to nejni uplne "presne" */
+div.eva_stars_MW_-0-5 { background-position: left -24px; }
+div.eva_stars_MW_-1-0 { background-position: left -46px; }
+div.eva_stars_MW_-1-5 { background-position: left -67px; }
+div.eva_stars_MW_-2-0 { background-position: left -89px; }
+div.eva_stars_MW_-2-5 { background-position: left -111px; }
+div.eva_stars_MW_-3-0 { background-position: left -133px; }
+div.eva_stars_MW_-3-5 { background-position: left -155px; }
+div.eva_stars_MW_-4-0 { background-position: left -178px; }
+div.eva_stars_MW_-4-5 { background-position: left -200px; }
+div.eva_stars_MW_-5-0 { background-position: left -222px; }
+
+/* evaluacni hvezdicky - Small - YellowBack -- HOVNO, predelal jsem na transparentni i kdyz ma ta svine 17 kilo !!!! KURVA */
+div.eva_stars_SY_-0-0,
+div.eva_stars_SY_-0-5,
+div.eva_stars_SY_-1-0,
+div.eva_stars_SY_-1-5,
+div.eva_stars_SY_-2-0,
+div.eva_stars_SY_-2-5,
+div.eva_stars_SY_-3-0,
+div.eva_stars_SY_-3-5,
+div.eva_stars_SY_-4-0,
+div.eva_stars_SY_-4-5,
+div.eva_stars_SY_-5-0{
+    background: url("eva_stars-S_T.png") no-repeat scroll left 2px transparent;
+    color: #CECCCC;
+    font-weight: bold;
+    height: 11px;
+    padding-left: 58px;
+    display: inline;
+}
+
+/* posun u Medium hvezdicek je 12px ale bohuzel je obrazek pripraseny tak to nejni uplne "presne" */
+div.eva_stars_SY_-0-5 { background-position: left -10px; }
+div.eva_stars_SY_-1-0 { background-position: left -23px; }
+div.eva_stars_SY_-1-5 { background-position: left -35px; }
+div.eva_stars_SY_-2-0 { background-position: left -47px; }
+div.eva_stars_SY_-2-5 { background-position: left -60px; }
+div.eva_stars_SY_-3-0 { background-position: left -73px; }
+div.eva_stars_SY_-3-5 { background-position: left -85px; }
+div.eva_stars_SY_-4-0 { background-position: left -98px; }
+div.eva_stars_SY_-4-5 { background-position: left -110px; }
+div.eva_stars_SY_-5-0 { background-position: left -123px; }
+
+.povinny_zapis {
+    font-weight: bold !important;
+    color: #ff00ff !important;
+}
+
+.doporuceny_zapis {
+    font-weight: bold !important;
+    color: #0C9890 !important;
+}
+
+.zakazany_zapis {
+    font-weight: bold !important;
+    color: red !important;
+}
+
+.pz-modifikator {
+    top: 26px !important;
+}
+
+
+
+/* ------------ Nove styly pro podporu vyuky! ------------ */
+
+div.portlet_zpravy_container {
+    position: fixed;
+    left: 20pt;
+    top: 20pt;
+    max-width: 400pt;
+    height: auto;
+    z-index: 150;
+}
+
+div.portlet_zpravy {
+    border: 2px dashed #e04d4a;
+    padding: 4pt;
+    background-color: #faf9a6;
+    margin-bottom: 3pt;
+    box-shadow: 10px 10px 5px #888888;
+}
+
+div.portlet_zpravy_closer {
+    width: 16px;
+    height: 16px;
+    float: right;
+    background: url('/zdroje/images/icons/stag/close.gif') no-repeat top right;
+    cursor: pointer;
+}
+
+
+
+
+div.pv_portletContentCoat {
+    border-top: none;
+    padding-top: 5px;
+}
+
+/* to a. je tam kvuli zobrazeni odkazu v dialogovych oknech - jen takova obezlicka */
+div.pv_portletContentCoat a, a.pv_portletContentCoat, .xlsOptionsInner a {
+    font-weight: normal;
+    text-decoration: none;
+}
+
+div.pv_portletContentCoat a:hover, a.pv_portletContentCoat:hover, .xlsOptionsInner a:hover {
+    text-decoration: underline;
+    font-weight: normal;
+}
+
+.pv_skupina	{
+    margin: 0 0 10pt 1pt;
+    padding: 1pt 1pt 1pt 1pt;
+    background-color: #e9fcea;
+    border: 1px solid #cece9c;
+    max-width: 990px;
+    min-width: 600px;
+    float: left;
+    clear: both;
+}
+
+.pv_skupina_top {
+    margin: 0 0 10pt 0;
+    padding: 2pt 0 2pt 0;
+    background-color: #b0e7b2;
+    border-bottom: 1px solid #cece9c;
+}
+
+.pv_okruh	{
+    margin: 2pt 0 3pt 10pt;
+    padding: 1pt 1pt 1pt 1pt;
+    background-color: #e4f7fb;
+    /*border: 1px solid #cece9c;*/
+    max-width: 950px;
+    min-width: 600px;
+    float: left;
+    clear: both;
+}
+
+.pv_okruh_top {
+    margin: 0 0 3pt 0;
+    padding: 2pt 0 2pt 0;
+    background-color: #99d7e6;
+    /*border-bottom: 1px solid #cece9c;*/
+}
+
+.pv_okruh_body {
+    margin: 7pt 0 0 0;
+}
+
+span.pv_okruh_title, span.pv_skupina_title {
+    font-weight: bolder;
+    font-size: 10pt;
+}
+
+table.pv_filtr_table, table.pv_filtr_table td, table.pv_filtr_table tr, table.pv_filtr_table th, table.pv_filtr_table th span {
+    font-size: 9pt;
+    border: 0px;
+    padding-right: 5pt;
+    padding-bottom: 2pt;
+}
+
+.pv_tema	{
+    margin: 0 0 4pt 5pt;
+    background-color: #F0FFF0;
+    border: 1px solid #C0F0C0;
+    padding: 0;
+}
+
+.pv_entity_info {
+    font-weight: bolder;
+    font-size: 10pt;
+    margin: 0;
+    padding: 0 0 1pt 0;
+}
+
+a.pv_a_impossible {
+    color: #a6a7be !important;
+    cursor: not-allowed !important;
+}
+
+.pv_entity_controls {
+    text-align: right;
+}
+
+div.pv_paginater {
+    padding: 4px 0 4px 10px;
+}
+
+/* ------------ Obecne styly pro portlet 'podpora vyuky' */
+
+table.ng_form_tab .sel-predmet, table.ng_form_tab .sel-rok[disabled] { background-color: #000000; color: #FFFFFF; font-weight: bolder; }
+.semselect .sel-blok { background-color: #D0D0FF; color: #000000; font-weight: bolder; }
+.semselect .sel-tema { background-color: #E8FFE8; color: #000000; }
+.semselect .sel-blok[disabled] { color: #606060; }
+.semselect .sel-tema[disabled] { color: #606060; }
+
+/* kompatibilita - tak to bylo driv */
+.semselect .sel-sem { background-color: #E8FFE8; color: #000000; }
+.semselect .sel-sem[disabled] { color: #606060; }
+
+div.zamitnuti_pozn {
+    padding: 3pt 0 3pt 10pt;
+    border-top: 2px dotted red;
+    margin-top: 3pt;
+}
+div.zamitnuti_pozn table, div.zamitnuti_pozn textarea, div.zamitnuti_pozn input {
+    font-size: 10px;
+}
+span.zamitnuti_head {
+    font-weight: bolder;
+}
+
+.xlsOptionsInner {
+    text-align: left;
+}
+.xlsOptionsInner a {
+    color: #0151AC;
+    font-weight: bold;
+    /*outline: 0;*/
+}
+.xlsOptionsInner .suppress {
+    font-weight: normal;
+    white-space: normal;
+    font-size: 9px;
+    color: #777777;
+}
+
+/*
+    Author: volenova
+    Upravene _XGUI pro vzhled formulare parametru studentu.
+    PORTLET PARAMETRY STUDENTU
+*/
+
+.form_v th {
+    white-space: normal;
+    width: 200px;
+    min-width: 150px;
+}
+
+.form_v td {
+    border: 0;
+}
+
+.form_v td.col {
+    width: 120px;
+}
+
+.form_v td.checkbox {
+    padding: 0 2px 1px 1px;
+}
+
+/*
+    EOF: PORTLET PARAMETRY STUDENTU
+*/
+
+
+/*
+    Author: volenova
+    PORTLET VYUZITI MISTNOSTI
+*/
+
+/* styl formulare */
+table.vyuz_mist_tab_form {
+    padding: 0;
+}
+
+table.vyuz_mist_tab_form th {
+    padding: 2px 4px 2px 3px;
+    background-color: #d2e1e6;
+    border-left: 1px solid #eeeeee;
+    border-right: 1px solid #adc2bf;
+    border-top: 1px solid #ffffff;
+    border-bottom: 1px solid #9cb1ae;
+    text-align: right;
+    white-space: nowrap;
+    font-weight: bold;
+    font-size: 11px;
+    width: 150px;
+    min-width: 100px;
+}
+
+table.vyuz_mist_tab_form th.vyuz_mist_tab_th_none {
+    background-color: white;
+    border: none;
+    min-width: 50px;
+    width: 50px;
+}
+
+table.vyuz_mist_tab_form td {
+    border: none;
+    padding: 3px 3px;
+    text-align: left;
+    vertical-align: top;
+    font-weight: normal;
+    color: #444444;
+    background-color: #ffffff;
+    width: 250px;
+    min-width: 100px;
+}
+
+table.vyuz_mist_tab_form td input[type=checkbox],
+table.vyuz_mist_tab_form td input[type=file],
+table.vyuz_mist_tab_form td input[type=password],
+table.vyuz_mist_tab_form td input[type=radio],
+table.vyuz_mist_tab_form td input[type=text],
+table.vyuz_mist_tab_form td select {
+    border-top:     1px solid #b5d2df;
+    border-bottom:  1px solid #e3e9ef;
+    border-left:    1px solid #d2e3ea;
+    border-right:   1px solid #d2e1e6;
+    padding: 1px 0 1px 3px;
+}
+
+table.vyuz_mist_tab_form td input.pv_field_input_error,
+table.vyuz_mist_tab_form td select.pv_field_input_error,
+table.vyuz_mist_tab_form td input.validation-failed,
+table.vyuz_mist_tab_form td select.validation-failed {
+    border: 2px solid #FF2020;
+}
+
+table.vyuz_mist_tab_form select.pv_field_input_error {
+    border: 2px solid #FF2020;
+}
+
+td.vyuz_mist_tab_submit input.submit{
+    background-color: #d2e1e6;
+    padding: 2px 10px 2px 10px;
+    margin: 5px 50px 5px 50px;
+    font-weight: bold;
+    color: #000000;
+    border-left: 1px solid #eeeeee;
+    border-right: 1px solid #adc2bf;
+    border-top: 1px solid #ffffff;
+    border-bottom: 1px solid #9cb1ae;
+}
+
+
+/* styl tabulky s daty */
+
+/*
+a.vyuz_mist_tab_no,
+a.vyuz_mist_tab_yes {
+    padding: 3px 8px 0 8px;
+}
+
+a.vyuz_mist_tab_no {
+    font-size: 11px;
+    font-weight: bold;
+    padding: 2px 6px 2px 6px;
+    background-color: #f4f2f2;
+    border-top: 1px solid #cecccc;
+    border-left: 1px solid #cecccc;
+    border-right: 1px solid #cecccc;
+    float: left;
+}
+
+a.vyuz_mist_tab_selected {
+    text-decoration: none;
+
+    font-size: 11px;
+    font-weight: bold;
+    padding: 2px 6px 2px 6px;
+    color: white;
+    background-color: #494949;
+    border-top: 1px solid #494949;
+    border-left: 1px solid #494949;
+    border-right: 1px solid #494949;
+    float: left;
+}
+*/
+
+
+table.vyuz_mist_tab {
+    background-color: #444444;
+}
+
+td.vyuz_mist_tab_celkem,
+thead.vyuz_mist_tab_head {
+    background-color: #adc2bf;
+}
+
+td.vyuz_mist_tab_celkem_vse,
+td.vyuz_mist_tab_celkem {
+    font-style: italic;
+    font-weight: bold;
+}
+
+td.vyuz_mist_tab_celkem_vse {
+    background-color: #4d626f;
+    color: #ffffff;
+}
+
+td.vyuz_mist_tab_celkem_vse,
+td.vyuz_mist_tab_celkem,
+td.vyuz_mist_tab_data,
+th.vyuz_mist_tab_th,
+th.vyuz_mist_tab_th_hod {
+    padding: 1px 3px 1px 3px;
+    text-align: center;
+}
+
+th.vyuz_mist_tab_th {
+    white-space: normal;
+    width: 50px;
+}
+
+td.vyuz_mist_tab_data {
+    background-color: #f5ffff;
+}
+
+td.vyuz_mist_tab_center {
+    text-align: center;
+}
+
+td.vyuz_mist_tab_do10 {
+    background-color: #ff0055;
+    color: #31080b;
+}
+
+td.vyuz_mist_tab_do20 {
+    background-color: #ff4455;
+    color: #31080b;
+}
+
+td.vyuz_mist_tab_do30 {
+    background-color: #ff7755;
+    color: #3e1f17;
+}
+
+td.vyuz_mist_tab_do40 {
+    background-color: #ff9955;
+    color: #3e1f17;
+}
+
+td.vyuz_mist_tab_do50 {
+    background-color: #ffcc55;
+    color: #514816;
+}
+
+td.vyuz_mist_tab_do60 {
+    background-color: #ffff55;
+    color: #514816;
+}
+
+td.vyuz_mist_tab_do70 {
+    background-color: #ccff55;
+    color: #003300;
+}
+
+td.vyuz_mist_tab_do80 {
+    background-color: #99ff55;
+    color: #003300;
+}
+
+td.vyuz_mist_tab_do90 {
+    background-color: #66ff55;
+    color: #003300;
+}
+
+td.vyuz_mist_tab_do100 {
+    background-color: #33ff55;
+    color: #003300;
+}
+
+a.vyuz_mist_tab_odkaz {
+    color: #084558;
+}
+
+a.vyuz_mist_tab_procenta_do20 {
+    color: #31080b;
+    font-weight: normal;
+}
+
+a.vyuz_mist_tab_procenta_do40 {
+    color: #3e1f17;
+    font-weight: normal;
+}
+
+a.vyuz_mist_tab_procenta_do60 {
+    color: #514816;
+    font-weight: normal;
+}
+
+a.vyuz_mist_tab_procenta_do100 {
+    color: #003300;
+    font-weight: normal;
+}
+
+/*
+    EOF: PORTLET VYUZITI MISTNOSTI
+*/
+
+/*
+    Author: volenova
+    PORTLET REMINDER
+*/
+
+table.reminder_filtr_form {
+    padding: 2px 4px 3px 5px;
+    background: transparent url("./ng_form_table_head_1c.png") repeat-y scroll left top;
+}
+
+table.reminder_filtr_form input.xg_calendar {
+    background-image: url("./ng_datepicker_ico.png");
+    width: 26px;
+    height: 19px;
+}
+
+table.reminder_filtr_form th {
+    font-size: 10px;
+    font-weight: normal;
+    padding: 2px 2px 2px 2px;
+}
+
+td.reminder_filtr_form_date {
+    min-width: 105px;
+}
+
+table.reminder_edit_form {
+    width: 630px;
+}
+
+table.reminder_filtr_form td,
+table.reminder_edit_form th {
+    padding: 2px 2px 2px 2px;
+    text-align: right;
+    font-size: 11px;
+}
+
+table.reminder_edit_form td {
+    padding: 2px 5px 2px 5px;
+    text-align: left;
+    min-width: 88px;
+}
+
+table.reminder_edit_form th {
+    font-weight: bold;
+    white-space: normal;
+    width: 100px;
+    min-width: 100px;
+    padding: 0 10px 0 0;
+}
+
+table.reminder_edit_form textarea {
+    width: 500px;
+    height: 150px;
+}
+
+th.reminder_seznam {
+    min-width: 60px;
+}
+
+/*div.reminder_form_nadpis {
+    background-color: #c2c2c2;
+    font-weight: bold;
+    padding: 2px 0 2px 10px;
+    margin: 3px 0 0 0;
+    border-bottom: 1px solid #a2a2a2;
+}*/
+
+a.reminder_nova_zprava {
+    padding: 2px 20px 2px 2px;
+    font-size: 11px;
+    vertical-align: top;
+}
+
+tr.reminder_pozn_pod_carou td {
+    font-size: 10px;
+}
+
+/* seznam zprav */
+tr.reminder_valid,
+tr.reminder_valid a {
+    color: #000000;
+}
+
+tr.reminder_invalid,
+tr.reminder_invalid a {
+    color: #808080;
+}
+
+tr.reminder_others {
+   /*background-color: #e2ecfe;*/
+    background-color: #F1F1DB;
+}
+
+div.reminder_prohlizeniEntitaSearched {
+    background-color: #dbd9d9;
+    overflow: auto;
+    height: 100px;
+}
+
+span.reminder_vybrat_vse input {
+    margin: 15px 5px 5px 10px;
+}
+
+span.reminder_button {
+    margin: 15px 10px 10px 10px;
+    float: right;
+}
+
+span.reminder_button a:link.reminder_button,
+span.reminder_button a:visited.reminder_button,
+span.reminder_button a:hover.reminder_button,
+span.reminder_button a:active.reminder_button {
+    margin: 5px 5px 5px 5px;
+    padding: 5px 5px 5px 5px;
+    /*background-color: #f0f0f0;*/
+    color: #000000;
+    text-decoration: none;
+    background: -webkit-linear-gradient(#f5f5f5, #e5e5e5, #e0e0e0); /* For Safari */
+    background: -o-linear-gradient(#f5f5f5, #e5e5e5, #e0e0e0); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(#f5f5f5, #e5e5e5, #e0e0e0); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(#f5f5f5, #e5e5e5, #e0e0e0); /* Standard syntax (must be last) */
+    border-radius: 1px;
+}
+
+span.reminder_button a:link.reminder_button,
+span.reminder_button a:visited.reminder_button {
+    border: 1px solid #b0b0b0;
+}
+
+span.reminder_button a:hover.reminder_button,
+span.reminder_button a:active.reminder_button {
+    border: 1px solid #808080;
+}
+
+span.reminder_button a:active.reminder_button {
+    background: -webkit-linear-gradient(#e0e0e0, #e5e5e5, #f5f5f5); /* For Safari */
+    background: -o-linear-gradient(#e0e0e0, #e5e5e5, #f5f5f5); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(#e0e0e0, #e5e5e5, #f5f5f5); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(#e0e0e0, #e5e5e5, #f5f5f5); /* Standard syntax (must be last) */
+}
+
+/*
+    EOF: PORTLET REMINDER
+*/
+
+/*
+    Author: ghessova
+    RSS PORTLET
+*/
+
+td.rss_heading {
+    border-bottom: 1px dotted #fa6511;
+    padding-top: 10px;
+    vertical-align: bottom;
+    white-space: normal;
+}
+span.rss_heading {
+    white-space: normal;
+    color: #C84C04;
+    font-weight: bold;
+}
+
+span.rss_datum {
+    white-space: nowrap;
+    color: #bbbbbb;
+    font-size: 11px;
+    float: right;
+}
+
+th.rss_edit {
+    background-color: #f7f2f2;
+    font-size: 12px;
+    text-align:right;
+    font-weight: normal;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+input.rss_edit  {
+    font-size: 12px;
+}
+
+a.rss_heading {
+    color: #C84C04 !important;
+    text-decoration: none !important;
+}
+
+
+a:hover.rss_heading {
+    color: #db5b13 !important;
+    text-decoration: none !important;
+}
+
+a.rss_dots {
+    text-decoration: none !important;
+}
+
+/*
+    EOF: RSS PORTLET
+*/
+
+/*
+    Author: ghessova
+    PODMINKY ABSOLVOVANI PORTLET
+*/
+h3.podminky_abs {
+    /*font-size: 12px;*/
+    padding: 2px 5px;
+    /*background: -webkit-linear-gradient(rgba(76, 74, 76, 0.38), rgba(189, 193, 184, 0.45));*/
+    /*background: -o-linear-gradient(rgba(76, 74, 76, 0.38), rgba(189, 193, 184, 0.45));*/
+    /*background: -moz-linear-gradient(rgba(76, 74, 76, 0.38), rgba(189, 193, 184, 0.45));*/
+    /*background: linear-gradient(rgba(76, 74, 76, 0.38), rgba(189, 193, 184, 0.45));*/
+}
+
+.podminky_abs_bold {
+     font-weight: bold;
+}
+
+div.podminky_abs {
+    padding-top: 5px;
+}
+
+table.podminky_abs {
+    margin-left: 20px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    border: 1px solid rgba(204, 197, 141, 0.49);
+}
+
+.podminky_abs td {
+    background-color: rgba(255, 251, 149, 0.01);
+    background-color: #fbfbfb;
+    padding: 1px 5px;
+}
+
+td.podminky_abs_right {
+   text-align: right;
+}
+
+th.podminky_abs {
+    background: -webkit-linear-gradient(rgba(180, 179, 125, 0.61), rgba(190, 189, 108, 0.55));
+    background: -o-linear-gradient(rgba(180, 179, 125, 0.61), rgba(190, 189, 108, 0.55));
+    background: -moz-linear-gradient(rgba(180, 179, 125, 0.61), rgba(190, 189, 108, 0.55));
+    background: linear-gradient(rgba(180, 179, 125, 0.61), rgba(190, 189, 108, 0.55));
+    padding: 1px 5px;
+    text-align: left;
+    font-weight: bold;
+}
+
+td.nadpis_bloku {
+   background: linear-gradient(rgba(198, 197, 138, 0.45), rgba(209, 208, 119, 0.38));
+}
+
+span.podminky_abs_predmet {
+    border: 1px solid rgba(198, 119, 1, 0.27);
+
+    border-radius: 2px;
+    padding-left: 2px;
+    padding-right: 0;
+    margin: 2px 5px 2px 0;
+    background-color: rgba(224, 217, 157, 0.25);
+    font-weight: 300;
+    display: inline-block;
+}
+
+span.podminky_abs_kredity {
+    border-left: 1px solid rgba(198, 119, 1, 0.27);
+    padding-left: 2px;
+    padding-right: 1px;
+}
+
+span.podminky_abs_jiz_zapsan {
+     color: #b30000;
+}
+
+span.podminky_abs_preruseni {
+    font-weight: bold;
+}
+
+p.podminky_abs {
+    padding-left: 5px;
+    margin-top: 0;
+    margin-bottom: 2px;
+}
+/*
+    EOF: PODMINKY ABSOLVOVANI PORTLET
+*/
+
+/*
+    Author: ghessova
+    ZIDLOHODINY PORTLET
+*/
+td.zidlo_right {
+    text-align: right;
+}
+
+td.zidlo_fond {
+    background-color: #f9fffd;
+}
+td.zidlo_fond_zebra {
+    background-color: #d0ecea;
+}
+
+table.zidlohodiny th {
+    text-align: center;
+    white-space: normal;
+    max-width: 110px;
+}
+/*
+  EOF: ZIDLOHODINY PORTLET
+*/
+
+
+/*
+    Author: volenova
+    UCITELE PREDMETU 2 PORTLET
+*/
+
+td.up2_canBeWrong {
+    background-color: #ffeedd;
+}
+
+td.up2_wrong {
+   background-color: #ffcc99;
+}
+
+td.up2_noRA {
+   background-color: #ff9999;
+}
+
+td.up2_noPredmet {
+    background-color: #ff99cc;
+}
+
+tr.up2_added {
+    background-color: #ffee88;
+}
+
+.up2_prazdny {
+    background-color: #ff7755;
+}
+
+td.up_legenda {
+    width: 20px;
+}
+
+td.up2_nocenter {
+   text-align: left;
+}
+
+table.up2_tab th,
+table.up2_tab td {
+    width: 60px;
+}
+
+table.up2_tab th.up2_predmet,
+table.up2_tab td.up2_predmet {
+    width: 90px;
+}
+
+table.up2_tab th.up2_wide,
+table.up2_tab td.up2_wide {
+    width: 170px;
+}
+
+div.up2_submit {
+    background-color: #ffee88;
+    border: 1px solid #ccaa22;
+    padding: 6px 10px 6px 10px;
+}
+
+a.up2_ucit,
+a.up2_ucit:hover,
+a.up2_ucit:link,
+a.up2_ucit:visited {
+    font-weight: normal;
+}
+
+td.red_alert a.up2_ucit,
+td.red_alert a.up2_ucit:hover,
+td.red_alert a.up2_ucit:link,
+td.red_alert a.up2_ucit:visited {
+    color: red;
+}
+
+/*
+    EOF: UCITELE PREDMETU 2 PORTLET
+*/
+
+/* prunik je soucasti formulare */
+.prunik_casu_type_studenti, .prunik_casu_type_ucitele {
+  margin-left: 15px;
+}
+/* pokud je prunik prvni ve formulari, tak bez marginu... */
+div:first-child > .prunik_casu_type_studenti, div:first-child > .prunik_casu_type_ucitele {
+  margin-left: 0;
+}
+
+/*
+    Author: volenova
+    Podbarvovani radek
+*/
+
+table.colored-rows  > tbody > tr.cr_default {
+    background-color: #ebfcff;
+}
+
+table.colored-rows  > tbody > tr.zebra.cr_default, div.cr_default, p.cr_default {
+    background-color: #d2ecfc;
+}
+
+table.colored-rows  > tbody > tr.cr_info {
+    background-color: #eafeea;
+}
+
+table.colored-rows  > tbody > tr.zebra.cr_info, div.cr_info, p.cr_info {
+    background-color: #d2eed0;
+}
+
+table.colored-rows  > tbody > tr.cr_warning {
+    background-color: #fef8de;
+}
+
+table.colored-rows  > tbody > tr.zebra.cr_warning, div.cr_warning, p.cr_warning {
+    background-color: #fee4ba;
+}
+
+table.colored-rows  > tbody > tr.cr_error {
+    background-color: #fae7e3;
+}
+
+table.colored-rows  > tbody > tr.zebra.cr_error, div.cr_error, p.cr_error {
+    background-color: #fad5ca;
+}
+
+table.colored-rows  > tbody > tr.cr_none {
+    background-color: #ffffff;
+}
+
+table.colored-rows  > tbody > tr.zebra.cr_none, div.cr_none, p.cr_none {
+    background-color: #f4f2f2;
+}
+
+div.cr_default,
+div.cr_info,
+div.cr_warning,
+div.cr_error,
+div.cr_none,
+p.cr_default,
+p.cr_info,
+p.cr_warning,
+p.cr_error,
+p.cr_none {
+    padding: 5px;
+}
+
+
+@media screen and (max-width: 768px){
+   .xg_tab_S tr td, .xg_tab_S tr th {
+       font-size: 14px;
+       padding: 5px;
+   }
+
+    .xg_tab_S {
+        width: 100%;
+    }
+  .xg_pane_B th {
+    white-space: normal;
+  }
+}
+
+
+/*
+    EOF: Podbarvovani radek
+*/
+

@@ -1,0 +1,96 @@
+{# #### Sablona jako zaklad vsech stranek #### #}
+
+{# pripojuju makra #}
+{% import "macro.twig" as macro %}
+
+
+{# HTML #}
+<!doctype html>
+<html lang="cs">
+    <head>
+        <meta charset="utf-8">
+        <!-- nastaveni viewportu pro Boostrap -->
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>{{ nadpis | striptags }}</title>
+
+        <link rel="stylesheet" href="{{ macro.CSS_DIR }}/style.css">
+
+
+        <!-- -- Importy -- -->
+
+        <!-- CSS Bootstrapu (JS v paticce) -->
+        <link rel="stylesheet" type='text/css' href="{{ macro.COMPOSER_DIR }}/vendor/twbs/bootstrap/dist/css/bootstrap.min.css">
+        <!-- Font Awesome -->
+        <link rel="stylesheet" type='text/css' href="{{ macro.COMPOSER_DIR }}/vendor/components/font-awesome/css/fontawesome.min.css">
+        <link rel="stylesheet" href="{{ macro.COMPOSER_DIR }}/vendor/components/font-awesome/css/regular.min.css">
+        <link rel="stylesheet" href="{{ macro.COMPOSER_DIR }}/vendor/components/font-awesome/css/solid.min.css">
+
+        <!-- -- END: Importy -- -->
+
+
+    </head>
+    <body>
+
+        {# navbar #}
+        {% block navbar %}
+            {{ include('navbar.twig') }}
+        {% endblock %}
+        {# END navbar #}
+
+
+        {# header #}
+        {% block header %}
+            {{ include('header.twig') }}
+        {% endblock %}
+        {# END header #}
+
+        <div id="obal">
+            <h1>{{ nadpis | striptags }}</h1>
+
+            {# vypis a sprava prihlaseni uzivatele #}
+            {% block prihlaseni %}
+                {% include("login.twig") %}
+            {% endblock %}
+
+            {# vypis obsahu stranky #}
+            {% block obsah %}
+
+                {# vypis kosiku #}
+                {% block nakupniKosik %}
+                    Obsah kosiku.
+                {% endblock %}
+
+                {# vypis produktu obchodu #}
+                {% block produktyObchodu %}
+                    Obsah obchodu.
+                {% endblock %}
+
+                {# text stranky #}
+                {% block text %}
+                    Textový obsah stránky.
+                {% endblock %}
+
+            {% endblock obsah %}
+
+        </div>
+
+        {# footer #}
+        {% block footer %}
+            {{ include('footer.twig') }}
+        {% endblock %}
+        {# END footer #}
+
+
+        <!-- ------------- JavaScripty ------------- -->
+
+        <!-- jQuery -->
+        <script src="{{ macro.COMPOSER_DIR }}/vendor/components/jquery/jquery.min.js"></script>
+        <!-- Bootstrap -->
+        <script src="{{ macro.COMPOSER_DIR }}/vendor/twbs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+
+        <!-- ------------- END: JavaScripty ------------- -->
+    </body>
+</html>

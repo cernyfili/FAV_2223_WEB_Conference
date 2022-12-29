@@ -1,0 +1,15 @@
+{
+    "description": "Ukázka composeru.",
+    "require": {
+        "twig/twig" : ">=1.0",
+        "twbs/bootstrap" : ">=4.5.2",
+        "components/jquery" : ">=3.0",
+        "components/font-awesome": "6.2.0"
+    },
+    "config": {
+        "platform": {
+            "php": "7.1"
+        },
+        "sort-packages": true
+    }
+}

@@ -1,0 +1,59 @@
+{# #### Sablona puvodne urcena pro Twig v.1 - makra #### #}
+
+{# ## Konstanty ## #}
+
+{# cesta k obrazkum #}
+{% macro IMG_DIR() %}/img{% endmacro %}
+
+{# cesta k css #}
+{% macro CSS_DIR() %}/css{% endmacro %}
+
+{# cesta k composer #}
+{% macro COMPOSER_DIR() %}/WEB_semestralka/src/composer{% endmacro %}
+
+{# ## END Konstanty ## #}
+
+
+{# vypis input elementu #}
+{% macro inputElement(name, value, type, other) %}
+    <input type="{{ type|default('text') }}" name="{{ name }}" value="{{ value|e }}" {{ other|default("") }} />
+{% endmacro %}
+
+{# vypis radku tabulky #}
+{% macro tableRow(typ, produkt, barva) %}
+
+    {# musim importovat tento soubor pro vyuziti horejsiho makra #}
+    {% import _self as makra %}
+
+    <form action="index.php?web=obchod" method="post">
+        <tr style="background-color:{{ barva }}" >
+            <td>{{ produkt.nazev | upper }}</td>
+            <td>{{ produkt.cena }}&nbsp;kč</td>
+
+            {% if produkt.obrazek!="" %}
+                <td><img src='obr/{{ produkt.obrazek }}'></td>
+            {% else %}
+                <td><img src='obr/produkt.jpg'></td>
+            {% endif %}
+
+            {% if typ=="obchod" %}
+                <td>
+                    {{ makra.inputElement("produkt",produkt.id,"hidden",null) }}
+                    {{ makra.inputElement("mnozstvi","1","number","min=0 max=10 value=1") }}
+                </td>
+                <td>
+                    {{ makra.inputElement("pridat","Přidej do košíku","submit",null) }}
+                </td>
+
+            {% elseif typ=="kosik" %}
+                <td>{{ produkt.ks }}&nbsp;ks</td>
+                <td>
+                    {{ makra.inputElement("produkt",produkt.id,"hidden",null) }}
+                    {{ makra.inputElement("odebrat","Odeber","submit",null) }}
+                </td>
+            {% endif %}
+
+        </tr>
+    </form>
+
+{% endmacro %}

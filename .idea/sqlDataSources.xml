@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DdlMappings">
+    <mapping uuid="3fe5d26b-b9b1-422d-8847-cbecaa13fcdf" name="DDL Mapping">
+      <data-sources db="967d4ed6-d50b-468d-94f1-df9b377d3a9d" ddl="4d723b7f-2280-4750-9e1b-55bd7825d4c8" />
+    </mapping>
+  </component>
+  <component name="SqlDataSourceStorage">
+    <option name="dataSources">
+      <list>
+        <State>
+          <option name="id" value="4d723b7f-2280-4750-9e1b-55bd7825d4c8" />
+          <option name="name" value="cernyf_mvc_introdution@localhost (DDL)" />
+          <option name="dbmsName" value="MYSQL" />
+          <option name="urls">
+            <array />
+          </option>
+        </State>
+      </list>
+    </option>
+  </component>
+</project>

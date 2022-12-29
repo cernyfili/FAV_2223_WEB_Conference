@@ -1,0 +1,90 @@
+{# #### Sablona horniho menu pro vsechny stranky #### #}
+
+{# pripojuju makra #}
+{% import "macro.twig" as macro %}
+
+{# HTML #}
+<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+    <div class="container">
+        <!-- Brand -->
+        <a class="navbar-brand" href="#">
+            <i class="fa-solid fa-brain"></i>
+            Konference 2023
+        </a>
+
+        <!-- Toggler/collapsibe Button -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Navbar links -->
+        <div class="collapse navbar-collapse ms-3" id="mynavbar">
+
+            {# Navbar left #}
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Úvod</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Příspěvky</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Partneři</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Místo a Kontakt</a>
+                </li>
+            </ul>
+            {# END: Navbar left #}
+
+
+            {# Navbar right #}
+            <ul class="navbar-nav navbar-right">
+
+                {# Prihlasit se #}
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="fa-solid fa-user me-1"></i>
+                        Přihlásit
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-dark">
+                        <li>
+                            <div class="dropdown-item bg-transparent" id="formLogin">
+                                <div class="row">
+                                    <div class="container-fluid">
+                                        <form class="">
+                                            <div class="form-group">
+                                                <label class="">Username</label>
+                                                <input class="form-control" name="username" id="username" type="text">
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="">Password</label>
+                                                <input class="form-control" name="password" id="password" type="password">
+                                                <br class="">
+                                            </div>
+                                            <button type="submit" id="btnLogin" class="btn btn-primary btn-sm">Login</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </li>
+                {# END: Prihlasit se #}
+
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="fa-solid fa-user"></i>
+                        username{#TODO dodelat funkcni username v navbar#}
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="#" class="nav-link">Registrovat</a>
+                </li>
+            </ul>
+            {# END: Navbar right #}
+
+        </div>
+    </div>
+</nav>

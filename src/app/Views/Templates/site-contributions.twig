@@ -1,0 +1,15 @@
+{# #### Sablona pro Twig v.2 - vypis uvodni stranky #### #}
+
+{# dedim od zakladni sablony #}
+{% extends "template-basic.twig" %}
+
+{# prekryvam cely blok obsahu #}
+{% block obsah %}
+
+    {# pouze vypis textu #}
+    <div class="text">
+        Twig v2:
+        {{ text | raw }}
+    </div>
+
+{% endblock %}

@@ -1,0 +1,1778 @@
+<!DOCTYPE html>
+<html lang="cs"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Portál ZČU
+
+    
+      
+      &gt; Courseware
+    
+      
+      &gt; KIV
+    
+      
+      &gt; WEB
+    
+      
+      &gt; Samostatná práce
+    
+      
+      &gt; Samostatná práce
+    
+  </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Cache-Control" content="no-cache">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="-1">
+  <meta charset="UTF-8">
+
+  <link rel="icon" type="image/png" href="https://courseware.zcu.cz/zdroje/portal_resources/cw/portal/img/favicon/favicon-32x32.png" sizes="32x32">
+  
+  
+  <link rel="icon" type="image/png" href="https://courseware.zcu.cz/zdroje/portal_resources/cw/portal/img/favicon/favicon-16x16.png" sizes="16x16">
+  <link rel="shortcut icon" type="image/png" href="https://courseware.zcu.cz/zdroje/portal_resources/cw/portal/img/favicon/favicon-32x32.png" sizes="32x32">
+
+  <link rel="StyleSheet" media="screen" type="text/css" href="zadani_WEB_files/app_container.css">
+
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <!--[if lte IE 7]>
+  
+  <style type="text/css">
+    DIV.app_page_content {
+      border-left: none !important;
+      float:left;
+    }
+  </style>
+  <![endif]-->
+
+
+  <link rel="StyleSheet" href="zadani_WEB_files/XGui.css" type="text/css" media="all">
+  <link rel="stylesheet" type="text/css" href="zadani_WEB_files/calendar-cw.css" title="calendar-cw" media="all">
+  <!--nutne kvuli validatoru - je tam oznaceni nevalidniho inputu... -->
+
+  <script type="text/javascript" src="zadani_WEB_files/COMBINED.js"></script>
+
+  
+  
+  
+
+  
+  <script type="text/javascript" charset="UTF-8" src="zadani_WEB_files/l10n-cs.js"></script>
+  <script type="text/javascript" src="zadani_WEB_files/calendar-cs.js"></script>
+
+  
+  <script type="text/javascript">
+    function deletePortlet(id) {
+        GenericAjaxLoad('/portal/page-edit-controller',
+                $.param({action: 'deletePortlet', portletid: id, time: new Date().getTime()}), 'javascript', null, null);
+    }
+
+    
+
+  </script>
+  
+</head>
+
+<body>
+<h1 class="a11y_hidden">
+  
+    
+    &gt; Courseware
+  
+    
+    &gt; KIV
+  
+    
+    &gt; WEB
+  
+    
+    &gt; Samostatná práce
+  
+    
+    &gt; Samostatná práce
+   -
+  Portál ZČU
+</h1>
+
+<a class="a11y_hidden a11y_focusable" href="#app_page_content">Přeskočit na obsah stránky</a>
+<form id="cprt_logout_form" action="/portal/logout" method="post"><input type="hidden" name="_csrf" value="9ff87d2f-4a43-4c6b-8d2b-f4c7bbe83e57"></form>
+<div class="app_container app_container-modif_lang-cs  PREDMETY-">
+
+  <div class="app_header">
+
+    <div class="app_header_left">
+      <a href="http://www.zcu.cz/" title="Webové stránky ZČU" target="_blank">
+        <img src="zadani_WEB_files/app_spacer.gif" class="spacer" alt="Webové stránky ZČU">
+      </a>
+    </div>
+
+    <div class="app_header_center">
+      <a href="https://courseware.zcu.cz/portal/studium/courseware" title="Hlavní stránka Courseware ZČU">
+        <img src="zadani_WEB_files/app_spacer.gif" class="spacer" alt="Hlavní stránka Courseware ZČU">
+      </a>
+    </div>
+
+
+    <div class="app_header_right">
+      <div class="upper">
+        
+          
+            
+              <a class="falseLink hideForMobile" href="https://courseware.zcu.cz/portal/logout" title="Odhlásit uživatele"><span class="hideForTablet">Přihlášený uživatel:</span>
+                <strong>cernyf</strong> </a>
+              <a href="javascript:void(0)" onclick="$('#cprt_logout_form').submit();" title="Odhlásit uživatele">Odhlásit</a>
+            
+            
+          
+          <span class="languageSelection">
+            
+              
+                <a href="https://courseware.zcu.cz/portal/studium/courseware/kiv/web/samostatna-prace/index.html?pc_lang=en" title="Switch to english">English</a>
+              
+              
+            
+          </span>
+        
+        
+      </div>
+      <div class="lower pageEdit">
+        
+          <a target="_blank" class="link_out" href="http://support.zcu.cz/" title="HelpDesk - kontaktujte uživatelskou podporu">HelpDesk - kontaktujte uživatelskou podporu</a><br>
+        
+        
+        
+      </div>
+      <div class="lower">
+          
+        
+          
+        
+      </div>
+    </div>
+
+    <div class="clear"></div>
+  </div>
+
+  
+
+  <div class="app_breadrumbs">
+    <h2 class="a11y_hidden">Drobečková navigace</h2>
+
+    <a href="https://courseware.zcu.cz/">Portál ZČU</a>
+    
+      
+      &gt;
+      <a href="https://courseware.zcu.cz/portal/studium/courseware">Courseware</a>
+    
+      
+      &gt;
+      <a href="https://courseware.zcu.cz/portal/studium/courseware/po-fakultach.html?navigace=fakulty&amp;Fakulta=reset">Předměty po fakultách</a>
+    
+      
+      &gt;
+      <a href="https://courseware.zcu.cz/portal/studium/courseware/po-fakultach.html?navigace=fakulty&amp;Fakulta=FAV">Fakulta aplikovaných věd</a>
+    
+      
+      &gt;
+      <a href="https://courseware.zcu.cz/portal/studium/courseware/kiv">KIV</a>
+    
+      
+      &gt;
+      <a href="https://courseware.zcu.cz/portal/studium/courseware/kiv/web">WEB</a>
+    
+      
+      &gt;
+      Samostatná práce
+    
+  </div>
+
+  
+
+
+
+
+
+    
+<script type="application/javascript">
+    jQuery(document).ready(function () {
+        // nastavim podle nastaveni v portalu
+        try {
+            civPortalRenewEvery = 300000;
+            initCivPortalSessionRenew();
+        } catch (e) {
+            console.log.call(console, e.stack || e);
+        }
+    });
+</script>
+<div id="civPortalSessionOverDialog" style="display:none; background-color: #b4b4b4">
+    <div style="padding:10pt; text-align:center; font-size: 14pt;">
+        <strong>Vzhledem k dlouhotrvající nečinnosti došlo k odpojení uživatele z portálu.</strong>
+    </div>
+    <div style="padding:10pt; text-align:center; font-size: 14pt;">
+        Klikněte, prosím, na <a href="https://courseware.zcu.cz/portal/studium/courseware/kiv/web/samostatna-prace/index.html" style="color: blue">tento odkaz pro obnovení připojení k portálu</a>
+    </div>
+    <div style="padding:6pt; text-align:center; font-size: 10pt;">
+        (k odpojení dochází až po 240-ti minutách nečinnosti. Pozor, na mobilních zařízeních k němu může dojít podstatně dříve).
+    </div>
+</div>
+
+
+
+  <div class="app_content">
+    <div class="app_page_multi">
+
+      
+        <div class="app_page_menu">
+
+          <div class="app_page_menu_header">
+              
+            <div><a href="https://courseware.zcu.cz/portal/studium/courseware/kiv/web">WEB</a></div>
+          </div>
+
+          <h2 class="a11y_hidden">Navigace</h2>
+          <ul>
+            
+              
+            
+              <li class=" odsazeny0 cwHiddenfalse"><a href="https://courseware.zcu.cz/portal/studium/courseware/kiv/web/o-predmetu.html">O předmětu
+                
+              </a>
+              </li>
+            
+            
+              
+            
+              <li class=" odsazeny0 cwHiddenfalse"><a href="https://courseware.zcu.cz/portal/studium/courseware/kiv/web/podminky-absolvovani.html">Podmínky absolvování
+                
+              </a>
+              </li>
+            
+            
+              
+            
+              <li class=" odsazeny0 cwHiddenfalse"><a href="https://courseware.zcu.cz/portal/studium/courseware/kiv/web/prednasky.html">Přednášky
+                
+              </a>
+              </li>
+            
+            
+              
+            
+              <li class=" odsazeny0 cwHiddenfalse"><a href="https://courseware.zcu.cz/portal/studium/courseware/kiv/web/cviceni.html">Cvičení
+                
+              </a>
+              </li>
+            
+            
+              
+            
+              <li class="selected odsazeny0 cwHiddenfalse"><a href="https://courseware.zcu.cz/portal/studium/courseware/kiv/web/samostatna-prace/index.html">Samostatná práce
+                
+              </a>
+              </li>
+            
+            
+              
+            
+              <li class=" odsazeny1 cwHiddenfalse"><a href="https://courseware.zcu.cz/portal/studium/courseware/kiv/web/samostatna-prace/varianty_standard._zadani_sp.html">Varianty standard. zadání SP
+                
+              </a>
+              </li>
+            
+            
+              
+            
+              <li class=" odsazeny1 cwHiddenfalse"><a href="https://courseware.zcu.cz/portal/studium/courseware/kiv/web/samostatna-prace/ukazka_standard._zadani_sp.html">Ukázka standard. zadání SP
+                
+              </a>
+              </li>
+            
+            
+              
+            
+              <li class=" odsazeny1 cwHiddenfalse"><a href="https://courseware.zcu.cz/portal/studium/courseware/kiv/web/samostatna-prace/prakticke_zadani_sp_pro_kiv.html">Praktické zadání SP pro KIV
+                
+              </a>
+              </li>
+            
+            
+              
+            
+              <li class=" odsazeny1 cwHiddenfalse"><a href="https://courseware.zcu.cz/portal/studium/courseware/kiv/web/samostatna-prace/nykl_-_hodnoceni_sp.html">Nykl - Hodnocení SP
+                
+              </a>
+              </li>
+            
+            
+              
+            
+              <li class=" odsazeny0 cwHiddenfalse"><a href="https://courseware.zcu.cz/portal/studium/courseware/kiv/web/zkouska.html">Zkouška
+                
+              </a>
+              </li>
+            
+            
+              
+            
+              <li class=" odsazeny0 cwHiddenfalse"><a href="https://courseware.zcu.cz/portal/studium/courseware/kiv/web/studijni-materialy.html">Studijní materiály
+                
+              </a>
+              </li>
+            
+            
+              
+            
+              <li class=" odsazeny0 cwHiddenfalse"><a href="https://courseware.zcu.cz/portal/studium/courseware/kiv/web/kombinovane-studium.html">Kombinované studium
+                
+              </a>
+              </li>
+            
+            
+          </ul>
+        </div>
+      
+
+      <div id="app_page_content" class="app_page_content">
+        
+
+
+
+
+
+
+<script type="application/javascript">
+    var pc_countdownTimer = null;
+    pc_countdownTimer = window.setInterval(function () {
+        jQuery('html, body').css('cursor', 'busy');         jQuery('#pc_loader_div').fadeIn(4000);
+        window.clearInterval(pc_countdownTimer);
+    }, 1000);
+
+</script>
+<script type="application/javascript">
+    jQuery('#pc_loader_div').remove();
+    if (typeof pc_countdownTimer != "undefined" && pc_countdownTimer != null) { window.clearInterval(pc_countdownTimer); }
+</script><table class="app_portlet_frame_out" role="presentation" cellspacing="0" cellpadding="0"><tbody><tr><td valign="top"><table class="render_container" role="presentation" cellspacing="0" cellpadding="0"><tbody id="l_275956"><tr><td valign="top"><table class="render_container" role="presentation" cellspacing="0" cellpadding="0"><tbody class="column" id="l_275957"><tr><td valign="top">
+
+
+
+
+
+
+
+
+
+
+<!--portlet: CoursewarePortlets2##/ESFPortlet-->
+<div class="portlet " id="p_358942">
+<table id="358942" class="app_portlet_frame_in " role="presentation" cellpadding="0">
+    <tbody><tr class="app_portlet_head">
+        <td class="app_portlet_head_title"></td>
+        <td class="app_portlet_head_icons">
+          
+            
+              
+              
+                  <span class="mode-button">
+                      <a href="https://courseware.zcu.cz/portal/studium/courseware/kiv/web/samostatna-prace/index.html?pc_phs=-1229375041&amp;pc_mode=help&amp;pc_windowid=358942&amp;pc_publicnavigationalstatechanges=AAAAAA**&amp;pc_phase=render&amp;pc_type=portlet&amp;pc_windowstate=maximized#cpa_358942" rel="nofollow" target="_blank">
+                          <img alt="Nápověda portletu" title="Nápověda portletu" src="zadani_WEB_files/icon-title_help.png">
+                      </a>
+                  </span>
+              
+              
+            
+          
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2" class="app_portlet_coat">
+            <div role="region" aria-label="Hlavička předmětu (C001)" id="cpa_358942">
+                
+
+
+
+
+
+
+
+
+
+
+
+
+<div style="float: left;">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="G358942validation_errors" class="xgt_validationErrors"></div>
+<div id="G358942validation_passed" class="xgt_validationPassed"></div>
+
+
+
+
+
+
+
+
+
+</div>
+
+
+
+<div class="esf_portlet">
+  
+  
+    <div style="clear:both;">
+      
+      
+      <div style="float:left; margin-left: 5px;">
+        <h2 style="margin: 3px; font-weight: bold; font-size: 200%;">KIV/WEB</h2>
+        <h3 style="margin: 3px;">Webové aplikace</h3>
+        <h4 style="margin: 3px; font-weight: bold;">Garanti: Ing. Martin Dostal, Ph.D.</h4>
+        <div style="margin: 3px; margin-top:6px;  font-weight: bold; font-style: italic; color: darkgray;"></div>
+      </div>
+
+      <div style="margin-left: 5px; margin-right: 10px; text-align: right; vertical-align: bottom;">
+        
+
+      </div>
+    </div>
+    
+  
+
+</div>
+            </div>
+        </td>
+    </tr>
+</tbody></table>
+</div>
+<!--portlet-end: CoursewarePortlets2##/ESFPortlet-->
+</td></tr><tr><td valign="top">
+
+
+
+
+
+
+
+
+
+
+<!--portlet: CoursewarePortlets2##/StaticTextJSR168Portlet-->
+<div class="portlet " id="p_358944">
+<table id="358944" class="app_portlet_frame_in " role="presentation" cellpadding="0">
+    <tbody><tr class="app_portlet_head">
+        <td class="app_portlet_head_title"></td>
+        <td class="app_portlet_head_icons">
+          
+            
+              
+              
+                  <span class="mode-button">
+                      <a href="https://courseware.zcu.cz/portal/studium/courseware/kiv/web/samostatna-prace/index.html?pc_phs=-1271718418&amp;pc_mode=help&amp;pc_windowid=358944&amp;pc_publicnavigationalstatechanges=AAAAAA**&amp;pc_phase=render&amp;pc_type=portlet&amp;pc_windowstate=maximized#cpa_358944" rel="nofollow" target="_blank">
+                          <img alt="Nápověda portletu" title="Nápověda portletu" src="zadani_WEB_files/icon-title_help.png">
+                      </a>
+                  </span>
+              
+              
+            
+          
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2" class="app_portlet_coat">
+            <div role="region" aria-label="Text (C021)" id="cpa_358944">
+                
+
+
+
+
+
+<div class="statictext_portlet">
+
+	
+
+		
+
+		
+
+			
+			
+				
+						<h2 style="margin-top:0px">
+							Informace o samostatné práci
+						</h2>
+
+					<div data-name="content_autor" data-autor="nyklm">
+						<p>Rychlé odkazy:<br>
+<a href="#nutne-pozadavky">1. Nutné požadavky na SP</a>,<br>
+<a href="#hodnoceni">2. Hodnocení SP a získání zápočtu</a>,<br>
+<a href="#zadani">3. Zadání samostatné práce</a>,<br>
+<a href="#odevzdani">4. Předvedení a odevzdání SP</a>.</p>
+
+<hr>
+<p>Nápověda:</p>
+
+<ul>
+	<li>Pokud máte problém se špatným kódováním češtiny na serveru <em>students</em> nebo <em>home</em>, tak zkuste přidat soubor <strong>.htaccess</strong> a vložte do něj následující řádek:
+
+	<ul>
+		<li><code>AddDefaultCharset OFF</code></li>
+	</ul>
+	</li>
+	<li>Pokud server nevypisuje chyby PHP (např. server <em>students</em>), tak do hlavičky PHP souboru vložte náledující příkazy:
+	<ul>
+		<li><code>ini_set('display_errors', 1); ini_set('display_startup_errors', 1); error_reporting(E_ALL);</code></li>
+	</ul>
+	</li>
+</ul>
+
+<hr>
+<h2><strong><a id="nutne-pozadavky" name="nutne-pozadavky">1. </a>Nutné požadavky na všechny samostatné práce</strong></h2>
+
+<ul>
+	<li>Technologie - povinně <strong>HTML5</strong>, <strong>CSS</strong>, <strong>PHP</strong> a <strong>MySQL</strong> (nebo jiná databáze), volitelně šablony, JavaScript, AJAX, Bootstrap apod.</li>
+	<li>Aplikace musí dodržovat <strong>MVC</strong> architekturu.</li>
+	<li>Web má <strong>jeden vstupní soubor</strong> (obvykle <em>index.php</em>), který na základě parametrů URL adresy provede požadovanou akci (tj. zavolá příslušný <em>controller</em>) a vypíše výstup uživateli.</li>
+	<li>Pro práci s databází musí být <strong>využito PDO</strong> nebo jeho ekvivalent.</li>
+	<li>Web musí být chráněn proti útokům typu <strong>XSS</strong> a <strong>SQL Injection</strong>.</li>
+	<li>Web musí mít <strong>responzivní design</strong>.</li>
+	<li>K aplikaci musí být dodána <strong>dokumentace</strong> (viz dále) a <strong>skripty pro instalaci databáze</strong> (např. získané exportem databáze).</li>
+	<li><strong>Práce musí být osobně předvedena cvičícímu</strong> a po schválení odevzdána na CourseWare či Portál.</li>
+	<li><span style="color:#B22222;">Aplikaci&nbsp;<strong>není možné realizovat s využitím ucelených PHP frameworků</strong>&nbsp;(zakázáno např. Nette, Symfony atd.). </span>Použití jejich komponent je možné pouze po schválení vyučujícím.</li>
+	<li><span style="color:#006400;">Pro front-end je vhodné využít framework Bootstrap (</span><a href="http://getbootstrap.com/" target="_blank">getbootstrap.com</a><span style="color:#006400;">) nebo jeho ekvivalent.</span></li>
+</ul>
+
+<h3><strong>1.1. Dokumentace</strong></h3>
+
+<p>Dokumentace musí obsahovat:</p>
+
+<ul>
+	<li>Vaše <strong>jméno</strong>, <strong>URL</strong> vytvořených stránek (pokud jsou zveřejněny na serveru students.kiv.zcu.cz či jinde), Váš <strong>email</strong>, <strong>datum vytvoření</strong>, <strong>název předmětu</strong> a <strong>název aplikace</strong>.</li>
+	<li><strong>Popis použitých technologií</strong> - uveďte hlavně, ve které části jste kterou technologii použili.</li>
+	<li><strong>Popis adresářové struktury aplikace</strong> - co je ve kterých adresářích a souborech.</li>
+	<li><strong>Popis architektury aplikace</strong> - co mají na starosti které třídy (popř. lze využít i UML diagramy).</li>
+	<li><strong>Seznam defaultní uživatelů</strong> včetně loginů a hesel.</li>
+	<li>U alternativního zadání uveďte celé, cvičícím schválené zadání práce.</li>
+	<li>Dokumentaci <strong>netiskněte</strong>, ale <strong>odevzdejte ji ve formátu PDF</strong> spolu s aplikací.</li>
+</ul>
+
+<hr>
+<h2><strong><a id="hodnoceni" name="hodnoceni">2. </a>Hodnocení samostatné práce a získání zápočtu</strong></h2>
+
+<ul>
+	<li>Hodnocení práce je rozděleno na povinné požadavky a volitelná 
+rozšíření, přičemž detailní podmínky sdělí a vysvětlí každý vyučující na
+ prvním cvičení.</li>
+	<li><strong>Pro získání zápočtu je nutné splnit povinné požadavky a získat ze semestrální práce minimálně&nbsp;20 bodů.</strong></li>
+</ul>
+
+<h3><strong>2.2. Dodatečné poznámky k hodnocení</strong></h3>
+
+<ul>
+	<li>Odevzdání práce v průběhu cvičení v ZS (tzv. do Vánoc) je&nbsp;<strong>ohodnoceno bonusovými body</strong>.</li>
+	<li><strong>Github, Bitbucket&nbsp; </strong>- práce je uložena v repozitáři (snadné body) a ideálně je vidět, že byl repozitář při vývoji používán.</li>
+	<li><strong>Bootstrap </strong>či ekvivalent - obvykle bývá automaticky zajištěna responzivita designu (dohromady hodně bodů).</li>
+	<li><strong>Zákaz plagiátorství</strong> - práci musí student vytvořit 
+samostatně. Nelze ji tedy zkopírovat např. z Githubu a ani nelze "udat" 
+starou práci ze střední školy (obvykle nesplňuje nutné požadavky). <strong>Plagiátorství je </strong>odhalováno automatizovaným systémem a <strong>hodnoceno odebráním zápočtu</strong>.&nbsp;</li>
+</ul>
+
+<hr>
+<h2><strong><a id="zadani" name="zadani">3. </a> Zadání samostatné práce</strong></h2>
+
+<p>Typy zadání:</p>
+
+<ul>
+	<li><strong>Standardní zadání či jeho varianta </strong>- vhodné pro začátečníky a mírně pokročilé studenty.</li>
+	<li><strong>Volitelné praktické zadání pro KIV </strong>- pouze pro pokročilé studenty.<strong> </strong></li>
+	<li><strong>Volitelné firemní zadání </strong>z portálu <a href="http://spoluprace.zcu.cz/" target="_blank">spoluprace.zcu.cz</a> - pouze pro pokročilé studenty. Téma musí schválit cvičící.&nbsp;</li>
+</ul>
+
+<h3><strong>3.1. Standardní zadání - Webové stránky konferenčního systému</strong></h3>
+
+<ul>
+	<li>Úkolem je vytvořit kompletní webové stránky konference, přičemž téma konference si můžete zvolit libovolné.</li>
+	<li><u>Uživateli systému</u> jsou autoři příspěvků (vkládají abstrakty 
+článků a PDF dokumenty), recenzenti příspěvků (hodnotí příspěvky) a 
+administrátoři (spravují uživatele, přiřazují příspěvky recenzentům k 
+ohodnocení a rozhodují o publikování příspěvků). Každý uživatel se do 
+systému přihlašuje prostřednictvím vlastního uživatelského jména a 
+hesla. Nepřihlášený uživatel vidí pouze publikované příspěvky.</li>
+	<li><u>Nepřihlášený uživatel</u> vidí pouze publikované příspěvky a může se do systému zaregistrovat, čímž získá roli autora.</li>
+	<li><u>Přihlášený autor</u> vidí svoje příspěvky včetně stavu, ve 
+kterém se nacházejí (v recenzním řízení / přijat +hodnocení / odmítnut 
++hodnocení). Své příspěvky může přidávat a dokud nejsou publikovány, tak
+ i editovat a mazat. Rozhodnutí, zda autor může editovat či mazat 
+publikované příspěvky je ponecháno na tvůrci systému.</li>
+	<li><u>Přihlášený recenzent</u> vidí příspěvky, které mu byly přiděleny
+ k recenzi, a může je hodnotit (nutně alespoň 3 kritéria hodnocení). 
+Pokud příspěvek nebyl dosud publikován, tak své hodnocení může změnit 
+(či smazat). Hodnocení publikovaných příspěvků měnit nelze.</li>
+	<li><u>Přihlášený administrátor</u> spravuje uživatele (určuje jejich 
+role a může uživatele zablokovat či smazat), přiřazuje neschválené 
+příspěvky recenzentům k hodnocení (každý příspěvek bude recenzován 
+minimálně třemi recenzenty) a na základě recenzí rozhoduje o publikování
+ nebo odmítnutí příspěvku. Publikované příspěvky jsou automaticky 
+zobrazovány ve veřejné části webu.</li>
+	<li><u>Databáze</u> musí obsahovat alespoň 3 tabulky, které budou 
+dostatečně naplněny ukázkovými daty tak, aby bylo možné předvést 
+funkčnost aplikace.</li>
+	<li><em>Jiné varianty standardního zadání, viz samostatná záložka v menu.</em></li>
+</ul>
+
+<h3><strong>3.2. Volitelné praktické zadání pro KIV</strong></h3>
+
+<ul>
+	<li>Pouze pro studenty s pokročilou znalostí probírané látky.</li>
+	<li>V případě výběru stejného tématu více studenty budou studenti konkurenty (prakticky může být nasazena pouze jedna aplikace).</li>
+	<li>Cílem je analyzovat požadavky, domyslet vše potřebné, navrhnout UI s ohledem na UX a realizovat aplikaci.</li>
+	<li>Současná témata: <strong>Infotabule</strong> a <strong>Web s aplikacemi studentů</strong>, viz samostatná záložka v menu.</li>
+</ul>
+
+<h3><strong>3.3. Volitelné firemní zadání z portálu spoluprace.zcu.cz</strong></h3>
+
+<ul>
+	<li>Pouze pro studenty s pokročilou znalostí probírané látky.</li>
+	<li>Vybrané zadání musí být předem schváleno cvičícím.&nbsp;K tomuto 
+účelu je nutné cvičícímu dodat písemný popis vytvářené aplikace, včetně 
+ERA modelu databáze.</li>
+	<li>Detailní popisy zadání jsou z důvodu přehlednosti zveřejněny na <a href="http://spoluprace.zcu.cz/" target="_blank">spoluprace.zcu.cz</a>, kde si student může zadání zvolit.</li>
+	<li><strong>Firma musí být informována</strong>, že daná realizace bude
+ vytvořena v rámci studentské práce. Před konečným odevzdáním práce 
+cvičícímu se k výslednému řešení musí firma písemně vyjádřit a toto 
+vyjádření zaslat emailem cvičícímu. V rámci hodnocení SP může být k 
+tomuto vyjádření přihlédnuto.</li>
+	<li><strong>Firma si je v tomto případě vědoma, že výsledné řešení je veřejné a může být na základě žádosti poskytnuto a zveřejněno </strong>(což je aktuálně dáno zákonem o vysokých školách)<strong>.</strong></li>
+	<li>Případné <strong>utajení</strong> práce je možné pouze na základě <strong>souhlasu</strong> a doporučení <strong>vedoucího katedry</strong> a za podmínek stanovených katedrou.&nbsp;</li>
+</ul>
+
+<hr>
+<h2><strong><a id="odevzdani" name="odevzdani">4. </a>Předvedení a odevzdání SP</strong></h2>
+
+<ul>
+	<li>Nutnou součástí odevzdání je <strong>osobní předvedení práce</strong> vyučujícímu, které je možné <strong>pouze na cvičeních nebo ve stanovených termínech</strong> (cca 3 za zkouškové období).</li>
+	<li>Vytvořené webové stránky při předvádění cvičícímu poběží na 
+počítači, ke kterému bude mít cvičící fyzický přístup (např. počítač v 
+učebně nebo notebook, který máte s sebou). Webovým serverem bude buď <strong>localhost</strong> (127.0.0.1), nebo univerzitní server&nbsp;<strong>students.kiv.zcu.cz</strong>.</li>
+	<li>Akceptovaná aplikace (tj. zdrojové kódy včetně dokumentace ve 
+formátu PDF) bude odevzdána do odevzdávacího portletu na Portal či 
+Courseware. Archiv bude pojmenovaný <strong>PRIJMENI-JMENO.ZIP</strong> a v nejvyšší úrovni adresářové struktury bude soubor <strong>readme.txt</strong> s popisem obsahu jednotlivých adresářů. <strong>Práci ale odevzdejte až po jejím akceptování vyučujícím.</strong></li>
+</ul>
+
+<p>Odevzdaná semestrální práce musí mimo jiné obsahovat (rekapitulace):</p>
+
+<ul>
+	<li>Dokumentaci v PDF.</li>
+	<li>Popis postupu instalace webu, včetně skriptů pro vytvoření databáze a její naplnění testovacími daty.</li>
+	<li>Všechny přístupové údaje na využívané externí služby.</li>
+	<li>Všechny soubory potřebné k provozu dané webové aplikace.</li>
+	<li>(Soubor s vlastním, cvičícím schváleným zadáním práce).</li>
+</ul>
+
+<p><strong>Nedodržení </strong>formálních požadavků na odevzdání má automaticky za následek <strong>nehodnocení </strong>samostatné práce.</p>
+
+					</div>
+
+					
+					<div class="stxt_lastUpdatedDateDiv">
+						Poslední změna:
+						26.10.2022
+					</div>
+					
+				
+
+				
+				
+			
+		
+	
+</div>
+<div style="clear: both; font-size: 2px;">&nbsp;</div>
+
+
+
+            </div>
+        </td>
+    </tr>
+</tbody></table>
+</div>
+<!--portlet-end: CoursewarePortlets2##/StaticTextJSR168Portlet-->
+</td></tr><tr><td valign="top">
+
+
+
+
+
+
+
+
+
+
+<!--portlet: StagPortletsJSR168##v221221-1216/Zapis a odevzdavani praci-->
+<div class="portlet " id="p_461395">
+<table id="461395" class="app_portlet_frame_in " role="presentation" cellpadding="0">
+    <tbody><tr class="app_portlet_head">
+        <td class="app_portlet_head_title"></td>
+        <td class="app_portlet_head_icons">
+          
+            
+              
+              
+                  <span class="mode-button">
+                      <a href="https://courseware.zcu.cz/portal/studium/courseware/kiv/web/samostatna-prace/index.html?pc_phs=120564957&amp;pc_mode=help&amp;pc_windowid=461395&amp;pc_publicnavigationalstatechanges=AAAAAA**&amp;pc_phase=render&amp;pc_type=portlet&amp;pc_windowstate=maximized#cpa_461395" rel="nofollow" target="_blank">
+                          <img alt="Nápověda portletu" title="Nápověda portletu" src="zadani_WEB_files/icon-title_help.png">
+                      </a>
+                  </span>
+              
+              
+            
+          
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2" class="app_portlet_coat">
+            <div role="region" aria-label="Aplikace pro správu semestrálních prací, jejich odevzdávání a hodnocení" id="cpa_461395">
+                
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="xg_portletCoat-noPortlet b" id="UserInfoG461395">
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script type="text/javascript">
+      function identifikatorRoleOnChange() {
+        var option = $('#UserInfoIdentityFormidentifikatorRole option:selected');
+        var select = $('#UserInfoIdentityFormidentifikatorRole');
+        if (option.hasClass('userinfo_invalid_role')) {
+          select.addClass('userinfo_invalid_role');
+        } else {
+          select.removeClass('userinfo_invalid_role');
+        }
+        if (option.hasClass('userinfo_valid_role')) {
+          select.addClass('userinfo_valid_role');
+        } else {
+          select.removeClass('userinfo_valid_role');
+        }
+        if (option.hasClass('userinfo_prepnuta_role')) {
+          select.addClass('userinfo_prepnuta_role');
+        } else {
+          select.removeClass('userinfo_prepnuta_role');
+        }
+      }
+      $(document).ready(function() {
+        identifikatorRoleOnChange();
+        $('.prepnuti_x_opener').click(function() {
+          $('#UserInfoPrepnutiIdentityForm').toggleClass('hidden');
+          $('#UserInfoPrepnutiIdentityFormosCislo_textvalue').focus();
+        });
+      });
+    </script>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+    
+    <div class="fake-table">
+        <div class="st-uc-info2 fake-table-row">
+            
+
+
+            
+            <div class="fake-table-cell bottom-border ">
+                
+                <strong>Filip  ČERNÝ </strong>,
+            </div>
+            <div class="fake-table-cell bottom-border user-info-content">
+                <span class="pv_field_caption ">Role / uživatel</span>
+                <span class="userinfo_valid_role">Student: A21B0100P - FAV</span>
+            </div>
+            <div class="fake-table-cell bottom-border user-info-content hideForMobile">
+                <span style="margin-right:4px;" class="xg_tooltip qtip_auto" tabindex="0" data-hasqtip="0" oldtitle="&lt;b&gt;Fakulta:&lt;/b&gt; Fakulta aplikovaných věd&lt;br/&gt;&lt;b&gt;Program:&lt;/b&gt; Informatika a výpočetní technika&lt;br/&gt;&lt;b&gt;Sp./Za./Ko.:&lt;/b&gt; Informatika&lt;br/&gt;&lt;b&gt;Typ:&lt;/b&gt; Bakalářský&lt;br/&gt;&lt;b&gt;Forma:&lt;/b&gt; Prezenční&lt;br/&gt;" title="">Info</span>
+            </div>
+            
+        </div>
+        
+    </div>
+    <div></div>
+</div>
+
+<div class="ng_portletCoat" id="sp_portlet_G461395">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="ng_wizard_block" style="margin: 0; border: 0px; padding-top: 3px;">
+    <div class="ng_wizard_left" id="pv_tabs_left">
+        
+        <div style="width: 60px;" class="ng_wizard_section  ng_wizzard_actual" title="" id="pv_tab_showTemata">
+            
+            <script type="text/javascript">
+                function pvTabFuncSuccess_showTemata() {
+                    jQuery('#pv_tabs_left div').removeClass('ng_wizzard_actual');
+                    jQuery('#pv_tab_showTemata').addClass('ng_wizzard_actual');
+                }
+            </script>
+            <a href="javascript:void(0)" onclick="GenericAjaxLoad2('L3BvcnRhbC9zdHVkaXVtL2NvdXJzZXdhcmUva2l2L3dlYi9zYW1vc3RhdG5hLXByYWNlL2luZGV4Lmh0bWw/cGNfcGhzPTEyMDU2NDk1NyZwY19yZXNvdXJjZXN0YXRlPUpCUE5TXyZwY19yZXNvdXJjZWNhY2hlYWJpbGl0eT1QQUdFJnBjX21vZGU9dmlldyZwY193aW5kb3dpZD00NjEzOTUmX2NzcmY9OWZmODdkMmYtNGE0My00YzZiLThkMmItZjRjN2JiZTgzZTU3JnBjX3BoYXNlPXJlc291cmNlJnBjX3R5cGU9cG9ydGxldCZwY193aW5kb3dzdGF0ZT1ub3JtYWw=', 'cHBfbG9jYWxlPWNzJnBwX2Rlc3RFbGVtZW50PSUyNTIzc3BCb2R5RzQ2MTM5NSZwcF9yZXFUeXBlPXJlbmRlciZwcF9wb3J0bGV0PVphcGlzK2Erb2RldnpkYXZhbmkrcHJhY2kmcHBfcGFnZT1zaG93VGVtYXRhJnBwX25hbWVTcGFjZT1HNDYxMzk1', 'JTIzc3BCb2R5RzQ2MTM5NQ==', null, 'JTdCJTIyb25TdWNjZXNzQWpheExvYWQlMjI6JTIycHZUYWJGdW5jU3VjY2Vzc19zaG93VGVtYXRhJTIyJTdE');; return false;">
+                <div class="ng_wizard_ico_32 wz-pv-temata"></div>
+                <div class="ng_wizard_title">
+                    Okruhy a témata
+                </div>
+            </a>
+        </div>
+        
+        <div style="width: 75px;" class="ng_wizard_section " title="" id="pv_tab_showPrace">
+            
+            <script type="text/javascript">
+                function pvTabFuncSuccess_showPrace() {
+                    jQuery('#pv_tabs_left div').removeClass('ng_wizzard_actual');
+                    jQuery('#pv_tab_showPrace').addClass('ng_wizzard_actual');
+                }
+            </script>
+            <a href="javascript:void(0)" onclick="GenericAjaxLoad2('L3BvcnRhbC9zdHVkaXVtL2NvdXJzZXdhcmUva2l2L3dlYi9zYW1vc3RhdG5hLXByYWNlL2luZGV4Lmh0bWw/cGNfcGhzPTEyMDU2NDk1NyZwY19yZXNvdXJjZXN0YXRlPUpCUE5TXyZwY19yZXNvdXJjZWNhY2hlYWJpbGl0eT1QQUdFJnBjX21vZGU9dmlldyZwY193aW5kb3dpZD00NjEzOTUmX2NzcmY9OWZmODdkMmYtNGE0My00YzZiLThkMmItZjRjN2JiZTgzZTU3JnBjX3BoYXNlPXJlc291cmNlJnBjX3R5cGU9cG9ydGxldCZwY193aW5kb3dzdGF0ZT1ub3JtYWw=', 'cHBfbG9jYWxlPWNzJnBwX2Rlc3RFbGVtZW50PSUyNTIzc3BCb2R5RzQ2MTM5NSZwcF9yZXFUeXBlPXJlbmRlciZwcF9wb3J0bGV0PVphcGlzK2Erb2RldnpkYXZhbmkrcHJhY2kmcHBfcGFnZT1zaG93UHJhY2UmcHBfbmFtZVNwYWNlPUc0NjEzOTU=', 'JTIzc3BCb2R5RzQ2MTM5NQ==', null, 'JTdCJTIyb25TdWNjZXNzQWpheExvYWQlMjI6JTIycHZUYWJGdW5jU3VjY2Vzc19zaG93UHJhY2UlMjIlN0Q=');; return false;">
+                <div class="ng_wizard_ico_32 wz-pv-prace"></div>
+                <div class="ng_wizard_title">
+                    Odevzdané práce
+                </div>
+            </a>
+        </div>
+        
+
+        
+        <div class="ng_appHead" style="height: auto; padding-bottom: 2px; padding-left: 15pt; padding-right: 10pt; padding-top: 0px; margin-left: 10pt; float: left; vertical-align: middle; border-bottom: 1px solid #d0d0d0">
+            <form method="post" name="HlavniFiltr" id="HlavniFiltr" style="margin: 0; padding:0" action="javascript:GenericAjaxLoad2('L3BvcnRhbC9zdHVkaXVtL2NvdXJzZXdhcmUva2l2L3dlYi9zYW1vc3RhdG5hLXByYWNlL2luZGV4Lmh0bWw/cGNfcGhzPTEyMDU2NDk1NyZwY19yZXNvdXJjZXN0YXRlPUpCUE5TXyZwY19yZXNvdXJjZWNhY2hlYWJpbGl0eT1QQUdFJnBjX21vZGU9dmlldyZwY193aW5kb3dpZD00NjEzOTUmX2NzcmY9OWZmODdkMmYtNGE0My00YzZiLThkMmItZjRjN2JiZTgzZTU3JnBjX3BoYXNlPXJlc291cmNlJnBjX3R5cGU9cG9ydGxldCZwY193aW5kb3dzdGF0ZT1ub3JtYWw=', 'cHBfbG9jYWxlPWNzJnBwX2Rlc3RFbGVtZW50PSUyNTIzc3BfcG9ydGxldF9HNDYxMzk1JnBwX3JlcVR5cGU9YWN0aW9uJnBwX3BvcnRsZXQ9WmFwaXMrYStvZGV2emRhdmFuaStwcmFjaSZwcF9wYWdlPWhsYXZuaUZpbHRyJnBwX25hbWVTcGFjZT1HNDYxMzk1', 'JTIzc3BfcG9ydGxldF9HNDYxMzk1', 'JTIzSGxhdm5pRmlsdHI=', null);">
+<input type="hidden" name="FORM_ID_NAME" value="HlavniFiltr">
+<input type="hidden" name="FORM_portlet_page_name" value="portlet">
+
+            <div class="pv_form_error_div" id="HlavniFiltrerrordiv" style="display: none"></div>
+                <table class="ng_form_tab" cellspacing="0" cellpadding="0">
+                    <tbody><tr>
+                        <td style="padding:0 2px 0 2px; white-space: nowrap; background-color: #E4E4C9; font-size: 9pt; border-top: 0; vertical-align: middle;font-family: Arial,Tahoma,'Trebuchet MS',sans-serif;">
+                            <label for="HlavniFiltrrokVarianty"><span id="HlavniFiltrrokVarianty_caption" class="pv_field_caption">Akad. rok</span></label>
+                        </td>
+                        <td style="padding:0 2px 0 2px; background-color: #E4E4C9; border-top: 0">
+                            <select name="rokVarianty" id="HlavniFiltrrokVarianty" class="select" style="width: 90pt; font-size: 9pt;"><option value="2051">2051/2052</option>
+<option value="2050">2050/2051</option>
+<option value="2049">2049/2050</option>
+<option value="2024">2024/2025</option>
+<option value="2023">2023/2024</option>
+<option value="2022" selected="selected">2022/2023</option>
+<option value="2021">2021/2022</option>
+<option value="2020">2020/2021</option>
+<option value="2019">2019/2020</option>
+<option value="2018">2018/2019</option>
+<option value="2017">2017/2018</option>
+</select>
+                            <select name="semestr" id="HlavniFiltrsemestr" class="select" style="width: 90pt; font-size: 9pt;"><option value="ZS" selected="selected">Zimní semestr</option>
+<option value="LS">Letní semestr</option>
+<option value="%">Oba semestry</option>
+</select>
+                        </td>
+                        <td rowspan="4" style="vertical-align: middle; padding:0 2px 0 10px; background-color: #E4E4C9; border-top: 0" valign="top">
+                            
+                            <a target="_blank" href="http://is-stag.zcu.cz/napoveda/stag-v-portalu/spnew-studium_odevzdavani-praci_prace.html"><img src="zadani_WEB_files/help_32.png" title="Nápověda" border="0"></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="padding:0 2px 0 2px; white-space: nowrap;background-color: #E4E4C9; font-size: 9pt; border-top: 0; vertical-align: middle;font-family: Arial,Tahoma,'Trebuchet MS',sans-serif;">
+                            <label for="HlavniFiltrpredmet"><span id="HlavniFiltrpredmet_caption" class="pv_field_caption">Předmět</span></label>
+                        </td>
+                        <td style="padding:0 2px 0 2px; background-color: #E4E4C9; border-top: 0">
+                            <select name="predmet" id="HlavniFiltrpredmet" class="select" style="width: 90pt; font-size: 9pt;"><option value="">-- Jakýkoliv --</option>
+<option value="KIV#DB1">KIV / DB1</option>
+<option value="KIV#PC">KIV / PC</option>
+<option value="KIV#PT">KIV / PT</option>
+<option value="KIV#TI">KIV / TI</option>
+<option value="KIV#WEB" selected="selected">KIV / WEB</option>
+<option value="KMA#LAA">KMA / LAA</option>
+</select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="padding:0 2px 0 2px; white-space: nowrap; background-color: #E4E4C9; font-size: 9pt; border-top: 0; vertical-align: middle;font-family: Arial,Tahoma,'Trebuchet MS',sans-serif;">
+                            <label for="HlavniFiltrskupIdno"><span id="HlavniFiltrskupIdno_caption" class="pv_field_caption">Studijní skupina</span></label>
+                        </td>
+                        <td style="padding:0 2px 0 2px; background-color: #E4E4C9; border-top: 0">
+                            <select name="skupIdno" id="HlavniFiltrskupIdno" class="select" style="width: 183pt; font-size: 9pt;"><option value="" selected="selected">-- Jakákoliv --</option>
+<option value="16486">Všichni studenti</option>
+</select>
+                        </td>
+                    </tr>
+                </tbody></table>
+            </form><script type="text/javascript">
+$('#HlavniFiltrrokVarianty').change(function(event){ GenericAjaxLoad2('L3BvcnRhbC9zdHVkaXVtL2NvdXJzZXdhcmUva2l2L3dlYi9zYW1vc3RhdG5hLXByYWNlL2luZGV4Lmh0bWw/cGNfcGhzPTEyMDU2NDk1NyZwY19yZXNvdXJjZXN0YXRlPUpCUE5TXyZwY19yZXNvdXJjZWNhY2hlYWJpbGl0eT1QQUdFJnBjX21vZGU9dmlldyZwY193aW5kb3dpZD00NjEzOTUmX2NzcmY9OWZmODdkMmYtNGE0My00YzZiLThkMmItZjRjN2JiZTgzZTU3JnBjX3BoYXNlPXJlc291cmNlJnBjX3R5cGU9cG9ydGxldCZwY193aW5kb3dzdGF0ZT1ub3JtYWw=', 'cHBfbG9jYWxlPWNzJnBwX2Rlc3RFbGVtZW50PWphdmFzY3JpcHQmc2JycF9mb3JtTmFtZT1IbGF2bmlGaWx0ciZzYnJwX2NoYW5nZWRGaWVsZE5hbWU9cm9rVmFyaWFudHkmc2JycF9mb3JtSUQ9SGxhdm5pRmlsdHImcHBfcmVxVHlwZT1yZW5kZXImcHBfcG9ydGxldD1aYXBpcythK29kZXZ6ZGF2YW5pK3ByYWNpJnBwX3BhZ2U9c2VsZWN0Qm94UmVsb2FkZXJQYWdlJnBwX25hbWVTcGFjZT1HNDYxMzk1', 'amF2YXNjcmlwdA==', 'JTIzSGxhdm5pRmlsdHJzZW1lc3RyLCUyM0hsYXZuaUZpbHRycm9rVmFyaWFudHksJTIzSGxhdm5pRmlsdHJwcmVkbWV0', null);$('#HlavniFiltr').submit(); });
+$('#HlavniFiltrsemestr').change(function(event){ GenericAjaxLoad2('L3BvcnRhbC9zdHVkaXVtL2NvdXJzZXdhcmUva2l2L3dlYi9zYW1vc3RhdG5hLXByYWNlL2luZGV4Lmh0bWw/cGNfcGhzPTEyMDU2NDk1NyZwY19yZXNvdXJjZXN0YXRlPUpCUE5TXyZwY19yZXNvdXJjZWNhY2hlYWJpbGl0eT1QQUdFJnBjX21vZGU9dmlldyZwY193aW5kb3dpZD00NjEzOTUmX2NzcmY9OWZmODdkMmYtNGE0My00YzZiLThkMmItZjRjN2JiZTgzZTU3JnBjX3BoYXNlPXJlc291cmNlJnBjX3R5cGU9cG9ydGxldCZwY193aW5kb3dzdGF0ZT1ub3JtYWw=', 'cHBfbG9jYWxlPWNzJnBwX2Rlc3RFbGVtZW50PWphdmFzY3JpcHQmc2JycF9mb3JtTmFtZT1IbGF2bmlGaWx0ciZzYnJwX2NoYW5nZWRGaWVsZE5hbWU9c2VtZXN0ciZzYnJwX2Zvcm1JRD1IbGF2bmlGaWx0ciZwcF9yZXFUeXBlPXJlbmRlciZwcF9wb3J0bGV0PVphcGlzK2Erb2RldnpkYXZhbmkrcHJhY2kmcHBfcGFnZT1zZWxlY3RCb3hSZWxvYWRlclBhZ2UmcHBfbmFtZVNwYWNlPUc0NjEzOTU=', 'amF2YXNjcmlwdA==', 'JTIzSGxhdm5pRmlsdHJzZW1lc3RyLCUyM0hsYXZuaUZpbHRycm9rVmFyaWFudHksJTIzSGxhdm5pRmlsdHJwcmVkbWV0', null);$('#HlavniFiltr').submit(); });
+function HlavniFiltrpredmetonchange() {
+HlavniFiltr_en_dep();
+}
+$('#HlavniFiltrpredmet').change(function(event){ GenericAjaxLoad2('L3BvcnRhbC9zdHVkaXVtL2NvdXJzZXdhcmUva2l2L3dlYi9zYW1vc3RhdG5hLXByYWNlL2luZGV4Lmh0bWw/cGNfcGhzPTEyMDU2NDk1NyZwY19yZXNvdXJjZXN0YXRlPUpCUE5TXyZwY19yZXNvdXJjZWNhY2hlYWJpbGl0eT1QQUdFJnBjX21vZGU9dmlldyZwY193aW5kb3dpZD00NjEzOTUmX2NzcmY9OWZmODdkMmYtNGE0My00YzZiLThkMmItZjRjN2JiZTgzZTU3JnBjX3BoYXNlPXJlc291cmNlJnBjX3R5cGU9cG9ydGxldCZwY193aW5kb3dzdGF0ZT1ub3JtYWw=', 'cHBfbG9jYWxlPWNzJnBwX2Rlc3RFbGVtZW50PWphdmFzY3JpcHQmc2JycF9mb3JtTmFtZT1IbGF2bmlGaWx0ciZzYnJwX2NoYW5nZWRGaWVsZE5hbWU9cHJlZG1ldCZzYnJwX2Zvcm1JRD1IbGF2bmlGaWx0ciZwcF9yZXFUeXBlPXJlbmRlciZwcF9wb3J0bGV0PVphcGlzK2Erb2RldnpkYXZhbmkrcHJhY2kmcHBfcGFnZT1zZWxlY3RCb3hSZWxvYWRlclBhZ2UmcHBfbmFtZVNwYWNlPUc0NjEzOTU=', 'amF2YXNjcmlwdA==', 'JTIzSGxhdm5pRmlsdHJzZW1lc3RyLCUyM0hsYXZuaUZpbHRycm9rVmFyaWFudHksJTIzSGxhdm5pRmlsdHJwcmVkbWV0', null);HlavniFiltrpredmetonchange();$('#HlavniFiltr').submit(); });
+$('#HlavniFiltrpredmet').click(function(event){ HlavniFiltrpredmetonchange();});
+$('#HlavniFiltrpredmet').keyup(function(event){ GenericAjaxLoad2('L3BvcnRhbC9zdHVkaXVtL2NvdXJzZXdhcmUva2l2L3dlYi9zYW1vc3RhdG5hLXByYWNlL2luZGV4Lmh0bWw/cGNfcGhzPTEyMDU2NDk1NyZwY19yZXNvdXJjZXN0YXRlPUpCUE5TXyZwY19yZXNvdXJjZWNhY2hlYWJpbGl0eT1QQUdFJnBjX21vZGU9dmlldyZwY193aW5kb3dpZD00NjEzOTUmX2NzcmY9OWZmODdkMmYtNGE0My00YzZiLThkMmItZjRjN2JiZTgzZTU3JnBjX3BoYXNlPXJlc291cmNlJnBjX3R5cGU9cG9ydGxldCZwY193aW5kb3dzdGF0ZT1ub3JtYWw=', 'cHBfbG9jYWxlPWNzJnBwX2Rlc3RFbGVtZW50PWphdmFzY3JpcHQmc2JycF9mb3JtTmFtZT1IbGF2bmlGaWx0ciZzYnJwX2NoYW5nZWRGaWVsZE5hbWU9cHJlZG1ldCZzYnJwX2Zvcm1JRD1IbGF2bmlGaWx0ciZwcF9yZXFUeXBlPXJlbmRlciZwcF9wb3J0bGV0PVphcGlzK2Erb2RldnpkYXZhbmkrcHJhY2kmcHBfcGFnZT1zZWxlY3RCb3hSZWxvYWRlclBhZ2UmcHBfbmFtZVNwYWNlPUc0NjEzOTU=', 'amF2YXNjcmlwdA==', 'JTIzSGxhdm5pRmlsdHJzZW1lc3RyLCUyM0hsYXZuaUZpbHRycm9rVmFyaWFudHksJTIzSGxhdm5pRmlsdHJwcmVkbWV0', null);HlavniFiltrpredmetonchange();});
+$('#HlavniFiltrskupIdno').change(function(event){ $('#HlavniFiltr').submit(); });
+$('#HlavniFiltr').submit(function() {
+ var res = true;
+ var errors = '';
+{ // grp
+ while (true) {
+$('#HlavniFiltrrokVarianty').removeClass('pv_field_input_error');
+$('#HlavniFiltrrokVarianty_caption').removeClass('pv_field_input_error');
+{ var errorMessage='';var result=true; while(true){
+if (!($('#HlavniFiltrrokVarianty').val() != null && $('#HlavniFiltrrokVarianty').val() != '')) { result = false;  }
+if (!result) { res=false; if (errorMessage.length > 0) { errors += '<div class="xg_msgFromServerError">'+errorMessage+'</div>' };$('#HlavniFiltrrokVarianty').addClass('pv_field_input_error');$('#HlavniFiltrrokVarianty_caption').addClass('pv_field_input_error');break; }
+break;} } 
+$('#HlavniFiltrsemestr').removeClass('pv_field_input_error');
+$('#HlavniFiltrsemestr_caption').removeClass('pv_field_input_error');
+{ var errorMessage='';var result=true; while(true){
+if (!($('#HlavniFiltrsemestr').val() != null && $('#HlavniFiltrsemestr').val() != '')) { result = false;  }
+if (!result) { res=false; if (errorMessage.length > 0) { errors += '<div class="xg_msgFromServerError">'+errorMessage+'</div>' };$('#HlavniFiltrsemestr').addClass('pv_field_input_error');$('#HlavniFiltrsemestr_caption').addClass('pv_field_input_error');break; }
+break;} } 
+if (!res) break;
+break;
+} // while
+} // grp
+if (!res) { $('#HlavniFiltrerrordiv').html(errors).show(); }
+return res;
+});
+
+function HlavniFiltr_en_dep() {
+{ var ok = false; 
+ while (true) {
+if ($('#HlavniFiltrpredmet').is(':disabled')) break;
+{ var result=true; while(true){
+if (!($('#HlavniFiltrpredmet').val() != null && $('#HlavniFiltrpredmet').val() != '')) { result = false;  }
+if (!result) { break; }
+if ( $('#HlavniFiltrpredmet').val() == 'null#null') { result = false; }if (!result) { break; }
+break;} } 
+if (!result) break;
+$('#HlavniFiltrskupIdno').removeAttr('disabled');$('#HlavniFiltrskupIdno_caption').removeClass('pv_field_caption_disabled');
+
+ok = true;
+break; }
+if (!ok) { $('#HlavniFiltrskupIdno').attr('disabled', 'disabled');$('#HlavniFiltrskupIdno_caption').addClass('pv_field_caption_disabled');
+}
+} 
+}
+</script>
+
+            <div id="sp_zzprav_G461395" style="padding:0 2px 0 69pt; background-color: #E4E4C9; border-top: 0">
+                
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<form method="post" name="ZasilaniZpravForm" id="ZasilaniZpravForm" style="margin: 0; padding:0" action="javascript:GenericAjaxLoad2('L3BvcnRhbC9zdHVkaXVtL2NvdXJzZXdhcmUva2l2L3dlYi9zYW1vc3RhdG5hLXByYWNlL2luZGV4Lmh0bWw/cGNfcGhzPTEyMDU2NDk1NyZwY19yZXNvdXJjZXN0YXRlPUpCUE5TXyZwY19yZXNvdXJjZWNhY2hlYWJpbGl0eT1QQUdFJnBjX21vZGU9dmlldyZwY193aW5kb3dpZD00NjEzOTUmX2NzcmY9OWZmODdkMmYtNGE0My00YzZiLThkMmItZjRjN2JiZTgzZTU3JnBjX3BoYXNlPXJlc291cmNlJnBjX3R5cGU9cG9ydGxldCZwY193aW5kb3dzdGF0ZT1ub3JtYWw=', 'cHBfbG9jYWxlPWNzJnBwX2Rlc3RFbGVtZW50PSUyNTIzc3BfenpwcmF2X0c0NjEzOTUmcHBfcmVxVHlwZT1hY3Rpb24mcHBfcG9ydGxldD1aYXBpcythK29kZXZ6ZGF2YW5pK3ByYWNpJnBwX3BhZ2U9emFzaWxhbmlacHJhdlBhZ2UmcHBfbmFtZVNwYWNlPUc0NjEzOTU=', 'JTIzc3BfenpwcmF2X0c0NjEzOTU=', 'JTIzWmFzaWxhbmlacHJhdkZvcm0=', null);">
+<input type="hidden" name="FORM_ID_NAME" value="ZasilaniZpravForm">
+<input type="hidden" name="FORM_portlet_page_name" value="portlet">
+
+    <table class="ng_form_tab" cellspacing="0" cellpadding="0">
+        <tbody><tr>
+            <td style="padding:0px; background-color: #E4E4C9; border-top: 0">
+                <input type="checkbox" name="povolitZasilaniZprav" id="ZasilaniZpravFormpovolitZasilaniZprav" class="text"><span style="margin:5px; margin-top: 1px; display: block; font-size: 12px " class="info hideForDesktop"><br>Je-li
+ vybráno, bude aplikace každou noc zasílat seznam událostí, které se Vás
+ týkají a které se za uplynulý den staly (pokud se stala alespoň 
+nějaká). Jedná se o informace o stavu studentem navržených témat, o 
+průběhu odevzdávání a opravování odevzdaných prací.</span>
+            </td>
+            <td style="padding:0px; white-space: nowrap;background-color: #E4E4C9; font-size: 9pt; border-top: 0; vertical-align: middle;font-family: Arial,Tahoma,'Trebuchet MS',sans-serif;">
+                <label for="ZasilaniZpravFormpovolitZasilaniZprav"><span id="ZasilaniZpravFormpovolitZasilaniZprav_caption" class="pv_field_caption xg_tooltip qtip_auto" tabindex="0" data-hasqtip="5">Informovat e-mailem</span></label>
+            </td>
+        </tr>
+    </tbody></table>
+</form><script type="text/javascript">
+$('#ZasilaniZpravFormpovolitZasilaniZprav').change(function(event){ if ($('#ZasilaniZpravFormpovolitZasilaniZprav').hasClass('pv_check_disabled')) { event.preventDefault(); return false; }
+$('#ZasilaniZpravForm').submit(); });
+$('#ZasilaniZpravForm').submit(function() {
+var res = true;
+return res;
+});
+
+$(document).ready(function(){
+PVCreateBubble($('#ZasilaniZpravFormpovolitZasilaniZprav_caption'), 'Je-li vybráno, bude aplikace každou noc zasílat seznam událostí, které se Vás týkají a které se za uplynulý den staly (pokud se stala alespoň nějaká). Jedná se o informace o stavu studentem navržených témat, o průběhu odevzdávání a opravování odevzdaných prací.', true, 'black', 'left', '#333333');
+});
+</script>
+
+
+            </div>
+        </div>
+    </div>
+    <div class="ng_wizard_cleaner"></div>
+</div>
+
+<!-- do tohoto DIVu se Ajaxove loaduje obsah stranky kdyz se zmeni filtr nebo tab -->
+<div id="spBodyG461395" class="ng_portletContentCoat pv_portletContentCoat" style="margin: 0; padding: 0; border: 0">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="ng_appHead" style="height: auto; padding-bottom: 2px; padding-left: 2px; margin-left: 0; vertical-align: middle; border: 0">
+    <form method="post" name="SeznamTematFiltrForm" id="SeznamTematFiltrForm" style="margin: 0; padding:0" action="javascript:GenericAjaxLoad2('L3BvcnRhbC9zdHVkaXVtL2NvdXJzZXdhcmUva2l2L3dlYi9zYW1vc3RhdG5hLXByYWNlL2luZGV4Lmh0bWw/cGNfcGhzPTEyMDU2NDk1NyZwY19yZXNvdXJjZXN0YXRlPUpCUE5TXyZwY19yZXNvdXJjZWNhY2hlYWJpbGl0eT1QQUdFJnBjX21vZGU9dmlldyZwY193aW5kb3dpZD00NjEzOTUmX2NzcmY9OWZmODdkMmYtNGE0My00YzZiLThkMmItZjRjN2JiZTgzZTU3JnBjX3BoYXNlPXJlc291cmNlJnBjX3R5cGU9cG9ydGxldCZwY193aW5kb3dzdGF0ZT1ub3JtYWw=', 'cHBfbG9jYWxlPWNzJnBwX2Rlc3RFbGVtZW50PSUyNTIzc3BCb2R5RzQ2MTM5NSZwcF9yZXFUeXBlPWFjdGlvbiZwcF9wb3J0bGV0PVphcGlzK2Erb2RldnpkYXZhbmkrcHJhY2kmcHBfcGFnZT1tYWluJnBwX25hbWVTcGFjZT1HNDYxMzk1', 'JTIzc3BCb2R5RzQ2MTM5NQ==', 'JTIzU2V6bmFtVGVtYXRGaWx0ckZvcm0=', null);">
+<input type="hidden" name="FORM_ID_NAME" value="SeznamTematFiltrForm">
+<input type="hidden" name="FORM_portlet_page_name" value="portlet">
+
+        <div class="pv_form_error_div" id="SeznamTematFiltrFormerrordiv" style="display: none"></div>
+        <table class="ng_form_tab" cellspacing="0" cellpadding="0">
+            <tbody><tr>
+                <td style="padding:2px; background-color: #E4E4C9; border-top: 0" class="ng_bordered-left">
+                    <input type="checkbox" name="jenKdeMamPraci" id="SeznamTematFiltrFormjenKdeMamPraci" class="text"><span style="margin:5px; margin-top: 1px; display: block; font-size: 12px " class="info hideForDesktop"><br>Zobrazí jen ty okruhy/témata, kde je nyní řada na Vás, abyste něco udělal(a).</span>
+                </td>
+                <td style="padding:2px; white-space: nowrap; background-color: #E4E4C9; font-size: 9pt; border-top: 0; vertical-align: middle;font-family: Arial,Tahoma,'Trebuchet MS',sans-serif; ">
+                    <label for="SeznamTematFiltrFormjenKdeMamPraci"><span id="SeznamTematFiltrFormjenKdeMamPraci_caption" class="pv_field_caption xg_tooltip qtip_auto" tabindex="0" data-hasqtip="6">Zobrazit jen kde mám práci</span></label>
+                </td>
+                
+                
+                    <td style="padding:2px; background-color: #E4E4C9; border-top: 0">
+                        <input type="checkbox" name="zobrazitNapovedy" id="SeznamTematFiltrFormzobrazitNapovedy" class="text"><span style="margin:5px; margin-top: 1px; display: block; font-size: 12px " class="info hideForDesktop"><br>Pokud
+ máte již práci s aplikací zažitou a nepotřebujete "zbytečné" nápovědy a
+ doplňující texty, zrušte zaškrtnutí tohoto políčka. Zobrazení informací
+ na stránce pak bude kompaktnější a jednodušší.</span>
+                    </td>
+                    <td style="padding:2px; white-space: nowrap; background-color: #E4E4C9; font-size: 9pt; border-top: 0; vertical-align: middle;font-family: Arial,Tahoma,'Trebuchet MS',sans-serif;">
+                        <label for="SeznamTematFiltrFormzobrazitNapovedy"><span id="SeznamTematFiltrFormzobrazitNapovedy_caption" class="pv_field_caption xg_tooltip qtip_auto" tabindex="0" data-hasqtip="7">Zobrazovat nápovědy</span></label>
+                    </td>
+                
+                
+            </tr>
+        </tbody></table>
+    </form><script type="text/javascript">
+$('#SeznamTematFiltrFormjenKdeMamPraci').change(function(event){ if ($('#SeznamTematFiltrFormjenKdeMamPraci').hasClass('pv_check_disabled')) { event.preventDefault(); return false; }
+$('#SeznamTematFiltrForm').submit(); });
+$('#SeznamTematFiltrFormzobrazitNapovedy').change(function(event){ if ($('#SeznamTematFiltrFormzobrazitNapovedy').hasClass('pv_check_disabled')) { event.preventDefault(); return false; }
+$('#SeznamTematFiltrForm').submit(); });
+$('#SeznamTematFiltrForm').submit(function() {
+var res = true;
+return res;
+});
+
+$(document).ready(function(){
+PVCreateBubble($('#SeznamTematFiltrFormjenKdeMamPraci_caption'), 'Zobrazí jen ty okruhy/témata, kde je nyní řada na Vás, abyste něco udělal(a).', true, 'black', 'left', '#333333');
+PVCreateBubble($('#SeznamTematFiltrFormzobrazitNapovedy_caption'), 'Pokud máte již práci s aplikací zažitou a nepotřebujete "zbytečné" nápovědy a doplňující texty, zrušte zaškrtnutí tohoto políčka. Zobrazení informací na stránce pak bude kompaktnější a jednodušší.', true, 'black', 'left', '#333333');
+});
+</script>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="pv_skupina">
+<div class="pv_skupina_top">
+    <table width="100%" cellspacing="0" cellpadding="1" border="0">
+        <tbody><tr>
+            <th rowspan="2" width="35">
+                <img src="zadani_WEB_files/skupina_varovani.png" title="V této studijní skupině máte ještě něco na práci" border="0">
+                
+            </th>
+
+            <td>
+                    <span class="pv_skupina_title">KIV/WEB
+                    - Všichni studenti</span>
+                (2022/2023, ZS)
+            </td>
+            <td rowspan="2" style="vertical-align: top" width="65">
+            
+            </td>
+            <td rowspan="2" class="pv_entity_controls" style="vertical-align: top" width="1">
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <span class="subinfo xg_tooltip" style="color: #78789a" title="U některého z okruhů této studijní skupiny máte ještě něco na práci.">V této studijní skupině máte ještě něco na práci.</span> <span style="color: #ff4e00">splněno povinných okruhů: <strong>0</strong> / <strong>1</strong></span>
+            </td>
+        </tr>
+    </tbody></table>
+</div>
+<div class="pv_skupina_body" id="pv_skupina_body_16486">
+    
+
+    
+    
+    <table class="ng_tab ng_bordered-top" cellspacing="0" cellpadding="0">
+        <thead>
+        <tr>
+            
+            <th class="lefted"><span class="info">Použitý systém hodnocení</span></th>
+            
+            
+            
+            
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            
+            <td class="lefted">
+                V aplikaci - jen akceptování/zamítnutí prací
+            </td>
+            
+            
+            
+            
+        </tr>
+        </tbody>
+    </table>
+
+    <br>
+    
+            
+            
+
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="pv_okruh">
+<div class="pv_okruh_top">
+    <table width="100%" cellspacing="0" cellpadding="1" border="0">
+        <tbody><tr>
+            <th rowspan="2" width="35">
+                <img src="zadani_WEB_files/okruh_varovani.png" title="Vypracujte a odevzdejte semestrální práci." border="0">
+                
+            </th>
+            <td>
+                    <span class="pv_okruh_title">KIV/WEB - Samostatná semestrální práce</span>
+            </td>
+            <td width="70">
+                &nbsp;
+            </td>
+            <td width="1">
+                &nbsp;
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <span class="subinfo xg_tooltip" style="color: #78789a" title="Vypracujte a odevzdejte semestrální práci.">Vypracujte a odevzdejte semestrální práci.</span>
+            </td>
+            <td width="50">
+                    <span class="pv_entity_controls">
+                        <a href="javascript:void(0);" onclick="javascript:GenericAjaxLoad2('L3BvcnRhbC9zdHVkaXVtL2NvdXJzZXdhcmUva2l2L3dlYi9zYW1vc3RhdG5hLXByYWNlL2luZGV4Lmh0bWw/cGNfcGhzPTEyMDU2NDk1NyZwY19yZXNvdXJjZXN0YXRlPUpCUE5TXyZwY19yZXNvdXJjZWNhY2hlYWJpbGl0eT1QQUdFJnBjX21vZGU9dmlldyZwY193aW5kb3dpZD00NjEzOTUmX2NzcmY9OWZmODdkMmYtNGE0My00YzZiLThkMmItZjRjN2JiZTgzZTU3JnBjX3BoYXNlPXJlc291cmNlJnBjX3R5cGU9cG9ydGxldCZwY193aW5kb3dzdGF0ZT1ub3JtYWw=', 'cHBfbG9jYWxlPWNzJnBwX2Rlc3RFbGVtZW50PSUyNTIzc3BCb2R5RzQ2MTM5NSZzd2l0Y2hfdG9fb2RldnpkYW5pPTEmcHBfcmVxVHlwZT1yZW5kZXImcHBfcG9ydGxldD1aYXBpcythK29kZXZ6ZGF2YW5pK3ByYWNpJnBwX3BhZ2U9c2hvd1ByYWNlJnBwX25hbWVTcGFjZT1HNDYxMzk1JnN3aXRjaF9ibG9rSWRubz0zNzIxMw==', 'JTIzc3BCb2R5RzQ2MTM5NQ==', null, 'JTdCJTIyb25TdWNjZXNzQWpheExvYWQlMjI6JTIycHZUYWJGdW5jU3VjY2Vzc19zaG93UHJhY2UlMjIlN0Q=');"><img src="zadani_WEB_files/cas_do.png">&nbsp;Práce</a>
+                    </span>
+            </td>
+            <td>
+                &nbsp;
+            </td>
+        </tr>
+    </tbody></table>
+</div>
+
+<div class="pv_okruh_body" id="pv_skupina_body_37213">
+    
+    
+
+    
+            
+            
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div style="overflow: visible; height:auto; margin-left: 10pt">
+<table class="ng_tab ng_bordered-top" cellspacing="0" cellpadding="0">
+<thead>
+<tr>
+    <th rowspan="3">&nbsp;</th>
+    <th colspan="2" class="centered">Základní údaje</th>
+    <th colspan="2" class="centered">Odevzdávání</th>
+    
+    <th colspan="1" class="centered">Hodnocení</th>
+    
+    
+    <th colspan="2" rowspan="3" class="centered">Možnosti</th>
+</tr>
+<tr>
+    <th class="lefted" colspan="2"><span class="subinfo">Název</span></th>
+    
+    <th class="righted"><span class="info">od</span></th>
+    <th class="righted"><span class="info">mezní</span></th>
+    
+    
+    <th class="centered"><span class="subinfo xg_tooltip" title="Hodnocení nejnovější verze odevzdané práce.">Hodnocení</span>
+    </th>
+    
+    
+</tr>
+<tr>
+    <th class="lefted" colspan="2"><span class="subinfo">Popis</span></th>
+    
+    <th class="righted"><span class="info">řádný</span></th>
+    <th class="righted"><span class="info">opravný</span></th>
+    
+    
+    <th>&nbsp;</th>
+    
+    
+</tr>
+</thead>
+<tbody>
+
+<tr class="ng_bordered-top">
+    <td rowspan="3">
+        
+        <img src="zadani_WEB_files/tema_varovani.png" title="Vypracujte a odevzdejte semestrální práci." border="0">&nbsp;<img src="zadani_WEB_files/jednotlivec.png" title="Téma pro jednotlivce" border="0">
+    </td>
+    <td style="white-space: nowrap" colspan="2">
+        <b>Semestrální práce
+        </b></td>
+    
+    <td class="righted" style="white-space: nowrap"><span style="color:#007A25">20.9.2022 5:00</span>
+    </td>
+    <td class="righted" style="white-space: nowrap"><span style="color:#007A25">10.1.2023 12:00</span>
+    </td>
+    
+    
+    <td style="white-space: nowrap">
+        <img src="zadani_WEB_files/cas_do.png">&nbsp;
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+Nezkontrolováno
+
+        
+    </td>
+    
+    
+    <td style="white-space: nowrap;">
+        &nbsp;
+    </td>
+    <td rowspan="3" class="centered">
+                <span class="pv_entity_controls">
+                    
+                    
+                    <a href="javascript:void(0);" onclick="javascript:GenericAjaxLoad2('L3BvcnRhbC9zdHVkaXVtL2NvdXJzZXdhcmUva2l2L3dlYi9zYW1vc3RhdG5hLXByYWNlL2luZGV4Lmh0bWw/cGNfcGhzPTEyMDU2NDk1NyZwY19yZXNvdXJjZXN0YXRlPUpCUE5TXyZwY19yZXNvdXJjZWNhY2hlYWJpbGl0eT1QQUdFJnBjX21vZGU9dmlldyZwY193aW5kb3dpZD00NjEzOTUmX2NzcmY9OWZmODdkMmYtNGE0My00YzZiLThkMmItZjRjN2JiZTgzZTU3JnBjX3BoYXNlPXJlc291cmNlJnBjX3R5cGU9cG9ydGxldCZwY193aW5kb3dzdGF0ZT1ub3JtYWw=', 'cHBfbG9jYWxlPWNzJnBwX2Rlc3RFbGVtZW50PWRpYWxvZyZ0ZW1hSWRubz03NDQzMyZwcF9yZXFUeXBlPXJlbmRlciZwcF9wb3J0bGV0PVphcGlzK2Erb2RldnpkYXZhbmkrcHJhY2kmcHBfcGFnZT1vZGV2emRhbmlQcmFjZSZwcF9uYW1lU3BhY2U9RzQ2MTM5NQ==', 'ZGlhbG9n', null, 'JTdCJTIyd2lkdGglMjI6JTIyYXV0byUyMiwlMjJ0aXRsZSUyMjolMjJPZGV2emRhdCUyMHByJUMzJUExY2klMjIsJTIyaGVpZ2h0JTIyOiUyMmF1dG8lMjIlN0Q=');"><strong>Odevzdat práci</strong></a><br>
+                    
+                </span>
+    </td>
+</tr>
+<tr>
+    <td colspan="2">Standardní i nestandardní zadání (ohodnocené práce)
+    </td>
+    
+    <td class="righted" style="white-space: nowrap"><span style="color:#BA0E10">21.12.2022 12:00</span>
+    </td>
+    <td class="righted" style="white-space: nowrap"><span style="color:#007A25">10.1.2023 12:00</span>
+    </td>
+    
+    
+    <td>
+        
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </td>
+    
+    
+    <td rowspan="2" style="white-space: nowrap; vertical-align: top;" valign="top">
+        
+        <a href="javascript:void(0);" onclick="javascript:GenericAjaxLoad2('L3BvcnRhbC9zdHVkaXVtL2NvdXJzZXdhcmUva2l2L3dlYi9zYW1vc3RhdG5hLXByYWNlL2luZGV4Lmh0bWw/cGNfcGhzPTEyMDU2NDk1NyZwY19yZXNvdXJjZXN0YXRlPUpCUE5TXyZwY19yZXNvdXJjZWNhY2hlYWJpbGl0eT1QQUdFJnBjX21vZGU9dmlldyZwY193aW5kb3dpZD00NjEzOTUmX2NzcmY9OWZmODdkMmYtNGE0My00YzZiLThkMmItZjRjN2JiZTgzZTU3JnBjX3BoYXNlPXJlc291cmNlJnBjX3R5cGU9cG9ydGxldCZwY193aW5kb3dzdGF0ZT1ub3JtYWw=', 'cHBfbG9jYWxlPWNzJnBwX2Rlc3RFbGVtZW50PSUyNTIzc3BCb2R5RzQ2MTM5NSZzd2l0Y2hfdGVtYUlkbm89NzQ0MzMmc3dpdGNoX3RvX29kZXZ6ZGFuaT0xJnBwX3JlcVR5cGU9cmVuZGVyJnBwX3BvcnRsZXQ9WmFwaXMrYStvZGV2emRhdmFuaStwcmFjaSZwcF9wYWdlPXNob3dQcmFjZSZwcF9uYW1lU3BhY2U9RzQ2MTM5NQ==', 'JTIzc3BCb2R5RzQ2MTM5NQ==', null, 'JTdCJTIyb25TdWNjZXNzQWpheExvYWQlMjI6JTIycHZUYWJGdW5jU3VjY2Vzc19zaG93UHJhY2UlMjIlN0Q=');"><img src="zadani_WEB_files/cas_do.png">&nbsp;Práce</a>
+        
+    </td>
+</tr>
+
+<tr>
+    <td colspan="5"><span class="info">
+        
+            <a class="xgt_tooltip qtip_auto" href="javascript:void(0)" tabindex="0" data-hasqtip="4" oldtitle="Pouze schv&amp;aacute;len&amp;eacute;, odprezentovan&amp;eacute; pr&amp;aacute;ce. Standardn&amp;iacute;m zad&amp;aacute;n&amp;iacute;m semestr&amp;aacute;ln&amp;iacute; pr&amp;aacute;ce je webov&amp;yacute; konferenčn&amp;iacute; syst&amp;eacute;m (pokud se student/ka nedomluvil s cvič&amp;iacute;c&amp;iacute;m/předn&amp;aacute;&amp;scaron;ej&amp;iacute;c&amp;iacute;m na jin&amp;eacute;m zad&amp;aacute;n&amp;iacute;)." title="">Pouze schválené, odprezentované práce. Standardním zadáním semestrální práce je webový konferenční systém (...</a>
+        
+
+        
+
+    </span></td>
+</tr>
+
+
+
+
+
+</tbody>
+</table>
+</div>
+
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        var pvBlokSize = jQuery('div.pv_user_resize' + 37213);
+        var selectedRow = jQuery('.selectedSearchRow');
+
+        if (pvBlokSize && pvBlokSize.length === 1) {
+            var searchTabH;
+            var pvBlokName = 'div.pv_user_resize' + 37213 +':not(.processed)';
+            $(pvBlokName).TextAreaResizer("pv_height");
+            if ((searchTabH = pvBlokSize.children().height()) < 100) {
+                pvBlokSize.height(searchTabH+1);
+            } else {
+                var foo;
+                if ((foo = XGuiGetMultiCookie('pv_height')) != null) {
+                    if (searchTabH < foo) pvBlokSize.height(searchTabH + 1);
+                    else pvBlokSize.height(parseInt(foo));
+                }
+
+                if ((selectedRow) && (selectedRow.get(0)) && (selectedRow.get(0).offsetTop > 80)) {
+                    pvBlokSize.get(0).scrollTop = selectedRow.get(0).offsetTop;
+                }
+            }
+        }
+    });
+</script>
+
+</div>
+
+</div>
+    
+    <div style="clear: both;"></div>
+    
+</div>
+</div>
+
+<div style="clear: both;"></div>
+
+
+
+
+
+
+
+
+
+
+</div>
+
+</div>
+
+            </div>
+        </td>
+    </tr>
+</tbody></table>
+</div>
+<!--portlet-end: StagPortletsJSR168##v221221-1216/Zapis a odevzdavani praci-->
+</td></tr></tbody></table></td></tr></tbody></table></td></tr></tbody></table>
+
+
+        <div style="clear: both;"></div>
+      </div>
+    </div>
+  </div>
+
+  
+  
+
+
+
+
+<div class="app_footer">
+
+<div class="app_footer_primary  ">
+
+  <div style="">
+    Copyright (c) 2007 - 2022 Západočeská univerzita v Plzni
+    </div>
+</div>
+</div>
+
+
+  
+
+</div>
+<div id="portletsDiv" style="display: none">&nbsp;</div>
+<input type="hidden" id="page_id_xyzx" value="103101">
+
+
+<div style="display: none; position: absolute;" tabindex="-1" role="dialog" class="ui-dialog ui-corner-all ui-widget ui-widget-content ui-front ui-draggable ui-resizable" aria-describedby="sylabusDialog" aria-labelledby="ui-id-1"><div class="ui-dialog-titlebar ui-corner-all ui-widget-header ui-helper-clearfix ui-draggable-handle"><span id="ui-id-1" class="ui-dialog-title">Sylabus předmětu</span><button type="button" class="ui-button ui-corner-all ui-widget ui-button-icon-only ui-dialog-titlebar-close" title="Close"><span class="ui-button-icon ui-icon ui-icon-closethick"></span><span class="ui-button-icon-space"> </span>Close</button></div><div id="sylabusDialog" style="display: block;" class="ui-dialog-content ui-widget-content">Nahrávám / Loading...</div><div class="ui-resizable-handle ui-resizable-n" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-e" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-s" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-w" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-sw" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-ne" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-nw" style="z-index: 90;"></div></div><div style="display: none; position: absolute;" tabindex="-1" role="dialog" class="ui-dialog ui-corner-all ui-widget ui-widget-content ui-front naseptavacDialog ui-draggable ui-resizable" aria-describedby="naseptavacDialog" aria-labelledby="ui-id-2"><div class="ui-dialog-titlebar ui-corner-all ui-widget-header ui-helper-clearfix ui-draggable-handle"><span id="ui-id-2" class="ui-dialog-title">Dohledávač</span><button type="button" class="ui-button ui-corner-all ui-widget ui-button-icon-only ui-dialog-titlebar-close" title="Zavřít"><span class="ui-button-icon ui-icon ui-icon-closethick"></span><span class="ui-button-icon-space"> </span>Zavřít</button></div><div id="naseptavacDialog" style="display: block;" class="ui-dialog-content ui-widget-content">Nahrávám...</div><div class="ui-resizable-handle ui-resizable-n" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-e" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-s" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-w" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-sw" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-ne" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-nw" style="z-index: 90;"></div></div></body></html>
