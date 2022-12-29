@@ -6,10 +6,14 @@
 {# prekryvam cely blok obsahu #}
 {% block obsah %}
 
-    {# pouze vypis textu #}
-    <div class="text">
-        Twig v2:
-        {{ text | raw }}
-    </div>
+    {# header #}
+    {% block header %}
+        {{ include('header.twig') }}
+    {% endblock %}
+    {# END header #}
+
+    {% block contributions %}
+        {% include("contributions.twig") %}
+    {% endblock %}
 
 {% endblock %}

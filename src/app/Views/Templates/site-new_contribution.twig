@@ -1,0 +1,37 @@
+{# #### Sablona pro Twig v.2 - vypis uvodni stranky #### #}
+
+{# dedim od zakladni sablony #}
+{% extends "template-basic.twig" %}
+
+{# prekryvam cely blok obsahu #}
+{% block obsah %}
+    <div class="container">
+
+    <form action="#" method="post" target="_blank" accept-charset="UTF-8" autocomplete="on">
+
+            <fieldset>
+                <legend>Nový příspěvek</legend>
+                <br>
+
+                <label for="contribution_name">Název</label>
+                <input type="text" name="contribution_name" tabindex="1" id="contribution_name" placeholder="-- vyplňte --"  required>
+                <br><br>
+
+                <label for="contribution_abstract">Abstrakt</label><br>
+                <textarea id="contribution_abstract" name="contribution_name" rows="4" cols="50">
+                </textarea>
+                <br><br>
+
+                <label for="contribution_abstract">Soubor PDF</label><br>
+                <input type="file" id="contribution_abstract" name="contribution_abstract" accept=".application/pdf">
+                <br><br>
+
+                <input type="submit" name="contribution_submit" id="contribution_submit" value="Uložit">
+
+
+            </fieldset>
+
+    </form>
+    </div>
+
+{% endblock %}

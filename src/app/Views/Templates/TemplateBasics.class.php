@@ -44,14 +44,7 @@ class TemplateBasics implements IView {
      * @throws \Twig\Error\SyntaxError
      */
     private function renderTwigTemplate(array $data, string $templateKey){
-        $templateKey = "uvod";//TODO predelat na funkcni
-
-        // definice sablon prislusnych stranek
-        // zde doporucuji pouzit variantu z predesleho cviceni, kde stranky webu jsou ulozeny v konstante
-        $webTemplates = array(
-            "uvod" => "site-intro.twig",
-            "obchod" => "site-market.twig"
-        );
+        $templateKey = "new_contribution";//TODO predelat na funkcni
 
         // nacist twig z vendor component ziskanych s vyuzitim Composer
         require_once 'C:\Users\Lenovo\Documents\GitHub\WEB_semestralka\src\composer\vendor\autoload.php';//TODO predelat na relativni cestu k composer autolad.php
@@ -59,7 +52,7 @@ class TemplateBasics implements IView {
         $templatesDirectory = 'app\Views\Templates';
         // nyni system vyuziva jen jednu sablonu pro vypis obou stranek
         // pri pouziti vice sablon musi byt spravna sablona zvolena zde
-        $currentTemplateName = $webTemplates[$templateKey];
+        $currentTemplateName = WEB_PAGES[$templateKey];
 
         // cesta k adresari se sablonama - od index.php
         $loader = new \Twig\Loader\FilesystemLoader($templatesDirectory);
@@ -72,7 +65,7 @@ class TemplateBasics implements IView {
         $twig->addExtension(new \Twig\Extension\DebugExtension());
 
         ///// vypsani vysledku prostrednictvim sablony
-        echo $twig->render($currentTemplateName, $data);
+        echo $twig->render($currentTemplateName['template_file'], $data);
     }
 
 }

@@ -47,17 +47,26 @@ const DEFAULT_WEB_PAGE_KEY = "intro";
         "title" => "Úvodní stránka",
 
         //// kontroler
-        //"file_name" => "IntroductionController.class.php",
         "controller_class_name" => IntroductionController::class, // poskytne nazev tridy vcetne namespace
-
-        // ClassBased sablona
-        //"view_class_name" => IntroductionTemplate::class,
 
         // Templates sablona
         "view_class_name" => TemplateBasics::class,
-        "template_type" => TemplateBasics::PAGE_INTRODUCTION,
+        "template_file" => "site-intro.twig"
     ),
     //// KONEC: Uvodni stranka ////
+
+    //// Novy pripsevek ////
+    "new_contribution" => array(
+        "title" => "Nový příspěvek",
+
+        //// kontroler
+        "controller_class_name" => IntroductionController::class, // poskytne nazev tridy vcetne namespace
+
+        // Templates sablona
+        "view_class_name" => TemplateBasics::class,
+        "template_file" => "site-new_contribution.twig"
+    ),
+    //// KONEC: Novy prispevek ////
 
 );
 

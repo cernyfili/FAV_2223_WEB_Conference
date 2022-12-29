@@ -48,7 +48,7 @@ class ApplicationStart {
         $view = new $pageInfo["view_class_name"];
         // zavolam sablonu, ktera primo vypise svuj vystup
         // druhy parametr je pro Templates sablony
-        $view->printOutput($tplData, $pageInfo["template_type"]);
+        $view->printOutput($tplData, $pageInfo["template_file"]);
 
     }
 }

@@ -40,41 +40,37 @@
         {# END navbar #}
 
 
-        {# header #}
-        {% block header %}
-            {{ include('header.twig') }}
-        {% endblock %}
-        {# END header #}
 
-        <div id="obal">
-            <h1>{{ nadpis | striptags }}</h1>
+
+
 
             {# vypis a sprava prihlaseni uzivatele #}
-            {% block prihlaseni %}
+            {#{% block prihlaseni %}
                 {% include("login.twig") %}
-            {% endblock %}
+            {% endblock %}#}
+       {# <div class="container">
+            <h1>{{ nadpis | striptags }}</h1>
+        </div>#}
 
             {# vypis obsahu stranky #}
             {% block obsah %}
 
-                {# vypis kosiku #}
+               {# #}{# vypis kosiku #}{#
                 {% block nakupniKosik %}
                     Obsah kosiku.
                 {% endblock %}
 
-                {# vypis produktu obchodu #}
+                #}{# vypis produktu obchodu #}{#
                 {% block produktyObchodu %}
                     Obsah obchodu.
                 {% endblock %}
 
-                {# text stranky #}
+                #}{# text stranky #}{#
                 {% block text %}
                     Textový obsah stránky.
-                {% endblock %}
+                {% endblock %}#}
 
             {% endblock obsah %}
-
-        </div>
 
         {# footer #}
         {% block footer %}

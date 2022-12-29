@@ -41,7 +41,7 @@ class IntroductionController implements IController {
         // vratim sablonu naplnenou daty
         return $tplData;
     }
-    
+
 }
 
 ?>
