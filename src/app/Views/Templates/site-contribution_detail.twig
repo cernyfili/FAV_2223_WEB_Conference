@@ -3,18 +3,14 @@
 {# dedim od zakladni sablony #}
 {% extends "template-basic.twig" %}
 
-{# prekryvam cely blok header #}
-{% block header %}
-
-    {{ include('inc-header.twig') }}
-
+{# prekryvani bloku Nadpis #}
+{% block title %}
 {% endblock %}
+{# END: Nadpis#}
 
 {# prekryvam cely blok obsahu #}
 {% block obsah %}
 
-    {% block contributions %}
-        {% include("contributions.twig") %}
-    {% endblock %}
+    {{ include('inc-contribution_detail.twig') }}
 
 {% endblock %}

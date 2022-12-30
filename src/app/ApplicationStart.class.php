@@ -2,8 +2,10 @@
 
 namespace kivweb;
 
+use Couchbase\View;
 use kivweb\Controllers\IController;
 use kivweb\Views\IView;
+use kivweb\Views\MyView;
 
 /**
  * Vstupni bod webove aplikace.
@@ -44,11 +46,11 @@ class ApplicationStart {
         $tplData = $controller->show($pageInfo["title"]);
 
         // nactu sablonu a bez ohledu na prislusnou tridu ji typuju na dane rozhrani
-        /** @var IView $view  Sablona prislusne stranky. */
-        $view = new $pageInfo["view_class_name"];
+        /** @var MyView $view  Sablona prislusne stranky. */
+        $view = new MyView();
         // zavolam sablonu, ktera primo vypise svuj vystup
         // druhy parametr je pro Templates sablony
-        $view->printOutput($tplData, $pageInfo["template_file"]);
+        $view->printOutput($tplData, $pageKey);
 
     }
 }

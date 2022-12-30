@@ -5,33 +5,34 @@
 
 {# prekryvam cely blok obsahu #}
 {% block obsah %}
+
     <div class="container">
 
-    <form action="#" method="post" target="_blank" accept-charset="UTF-8" autocomplete="on">
+        <form action="#" method="post" target="_blank" accept-charset="UTF-8" autocomplete="on">
 
-            <fieldset>
-                <legend>Nový příspěvek</legend>
-                <br>
+            <div class="mb-3">
+                <label class="form-label" for="contribution_name">Název</label>
+                <input class="form-control" type="text" name="contribution_name" id="contribution_name"
+                       required>
+            </div>
 
-                <label for="contribution_name">Název</label>
-                <input type="text" name="contribution_name" tabindex="1" id="contribution_name" placeholder="-- vyplňte --"  required>
-                <br><br>
+            <div class="mb-3">
+                <label class="form-label" for="contribution_abstract">Abstrakt</label>
+                <textarea class="form-control" id="contribution_abstract" name="contribution_name" rows="4"
+                          cols="50"></textarea>
+            </div>
 
-                <label for="contribution_abstract">Abstrakt</label><br>
-                <textarea id="contribution_abstract" name="contribution_name" rows="4" cols="50">
-                </textarea>
-                <br><br>
+            <div class="mb-3">
+                <label class="form-label" for="contribution_abstract">Soubor PDF</label>
+                <input class="form-control" type="file" id="contribution_abstract" name="contribution_abstract"
+                       accept=".application/pdf">
+            </div>
 
-                <label for="contribution_abstract">Soubor PDF</label><br>
-                <input type="file" id="contribution_abstract" name="contribution_abstract" accept=".application/pdf">
-                <br><br>
-
-                <input type="submit" name="contribution_submit" id="contribution_submit" value="Uložit">
+            <input class="btn btn-lg btn-primary mt-3" type="submit" name="contribution_submit" id="contribution_submit"
+                   value="Uložit">
 
 
-            </fieldset>
-
-    </form>
+        </form>
     </div>
 
 {% endblock %}

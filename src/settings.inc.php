@@ -3,9 +3,13 @@
 /////////////////  Globalni nastaveni aplikace ///////////////////
 //////////////////////////////////////////////////////////////////
 
+use kivweb\Controllers;
+use kivweb\Controllers\ContributionDetailController;
+use kivweb\Controllers\EditLoginInfoController;
 use kivweb\Controllers\IntroductionController;
-use kivweb\Controllers\UserManagementController;
-use kivweb\Views\Templates\TemplateBasics;
+use kivweb\Controllers\MyContributions;
+use kivweb\Controllers\NewContributionController;
+use kivweb\Controllers\RegistrationController;
 
 //// Pripojeni k databazi ////
 
@@ -42,31 +46,69 @@ const DEFAULT_WEB_PAGE_KEY = "intro";
 
 /** Dostupne webove stranky. */
     const WEB_PAGES = array(
-    //// Uvodni stranka ////
-    "intro" => array(
-        "title" => "Úvodní stránka",
+        // Uvodni starnka //
+        "intro" => array(
+            "title" => "Úvodní stránka",
+            "controller_class_name" => IntroductionController::class, // poskytne nazev tridy vcetne namespace
+            "template_name" => "site-intro.twig"
+        ),
+        // END: Uvodni stranka //
 
-        //// kontroler
-        "controller_class_name" => IntroductionController::class, // poskytne nazev tridy vcetne namespace
+        // Novy pripsevek //
+        "new_contribution" => array(
+            "title" => "Nový příspěvek",
+            "controller_class_name" => NewContributionController::class, // poskytne nazev tridy vcetne namespace
+            "template_name" => "site-new_contribution.twig"
+        ),
+        // KONEC: Novy prispevek //
 
-        // Templates sablona
-        "view_class_name" => TemplateBasics::class,
-        "template_file" => "site-intro.twig"
-    ),
-    //// KONEC: Uvodni stranka ////
+        // Registrace - novy uzivatel //
+        "registration" => array(
+            "title" => "Registrace",
+            "controller_class_name" => RegistrationController::class, // poskytne nazev tridy vcetne namespace
+            "template_name" => "site-registration.twig"
+        ),
+        // KONEC: Registrace //
 
-    //// Novy pripsevek ////
-    "new_contribution" => array(
-        "title" => "Nový příspěvek",
+        // Detail přispěvku //
+        "contribution_detail" => array(
+            "title" => "Detail příspěvku",
+            "controller_class_name" => ContributionDetailController::class, // poskytne nazev tridy vcetne namespace
+            "template_name" => "site-contribution_detail.twig"
+        ),
+        // KONEC: Detail přispěvku //
 
-        //// kontroler
-        "controller_class_name" => IntroductionController::class, // poskytne nazev tridy vcetne namespace
+        // Zmena uzivateslkych udaju //
+        "edit_login_info" => array(
+            "title" => "Změna uživatelských údajů",
+            "controller_class_name" => EditLoginInfoController::class, // poskytne nazev tridy vcetne namespace
+            "template_name" => "site-edit_login_info.twig"
+        ),
+        // KONEC: Zmena uzivateslkych udaju //
 
-        // Templates sablona
-        "view_class_name" => TemplateBasics::class,
-        "template_file" => "site-new_contribution.twig"
-    ),
-    //// KONEC: Novy prispevek ////
+
+
+        //// Management stranky - pro ruzny role ////
+
+
+        /// Autor ///
+
+        // Moje prispevky //
+        "my_contributions" => array(
+            "title" => "Moje přípěvky",
+            "controller_class_name" => MyContributions::class, // poskytne nazev tridy vcetne namespace
+            "template_name" => "site-author-my_contributions.twig"
+        ),
+        // KONEC: Moje prispevky //
+
+        /// END: Autor ///
+
+
+        //// END: Management stranky ////
+
+
+
+
 
 );
 

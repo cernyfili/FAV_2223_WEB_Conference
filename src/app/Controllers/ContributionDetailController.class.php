@@ -4,14 +4,11 @@ namespace kivweb\Controllers;
 
 use kivweb\Models\DatabaseModel;
 
-// nactu rozhrani kontroleru
-//require_once(DIRECTORY_CONTROLLERS."/IController.interface.php");
-
 /**
  * Ovladac zajistujici vypsani uvodni stranky.
  * @package kivweb\Controllers
  */
-class IntroductionController implements IController {
+class ContributionDetailController implements IController {
 
     /** @var DatabaseModel $db  Sprava databaze. */
     private $db;
@@ -41,5 +38,3 @@ class IntroductionController implements IController {
     }
 
 }
-
-?>

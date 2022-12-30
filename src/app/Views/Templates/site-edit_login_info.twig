@@ -1,0 +1,67 @@
+{# #### Sablona pro Twig v.2 - vypis uvodni stranky #### #}
+
+{# dedim od zakladni sablony #}
+{% extends "template-basic.twig" %}
+
+{# prekryvam cely blok obsahu #}
+{% block obsah %}
+
+    <div class="container">
+
+        <form action="#" method="post" target="_blank" accept-charset="UTF-8" autocomplete="on">
+            <fieldset class="mb-3">
+                <h3>Osobní údaje</h3>
+
+
+                <div class="mb-3">
+                    <label class="form-label" for="user_name">Křestní jméno</label>
+                    <input class="form-control" type="text" name="user_name" id="user_name" value="Jmeno" required>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label" for="user_surname">Příjmeni</label>
+                    <input class="form-control" type="text" name="user_surname" id="user_surname" value="Prijmeni" required>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label" for="user_email">Email</label>
+                    <input class="form-control" type="email" name="user_email" id="user_email" value="email@email.cz" required>
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <h3>Přihlašovací údaje</h3>
+
+
+                <div class="mb-3">
+                    <label class="form-label" for="user_username">Přihlašovací jméno</label>
+                    <input class="form-control" type="text" name="user_username" id="user_username" value="login" required>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label" for="user_password">Aktuální heslo</label>
+                    <input class="form-control" type="password" name="user_password" id="user_password">
+                </div>
+
+                <div class="p-2"></div>
+
+                <div class="mb-3">
+                    <label class="form-label" for="user_newpassword">Nové heslo</label>
+                    <input class="form-control" type="password" name="user_newpassword" id="user_newpassword">
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label" for="user_newpasswordcheck">Nové heslo podruhé</label>
+                    <input class="form-control" type="password" name="user_newpasswordcheck" id="user_newpasswordcheck">
+                </div>
+            </fieldset>
+
+
+            <input class="btn btn-lg btn-primary mt-3" type="submit" name="contribution_submit" id="contribution_submit"
+                   value="Uložit">
+
+
+        </form>
+    </div>
+
+{% endblock %}

@@ -37,6 +37,6 @@ spl_autoload_register(function ($className){
     require_once($fileName);
 });
 
-
+require_once("composer\\vendor\autoload.php");
 
 ?>

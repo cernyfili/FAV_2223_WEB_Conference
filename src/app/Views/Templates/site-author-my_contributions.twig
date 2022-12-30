@@ -1,20 +1,14 @@
 {# #### Sablona pro Twig v.2 - vypis uvodni stranky #### #}
 
 {# dedim od zakladni sablony #}
-{% extends "template-basic.twig" %}
-
-{# prekryvam cely blok header #}
-{% block header %}
-
-    {{ include('inc-header.twig') }}
-
-{% endblock %}
+{% extends "template-management.twig" %}
 
 {# prekryvam cely blok obsahu #}
+{#
 {% block obsah %}
 
     {% block contributions %}
         {% include("contributions.twig") %}
     {% endblock %}
 
-{% endblock %}
+{% endblock %}#}

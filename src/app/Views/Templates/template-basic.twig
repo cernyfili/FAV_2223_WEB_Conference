@@ -31,15 +31,18 @@
 
 
     </head>
-    <body>
+    <body class="d-flex flex-column min-vh-100 bg-black bg-opacity-10">
 
         {# navbar #}
         {% block navbar %}
-            {{ include('navbar.twig') }}
+            {{ include('inc-navbar.twig') }}
         {% endblock %}
         {# END navbar #}
 
-
+        {# header #}
+        {% block header %}
+        {% endblock %}
+        {# END header #}
 
 
 
@@ -51,6 +54,17 @@
        {# <div class="container">
             <h1>{{ nadpis | striptags }}</h1>
         </div>#}
+        <div class="container bg-white pt-5 pb-5">
+
+            {# Nadpis #}
+            {% block title %}
+
+            <div class="container mb-5">
+                <h1>{{ title }}</h1>
+            </div>
+
+            {% endblock title %}
+            {# END: Nadpis#}
 
             {# vypis obsahu stranky #}
             {% block obsah %}
@@ -71,10 +85,12 @@
                 {% endblock %}#}
 
             {% endblock obsah %}
+            <div class="container p-4"></div>
+        </div>
 
         {# footer #}
         {% block footer %}
-            {{ include('footer.twig') }}
+            {{ include('inc-footer.twig') }}
         {% endblock %}
         {# END footer #}
 
