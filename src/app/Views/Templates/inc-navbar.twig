@@ -3,11 +3,12 @@
 {# pripojuju makra #}
 {% import "macro.twig" as macro %}
 
+
 {# HTML #}
 <nav class="navbar navbar-expand-md bg-dark navbar-dark">
     <div class="container">
         <!-- Brand -->
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" href="index.php?page=intro">
             <i class="fa-solid fa-brain"></i>
             Konference 2023
         </a>
@@ -23,16 +24,16 @@
             {# Navbar left #}
             <ul class="navbar-nav me-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Úvod</a>
+                    <a class="nav-link" href="index.php?page=intro">Úvod</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Příspěvky</a>
+                    <a class="nav-link" href="#contributions">Příspěvky</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Partneři</a>
+                    <a class="nav-link" href="index.php?page=partners">Partneři</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Místo a Kontakty</a>
+                    <a class="nav-link" href="index.php?page=contact">Místo a Kontakty</a>
                 </li>
             </ul>
             {# END: Navbar left #}
@@ -54,15 +55,15 @@
                                     <div class="container-fluid">
                                         <form class="">
                                             <div class="form-group">
-                                                <label class="">Username</label>
+                                                <label class="">Uživatelské jméno</label>
                                                 <input class="form-control" name="username" id="username" type="text">
                                             </div>
                                             <div class="form-group">
-                                                <label class="">Password</label>
+                                                <label class="">Heslo</label>
                                                 <input class="form-control" name="password" id="password" type="password">
                                                 <br class="">
                                             </div>
-                                            <button type="submit" id="btnLogin" class="btn btn-primary btn-sm">Login</button>
+                                            <button type="submit" id="btnLogin" class="btn btn-primary btn-sm">Přihlásit</button>
                                         </form>
                                     </div>
                                 </div>
@@ -79,13 +80,14 @@
                     </a>
 
                     <ul class="dropdown-menu dropdown-menu-dark">
-                        <li><a href="#" class="dropdown-item">Změna uživatelských údajů</a></li>
+                        <li><a href="index.php?page=edit_login" class="dropdown-item">Změna uživatelských údajů</a></li>
                         <div class="dropdown-divider"></div>
 
                         {# Author username menu #}
-                        <li><a href="#" class="dropdown-item">Moje příspěvky</a></li>
+                        <li><a href="index.php?page=my_contributions" class="dropdown-item">Moje příspěvky</a></li>
+
                         <li>
-                            <a href="#" class="dropdown-item">
+                            <a href="index.php?page=new_contribution" class="dropdown-item">
                                 <i class="fa-solid fa-plus"></i>
                                 Přidat příspěvek
                             </a>
@@ -93,12 +95,12 @@
                         {# END: Author username menu#}
 
                         {# Recenzent username menu #}
-                        {#<li><a href="#" class="dropdown-item">Moje recenze</a></li>#}
+                        <li><a href="index.php?page=my_reviews" class="dropdown-item">Moje recenze</a></li>
                         {# END: Recenzent username menu#}
 
                         {# Admin username menu #}
-                        {#<li><a href="#" class="dropdown-item">Správa recenzí</a></li>
-                        <li><a href="#" class="dropdown-item">Správa uživatelů</a></li>#}
+                        <li><a href="index.php?page=reviews_management" class="dropdown-item">Správa recenzí</a></li>
+                        <li><a href="index.php?page=users_management" class="dropdown-item">Správa uživatelů</a></li>
                         {# END: Admin username menu#}
 
                     </ul>
@@ -107,7 +109,7 @@
                 </li>
 
                 <li class="nav-item">
-                    <a href="#" class="nav-link">Registrovat</a>
+                    <a href="index.php?page=registration" class="nav-link">Registrovat</a>
                 </li>
             </ul>
             {# END: Navbar right #}

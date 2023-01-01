@@ -13,16 +13,38 @@
 
 {# ## END Konstanty ## #}
 
+{# tlacitka pro soubory #}
+{% macro contribution_files_div(files, editable) %}
+    <div class="d-flex gap-3">
+
+    {% for file in files %}
+        <div class="btn btn-primary">
+        <a href="#" class="text-white text-decoration-none">
+            <i class="fa-solid fa-file-pdf"></i>
+            {{file['name']}}
+        </a>
+        {% if editable == 1 %}
+            <button class="ms-2 btn btn-danger"><i class="fa-solid fa-close"></i></button>
+        {% endif %}
+        </div>
+    {% endfor %}
+    </div>
+{% endmacro %}
+{# END: tlacitka pro soubory#}
+
 
 {# vypis input elementu #}
-{% macro inputElement(name, value, type, other) %}
+{#{% macro inputElement(name, value, type, other) %}
     <input type="{{ type|default('text') }}" name="{{ name }}" value="{{ value|e }}" {{ other|default("") }} />
-{% endmacro %}
+{% endmacro %}#}
 
 {# vypis radku tabulky #}
+{#
 {% macro tableRow(typ, produkt, barva) %}
 
-    {# musim importovat tento soubor pro vyuziti horejsiho makra #}
+    #}
+{# musim importovat tento soubor pro vyuziti horejsiho makra #}{#
+
     {% import _self as makra %}
 
     <form action="index.php?web=obchod" method="post">
@@ -56,4 +78,4 @@
         </tr>
     </form>
 
-{% endmacro %}
+{% endmacro %}#}

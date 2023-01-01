@@ -1,0 +1,51 @@
+{# #### Sablona pro Twig v.2 - vypis uvodni stranky #### #}
+
+{# dedim od zakladni sablony #}
+{% extends "template-basic.twig" %}
+
+{# pripojuju makra #}
+{% import "macro.twig" as macro %}
+
+{% block title %}
+{% endblock %}
+
+{# prekryvam cely blok obsahu #}
+{% block obsah %}
+
+
+
+    <div class="container">
+        <div class="mb-5">
+            <h1>Příspěvek</h1>
+            <hr class="border bg-dark border-dark border-1 mb-4">
+            <div class="bg-primary bg-opacity-10 rounded p-3 pb-5">
+                {{ include('inc-contribution_detail.twig') }}
+            </div>
+        </div>
+
+        <div>
+            <h1>Recenze</h1>
+            <hr class="border bg-dark border-dark border-1 mb-4">
+            <form class="p-1 pt-" action="#" method="post" target="_blank" accept-charset="UTF-8" autocomplete="on">
+
+                <div class="mb-3">
+                    <label class="form-label" for="contribution_name">Název</label>
+                    <input class="form-control" type="text" name="contribution_name" id="contribution_name" value="{{contribution['title']|default("")}}"
+                           required>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label" for="contribution_abstract">Abstrakt</label>
+                    <textarea class="form-control" id="contribution_abstract" name="contribution_name" rows="4"
+                              cols="50">{{contribution['abstract']|default("")}}</textarea>
+                </div>
+
+                <input class="btn btn-lg btn-primary mt-3" type="submit" name="contribution_submit" id="contribution_submit"
+                       value="Uložit">
+
+
+            </form>
+        </div>
+    </div>
+
+{% endblock %}

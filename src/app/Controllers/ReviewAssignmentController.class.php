@@ -8,7 +8,7 @@ use kivweb\Models\DatabaseModel;
  * Ovladac zajistujici vypsani uvodni stranky.
  * @package kivweb\Controllers
  */
-class MyContributions implements IController {
+class ReviewAssignmentController implements IController {
 
     /** @var DatabaseModel $db  Sprava databaze. */
     private $db;
@@ -32,6 +32,21 @@ class MyContributions implements IController {
         $tplData = [];
         // nazev
         $tplData['title'] = $pageTitle;
+
+        $tplData['contribution'] = array(
+            'title' => "Nazev prispevku",
+            'author' => "Jmeno Prijmeni",
+            'date' => "25.12.2022 12:35",
+            'abstract' => "Abstrakt abstrakt  abstrakt abstrakt abstrakt abstrakt abstrakt abstrakt abstrakt abstrakt abstrakt",
+            'files' => array(
+                array(
+                    'name' => "pdf_file.pdf"
+                ),
+                array(
+                    'name' => "pdf_file2.pdf"
+                )
+            )
+        );
 
         // vratim sablonu naplnenou daty
         return $tplData;

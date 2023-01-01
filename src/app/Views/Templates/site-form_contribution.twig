@@ -3,6 +3,9 @@
 {# dedim od zakladni sablony #}
 {% extends "template-basic.twig" %}
 
+{# pripojuju makra #}
+{% import "macro.twig" as macro %}
+
 {# prekryvam cely blok obsahu #}
 {% block obsah %}
 
@@ -12,20 +15,25 @@
 
             <div class="mb-3">
                 <label class="form-label" for="contribution_name">Název</label>
-                <input class="form-control" type="text" name="contribution_name" id="contribution_name"
+                <input class="form-control" type="text" name="contribution_name" id="contribution_name" value="{{contribution['title']|default("")}}"
                        required>
             </div>
 
             <div class="mb-3">
                 <label class="form-label" for="contribution_abstract">Abstrakt</label>
                 <textarea class="form-control" id="contribution_abstract" name="contribution_name" rows="4"
-                          cols="50"></textarea>
+                          cols="50">{{contribution['abstract']|default("")}}</textarea>
             </div>
 
             <div class="mb-3">
-                <label class="form-label" for="contribution_abstract">Soubor PDF</label>
-                <input class="form-control" type="file" id="contribution_abstract" name="contribution_abstract"
-                       accept=".application/pdf">
+                <label class="form-label" for="contribution_files">Soubory PDF</label>
+                <input class="form-control" type="file" id="contribution_files" name="contribution_files"
+                       accept=".pdf">
+
+                <div class="mb-5 mt-3">
+                    {{ macro.contribution_files_div(contribution['files'], 1) }}
+                </div>
+
             </div>
 
             <input class="btn btn-lg btn-primary mt-3" type="submit" name="contribution_submit" id="contribution_submit"

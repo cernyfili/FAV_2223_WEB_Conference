@@ -3,13 +3,18 @@
 /////////////////  Globalni nastaveni aplikace ///////////////////
 //////////////////////////////////////////////////////////////////
 
-use kivweb\Controllers;
 use kivweb\Controllers\ContributionDetailController;
+use kivweb\Controllers\EditContributionController;
 use kivweb\Controllers\EditLoginInfoController;
+use kivweb\Controllers\EditReviewController;
 use kivweb\Controllers\IntroductionController;
-use kivweb\Controllers\MyContributions;
+use kivweb\Controllers\MyContributionsController;
+use kivweb\Controllers\MyReviewsController;
 use kivweb\Controllers\NewContributionController;
 use kivweb\Controllers\RegistrationController;
+use kivweb\Controllers\ReviewAssignmentController;
+use kivweb\Controllers\ReviewsManagementController;
+use kivweb\Controllers\UsersManagementController;
 
 //// Pripojeni k databazi ////
 
@@ -54,14 +59,6 @@ const DEFAULT_WEB_PAGE_KEY = "intro";
         ),
         // END: Uvodni stranka //
 
-        // Novy pripsevek //
-        "new_contribution" => array(
-            "title" => "Nový příspěvek",
-            "controller_class_name" => NewContributionController::class, // poskytne nazev tridy vcetne namespace
-            "template_name" => "site-new_contribution.twig"
-        ),
-        // KONEC: Novy prispevek //
-
         // Registrace - novy uzivatel //
         "registration" => array(
             "title" => "Registrace",
@@ -79,7 +76,7 @@ const DEFAULT_WEB_PAGE_KEY = "intro";
         // KONEC: Detail přispěvku //
 
         // Zmena uzivateslkych udaju //
-        "edit_login_info" => array(
+        "edit_login" => array(
             "title" => "Změna uživatelských údajů",
             "controller_class_name" => EditLoginInfoController::class, // poskytne nazev tridy vcetne namespace
             "template_name" => "site-edit_login_info.twig"
@@ -88,7 +85,7 @@ const DEFAULT_WEB_PAGE_KEY = "intro";
 
 
 
-        //// Management stranky - pro ruzny role ////
+        //// Management stranky - pro ruzne uzivatelske role ////
 
 
         /// Autor ///
@@ -96,12 +93,78 @@ const DEFAULT_WEB_PAGE_KEY = "intro";
         // Moje prispevky //
         "my_contributions" => array(
             "title" => "Moje přípěvky",
-            "controller_class_name" => MyContributions::class, // poskytne nazev tridy vcetne namespace
-            "template_name" => "site-author-my_contributions.twig"
+            "controller_class_name" => MyContributionsController::class, // poskytne nazev tridy vcetne namespace
+            "template_name" => "template-management.twig"
         ),
-        // KONEC: Moje prispevky //
+        // END: Moje prispevky //
+
+        // Uprava prispevku //
+        "edit_contribution" => array(
+            "title" => "Úprava příspěvku",
+            "controller_class_name" => EditContributionController::class, // poskytne nazev tridy vcetne namespace
+            "template_name" => "site-form_contribution.twig"
+        ),
+        // END: Uprava prispevky //
+
+        // Novy pripsevek //
+        "new_contribution" => array(
+            "title" => "Nový příspěvek",
+            "controller_class_name" => NewContributionController::class, // poskytne nazev tridy vcetne namespace
+            "template_name" => "site-form_contribution.twig"
+        ),
+        // KONEC: Novy prispevek //
 
         /// END: Autor ///
+
+
+        /// Recenzent ///
+
+        // Moje recenze //
+        "my_reviews" => array(
+            "title" => "Moje recenze",
+            "controller_class_name" => MyReviewsController::class, // poskytne nazev tridy vcetne namespace
+            "template_name" => "template-management.twig"
+        ),
+        // KONEC: Moje recenze //
+
+        // Uprava recenze //
+        "edit_review" => array(
+            "title" => "Recenze",
+            "controller_class_name" => EditReviewController::class, // poskytne nazev tridy vcetne namespace
+            "template_name" => "site-form_review.twig"
+        ),
+        // KONEC: Uprava recenze //
+
+        /// END: Recenzent ///
+
+
+        /// Administrator ///
+
+        // Sprava recenzi //
+        "reviews_management" => array(
+            "title" => "Správa recenzí",
+            "controller_class_name" => ReviewsManagementController::class, // poskytne nazev tridy vcetne namespace
+            "template_name" => "template-management.twig"
+        ),
+        // KONEC: Sprava recenzi //
+
+        // Prideleni recenze //
+        "review_assignment" => array(
+            "title" => "Přidělení recenze",
+            "controller_class_name" => ReviewAssignmentController::class, // poskytne nazev tridy vcetne namespace
+            "template_name" => "site-form_review_assignment.twig"
+        ),
+        // KONEC: Prideleni recenze //
+
+        // Sprava uzivatelu //
+        "users_management" => array(
+            "title" => "Správa uživatelů",
+            "controller_class_name" => UsersManagementController::class, // poskytne nazev tridy vcetne namespace
+            "template_name" => "template-management.twig"
+        ),
+        // KONEC: Sprava uzivatelu //
+
+        /// END: Administrator ///
 
 
         //// END: Management stranky ////

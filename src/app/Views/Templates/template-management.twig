@@ -3,110 +3,113 @@
 {# dedim od zakladni sablony #}
 {% extends "template-basic.twig" %}
 
-{# Macros #}
+{#{% set contribution_groups_style = {
+    'author': {
+        'working_on': {
+            'color':'dark',
+            'btn_text':'Upravit'
+        },
+        'published': {
+            'color':'success',
+            'btn_text':'Detail'
+        },
+        'dismissed': {
+            'color':'danger',
+            'btn_text':'Detail'
+        },
+    },
+    'reviewer': {
+        'sub-item-1': 'my-sub-item-1',
+        'sub-item-2': 'my-sub-item-2',
+    },
+    'admin': {
+        'sub-item-1': 'my-sub-item-1',
+        'sub-item-2': 'my-sub-item-2',
+    }
+}
 
-{# Menu item #}
-{% macro menuItem(name, link) %}
-    <input type="{{ type|default('text') }}" name="{{ name }}" value="{{ value|e }}" {{ other|default("") }} />
-{% endmacro %}
+%}#}
+
+
 
 {# prekryvam cely blok obsahu #}
 {% block obsah %}
 
-    <div class="container d-flex flex-row">
+    <div class="container d-flex flex-column flex-lg-row p-0">
+
 
         {# Menu - left#}
-        {#<div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark" style="width: 280px;">
-            <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
-                <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
-                <span class="fs-4">Sidebar</span>
-            </a>
-            <hr>
-            <ul class="nav nav-pills flex-column mb-auto">
-                <li class="nav-item">
-                    <a href="#" class="nav-link active" aria-current="page">
-                        <svg class="bi me-2" width="16" height="16"><use xlink:href="#home"></use></svg>
-                        Home
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="nav-link text-white">
-                        <svg class="bi me-2" width="16" height="16"><use xlink:href="#speedometer2"></use></svg>
-                        Dashboard
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="nav-link text-white">
-                        <svg class="bi me-2" width="16" height="16"><use xlink:href="#table"></use></svg>
-                        Orders
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="nav-link text-white">
-                        <svg class="bi me-2" width="16" height="16"><use xlink:href="#grid"></use></svg>
-                        Products
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="nav-link text-white">
-                        <svg class="bi me-2" width="16" height="16"><use xlink:href="#people-circle"></use></svg>
-                        Customers
-                    </a>
-                </li>
-            </ul>
-            <hr>
-            <div class="dropdown">
-                <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-                    <img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle me-2">
-                    <strong>mdo</strong>
-                </a>
-                <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
-                    <li><a class="dropdown-item" href="#">New project...</a></li>
-                    <li><a class="dropdown-item" href="#">Settings</a></li>
-                    <li><a class="dropdown-item" href="#">Profile</a></li>
-                    <li><hr class="dropdown-divider"></li>
-                    <li><a class="dropdown-item" href="#">Sign out</a></li>
+
+        <div class="align-self-lg-start sticky-lg-top">
+            <div class="navbar navbar-dark d-flex flex-column flex-shrink-0 p-3 bg-dark align-items-start pe-5">
+                <p class="navbar-brand p-0 m-0 mb-3">Sekce</p>
+                <ul class="navbar-nav flex-column mb-auto">
+                    {% for contribution_group_key, contribution_group in contribution_groups %}
+
+                        <li class="nav-item">
+                            <a href="#{{contribution_group_key}}" class="nav-link">
+                                {{ contribution_group['title_group'] }}
+                            </a>
+                        </li>
+
+                    {% endfor %}
+
                 </ul>
             </div>
-        </div>#}
-
-        <div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark">
-            <ul class="nav nav-pills flex-column mb-auto">
-                <li class="nav-item dropdown-item">
-                    <a href="#" class="nav-link active" aria-current="page">
-                        Home
-                    </a>
-                   {# <a href="#!" class="nav-link active">
-                        test
-                        <div class="mask" style="background-color: rgba(251, 251, 251, 0.2)"></div>
-                    </a>#}
-                </li>
-                <li>
-                    <a href="#" class="nav-link ">
-                        Dashboard
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="nav-link text-white">
-                        Orders
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="nav-link text-white">
-                        Products
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="nav-link text-white">
-                        Customers
-                    </a>
-                </li>
-            </ul>
         </div>
         {# END: Menu#}
 
+
         {# Tabulka prispevky#}
+
+        <div class="container d-flex flex-column mt-3 mt-lg-0">
+
+            {% for contribution_group_key, contribution_group in contribution_groups %}
+
+                <div id="{{contribution_group_key}}" class="mb-3">
+                    <h3 class="ps-3 pb-0">{{contribution_group['title_group']}}</h3>
+                    {% for contribution in contribution_group['contributions'] %}
+                        {% set role = 'author' %}
+
+                        {% set color = contribution_group['color'] %}
+                        {% if color is null %}
+                        {% set color = 'dark' %}
+                        {% endif %}
+
+                        <a  href="index.php?page={{link_page}}" class="hover text-decoration-none text-dark">
+                            <div class="rounded d-flex justify-content-between flex-column flex-lg-row position-relative bg-{{color}} bg-opacity-25 p-3 pb-0 m-3 mt-0">
+
+                                <div>
+                                    <h5 class="mt-0">{{contribution['name']}}</h5>
+                                    {% if contribution['date'] is not null %}
+                                        <p>
+                                            <i class="fa fa-calendar me-2"></i>
+                                            <b>Datum:</b> {{contribution['date']}}
+                                        </p>
+                                    {% endif %}
+                                    <p class="pb-0">{{contribution['abstract']}}</p>
+
+                                    <p class="mb-0">{{ contribution['login'] }}</p>
+
+                                    <p>{{ contribution['email'] }}</p>
+
+                                </div>
+
+                                <div class="d-flex align-items-center">
+                                    <button class="btn btn-{{color}} m-2">{{ contribution_group['btn_text'] | default("Upravit") }}</button>
+                                </div>
+
+                            </div>
+                        </a>
+
+                    {% endfor %}
+                </div>
+
+            {% endfor %}
+
+        </div>
         {# END: Tabulka prispevky #}
+
 
     </div>
 

@@ -8,7 +8,7 @@ use kivweb\Models\DatabaseModel;
  * Ovladac zajistujici vypsani uvodni stranky.
  * @package kivweb\Controllers
  */
-class ContributionDetailController implements IController {
+class EditReviewController implements IController {
 
     /** @var DatabaseModel $db  Sprava databaze. */
     private $db;
@@ -32,6 +32,7 @@ class ContributionDetailController implements IController {
         $tplData = [];
         // nazev
         $tplData['title'] = $pageTitle;
+
         $tplData['contribution'] = array(
             'title' => "Nazev prispevku",
             'author' => "Jmeno Prijmeni",
