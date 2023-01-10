@@ -4,10 +4,20 @@
 {% import "macro.twig" as macro %}
 
 {# HTML #}
-<div class="container" id="contributions">
-    <div class="bg-black bg-opacity-10 p-5 rounded">
-        <h1>Navbar example</h1>
-        <p class="lead">This example is a quick exercise to illustrate how the top-aligned navbar works. As you scroll, this navbar remains in its original position and moves with the rest of the page.</p>
-        <a class="btn btn-lg btn-primary end-0" href="#" role="button">View navbar</a>
+{% for contribution in contributions %}
+    <div class="container position-relative hover mb-5 " id="contributions">
+        <div class="bg-black bg-opacity-10 p-5 pt-4 pb-3 rounded">
+            <h1>{{contribution['contributions_name'] | escape}}</h1>
+            <p class="mb-2">
+                <i class="fa fa-calendar me-2"></i>
+                <b>Datum:</b> {{contribution['contributions_created'] | escape}}
+            </p>
+            <p class="mb-2">
+                <i class="fa-solid fa-user me-2"></i>
+                <b>Autor:</b> {{contribution['users_name'] | escape}} {{contribution['users_surname'] | escape}}
+            </p>
+            <p class="lead">{{contribution['contributions_abstract'] | escape | slice(0, 200)}}...</p>
+            <a class="btn btn-lg btn-primary end-0 stretched-link pe-4" href="{{macro.link_to_page_id("contribution_detail",contribution['contributions_id_contributions'] | escape)}}" role="button">Více..</a>
+        </div>
     </div>
-</div>
+{% endfor %}

@@ -5,38 +5,45 @@
 
 {# prekryvam cely blok obsahu #}
 {% block obsah %}
+    {% if logged_role is defined and logged_role is not null%}
+
 
     <div class="container">
 
-        <form action="#" method="post" target="_blank" accept-charset="UTF-8" autocomplete="on">
+        <form action="#" method="post" accept-charset="UTF-8" autocomplete="on">
             <fieldset class="mb-3">
                 <h3>Osobní údaje</h3>
 
 
                 <div class="mb-3">
                     <label class="form-label" for="user_name">Křestní jméno</label>
-                    <input class="form-control" type="text" name="user_name" id="user_name" value="Jmeno" required>
+                    <input class="form-control" type="text" name="user_name" id="user_name" value="{{user['users_name']|escape}}" required>
                 </div>
 
                 <div class="mb-3">
                     <label class="form-label" for="user_surname">Příjmeni</label>
-                    <input class="form-control" type="text" name="user_surname" id="user_surname" value="Prijmeni" required>
+                    <input class="form-control" type="text" name="user_surname" id="user_surname" value="{{user['users_surname']|escape}}" required>
                 </div>
 
                 <div class="mb-3">
                     <label class="form-label" for="user_email">Email</label>
-                    <input class="form-control" type="email" name="user_email" id="user_email" value="email@email.cz" required>
+                    <input class="form-control" type="email" name="user_email" id="user_email" value="{{user['users_email']|escape}}" required>
                 </div>
-            </fieldset>
 
-            <fieldset>
-                <h3>Přihlašovací údaje</h3>
+
+
 
 
                 <div class="mb-3">
                     <label class="form-label" for="user_username">Přihlašovací jméno</label>
-                    <input class="form-control" type="text" name="user_username" id="user_username" value="login" required>
+                    <input class="form-control" type="text" name="user_username" id="user_username" value="{{user['users_username']|escape}}" required>
                 </div>
+
+            </fieldset>
+
+            <fieldset>
+                <h3 class="mb-4">Změna Hesla</h3>
+
 
                 <div class="mb-3">
                     <label class="form-label" for="user_password">Aktuální heslo</label>
@@ -57,11 +64,12 @@
             </fieldset>
 
 
-            <input class="btn btn-lg btn-primary mt-3" type="submit" name="contribution_submit" id="contribution_submit"
-                   value="Uložit">
+            <button type="submit" name="action" value="user_submit" id="user_submit"
+                    class="btn btn-lg btn-primary mt-3">Uložit</button>
 
 
         </form>
     </div>
+    {% endif %}
 
 {% endblock %}

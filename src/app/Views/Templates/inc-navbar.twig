@@ -5,10 +5,10 @@
 
 
 {# HTML #}
-<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+<nav class="navbar navbar-expand-md bg-dark navbar-dark sticky-top">
     <div class="container">
         <!-- Brand -->
-        <a class="navbar-brand" href="index.php?page=intro">
+        <a class="navbar-brand" href="{{macro.link_to_page("intro")}}">
             <i class="fa-solid fa-brain"></i>
             Konference 2023
         </a>
@@ -24,16 +24,16 @@
             {# Navbar left #}
             <ul class="navbar-nav me-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="index.php?page=intro">Úvod</a>
+                    <a class="nav-link" href="{{macro.link_to_page("intro")}}">Úvod</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#contributions">Příspěvky</a>
+                    <a class="nav-link" href="index.php#contributions">Příspěvky</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="index.php?page=partners">Partneři</a>
+                    <a class="nav-link" href="{{macro.link_to_page("partners")}}">Partneři</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="index.php?page=contact">Místo a Kontakty</a>
+                    <a class="nav-link" href="{{macro.link_to_page("contacts")}}">Místo a Kontakty</a>
                 </li>
             </ul>
             {# END: Navbar left #}
@@ -42,75 +42,92 @@
             {# Navbar right #}
             <ul class="navbar-nav navbar-right">
 
-                {# Prihlasit se #}
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        <i class="fa-solid fa-user me-1"></i>
-                        Přihlásit
-                    </a>
-                    <ul class="dropdown-menu dropdown-menu-dark">
-                        <li>
-                            <div class="dropdown-item bg-transparent" id="formLogin">
-                                <div class="row">
-                                    <div class="container-fluid">
-                                        <form class="">
-                                            <div class="form-group">
-                                                <label class="">Uživatelské jméno</label>
-                                                <input class="form-control" name="username" id="username" type="text">
-                                            </div>
-                                            <div class="form-group">
-                                                <label class="">Heslo</label>
-                                                <input class="form-control" name="password" id="password" type="password">
-                                                <br class="">
-                                            </div>
-                                            <button type="submit" id="btnLogin" class="btn btn-primary btn-sm">Přihlásit</button>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                    </ul>
-                </li>
-                {# END: Prihlasit se #}
-
+                {% if logged_role is defined and logged_role is not null%}
+                {# Logged menu #}
                 <li class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         <i class="fa-solid fa-user"></i>
-                        username{#TODO dodelat funkcni username v navbar#}
+                        {{ logged_user['users_username']|escape|default("username") }}
                     </a>
 
-                    <ul class="dropdown-menu dropdown-menu-dark">
-                        <li><a href="index.php?page=edit_login" class="dropdown-item">Změna uživatelských údajů</a></li>
+                    <ul class="dropdown-menu dropdown-menu-dark dropdown-menu-end">
+                        <li><a href="{{macro.link_to_page("edit_login")}}" class="dropdown-item">Změna uživatelských údajů</a></li>
                         <div class="dropdown-divider"></div>
 
+                        {% if logged_role == 0 %}
                         {# Author username menu #}
-                        <li><a href="index.php?page=my_contributions" class="dropdown-item">Moje příspěvky</a></li>
+                        <li><a href="{{macro.link_to_page("my_contributions")}}" class="dropdown-item">Moje příspěvky</a></li>
 
                         <li>
-                            <a href="index.php?page=new_contribution" class="dropdown-item">
+                            <a href="{{macro.link_to_page("new_contribution")}}" class="dropdown-item">
                                 <i class="fa-solid fa-plus"></i>
                                 Přidat příspěvek
                             </a>
                         </li>
                         {# END: Author username menu#}
+                        {% endif %}
 
+                        {% if logged_role == 1 %}
                         {# Recenzent username menu #}
-                        <li><a href="index.php?page=my_reviews" class="dropdown-item">Moje recenze</a></li>
+                        <li><a href="{{macro.link_to_page("my_reviews")}}" class="dropdown-item">Moje recenze</a></li>
                         {# END: Recenzent username menu#}
+                        {% endif %}
 
+                        {% if logged_role == 2 %}
                         {# Admin username menu #}
-                        <li><a href="index.php?page=reviews_management" class="dropdown-item">Správa recenzí</a></li>
-                        <li><a href="index.php?page=users_management" class="dropdown-item">Správa uživatelů</a></li>
+                        <li><a href="{{macro.link_to_page("reviews_management")}}" class="dropdown-item">Správa recenzí</a></li>
+                        <li><a href="{{macro.link_to_page("users_management")}}" class="dropdown-item">Správa uživatelů</a></li>
                         {# END: Admin username menu#}
+                        {% endif %}
+
+                        <li class="text-center mt-3">
+                            <form action="#" method="post" accept-charset="UTF-8" autocomplete="on">
+                            <button type="submit" name="action" value="logout" id="btnLogout" class="btn btn-danger">Odhlásit</button>
+                            </form>
+                        </li>
 
                     </ul>
 
 
                 </li>
 
-                <li class="nav-item">
-                    <a href="index.php?page=registration" class="nav-link">Registrovat</a>
-                </li>
+                {% else %}
+                    {# Prihlasit se #}
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fa-solid fa-user me-1"></i>
+                            Přihlásit
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-dark">
+                            <li>
+                                <div class="dropdown-item bg-transparent" id="formLogin">
+                                    <div class="row">
+                                        <div class="container-fluid">
+                                            <form action="#" method="post" accept-charset="UTF-8" autocomplete="on">
+                                                <div class="form-group">
+                                                    <label class="">Uživatelské jméno</label>
+                                                    <input class="form-control" name="username" id="username" type="text">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="">Heslo</label>
+                                                    <input class="form-control" name="password" id="password" type="password">
+                                                    <br class="">
+                                                </div>
+                                                <button type="submit" name="action" value="login" id="btnLogin" class="btn btn-primary">Přihlásit</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                    {# END: Prihlasit se #}
+
+                    {# Registrovat #}
+                    <li class="nav-item">
+                        <a href="{{macro.link_to_page("registration")}}" class="nav-link">Registrovat</a>
+                    </li>
+                {% endif %}
             </ul>
             {# END: Navbar right #}
 

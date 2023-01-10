@@ -3,17 +3,23 @@
 /////////////////  Globalni nastaveni aplikace ///////////////////
 //////////////////////////////////////////////////////////////////
 
+use kivweb\Controllers\BasicSiteController;
+use kivweb\Controllers\ContactsController;
 use kivweb\Controllers\ContributionDetailController;
+use kivweb\Controllers\ContributionDetailManagementController;
 use kivweb\Controllers\EditContributionController;
 use kivweb\Controllers\EditLoginInfoController;
 use kivweb\Controllers\EditReviewController;
+use kivweb\Controllers\FileDownloadController;
 use kivweb\Controllers\IntroductionController;
 use kivweb\Controllers\MyContributionsController;
 use kivweb\Controllers\MyReviewsController;
 use kivweb\Controllers\NewContributionController;
+use kivweb\Controllers\PartnersController;
 use kivweb\Controllers\RegistrationController;
 use kivweb\Controllers\ReviewAssignmentController;
 use kivweb\Controllers\ReviewsManagementController;
+use kivweb\Controllers\UserDetailController;
 use kivweb\Controllers\UsersManagementController;
 
 //// Pripojeni k databazi ////
@@ -22,7 +28,7 @@ use kivweb\Controllers\UsersManagementController;
 
 define("DB_SERVER","localhost"); // https://students.kiv.zcu.cz lze 147.228.63.10, ale musite byt na VPN
 /** Nazev databaze. */
-define("DB_NAME","cernyf_mvc_introdution");
+define("DB_NAME","conference");
 /** Uzivatel databaze. */
 define("DB_USER","root");
 /** Heslo uzivatele databaze */
@@ -31,11 +37,14 @@ define("DB_PASS","");
 
 //// Nazvy tabulek v DB ////
 
-/** Tabulka s pohadkami. */
-define("TABLE_INTRODUCTION", "cernyf_mvc_introduction");
-/** Tabulka s uzivateli. */
-define("TABLE_USER", "cernyf_mvc_user");
 
+const DB_TABLES = array(
+    "contributions" => "contributions",
+    "users" => "users",
+    "contributions_files" => "contributions_files",
+    "reviews" => "reviews",
+    "reviews_assignments" => "reviews_assignments"
+);
 
 //// Dostupne stranky webu ////
 
@@ -46,11 +55,91 @@ define("TABLE_USER", "cernyf_mvc_user");
 /** Adresar sablon */
 //const DIRECTORY_VIEWS = "Views";
 
+/** Nazvy ciselnych stavu z databaze **/
+const STATES_INFO = array(
+    "reviews" => array(
+        "topic_review" => array(
+            0 => "Vůbec",
+            1 => "Možná",
+            2 => "Určitě",
+        ),
+        "author_review" => array(
+            0 => "Nechopen",
+            1 => "Schopen",
+            2 => "Kvalifikovaný",
+        ),
+        "abstract_review" => array(
+            0 => "Nevýstižný",
+            1 => "Výstižný",
+            2 => "Výborný",
+        ),
+        "type" => array(
+            0 => "",
+            1 => "",
+        ),
+    ),
+    "users" => array(
+        "role" => array(
+            0 => array(
+                "name" => "author",
+                "title" => "Autor",
+                "color" => "dark",
+            ),
+            1 => array(
+                "name" => "reviewer",
+                "title" => "Recenzent",
+                "color" => "success",
+            ),
+            2 => array(
+                "name" => "admin",
+                "title" => "Administrátor",
+                "color" => "primary",
+            ),
+        ),
+    ),
+    "reviews_assignments" => array(
+        "state" => array(
+            0 => "",
+            1 => "",
+        ),
+    ),
+    "contributions" => array(
+        "state" => array(
+            0 => array(
+                "name" => "working_on",
+                "title" => "V recenzním řízení",
+                "color" => "dark",
+            ),
+            1 => array(
+                "name" => "published",
+                "title" => "Publikováno",
+                "color" => "success",
+
+            ),
+            2 => array(
+                "name" => "dismissed",
+                "title" => "Odmítnuto",
+                "color" => "danger",
+
+            ),
+        ),
+    ),
+);
+
 /** Klic defaultni webove stranky. */
 const DEFAULT_WEB_PAGE_KEY = "intro";
 
 /** Dostupne webove stranky. */
-    const WEB_PAGES = array(
+const WEB_PAGES = array(
+
+        // Uvodni starnka //
+        "error" => array(
+            "title" => "Chyba",
+            "controller_class_name" => BasicSiteController::class, // poskytne nazev tridy vcetne namespace
+            "template_name" => "site-error.twig"
+        ),
+        // END: Uvodni stranka //
+
         // Uvodni starnka //
         "intro" => array(
             "title" => "Úvodní stránka",
@@ -83,9 +172,32 @@ const DEFAULT_WEB_PAGE_KEY = "intro";
         ),
         // KONEC: Zmena uzivateslkych udaju //
 
+        // Partneri stranka //
+        "partners" => array(
+            "title" => "Partneři konference",
+            "controller_class_name" => PartnersController::class, // poskytne nazev tridy vcetne namespace
+            "template_name" => "site-partners.twig"
+        ),
+        // KONEC: Partneri stranka //
+
+        // Kontakty stranka //
+        "contacts" => array(
+            "title" => "Místo a kontakty",
+            "controller_class_name" => BasicSiteController::class, // poskytne nazev tridy vcetne namespace
+            "template_name" => "site-contacts.twig"
+        ),
+        // KONEC: Kontakty stranka //
 
 
         //// Management stranky - pro ruzne uzivatelske role ////
+
+        // Detail prispevek (i s recenzemi) //
+        "contribution_detail_management" => array(
+            "title" => "Detail příspěvku",
+            "controller_class_name" => ContributionDetailManagementController::class, // poskytne nazev tridy vcetne namespace
+            "template_name" => "site-contribution_detail_management.twig"
+        ),
+        // KONEC: Detail prispevek //
 
 
         /// Autor ///
@@ -128,6 +240,14 @@ const DEFAULT_WEB_PAGE_KEY = "intro";
         // KONEC: Moje recenze //
 
         // Uprava recenze //
+        "new_review" => array(
+            "title" => "Recenze",
+            "controller_class_name" => EditReviewController::class, // poskytne nazev tridy vcetne namespace
+            "template_name" => "site-form_review.twig"
+        ),
+        // KONEC: Uprava recenze //
+
+        // Uprava recenze //
         "edit_review" => array(
             "title" => "Recenze",
             "controller_class_name" => EditReviewController::class, // poskytne nazev tridy vcetne namespace
@@ -156,6 +276,14 @@ const DEFAULT_WEB_PAGE_KEY = "intro";
         ),
         // KONEC: Prideleni recenze //
 
+        // Uprava prideleni recenze //
+        "edit_review_assignment" => array(
+            "title" => "Úprava přidělení recenze",
+            "controller_class_name" => ReviewAssignmentController::class, // poskytne nazev tridy vcetne namespace
+            "template_name" => "site-form_review_assignment.twig"
+        ),
+        // KONEC: Uprava prideleni recenze //
+
         // Sprava uzivatelu //
         "users_management" => array(
             "title" => "Správa uživatelů",
@@ -163,6 +291,22 @@ const DEFAULT_WEB_PAGE_KEY = "intro";
             "template_name" => "template-management.twig"
         ),
         // KONEC: Sprava uzivatelu //
+
+        // Detailuzivatelu//
+        "user_detail" => array(
+            "title" => "Detail uživatele",
+            "controller_class_name" => UserDetailController::class, // poskytne nazev tridy vcetne namespace
+            "template_name" => "site-user_detail.twig"
+        ),
+        // KONEC: Detail uzivatel //
+
+        // Detailuzivatelu//
+        "blocked_user_detail" => array(
+                "title" => "Detail uživatele",
+                "controller_class_name" => UserDetailController::class, // poskytne nazev tridy vcetne namespace
+                "template_name" => "site-user_detail.twig"
+        ),
+        // KONEC: Detail uzivatel //
 
         /// END: Administrator ///
 

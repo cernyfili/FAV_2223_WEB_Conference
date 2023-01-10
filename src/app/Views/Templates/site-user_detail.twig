@@ -1,0 +1,84 @@
+{# #### Sablona pro Twig v.2 - vypis uvodni stranky #### #}
+
+{# dedim od zakladni sablony #}
+{% extends "template-basic.twig" %}
+
+{# pripojuju makra #}
+{% import "macro.twig" as macro %}
+
+{# prekryvani bloku Nadpis #}
+{% block title %}
+{% endblock %}
+{# END: Nadpis#}
+
+{# prekryvam cely blok obsahu #}
+{% block obsah %}
+    {% if logged_role is defined and logged_role is not null and logged_role == 2%}
+
+
+    <div class="container">
+        <h1 class="mb-3">{{user['users_name']|escape}} {{user['users_surname']|escape}}</h1>
+        <p class="lead">
+            <i class="fa fa-user"></i>
+            <span href="#" class="text-decoration-none ms-1 text-dark">{{user['users_username']|escape}}</span>
+        </p>
+        <p>
+            <i class="fa fa-envelope me-2"></i>
+            <span class="text-decoration-none text-dark">{{user['users_email']|escape}}</span>
+        </p>
+
+        <div>
+
+            <p class="m-0">
+                <b>Současná role:</b>
+
+            </p>
+            <div class="d-flex">
+                <p class="btn-outline-{{selected_role[0]['color']}} border border-{{selected_role[0]['color']}} border-3 ps-2 pe-2 mt-2 mb-2 text-dark p-1 rounded">{{selected_role[0]['name']|escape}}</p>
+            </div>
+
+            <hr class="border bg-dark border-dark border-1 mb-4">
+            <form class="p-1 pt-" action="#" method="post" accept-charset="UTF-8" autocomplete="on">
+
+                {{ macro.form_select_input(page, selected_role , form_role_info, "Vybrat roli", "user_role",1) }}
+
+                <button type="submit" name="action" value="userdetail_role" id="userdetail_role"
+                        class="btn btn-primary mt-0">Uložit</button>
+
+            </form>
+        </div>
+    </div>
+
+    <div class="d-flex justify-content-between flex-column gap-3 gap-md-0 flex-md-row mt-5">
+        <div class="d-flex justify-content-between flex-column gap-3 gap-md-0 flex-md-row">
+
+            <form action="#" method="post" accept-charset="UTF-8" autocomplete="on" >
+                <button type="submit" name="action" value="userdetail_block" id="userdetail_block"
+                        class="btn btn-lg btn-warning mt-3"
+                        {% if user['users_blocked'] == 1 %}
+                            disabled
+                        {% endif %}
+                >Zablokovat</button>
+            </form>
+
+            <form action="#" method="post" accept-charset="UTF-8" autocomplete="on" >
+                <button type="submit" name="action" value="userdetail_unblock" id="userdetail_unblock"
+                        class="btn btn-lg btn-warning mt-3 ms-3"
+                        {% if user['users_blocked'] == 0 %}
+                            disabled
+                        {% endif %}
+                >Odblokovat</button>
+            </form>
+
+        </div>
+
+            <div class="align-self-end align-items-end">
+                <form action="#" method="post" accept-charset="UTF-8" autocomplete="on" >
+                    <button type="submit" name="action" value="userdetail_delete" id="userdetail_delete"
+                            class="btn btn-lg btn-danger mt-3">Smazat</button>
+                </form>
+            </div>
+    </div>
+    {% endif %}
+
+{% endblock %}

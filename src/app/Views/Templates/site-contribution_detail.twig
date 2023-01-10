@@ -10,7 +10,10 @@
 
 {# prekryvam cely blok obsahu #}
 {% block obsah %}
+    {% if (logged_role is defined and logged_role is not null) or contribution['contributions_state'] == 1%}
 
     {{ include('inc-contribution_detail.twig') }}
+
+    {% endif %}
 
 {% endblock %}

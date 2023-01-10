@@ -1,5 +1,7 @@
 <?php
 
+namespace kivweb\Models;
+
 /**
  *  Objekt pro praci se Session.
  *  @author Michal Nykl

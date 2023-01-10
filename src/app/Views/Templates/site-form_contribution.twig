@@ -8,39 +8,59 @@
 
 {# prekryvam cely blok obsahu #}
 {% block obsah %}
+    {% if logged_role is defined and logged_role is not null and logged_role == 0%}
+
 
     <div class="container">
 
-        <form action="#" method="post" target="_blank" accept-charset="UTF-8" autocomplete="on">
+        <form action="#" method="post" accept-charset="UTF-8" autocomplete="on" enctype="multipart/form-data">
 
             <div class="mb-3">
                 <label class="form-label" for="contribution_name">Název</label>
-                <input class="form-control" type="text" name="contribution_name" id="contribution_name" value="{{contribution['title']|default("")}}"
+                <input class="form-control" type="text" name="contribution_name" id="contribution_name" value="{{contribution['contributions_name']|default("")|escape}}"
                        required>
             </div>
 
             <div class="mb-3">
                 <label class="form-label" for="contribution_abstract">Abstrakt</label>
-                <textarea class="form-control" id="contribution_abstract" name="contribution_name" rows="4"
-                          cols="50">{{contribution['abstract']|default("")}}</textarea>
+                <textarea class="form-control" id="contribution_abstract" name="contribution_abstract" rows="4"
+                          cols="50" required>{{contribution['contributions_abstract']|default("")|escape}}</textarea>
             </div>
 
             <div class="mb-3">
                 <label class="form-label" for="contribution_files">Soubory PDF</label>
                 <input class="form-control" type="file" id="contribution_files" name="contribution_files"
-                       accept=".pdf">
-
-                <div class="mb-5 mt-3">
-                    {{ macro.contribution_files_div(contribution['files'], 1) }}
-                </div>
+                       accept=".pdf" >
 
             </div>
 
-            <input class="btn btn-lg btn-primary mt-3" type="submit" name="contribution_submit" id="contribution_submit"
-                   value="Uložit">
+            <div class="d-flex justify-content-between flex-column gap-3 gap-md-0 flex-md-row">
+
+                <button type="submit" name="action" value="contribution_submit" id="contribution_submit"
+                        class="btn btn-lg btn-primary mt-3">Uložit</button>
+
+
+
+            </div>
 
 
         </form>
+        {% if page == 'edit_contribution' %}
+            <div class="align-self-end align-items-end">
+            <form action="#" method="post" accept-charset="UTF-8" autocomplete="on" >
+                <input class="visually-hidden" type="text" name="contributiondelete_id" id="contribution_id"
+                       value="{{contribution['contributions_id_contributions']}}">
+                <button type="submit" name="action" value="contributiondelete_submit" id="contribution_delete"
+                        class="btn btn-lg btn-danger mt-3">Smazat</button>
+            </form>
+            </div>
+        {% endif %}
+        {% if page == 'edit_contribution' %}
+        <div class="mb-5 mt-3">
+            {{ macro.contribution_files_div(file, 1) }}
+        </div>
+            {% endif %}
     </div>
+    {% endif %}
 
 {% endblock %}

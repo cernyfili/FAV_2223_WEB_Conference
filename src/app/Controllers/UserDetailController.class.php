@@ -8,7 +8,7 @@ use kivweb\Models\MyDatabase;
  * Ovladac zajistujici vypsani uvodni stranky.
  * @package kivweb\Controllers
  */
-class EditContributionController implements IController {
+class UserDetailController implements IController {
 
     /** @var MyDatabase $db  Sprava databaze. */
     private $db;
@@ -32,17 +32,10 @@ class EditContributionController implements IController {
      */
     public function show(string $pageTitle):array {
 
-
-        $id = htmlspecialchars($_GET['id']);
-
         $this->formsCheck->checkLoginLogout();
-        $this->formsCheck->checkContribution("edit_contribution",$id);
+        $this->formsCheck->checkUserDetail($_GET['id']);
 
 
-        if(!isset($_GET['id']) || $_GET['id']==""){
-            header('Location: index.php?page=error');
-            exit;
-        }
         $tplData = [];
 
         /*-- GLOBAL --*/
@@ -57,8 +50,7 @@ class EditContributionController implements IController {
             $tplData['page'] = htmlspecialchars($_GET['page']);
         }
         /*-- END: GLOBAL --*/
-
-        if($loggedRole != 0){
+        if($loggedRole != 2){
             header('Location: index.php?page=error');
             exit;
         }
@@ -68,24 +60,42 @@ class EditContributionController implements IController {
         // nazev
         $tplData['title'] = $pageTitle;
 
+        $roles_info = STATES_INFO['users']['role'];
 
-        $contributionInfoarr = $this->db->getContributionInfobyId($id);
-        if ($contributionInfoarr!=null) {
-            $tplData['contribution'] = $contributionInfoarr[0];
-        }
-        /*else{
+        if(!isset($_GET['id']) || $_GET['id']==""){
             header('Location: index.php?page=error');
-        }*/
+            exit;
+        }
+        // var_dump($this->db->getContributionInfo($_GET['id']));
 
-        $contributionFiles = $this->db->getContributionFilesbyIdcontribution($id);
-        $tplData['file'] = array();
-        foreach ($contributionFiles as $file){
-            $tplData['file'][] = array(
-                "file_content" => base64_encode($file['contributions_files_file']),
-                "data" => $file
+        $id = htmlspecialchars($_GET['id']);
+        $usersarr = $this->db->getUserbyId_Block($id);
+        if ($usersarr!=null) {
+            $tplData['user'] = $usersarr[0];
+        }
+        else{
+            header('Location: index.php?page=error');
+            exit;
+        }
+
+        foreach ($roles_info as $key => $role_info){
+            $tplData['form_role_info'][] = array(
+                "users_id_users" => $key,
+                "users_name" => $role_info['title'],
             );
         }
 
+        $selected_role_id = $tplData['user']['users_role'];
+        $selected_role_name = $roles_info[$selected_role_id]['title'];
+        $selected_color = $roles_info[$selected_role_id]['color'];
+
+        $tplData['selected_role'] = array(
+            array(
+                'reviews_assignments_id_users' => $selected_role_id,
+                'name' => $selected_role_name,
+                'color' => $selected_color
+            )
+        );
 
         // vratim sablonu naplnenou daty
         return $tplData;

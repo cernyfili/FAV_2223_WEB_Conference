@@ -9,10 +9,7 @@
 {# prekryvam cely blok obsahu #}
 {% block obsah %}
 
-    {# pouze vypis textu #}
-    <div class="text">
-        Twig v2:
-        {{ text | raw }}
-    </div>
+
+    <h1 class="ms-5 text-danger">{{ text|escape|default("Omlouváme se něco se pokazilo") }}</h1>
 
 {% endblock %}

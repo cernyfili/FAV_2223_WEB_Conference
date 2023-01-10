@@ -1,0 +1,54 @@
+{# #### Sablona pro Twig v.2 - vypis uvodni stranky #### #}
+
+{# dedim od zakladni sablony #}
+{% extends "template-basic.twig" %}
+
+
+
+{# prekryvam cely blok obsahu #}
+{% block obsah %}
+    {% if logged_role is defined and logged_role is not null%}
+
+
+    <div class="container">
+
+
+        <div class="mb-5">
+            <h1>
+            {% block contribution_title %}
+                Příspěvek
+            {% endblock %}
+            </h1>
+            <hr class="border bg-dark border-dark border-1 mb-4">
+            <div class="bg-{{contribution_group['color'] | default('primary')}} bg-opacity-25 rounded p-3 pb-5">
+                {% block contribution %}
+                    <div class="text-start text-lg-end">
+                        <h4 class="text-{{contribution_group['color']}}"><b>Stav:</b> {{contribution_group['title']}}</h4>
+                    </div>
+                    {{ include('inc-contribution_detail.twig') }}
+                {% endblock %}
+            </div>
+        </div>
+
+
+
+        <div>
+            <h1>
+            {% block review_title %}
+                Recenze
+            {% endblock %}
+            </h1>
+            <hr class="border bg-dark border-dark border-1 mb-4">
+
+            {% block review %}
+            {% endblock %}
+
+        </div>
+
+        {% block buttons %}
+        {% endblock %}
+
+
+    </div>
+    {% endif %}
+{% endblock %}

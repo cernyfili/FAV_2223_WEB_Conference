@@ -4,11 +4,14 @@ namespace kivweb\Controllers;
 use kivweb\Models\FormsCheck;
 use kivweb\Models\MyDatabase;
 
+// nactu rozhrani kontroleru
+//require_once(DIRECTORY_CONTROLLERS."/IController.interface.php");
+
 /**
  * Ovladac zajistujici vypsani uvodni stranky.
  * @package kivweb\Controllers
  */
-class EditContributionController implements IController {
+class BasicSiteController implements IController {
 
     /** @var MyDatabase $db  Sprava databaze. */
     private $db;
@@ -20,9 +23,9 @@ class EditContributionController implements IController {
      */
     public function __construct() {
         // inicializace prace s DB
-        //require_once (DIRECTORY_MODELS ."/MyDatabase.class.php");
         $this->db = MyDatabase::getMyDatabase();
         $this->formsCheck = FormsCheck::getMyFormsCheck();
+
     }
 
     /**
@@ -32,17 +35,9 @@ class EditContributionController implements IController {
      */
     public function show(string $pageTitle):array {
 
-
-        $id = htmlspecialchars($_GET['id']);
-
         $this->formsCheck->checkLoginLogout();
-        $this->formsCheck->checkContribution("edit_contribution",$id);
 
 
-        if(!isset($_GET['id']) || $_GET['id']==""){
-            header('Location: index.php?page=error');
-            exit;
-        }
         $tplData = [];
 
         /*-- GLOBAL --*/
@@ -58,37 +53,18 @@ class EditContributionController implements IController {
         }
         /*-- END: GLOBAL --*/
 
-        if($loggedRole != 0){
-            header('Location: index.php?page=error');
-            exit;
-        }
-
         //// vsechna data sablony budou globalni
 
-        // nazev
         $tplData['title'] = $pageTitle;
 
-
-        $contributionInfoarr = $this->db->getContributionInfobyId($id);
-        if ($contributionInfoarr!=null) {
-            $tplData['contribution'] = $contributionInfoarr[0];
+        if(isset($_GET['error_text'])){
+            $tplData['text'] = htmlspecialchars($_GET['error_text']);
         }
-        /*else{
-            header('Location: index.php?page=error');
-        }*/
-
-        $contributionFiles = $this->db->getContributionFilesbyIdcontribution($id);
-        $tplData['file'] = array();
-        foreach ($contributionFiles as $file){
-            $tplData['file'][] = array(
-                "file_content" => base64_encode($file['contributions_files_file']),
-                "data" => $file
-            );
-        }
-
 
         // vratim sablonu naplnenou daty
         return $tplData;
     }
 
 }
+
+?>

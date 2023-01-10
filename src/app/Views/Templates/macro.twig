@@ -8,6 +8,9 @@
 {# cesta k css #}
 {% macro CSS_DIR() %}/css{% endmacro %}
 
+{% macro JS_DIR() %}/js{% endmacro %}
+
+
 {# cesta k composer #}
 {% macro COMPOSER_DIR() %}/WEB_semestralka/src/composer{% endmacro %}
 
@@ -15,22 +18,123 @@
 
 {# tlacitka pro soubory #}
 {% macro contribution_files_div(files, editable) %}
-    <div class="d-flex gap-3">
+    {% import _self as macro %}
+    <h5 class="mt-5 mb-3">Soubory k příspěvku</h5>
+    <div class="d-flex gap-3 flex-row flex-wrap">
+
 
     {% for file in files %}
-        <div class="btn btn-primary">
-        <a href="#" class="text-white text-decoration-none">
-            <i class="fa-solid fa-file-pdf"></i>
-            {{file['name']}}
-        </a>
-        {% if editable == 1 %}
-            <button class="ms-2 btn btn-danger"><i class="fa-solid fa-close"></i></button>
+
+        {% if file['file_content'] is defined %}
+
+            <div class="btn btn-primary d-flex flex-row justify-content-between align-items-center gap-3">
+                <i class="fa-solid fa-file-pdf"></i>
+                <a href="data:application/pdf;base64,{{file['file_content']}}" class="text-white text-decoration-none" download="{{file['data']['contributions_files_name']}}">
+                    {{file['data']['contributions_files_name']}}
+                </a>
+                {% if editable == 1 %}
+
+                <div>
+                    <form action="#" method="post" accept-charset="UTF-8" autocomplete="on">
+                        <input class="visually-hidden" type="text" name="contributionfile_id" id="contributionfile_id"
+                               value="{{file['data']['contributions_files_id_contributions_files']}}">
+                        <button type="submit" name="action" value="contributionfile_delete" id="contributionfile_delete"
+                                class="ms-2 btn btn-danger align-self-center"><i class="fa-solid fa-close"></i></button>
+                    </form>
+                </div>
+                {% endif %}
+            </div>
         {% endif %}
-        </div>
+        {#<div class="btn btn-primary">
+            <a href="data:application/pdf;base64,{{pdf_content}}" class="text-white text-decoration-none" download>
+                <i class="fa-solid fa-file-pdf"></i>
+                {{file['contributions_files_name']}}
+            </a>
+            {% if editable == 1 %}
+                <button class="ms-2 btn btn-danger"><i class="fa-solid fa-close"></i></button>
+            {% endif %}
+        </div>#}
+
+
+        {#<div class="btn btn-primary">
+        <a href="{{ macro.link_to_page_id("file_download", file['contributions_files_id_contributions_files']) }}" class="text-white text-decoration-none">
+            <i class="fa-solid fa-file-pdf"></i>
+            {{file['contributions_files_name']}}
+        </a>#}
+
     {% endfor %}
     </div>
 {% endmacro %}
 {# END: tlacitka pro soubory#}
+
+{# Odkaz na stranku ##}
+{% macro popup(title, text, id, color, btn_text) %}
+    <!-- Modal -->
+    <div class="modal fade" id="{{ id }}" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content bg-{{ color }} bg-opacity-25">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">{{ title }}</h4>
+                </div>
+                <div class="modal-body">
+                    <p>{{ text }}</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" name="approved" value="true" class="btn btn-{{ color }}" data-dismiss="modal">{{btn_text}}</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Zrušit</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+{% endmacro %}
+{# END: Odkaz na stranku #}
+
+{# Odkaz na stranku ##}
+{% macro link_to_page(page) %}index.php?page={{page|escape}}{% endmacro %}
+{# END: Odkaz na stranku #}
+
+{# Odkaz na stranku ##}
+{% macro link_to_page_id(page, id) %}index.php?page={{page|escape}}&id={{id|escape}}{% endmacro %}
+{# END: Odkaz na stranku #}
+
+{% macro form_select_input(page, selected_items, items, label, name, number) %}
+    {% import _self as macro %}
+
+    <div class="mb-3">
+        <label class="form-label" for="{{name}}">{{label}}</label>
+        <div class="d-flex flex-row">
+            <select class="form-control" name="{{name}}" id="{{name}}" required>
+                <option value=""
+                        disabled
+                        {% if selected_items is null %}
+                            selected
+                        {% endif %}
+                ></option>
+
+
+                {% set i = 0 %}
+                {% for item in items %}
+                    <option value="{{item['users_id_users']|escape}}"
+                            {% if selected_items[number-1]['reviews_assignments_id_users'] == item['users_id_users'] %}
+                                selected
+                            {% endif %}
+
+                    >{{ item['users_name']|escape }} {{ item['users_surname']|escape }}</option>
+
+                    {% set i = i+1 %}
+                {% endfor %}
+            </select>
+            <div class="p-1 ps-2 pe-2 border border-secondary border-opacity-25 bg-dark-20">
+                <img width="20px" src="{{ macro.IMG_DIR }}/caret-down-solid.svg" alt="Triangle icon">
+            </div>
+        </div>
+
+    </div>
+{% endmacro %}
 
 
 {# vypis input elementu #}

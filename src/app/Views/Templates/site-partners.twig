@@ -1,0 +1,32 @@
+{# #### Sablona pro Twig v.2 - vypis uvodni stranky #### #}
+
+{# dedim od zakladni sablony #}
+{% extends "template-basic.twig" %}
+
+{# pripojuju makra #}
+{% import "macro.twig" as macro %}
+
+{# prekryvam cely blok obsahu #}
+{% block obsah %}
+
+
+    {% for partner in partners %}
+        <div class="container position-relative hover mb-5 " id="contributions">
+            <div class="bg-black ps-3 gap-3 bg-opacity-10 p-5 pt-4 pb-3 pe-3 rounded d-flex flex-column flex-lg-row align-items-center justify-content-between">
+                <div class="">
+                    <img src="{{macro.IMG_DIR}}/{{ partner.image }}" alt="{{ partner.name }}" class="mb-3" width="250px">
+                </div>
+                <div>
+                <h1>{{partner['name']}}</h1>
+                <p class="lead">{{partner['description']|slice(0, 100) }}...</p>
+
+                </div>
+                <div>
+                    <a class="btn btn-lg btn-primary end-0 stretched-link pe-4" href="{{ partner['website'] }}" role="button">
+                        Více..</a>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+
+{% endblock %}

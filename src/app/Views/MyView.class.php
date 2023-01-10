@@ -5,6 +5,7 @@ namespace kivweb\Views;
 
 
 
+use kivweb\Models\MyDatabase;
 use Twig\Environment;
 use Twig\Error\LoaderError;
 use Twig\Error\RuntimeError;
@@ -30,7 +31,6 @@ class MyView {
         // data pro sablonu nastavim globalni
         global $tplData;
         $tplData = $templateData;
-
         $tplName = WEB_PAGES[$pageKey]['template_name'];
         // nactu sablonu
         $this->renderTwigTemplate($tplData, $tplName);

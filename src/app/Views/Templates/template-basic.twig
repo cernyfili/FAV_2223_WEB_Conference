@@ -13,7 +13,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>{{ nadpis | striptags }}</title>
+        <title>{{ nadpis | striptags | escape}}</title>
 
         <link rel="stylesheet" href="{{ macro.CSS_DIR }}/style.css">
 
@@ -28,6 +28,8 @@
         <link rel="stylesheet" href="{{ macro.COMPOSER_DIR }}/vendor/components/font-awesome/css/solid.min.css">
 
         <!-- -- END: Importy -- -->
+
+
 
 
     </head>
@@ -45,15 +47,6 @@
         {# END header #}
 
 
-
-
-            {# vypis a sprava prihlaseni uzivatele #}
-            {#{% block prihlaseni %}
-                {% include("login.twig") %}
-            {% endblock %}#}
-       {# <div class="container">
-            <h1>{{ nadpis | striptags }}</h1>
-        </div>#}
 
         <div class="container bg-white pt-5 pb-5">
 
@@ -98,6 +91,9 @@
         {% endblock %}
         {# END footer #}
 
+        {#<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#popup_delete">Open Modal</button>
+        {{ macro.popup("Smazat", "Opravdu chcete tuto položku smazat", "popup_delate", "danger", "Smazat") }}#}
+
 
         <!-- ------------- JavaScripty ------------- -->
 
@@ -105,6 +101,9 @@
         <script src="{{ macro.COMPOSER_DIR }}/vendor/components/jquery/jquery.min.js"></script>
         <!-- Bootstrap -->
         <script src="{{ macro.COMPOSER_DIR }}/vendor/twbs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+        <script src="{{ macro.JS_DIR }}/myscript.js"></script>
+
 
 
         <!-- ------------- END: JavaScripty ------------- -->

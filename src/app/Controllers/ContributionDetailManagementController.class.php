@@ -8,7 +8,7 @@ use kivweb\Models\MyDatabase;
  * Ovladac zajistujici vypsani uvodni stranky.
  * @package kivweb\Controllers
  */
-class EditContributionController implements IController {
+class ContributionDetailManagementController implements IController {
 
     /** @var MyDatabase $db  Sprava databaze. */
     private $db;
@@ -32,17 +32,9 @@ class EditContributionController implements IController {
      */
     public function show(string $pageTitle):array {
 
-
-        $id = htmlspecialchars($_GET['id']);
-
         $this->formsCheck->checkLoginLogout();
-        $this->formsCheck->checkContribution("edit_contribution",$id);
+        $this->formsCheck->checkContributionManagement($_GET['id']);
 
-
-        if(!isset($_GET['id']) || $_GET['id']==""){
-            header('Location: index.php?page=error');
-            exit;
-        }
         $tplData = [];
 
         /*-- GLOBAL --*/
@@ -58,25 +50,38 @@ class EditContributionController implements IController {
         }
         /*-- END: GLOBAL --*/
 
-        if($loggedRole != 0){
-            header('Location: index.php?page=error');
-            exit;
-        }
-
         //// vsechna data sablony budou globalni
 
         // nazev
         $tplData['title'] = $pageTitle;
 
 
+
+        if(!isset($_GET['id']) || $_GET['id']==""){
+            header('Location: index.php?page=error');
+            exit;
+        }
+        // var_dump($this->db->getContributionInfo($_GET['id']));
+
+        $id = htmlspecialchars($_GET['id']);
         $contributionInfoarr = $this->db->getContributionInfobyId($id);
         if ($contributionInfoarr!=null) {
             $tplData['contribution'] = $contributionInfoarr[0];
         }
-        /*else{
+        else{
             header('Location: index.php?page=error');
-        }*/
+            exit;
+        }
 
+        $current_statesinfo = STATES_INFO['contributions']['state'][$tplData['contribution']['contributions_state']];
+
+        $tplData['contribution_group'] = array(
+            'name' => $current_statesinfo['name'],
+            'title' => $current_statesinfo['title'],
+            'color' => $current_statesinfo['color']
+        );
+
+        //CONTRIBUTION FILES
         $contributionFiles = $this->db->getContributionFilesbyIdcontribution($id);
         $tplData['file'] = array();
         foreach ($contributionFiles as $file){
@@ -85,6 +90,8 @@ class EditContributionController implements IController {
                 "data" => $file
             );
         }
+
+        $tplData['reviews'] = $this->db->getReviewsbyIdContribution($id);
 
 
         // vratim sablonu naplnenou daty

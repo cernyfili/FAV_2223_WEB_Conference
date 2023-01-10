@@ -3,44 +3,20 @@
 {# dedim od zakladni sablony #}
 {% extends "template-basic.twig" %}
 
-{#{% set contribution_groups_style = {
-    'author': {
-        'working_on': {
-            'color':'dark',
-            'btn_text':'Upravit'
-        },
-        'published': {
-            'color':'success',
-            'btn_text':'Detail'
-        },
-        'dismissed': {
-            'color':'danger',
-            'btn_text':'Detail'
-        },
-    },
-    'reviewer': {
-        'sub-item-1': 'my-sub-item-1',
-        'sub-item-2': 'my-sub-item-2',
-    },
-    'admin': {
-        'sub-item-1': 'my-sub-item-1',
-        'sub-item-2': 'my-sub-item-2',
-    }
-}
-
-%}#}
-
+{# pripojuju makra #}
+{% import "macro.twig" as macro %}
 
 
 {# prekryvam cely blok obsahu #}
 {% block obsah %}
+    {% if logged_role is defined and logged_role is not null%}
 
     <div class="container d-flex flex-column flex-lg-row p-0">
 
 
         {# Menu - left#}
 
-        <div class="align-self-lg-start sticky-lg-top">
+        <div class="align-self-lg-start sticky-lg-top min-w-lg-230px" style="top:70px;">
             <div class="navbar navbar-dark d-flex flex-column flex-shrink-0 p-3 bg-dark align-items-start pe-5">
                 <p class="navbar-brand p-0 m-0 mb-3">Sekce</p>
                 <ul class="navbar-nav flex-column mb-auto">
@@ -64,45 +40,84 @@
 
         <div class="container d-flex flex-column mt-3 mt-lg-0">
 
+
+            {# Tlacitko pridat prispevek #}
+            {% if logged_role is defined and logged_role is not null and logged_role == 0%}
+            <div class="align-self-lg-end align-self-center mb-5 mb-lg-0">
+                <a href="{{macro.link_to_page("new_contribution")}}" class="btn btn-primary">
+                    <i class="fa-solid fa-plus"></i>
+                    Přidat příspěvek
+                </a>
+            </div>
+            {% endif %}
+            {# END: Tlacitko pridat prispevek #}
+
             {% for contribution_group_key, contribution_group in contribution_groups %}
 
                 <div id="{{contribution_group_key}}" class="mb-3">
+
                     <h3 class="ps-3 pb-0">{{contribution_group['title_group']}}</h3>
+
                     {% for contribution in contribution_group['contributions'] %}
-                        {% set role = 'author' %}
 
                         {% set color = contribution_group['color'] %}
                         {% if color is null %}
-                        {% set color = 'dark' %}
+                            {% set color = 'dark' %}
                         {% endif %}
 
-                        <a  href="index.php?page={{link_page}}" class="hover text-decoration-none text-dark">
-                            <div class="rounded d-flex justify-content-between flex-column flex-lg-row position-relative bg-{{color}} bg-opacity-25 p-3 pb-0 m-3 mt-0">
-
+                        {# Prispevek HTML#}
+                        <div  class=" rounded bg-{{color}} bg-opacity-25 p-0 mb-3">
+                            <div class="container position-relative d-flex justify-content-between flex-column flex-lg-row pt-3 ps-3 opacity_link">
                                 <div>
-                                    <h5 class="mt-0">{{contribution['name']}}</h5>
-                                    {% if contribution['date'] is not null %}
-                                        <p>
+
+                                    {% if contribution['contributions_created'] is not null and contribution['contributions_abstract'] is not null%}
+                                        <h5 class="mt-0">{{contribution['contributions_name']|escape}}</h5>
+                                        <p class="mb-2">
                                             <i class="fa fa-calendar me-2"></i>
-                                            <b>Datum:</b> {{contribution['date']}}
+                                            <b>Datum:</b> {{contribution['contributions_created']|escape}}
                                         </p>
+                                        <p class="mb-2">
+                                            <i class="fa-solid fa-user me-2"></i>
+                                            <b>Autor:</b> {{contribution['users_name']|escape}} {{contribution['users_surname']|escape}}
+                                        </p>
+
+                                    <p class="pb-0">{{contribution['contributions_abstract']|escape|slice(0, 200)}}...</p>
+                                        <a href="{{macro.link_to_page_id(link_page[contribution_group_key],contribution['contributions_id_contributions'])}}" class="hover_over stretched-link"></a>
+
                                     {% endif %}
-                                    <p class="pb-0">{{contribution['abstract']}}</p>
 
-                                    <p class="mb-0">{{ contribution['login'] }}</p>
+                                    {% if contribution['users_id_users'] is not null%}
+                                        <h5 class="mt-0">{{contribution['users_name']|escape}} {{contribution['users_surname']|escape}}</h5>
+                                        <p class="ps-1 mb-0">
+                                            <i class="fa-solid fa-user me-1"></i>
+                                            {{ contribution['users_username'] | escape}}
+                                        </p>
 
-                                    <p>{{ contribution['email'] }}</p>
+                                        <p class="ps-1">
+                                            <i class="fa-solid fa-envelope me-1"></i>
+                                            {{ contribution['users_email'] | escape}}
+                                        </p>
+                                        <a href="{{macro.link_to_page_id(link_page[contribution_group_key],contribution['users_id_users'])}}" class="hover_over stretched-link"></a>
+                                    {% endif %}
 
                                 </div>
 
                                 <div class="d-flex align-items-center">
-                                    <button class="btn btn-{{color}} m-2">{{ contribution_group['btn_text'] | default("Upravit") }}</button>
+                                    <a href="" class="btn btn-{{color}} m-2">{{ contribution_group['btn_text'] | default("Upravit")}}</a>
                                 </div>
-
                             </div>
-                        </a>
+                        </div>
+                        {# END: Prispevek HTML #}
 
                     {% endfor %}
+
+                    {% if contribution_group['contributions'] is empty %}
+                        <div  class=" rounded p-0 mb-3">
+                            <div class="container position-relative d-flex justify-content-between flex-column flex-lg-row pt-3 ps-3 pb-3 opacity_link">
+                                    <h5 class="mt-0 text-danger text-opacity-75">Žádné položky</h5>
+                            </div>
+                        </div>
+                    {% endif %}
                 </div>
 
             {% endfor %}
@@ -112,5 +127,5 @@
 
 
     </div>
-
+    {% endif %}
 {% endblock %}

@@ -1,0 +1,60 @@
+{# #### Sablona pro Twig v.2 - vypis uvodni stranky #### #}
+
+{# dedim od zakladni sablony #}
+{% extends "template-basic.twig" %}
+
+{# pripojuju makra #}
+{% import "macro.twig" as macro %}
+
+{# prekryvam cely blok obsahu #}
+{% block obsah %}
+
+
+    <div class="container">
+        <h2 class="mb-3 fw-bold fs-1 font-monospace text-left" style="">Vliv umělé inteligence na vývoj společnosti</h2>
+        <div class="ps-2 gap-3 d-flex justify-content-start flex-column text-left align-items-start">
+            <h4 >
+                <i class="fa fa-calendar me-2"></i>
+                <b>Datum konání </b>
+
+            </h4>
+            <h4 class="fw-normal mb-4">
+                3.5. - 5.5. 2022
+            </h4>
+            <a href="https://goo.gl/maps/msCPExgKCwy9Z9zT6" class="hover text-decoration-none text-dark">
+            <h4 class="mb-4">
+
+                    <i class="fa-solid fa-location-dot me-2"></i>
+                    <b>Místo konání </b>
+
+
+            </h4>
+            <h4 class="fw-normal mb-4">Fakulta aplikovaných věd
+                Západočeská univerzita v Plzni
+                Technická 8
+                301 00 Plzeň</h4>
+            </a>
+        </div>
+        <hr class="border bg-dark border-dark border-1 mb-4">
+        <div>
+            <h4 class="fw-bold">Kontakt</h4>
+            <div class="ps-2 pt-2">
+                <p class="fs-5 mb-2"><i class="fa-solid fa-user me-2"></i>Jmeno Prijmeni</p>
+                <p class="fs-5 mb-2 hover">
+                    <a href="tel:+420111222333" class="hover text-decoration-none text-dark">
+                        <i class="fa-solid fa-phone me-2"></i>
+                        +420 111 222 333
+                    </a>
+                </p>
+                <p class="fs-5 mb-2 hover">
+                    <a href="mailto:email@email.cz" class="hover text-decoration-none text-dark">
+                        <i class="fa-solid fa-envelope me-2"></i>
+                        email@email.cz
+                    </a>
+                </p>
+            </div>
+
+        </div>
+    </div>
+
+{% endblock %}

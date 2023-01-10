@@ -1,7 +1,7 @@
 {# #### Sablona pro Twig v.2 - vypis uvodni stranky #### #}
 
 {# dedim od zakladni sablony #}
-{% extends "template-basic.twig" %}
+{% extends "template-management_item.twig" %}
 
 {# pripojuju makra #}
 {% import "macro.twig" as macro %}
@@ -9,43 +9,68 @@
 {% block title %}
 {% endblock %}
 
-{# prekryvam cely blok obsahu #}
-{% block obsah %}
+{% macro checkbox_input(review, checkbox_group, legend_text, legend_label, checkbox_info) %}
+<div class="mb-5">
+    <fieldset>
+        <legend class="mb-0">{{legend_text}}</legend>
+        <p class="mt-0 text-secondary mb-3 pt-0">Hodnoďte: {{legend_label}}</p>
 
+    {% for checkbox_key, checkbox in checkbox_info %}
+        <div class="form-check form-check-inline">
+            <label class="form-check-label" for="{{checkbox_group}}_{{checkbox_key}}">{{checkbox}}</label>
+            <input class="form-check-input" type="radio" id="{{checkbox_group}}_{{checkbox_key}}" name="{{checkbox_group}}" value="{{checkbox_key}}"
+            {% if review["reviews_".checkbox_group] == checkbox_key %}
+                checked
+            {% endif %}
+            >
+        </div>
+    {% endfor %}
 
+    </fieldset>
+</div>
+{% endmacro %}
 
-    <div class="container">
+{% block review %}
+    {% if logged_role is defined and logged_role is not null and logged_role == 1%}
+
+    <form class="p-1 pt-" action="#" method="post" accept-charset="UTF-8" autocomplete="on">
+
+        {% set checkbox_info = constant('STATES_INFO')['reviews']['topic_review'] %}
+        {{ _self.checkbox_input(review, "review_topic", "Téma", "jestli se téma hodí na tuto konferenci", checkbox_info) }}
+
+        {% set checkbox_info = constant('STATES_INFO')['reviews']['author_review'] %}
+        {{ _self.checkbox_input(review, "review_author", "Autor", "kvalifikaci a schopnost autora hovořit na toto téma", checkbox_info) }}
+
+        {% set checkbox_info = constant('STATES_INFO')['reviews']['abstract_review'] %}
+        {{ _self.checkbox_input(review, "review_abstract", "Abstrakt", "výstižnost a čitelnost abstrakt", checkbox_info) }}
+
         <div class="mb-5">
-            <h1>Příspěvek</h1>
-            <hr class="border bg-dark border-dark border-1 mb-4">
-            <div class="bg-primary bg-opacity-10 rounded p-3 pb-5">
-                {{ include('inc-contribution_detail.twig') }}
+            <fieldset>
+                <legend class="mb-0">Slovní hodnocení</legend>
+                <p class="mt-0 text-secondary mb-3 pt-0">Doplňte cokoli k předchozím a jiným parametrům, které chcete zmínit</p>
+
+                <textarea class="form-control" id="review_comment" name="review_comment" rows="4"
+                          cols="50">{{review['reviews_comment']|default("")}}</textarea>
+
+            </fieldset>
+        </div>
+        <input class="visually-hidden" type="text" name="review_id" id="review_id"
+               value="{{review['reviews_id_reviews']}}">
+
+        <div class="d-flex justify-content-between flex-column gap-3 gap-md-0 flex-md-row">
+            <button type="submit" name="action" value="review_submit" id="review_submit"
+                    class="btn btn-lg btn-primary mt-3">Uložit</button>
+        </div>
+    </form>
+        {% if page == 'edit_review' %}
+            <div class="align-self-end align-items-end">
+                <form action="#" method="post" accept-charset="UTF-8" autocomplete="on" >
+                    <input class="visually-hidden" type="text" name="reviewdelete_id" id="reviewdelete_id"
+                           value="{{review['reviews_id_reviews']}}">
+                    <button type="submit" name="action" value="reviewdelete_submit" id="reviewdelete_submit"
+                            class="btn btn-lg btn-danger mt-3">Smazat</button>
+                </form>
             </div>
-        </div>
-
-        <div>
-            <h1>Recenze</h1>
-            <hr class="border bg-dark border-dark border-1 mb-4">
-            <form class="p-1 pt-" action="#" method="post" target="_blank" accept-charset="UTF-8" autocomplete="on">
-
-                <div class="mb-3">
-                    <label class="form-label" for="contribution_name">Název</label>
-                    <input class="form-control" type="text" name="contribution_name" id="contribution_name" value="{{contribution['title']|default("")}}"
-                           required>
-                </div>
-
-                <div class="mb-3">
-                    <label class="form-label" for="contribution_abstract">Abstrakt</label>
-                    <textarea class="form-control" id="contribution_abstract" name="contribution_name" rows="4"
-                              cols="50">{{contribution['abstract']|default("")}}</textarea>
-                </div>
-
-                <input class="btn btn-lg btn-primary mt-3" type="submit" name="contribution_submit" id="contribution_submit"
-                       value="Uložit">
-
-
-            </form>
-        </div>
-    </div>
-
+        {% endif %}
+    {% endif %}
 {% endblock %}

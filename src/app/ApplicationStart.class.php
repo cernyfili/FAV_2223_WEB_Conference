@@ -2,9 +2,7 @@
 
 namespace kivweb;
 
-use Couchbase\View;
 use kivweb\Controllers\IController;
-use kivweb\Views\IView;
 use kivweb\Views\MyView;
 
 /**

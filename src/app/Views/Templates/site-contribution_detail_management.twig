@@ -1,0 +1,78 @@
+{# #### Sablona pro Twig v.2 - vypis uvodni stranky #### #}
+
+{# dedim od zakladni sablony #}
+{% extends "template-management_item.twig" %}
+
+{# pripojuju makra #}
+{% import "macro.twig" as macro %}
+
+{% macro review_item(checkbox_info, review, title, info_name, review_name) %}
+    <div>
+        <p class="mb-0">
+            <b>{{title}}</b> <span class="text-secondary">({{checkbox_info[info_name]|join(', ')}})</span>
+
+        </p>
+        <p class="ps-1">{{checkbox_info[info_name][review[review_name]]}}</p>
+    </div>
+{% endmacro %}
+
+{% block title %}
+{% endblock %}
+
+{% block review %}
+
+    <div class="d-flex flex-column gap-5">
+        {% set checkbox_info = constant('STATES_INFO')['reviews'] %}
+        {% for review in reviews %}
+
+        <div class="card bg-primary bg-opacity-25 mt-5 mt-lg-0 border border-opacity-25">
+            <div class="card-header">
+                <h5><b>Recenzent</b><br> {{review['users_name']|escape}} {{review['users_surname']|escape}}</h5>
+            </div>
+            <div class="card-body">
+                {{ _self.review_item(checkbox_info, review, "Téma", "topic_review", "reviews_topic_review") }}
+
+                {{ _self.review_item(checkbox_info, review, "Autor", "author_review", "reviews_author_review") }}
+
+                {{ _self.review_item(checkbox_info, review, "Abstrakt", "abstract_review", "reviews_abstract_review") }}
+
+                <p class="mb-0"><b>Komentář:</b></p>
+                <p class="ps-1">{{ review['reviews_comment']|escape }}</p>
+            </div>
+        </div>
+
+        {% endfor %}
+    </div>
+{% endblock %}
+
+{% block buttons %}
+    {% if logged_role is defined and logged_role is not null and logged_role == 2%}
+
+    <div class="d-flex justify-content-between flex-column gap-3 gap-md-0 flex-md-row mt-5">
+
+        <div class="align-self-end align-items-end">
+            <form action="#" method="post" accept-charset="UTF-8" autocomplete="on" >
+                <button type="submit" name="action" value="contributiondetail_publish" id="contributiondetail_publish"
+                        class="btn btn-lg btn-primary mt-3"
+                        {% if contribution['contributions_state'] == 1 %}
+                            disabled
+                        {% endif %}
+                >Publikovat</button>
+            </form>
+        </div>
+
+        <div class="align-self-end align-items-end">
+            <form action="#" method="post" accept-charset="UTF-8" autocomplete="on" >
+                <button type="submit" name="action" value="contributiondetail_dissmiss" id="contributiondetail_dissmiss"
+                        class="btn btn-lg btn-danger mt-3"
+                        {% if contribution['contributions_state'] == 2 %}
+                            disabled
+                        {% endif %}
+                >Odmítnout</button>
+            </form>
+        </div>
+
+    </div>
+    {% endif%}
+
+{% endblock %}

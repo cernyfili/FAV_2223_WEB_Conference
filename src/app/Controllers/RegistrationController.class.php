@@ -1,8 +1,8 @@
 <?php
 
 namespace kivweb\Controllers;
-
-use kivweb\Models\DatabaseModel;
+use kivweb\Models\FormsCheck;
+use kivweb\Models\MyDatabase;
 
 /**
  * Ovladac zajistujici vypsani uvodni stranky.
@@ -10,16 +10,19 @@ use kivweb\Models\DatabaseModel;
  */
 class RegistrationController implements IController {
 
-    /** @var DatabaseModel $db  Sprava databaze. */
+    /** @var MyDatabase $db  Sprava databaze. */
     private $db;
+
+    private $formsCheck;
 
     /**
      * Inicializace pripojeni k databazi.
      */
     public function __construct() {
         // inicializace prace s DB
-        //require_once (DIRECTORY_MODELS ."/DatabaseModel.class.php");
-        $this->db = DatabaseModel::getDatabaseModel();
+        //require_once (DIRECTORY_MODELS ."/MyDatabase.class.php");
+        $this->db = MyDatabase::getMyDatabase();
+        $this->formsCheck = FormsCheck::getMyFormsCheck();
     }
 
     /**
@@ -28,8 +31,29 @@ class RegistrationController implements IController {
      * @return array                Vytvorena data pro sablonu.
      */
     public function show(string $pageTitle):array {
-        //// vsechna data sablony budou globalni
+
+        $this->formsCheck->checkLoginLogout();
+
+        $this->formsCheck->checkRegistration();
+
+
         $tplData = [];
+
+        /*-- GLOBAL --*/
+        $loggedUserData = $this->db->getLoggedUserData();
+        $loggedRole = $this->db->getLoggedUserRole();
+        if ($loggedUserData!=null) {
+            $tplData['logged_user'] = $loggedUserData[0];
+            $tplData['logged_role'] = $loggedRole;
+        }
+
+        if(isset($_GET['page'])){
+            $tplData['page'] = htmlspecialchars($_GET['page']);
+        }
+        /*-- END: GLOBAL --*/
+
+        //// vsechna data sablony budou globalni
+
         // nazev
         $tplData['title'] = $pageTitle;
 
