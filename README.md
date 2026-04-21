@@ -2,6 +2,8 @@
 
 Web application for a conference website created as a semester project for **KIV/WEB**.
 
+More documantation at: [docs/dokumentace.pdf](https://github.com/cernyfili/FAV_2223_WEB_Conference/blob/main/docs/dokumentace.pdf)
+
 Date: **2022-01-10**
 
 ## Tech stack
