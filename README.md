@@ -2,7 +2,7 @@
 
 Web application for a conference website created as a semester project for **KIV/WEB**.
 
-Date (from documentation): **2022-01-10**
+Date: **2022-01-10**
 
 ## Tech stack
 
