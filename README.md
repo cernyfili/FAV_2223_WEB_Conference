@@ -1,77 +1,95 @@
-# FAV_2223_WEB_WebApp
+# Conference Web App (KIV/WEB) — Semester Project
 
-Semester project for **WEB (FAV / ZČU)**.
+Web application for a conference website created as a semester project for **KIV/WEB**.
 
-> **Stack:** PHP + Twig (server-rendered web app)
+Date (from documentation): **2022-01-10**
 
-## Requirements
+## Tech stack
 
-- PHP (8.x recommended)
-- Composer
-- A web server (Apache/Nginx) or the built-in PHP dev server
-- (Optional) Database server (depends on your configuration)
+- **PHP** (backend)
+- **MySQL** (database)
+- **Twig** (templates)
+- **Bootstrap** (UI / responsive layout)
+- **jQuery** + **JavaScript** (Bootstrap behavior, UI interactions)
+- **FontAwesome** (icons)
+- **HTML5 / CSS**
 
-## Getting started
+## Project structure
 
-### 1) Clone
+Typical directories used in this project:
 
-```bash
-git clone https://github.com/cernyfili/FAV_2223_WEB_WebApp.git
-cd FAV_2223_WEB_WebApp
-```
+- `css/` – additional/custom CSS
+- `database/` – database export
+- `docs/` – documentation (includes `web_doc.txt`)
+- `img/` – images used by the application
+- `js/` – custom JavaScript files
+- `src/` – main application directory (includes `index.php`)
+  - `src/app/` – application code
+    - `src/app/controllers/` – controllers (rendering + coordination)
+    - `src/app/models/` – database access + sessions + form helpers
+    - `src/app/views/` – view-related files
+    - `src/app/templates/` – Twig templates
+  - `src/composer/` – vendor/imported libraries (Bootstrap, jQuery, FontAwesome, …)
 
-### 2) Install dependencies
+## Architecture overview
 
-```bash
-composer install
-```
+### Controllers
+Controllers implement `IController` and provide a render method used to display pages.  
+Each page has its own controller; a shared/base controller is defined in `BasicSiteController`.
 
-### 3) Configure
+### Models
+- `MyDatabase` – database communication (fetching/sending data)
+- `MySession` – session handling
+- `FormCheck` – form submission checking/processing helpers
 
-This project may require environment-specific configuration (e.g., database credentials). Look for configuration files in common locations such as:
+### Views / Templates (Twig)
+Templates used to render the pages include (from documentation):
 
-- `config/`
-- `.env` / `.env.local`
+- `contributions.twig`
+- `inc-contribution_detail.twig`
+- `inc-footer.twig`
+- `inc-header.twig`
+- `inc-navbar.twig`
+- `macro.twig`
+- `site-contacts.twig`
+- `site-contribution_detail.twig`
+- `site-contribution_detail_management.twig`
+- `site-edit_login_info.twig`
+- `site-error.twig`
+- `site-form_contribution.twig`
+- `site-form_review.twig`
+- `site-form_review_assignment.twig`
+- `site-intro.twig`
+- `site-partners.twig`
+- `site-registration.twig`
+- `site-user_detail.twig`
+- `template-basic.twig`
+- `template-management.twig`
+- `template-management_item.twig`
 
-If your project uses a database, make sure the connection details match your local setup.
+## Setup (local)
 
-### 4) Run locally
+### Requirements
+- PHP (compatible with the project)
+- MySQL / MariaDB
+- Web server (e.g., Apache/Nginx) or local dev environment (XAMPP/WAMP/etc.)
 
-#### Option A: PHP built-in server
+### Steps
+1. Import the database dump located in `database/`.
+2. Configure database connection credentials in the project’s configuration (in `src/` / model configuration, depending on implementation).
+3. Start the app by serving the `src/` directory (entry point is `src/index.php`).
 
-If the project has a public document root (commonly `public/`), start:
+## Default users (from documentation)
 
-```bash
-php -S localhost:8000 -t public
-```
+### Administrators
+- Login: `Admin`
+- Password: `pass`
 
-Then open:
+### Reviewers
+- Login: `Recenzent1` / Password: `pass`
+- Login: `Recenzent2` / Password: `pass`
+- Login: `Recenzent3` / Password: `pass`
 
-- http://localhost:8000
-
-#### Option B: Apache / Nginx
-
-Configure your virtual host / server block to point the document root to the project’s public directory (commonly `public/`).
-
-## Project structure (typical)
-
-> Your exact structure may differ, but PHP+Twig projects commonly look like:
-
-- `public/` – web root (front controller)
-- `src/` – application source code
-- `templates/` – Twig templates
-- `config/` – configuration
-- `vendor/` – Composer dependencies (generated)
-
-## Development notes
-
-- Templates are written in **Twig**.
-- PHP dependencies are managed via **Composer**.
-
-## Contributing
-
-This is a school/semester project, but contributions and suggestions are welcome via issues/PRs.
-
-## License
-
-No license specified. If you want this to be open-source, add a `LICENSE` file (e.g., MIT).
+### Authors
+- Login: `Autor`
+- Password: `pass`
